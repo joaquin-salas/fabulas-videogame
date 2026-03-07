@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://by1opkevsyhob"]
+
+[ext_resource type="Texture2D" uid="uid://dp15l8w38j2qr" path="res://Assets/icon.svg" id="1_50ldy"]
+[ext_resource type="Script" uid="uid://dm8l4dv0r3n7j" path="res://Scripts/pajaro.gd" id="1_tkqu8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkqu8"]
+size = Vector2(125, 124)
+
+[node name="Pajaro" type="CharacterBody2D" unique_id=1543986994]
+script = ExtResource("1_tkqu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=225721115]
+texture = ExtResource("1_50ldy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012705362]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_tkqu8")
