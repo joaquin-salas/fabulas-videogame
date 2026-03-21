@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			
 			if Input.is_action_just_pressed("jump"):
 				current_state = STATE.JUMPING
-			elif direction == 0:
+			elif direction == 0 and velocity.x == 0:
 				current_state = STATE.IDLE
 		STATE.JUMPING:
 			if is_on_floor():
@@ -86,8 +86,10 @@ func _physics_process(delta: float) -> void:
 		STATE.FALLING:
 			velocity.x = direction * speed_air
 			animated_sprite_2d.play("fall")
-			if is_on_floor():
+			if is_on_floor() and velocity == Vector2.ZERO and direction == 0:
 				current_state = STATE.IDLE
+			elif is_on_floor() and velocity.x != 0 and direction != 0:
+				current_state = STATE.RUNNING
 	
 	
 	handle_animation()
