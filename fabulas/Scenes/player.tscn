@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cqdolxr4sqjik" path="res://Assets/Placeholders/Mask Dude/Fall (32x32).png" id="2_fkybt"]
 [ext_resource type="Texture2D" uid="uid://b74b2o31ifv11" path="res://Assets/Placeholders/Mask Dude/Jump (32x32).png" id="4_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://cymkut0eao2je" path="res://Assets/Placeholders/Mask Dude/Run (32x32).png" id="5_3smsa"]
+[ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://Scenes/state_machine.tscn" id="5_fkybt"]
+[ext_resource type="Script" uid="uid://bldxq5das84cd" path="res://Scripts/state machines/player movement/player_idle_state.gd" id="6_x3wgy"]
+[ext_resource type="Script" uid="uid://bhg21qrimc1xu" path="res://Scripts/state machines/player movement/player_running_state.gd" id="7_3smsa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("2_fkybt")
@@ -205,18 +208,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkqu8"]
-size = Vector2(17, 20)
+size = Vector2(38, 44)
 
 [node name="Player" type="CharacterBody2D" unique_id=1543986994]
-scale = Vector2(2, 2)
 script = ExtResource("1_cvnsp")
-speed_air = 400.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012705362]
-position = Vector2(0.5, 5)
+position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_tkqu8")
+
+[node name="StateMachine" parent="." unique_id=652708199 node_paths=PackedStringArray("default_state") instance=ExtResource("5_fkybt")]
+default_state = NodePath("PlayerIdleState")
+
+[node name="PlayerIdleState" type="Node" parent="StateMachine" unique_id=915893596]
+script = ExtResource("6_x3wgy")
+
+[node name="PlayerRunningState" type="Node" parent="StateMachine" unique_id=1612472054]
+script = ExtResource("7_3smsa")
