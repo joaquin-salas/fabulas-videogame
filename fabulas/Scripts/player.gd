@@ -5,18 +5,14 @@ extends CharacterBody2D
 
 # ====================== REFERENCE VARIABLES ======================
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-#@onready var state_machine: StateMachine = $StateMachine
+@onready var state_machine: StateMachine = $StateMachine
+@onready var coyote_timer: Timer = $CoyoteTimer
+@onready var jump_buffer_timer: Timer = $JumpBufferTimer
 
 # ====================== RESOURCES ======================
-var player_movement_stats: PlayerMovementStats = PlayerMovementStats.new()
+@export var player_movement_stats: PlayerMovementStats
 var states: PlayerStatesNames = PlayerStatesNames.new()
 var animations: PlayerAnimations = PlayerAnimations.new()
-
-# ====================== LOCAL VARIABLES ======================
-var gravity = (
-	ProjectSettings.get_setting("physics/2d/default_gravity_vector") *
-	ProjectSettings.get_setting("physics/2d/default_gravity")
-)
 
 # ******************* LOCAL FUNCTIONS *******************
 func print_debug(variables: Array) -> void:
@@ -31,16 +27,3 @@ func handle_animation(direction: float) -> void:
 		animated_sprite_2d.flip_h = true
 	elif direction > 0:
 		animated_sprite_2d.flip_h = false
-
-func handle_gravity(delta: float) -> void:
-	if not is_on_floor():
-		velocity.y += gravity.y * delta
-
-# ******************* CALLBACKS *******************
-func _ready() -> void:
-	print('resource PlayerMovementStats: ', player_movement_stats)
-
-#func _physics_process(delta: float) -> void:
-	##state_machine._physics_process(delta)
-	#handle_gravity(delta)
-	#move_and_slide()

@@ -14,11 +14,8 @@ var current_state: StateBase = null
 
 func _ready() -> void:
 	# Se llama a la función cuando todos los nodos han entrado en el SceneTree
-	print('En _ready de StateMachine antes de call deferred')
 	call_deferred("_start_default_state")
-	print('En _ready de StateMachine despues de calldeferred, current_state: ', current_state)
-	print('controlled_node: ', controlled_node)
-	
+
 func _start_default_state() -> void:
 	current_state = default_state
 	_start_state()
@@ -35,7 +32,7 @@ func _start_state() -> void:
 	current_state.start()
 
 ## Cambiar de un estado a otro (Los estados son nodos hijos de StateMachine)
-## (Se ejecuta función end() del estado actual antes de cambiar) 
+## Se ejecuta la función end() del estado actual antes de cambiar
 func change_state(new_state_path: NodePath) -> void:
 	if current_state and current_state.has_method('end'): 
 		current_state.end()
