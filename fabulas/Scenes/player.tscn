@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dm8l4dv0r3n7j" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dk7rq8dy5bhvy" path="res://Assets/Placeholders/Mask Dude/Idle (32x32).png" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cqdolxr4sqjik" path="res://Assets/Placeholders/Mask Dude/Fall (32x32).png" id="2_fkybt"]
-[ext_resource type="Script" uid="uid://0qd0du7mbniu" path="res://Scripts/resources/player_movement_stats.gd" id="2_gymyn"]
+[ext_resource type="Resource" uid="uid://bug16kis23a36" path="res://Scripts/resources/movement_stats.tres" id="2_gymyn"]
 [ext_resource type="Texture2D" uid="uid://b74b2o31ifv11" path="res://Assets/Placeholders/Mask Dude/Jump (32x32).png" id="4_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://cymkut0eao2je" path="res://Assets/Placeholders/Mask Dude/Run (32x32).png" id="5_3smsa"]
 [ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://Scenes/state_machine.tscn" id="5_fkybt"]
@@ -11,13 +11,6 @@
 [ext_resource type="Script" uid="uid://bhg21qrimc1xu" path="res://Scripts/state-machines/player-movement/player_run_state.gd" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://dvi2e2l5jdi7x" path="res://Scripts/state-machines/player-movement/player_jump_state.gd" id="9_f1ek2"]
 [ext_resource type="Script" uid="uid://cpbg1ipmgwfem" path="res://Scripts/state-machines/player-movement/player_fall_state.gd" id="10_tx1dd"]
-
-[sub_resource type="Resource" id="Resource_pu2lt"]
-script = ExtResource("2_gymyn")
-speed_floor = 400.0
-speed_air = 300.0
-jump_force = -700.0
-metadata/_custom_type_script = "uid://0qd0du7mbniu"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("2_fkybt")
@@ -222,7 +215,7 @@ size = Vector2(38, 44)
 
 [node name="Player" type="CharacterBody2D" unique_id=1543986994]
 script = ExtResource("1_cvnsp")
-player_movement_stats = SubResource("Resource_pu2lt")
+player_movement_stats = ExtResource("2_gymyn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
 scale = Vector2(2, 2)
@@ -254,5 +247,5 @@ wait_time = 0.1
 one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=1714200119]
-wait_time = 0.1
+wait_time = 0.15
 one_shot = true

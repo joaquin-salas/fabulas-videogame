@@ -27,3 +27,8 @@ func handle_animation(direction: float) -> void:
 		animated_sprite_2d.flip_h = true
 	elif direction > 0:
 		animated_sprite_2d.flip_h = false
+
+func get_current_gravity() -> float:
+	if velocity.y > 0:
+		return player_movement_stats.fall_gravity
+	return player_movement_stats.jump_gravity

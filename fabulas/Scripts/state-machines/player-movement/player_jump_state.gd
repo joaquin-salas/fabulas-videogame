@@ -10,12 +10,11 @@ func start() -> void:
 
 func on_physics_process(delta: float) -> void:
 	player.handle_animation(direction)
-	
 	player.velocity.x = direction * player.player_movement_stats.speed_air
 	
-	#if Input.is_action_just_released("jump"):
-		#player.velocity.y *= 0.2
-		#state_machine.change_state(player.states.Falling)
+	if not Input.is_action_pressed("jump") and player.velocity.y < 0:
+		player.velocity.y *= player.player_movement_stats.variable_jump_multiplier
+		
 	if player.velocity.y >= 0:
 		state_machine.change_state(player.states.Falling)
 	
