@@ -15,10 +15,6 @@ var states: PlayerStatesNames = PlayerStatesNames.new()
 var animations: PlayerAnimations = PlayerAnimations.new()
 
 # ******************* LOCAL FUNCTIONS *******************
-func print_debug(variables: Array) -> void:
-	for i in variables:
-		print(i)
-
 func play_animation(animation_name: String) -> void:
 	animated_sprite_2d.play(animation_name)
 
@@ -32,3 +28,7 @@ func get_current_gravity() -> float:
 	if velocity.y > 0:
 		return player_movement_stats.fall_gravity
 	return player_movement_stats.jump_gravity
+
+func print_debug(variables: Array) -> void:
+	for i in variables:
+		print(i)

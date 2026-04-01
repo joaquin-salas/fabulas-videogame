@@ -227,6 +227,13 @@ autoplay = "idle"
 position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_tkqu8")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1750513525]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_vertical_enabled = true
+drag_top_margin = 0.67
+drag_bottom_margin = 0.67
+
 [node name="StateMachine" parent="." unique_id=652708199 node_paths=PackedStringArray("default_state") instance=ExtResource("5_fkybt")]
 default_state = NodePath("PlayerIdleState")
 
