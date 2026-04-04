@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bgx5mn44t03it"]
+
+[ext_resource type="Script" uid="uid://cjhkw0sargfgb" path="res://aerial_enemy.gd" id="1_bep6u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6lm7"]
+load_path = "res://.godot/imported/pigeon_fiy-Sheet.png-89f00a62ba8939d35c50d1b21475bf6a.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6p1"]
+size = Vector2(44, 42.125)
+
+[sub_resource type="Animation" id="Animation_bep6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_y6lm7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mov8q"]
+resource_name = "fly"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_y6lm7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p6p1"]
+_data = {
+&"RESET": SubResource("Animation_bep6u"),
+&"fly": SubResource("Animation_mov8q")
+}
+
+[node name="aerial _enemy" type="CharacterBody2D" unique_id=610127007]
+position = Vector2(110, 90)
+script = ExtResource("1_bep6u")
+speed = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=572208410]
+position = Vector2(-4.7683716e-07, 2.3841858e-06)
+scale = Vector2(1.5, 1.524)
+texture = SubResource("CompressedTexture2D_y6lm7")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2051466922]
+shape = SubResource("RectangleShape2D_6p6p1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1325823534]
+libraries/ = SubResource("AnimationLibrary_6p6p1")

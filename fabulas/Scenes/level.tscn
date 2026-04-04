@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://fi8mt2y12kel" path="res://Assets/Placeholders/Terrain (16x16).png" id="1_k5f4k"]
 [ext_resource type="Texture2D" uid="uid://c32spx4e22j7u" path="res://Assets/Placeholders/tile_placeholder (64x64).png" id="2_6phgx"]
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://Scenes/player.tscn" id="2_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://bgx5mn44t03it" path="res://Scenes/aerial__enemy.tscn" id="4_81xng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6phgx"]
 texture = ExtResource("1_k5f4k")
@@ -182,3 +183,26 @@ tile_set = SubResource("TileSet_81xng")
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_k5f4k")]
 position = Vector2(611, 288)
+
+[node name="aerial _enemy" parent="." unique_id=610127007 node_paths=PackedStringArray("WayPoints") instance=ExtResource("4_81xng")]
+WayPoints = [NodePath("../WayPoints/WayPoint"), NodePath("../WayPoints/WayPoint2"), NodePath("../WayPoints/WayPoint3"), NodePath("../WayPoints/WayPoint4"), NodePath("../WayPoints/WayPoint5"), NodePath("../WayPoints/WayPoint6")]
+
+[node name="WayPoints" type="Node2D" parent="." unique_id=943376897]
+
+[node name="WayPoint" type="Marker2D" parent="WayPoints" unique_id=1495386783]
+position = Vector2(203, 173)
+
+[node name="WayPoint2" type="Marker2D" parent="WayPoints" unique_id=1673358379]
+position = Vector2(275, 442)
+
+[node name="WayPoint3" type="Marker2D" parent="WayPoints" unique_id=736616932]
+position = Vector2(737, 76)
+
+[node name="WayPoint4" type="Marker2D" parent="WayPoints" unique_id=1031444951]
+position = Vector2(1106, 96)
+
+[node name="WayPoint5" type="Marker2D" parent="WayPoints" unique_id=1381474230]
+position = Vector2(824, 529)
+
+[node name="WayPoint6" type="Marker2D" parent="WayPoints" unique_id=1152934243]
+position = Vector2(532, 323)
