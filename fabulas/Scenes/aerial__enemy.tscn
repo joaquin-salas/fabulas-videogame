@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgx5mn44t03it"]
 
 [ext_resource type="Script" uid="uid://cjhkw0sargfgb" path="res://aerial_enemy.gd" id="1_bep6u"]
+[ext_resource type="Texture2D" uid="uid://c607vhpcdcmyl" path="res://Assets/Placeholders/Pajaro/pigeon_eat-Sheet.png" id="2_bep6u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6lm7"]
 load_path = "res://.godot/imported/pigeon_fiy-Sheet.png-89f00a62ba8939d35c50d1b21475bf6a.ctex"
@@ -64,10 +65,40 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 5, 6]
 }
 
+[sub_resource type="Animation" id="Animation_6p6p1"]
+resource_name = "reposo"
+length = 2.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_bep6u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1, 1.3333334, 1.6666666, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6p6p1"]
 _data = {
 &"RESET": SubResource("Animation_bep6u"),
-&"fly": SubResource("Animation_mov8q")
+&"fly": SubResource("Animation_mov8q"),
+&"reposo": SubResource("Animation_6p6p1")
 }
 
 [node name="aerial _enemy" type="CharacterBody2D" unique_id=610127007]
@@ -76,8 +107,8 @@ script = ExtResource("1_bep6u")
 speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=572208410]
-position = Vector2(-4.7683716e-07, 2.3841858e-06)
-scale = Vector2(1.5, 1.524)
+position = Vector2(3.3080578e-06, 2.3841858e-06)
+scale = Vector2(1.4444444, 1.524)
 texture = SubResource("CompressedTexture2D_y6lm7")
 hframes = 7
 
@@ -86,3 +117,8 @@ shape = SubResource("RectangleShape2D_6p6p1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1325823534]
 libraries/ = SubResource("AnimationLibrary_6p6p1")
+
+[node name="Timer" type="Timer" parent="." unique_id=999889445]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
