@@ -10,6 +10,7 @@ var is_waiting= false
 
 func _physics_process(delta):
 	if is_waiting:
+		animation(Vector2.ZERO)
 		return 
 	var min_distance = 5.0
 	var target_position = WayPoints[current_index].global_position
@@ -35,10 +36,12 @@ func _physics_process(delta):
 		sprite2D.flip_h = true
 
 func animation(direction):
-	if is_on_floor():
-		animationPajaro.play('fly')
+	if is_waiting:
+		if animationPajaro.current_animation != "eat":
+			animationPajaro.play("eat")
 	else:
-		animationPajaro.play('fly')
+		if animationPajaro.current_animation != "Fly":
+			animationPajaro.play("Fly")
 
 
 func _on_timer_timeout() -> void:

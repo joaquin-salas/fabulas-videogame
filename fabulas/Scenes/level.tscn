@@ -185,7 +185,7 @@ tile_set = SubResource("TileSet_81xng")
 position = Vector2(611, 288)
 
 [node name="aerial _enemy" parent="." unique_id=610127007 node_paths=PackedStringArray("WayPoints") instance=ExtResource("4_81xng")]
-position = Vector2(326, 59)
+position = Vector2(119, 70)
 WayPoints = [NodePath("../WayPoints/WayPoint"), NodePath("../WayPoints/WayPoint2"), NodePath("../WayPoints/WayPoint3"), NodePath("../WayPoints/WayPoint4"), NodePath("../WayPoints/WayPoint5"), NodePath("../WayPoints/WayPoint6")]
 
 [node name="WayPoints" type="Node2D" parent="." unique_id=943376897]
@@ -195,10 +195,10 @@ position = Vector2(-1, 0)
 position = Vector2(31, 235)
 
 [node name="WayPoint2" type="Marker2D" parent="WayPoints" unique_id=1673358379]
-position = Vector2(710, 158)
+position = Vector2(720, 169)
 
 [node name="WayPoint3" type="Marker2D" parent="WayPoints" unique_id=736616932]
-position = Vector2(885, 149)
+position = Vector2(869, 171)
 
 [node name="WayPoint4" type="Marker2D" parent="WayPoints" unique_id=1031444951]
 position = Vector2(1244, 276)
