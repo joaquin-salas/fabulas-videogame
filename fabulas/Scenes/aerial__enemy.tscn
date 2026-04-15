@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://cjhkw0sargfgb" path="res://aerial_enemy.gd" id="1_bep6u"]
 [ext_resource type="Texture2D" uid="uid://c607vhpcdcmyl" path="res://Assets/Placeholders/Pajaro/pigeon_eat-Sheet.png" id="2_bep6u"]
 [ext_resource type="Texture2D" uid="uid://cxxpso1ibdmtw" path="res://Assets/Placeholders/Pajaro/pigeon_fiy-Sheet.png" id="2_mov8q"]
-[ext_resource type="Script" uid="uid://codvqo6pd5shg" path="res://Scenes/player_control.gd" id="4_6p6p1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6p1"]
-size = Vector2(44, 42.125)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mov8q"]
+radius = 19.0
 
 [sub_resource type="Animation" id="Animation_6p6p1"]
 resource_name = "Fly"
@@ -161,19 +160,21 @@ _data = {
 }
 
 [node name="aerial _enemy" type="CharacterBody2D" unique_id=610127007]
-position = Vector2(110, 90)
+position = Vector2(124, 94)
+motion_mode = 1
+wall_min_slide_angle = 0.12217305
 script = ExtResource("1_bep6u")
 speed = 232.0
-wait_time = 1111.0
+wait_time = 22.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=572208410]
-position = Vector2(3.3080578e-06, 2.3841858e-06)
+position = Vector2(3.8146973e-06, 1.9073486e-06)
 scale = Vector2(1.4444444, 1.524)
 texture = ExtResource("2_mov8q")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2051466922]
-shape = SubResource("RectangleShape2D_6p6p1")
+shape = SubResource("CircleShape2D_mov8q")
 
 [node name="Timer" type="Timer" parent="." unique_id=999889445]
 wait_time = 2.0
@@ -181,11 +182,10 @@ wait_time = 2.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=312050129]
 libraries/ = SubResource("AnimationLibrary_u37e1")
 
-[node name="PlayerControl" type="Node" parent="." unique_id=10273716]
-script = ExtResource("4_6p6p1")
+[node name="GroundPoint" type="Marker2D" parent="." unique_id=150551498]
+position = Vector2(-9, 23)
 
-[node name="Idle_state" type="Node" parent="PlayerControl" unique_id=1036671980]
-
-[node name="Flying_state" type="Node" parent="PlayerControl" unique_id=1499852785]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1466397421]
+target_desired_distance = 4.2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
