@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cxxpso1ibdmtw" path="res://Assets/Placeholders/Pajaro/pigeon_fiy-Sheet.png" id="2_mov8q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mov8q"]
-radius = 19.0
+radius = 14.0
 
 [sub_resource type="Animation" id="Animation_6p6p1"]
 resource_name = "Fly"
@@ -171,9 +171,11 @@ wait_time = 22.0
 position = Vector2(3.8146973e-06, 1.9073486e-06)
 scale = Vector2(1.4444444, 1.524)
 texture = ExtResource("2_mov8q")
+offset = Vector2(0, -8)
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2051466922]
+position = Vector2(-8, -2)
 shape = SubResource("CircleShape2D_mov8q")
 
 [node name="Timer" type="Timer" parent="." unique_id=999889445]
@@ -182,10 +184,10 @@ wait_time = 2.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=312050129]
 libraries/ = SubResource("AnimationLibrary_u37e1")
 
-[node name="GroundPoint" type="Marker2D" parent="." unique_id=150551498]
-position = Vector2(-9, 23)
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1466397421]
-target_desired_distance = 4.2
+path_desired_distance = 4.77
+target_desired_distance = 3.0
+path_postprocessing = 1
+debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

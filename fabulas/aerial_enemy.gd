@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var speed : float
 @onready var animationPajaro=$AnimationPlayer
 @onready var sprite2D=$Sprite2D
-@onready var ground_point = $GroundPoint
 @export var wait_time := 2.0
 @export var route: Routes
 @onready var agent = $NavigationAgent2D
