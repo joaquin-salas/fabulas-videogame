@@ -185,7 +185,7 @@ wait_time = 2.0
 libraries/ = SubResource("AnimationLibrary_u37e1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1466397421]
-path_desired_distance = 4.77
+path_desired_distance = 4.0
 target_desired_distance = 3.0
 path_postprocessing = 1
 debug_enabled = true
