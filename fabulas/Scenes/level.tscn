@@ -11,15 +11,14 @@
 [node name="aerial _enemy" parent="." unique_id=610127007 instance=ExtResource("4_81xng")]
 position = Vector2(110, 63)
 wall_min_slide_angle = 0.28797933
-speed = 200.0
-wait_time = 2.0
+speed = 170.0
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_k5f4k")]
 position = Vector2(611, 288)
 
 [node name="aerial _enemy2" parent="." unique_id=502123500 instance=ExtResource("4_81xng")]
-position = Vector2(691, 40)
+position = Vector2(438, 373)
 slide_on_ceiling = false
-speed = 200.0
-wait_time = 2.0
+wall_min_slide_angle = 0.26005405
+speed = 170.0
 route = 1
