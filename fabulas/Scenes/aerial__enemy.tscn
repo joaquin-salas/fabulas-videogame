@@ -160,22 +160,19 @@ _data = {
 }
 
 [node name="aerial _enemy" type="CharacterBody2D" unique_id=610127007]
-position = Vector2(124, 94)
 motion_mode = 1
 wall_min_slide_angle = 0.12217305
 script = ExtResource("1_bep6u")
-speed = 232.0
-wait_time = 22.0
+speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=572208410]
-position = Vector2(3.8146973e-06, 1.9073486e-06)
-scale = Vector2(1.4444444, 1.524)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_mov8q")
 offset = Vector2(0, -8)
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2051466922]
-position = Vector2(-8, -2)
+position = Vector2(-3, -9)
 shape = SubResource("CircleShape2D_mov8q")
 
 [node name="Timer" type="Timer" parent="." unique_id=999889445]
@@ -188,6 +185,5 @@ libraries/ = SubResource("AnimationLibrary_u37e1")
 path_desired_distance = 4.0
 target_desired_distance = 3.0
 path_postprocessing = 1
-debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
