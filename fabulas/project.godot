@@ -21,6 +21,11 @@ config/icon="uid://cjg4fdvawflqq"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[global_group]
+
+Route_A=""
+Route_B=""
+
 [input]
 
 move_right={
