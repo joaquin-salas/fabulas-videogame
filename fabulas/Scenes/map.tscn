@@ -438,3 +438,13 @@ position = Vector2(992, 449)
 
 [node name="WayPoint6" type="Marker2D" parent="Routes/Route_A/WayPoints" unique_id=1075106263 groups=["Route_A"]]
 position = Vector2(481, 448)
+
+[node name="Route_C" type="Node" parent="Routes" unique_id=541267554]
+
+[node name="Waypoints" type="Node2D" parent="Routes/Route_C" unique_id=1814534235]
+
+[node name="WayPoint" type="Marker2D" parent="Routes/Route_C/Waypoints" unique_id=582990371 groups=["Route_C"]]
+position = Vector2(1158, 611)
+
+[node name="WayPoint2" type="Marker2D" parent="Routes/Route_C/Waypoints" unique_id=808132888 groups=["Route_C"]]
+position = Vector2(71, 611)

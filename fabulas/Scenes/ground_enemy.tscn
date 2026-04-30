@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dp7x3d060s0vf"]
+
+[ext_resource type="Script" uid="uid://dpjigss7qgguy" path="res://ground_enemy.gd" id="1_qfj55"]
+[ext_resource type="Texture2D" uid="uid://4q2fxqcey1l3" path="res://Assets/Placeholders/Skeleton/Skeleton enemy.png" id="2_gufma"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8b13n"]
+radius = 21.0
+height = 56.0
+
+[sub_resource type="Animation" id="Animation_qfj55"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [26]
+}
+
+[sub_resource type="Animation" id="Animation_8b13n"]
+resource_name = "Waiting"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.4, 0.7, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [39, 40, 41, 42]
+}
+
+[sub_resource type="Animation" id="Animation_gufma"]
+resource_name = "Wallking"
+length = 1.1666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8b13n"]
+_data = {
+&"RESET": SubResource("Animation_qfj55"),
+&"Waiting": SubResource("Animation_8b13n"),
+&"Wallking": SubResource("Animation_gufma")
+}
+
+[node name="ground_enemy" type="CharacterBody2D" unique_id=730148609]
+motion_mode = 1
+wall_min_slide_angle = 0.13613568
+script = ExtResource("1_qfj55")
+route = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1493849365]
+scale = Vector2(2, 1.965)
+texture = ExtResource("2_gufma")
+hframes = 13
+vframes = 5
+frame = 26
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828638125]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_8b13n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=799149407]
+libraries/ = SubResource("AnimationLibrary_8b13n")
+
+[node name="Timer" type="Timer" parent="." unique_id=521010944]
+wait_time = 2.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1821630873]
+path_desired_distance = 4.0
+target_desired_distance = 3.0
+path_postprocessing = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
