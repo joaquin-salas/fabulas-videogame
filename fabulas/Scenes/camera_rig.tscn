@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://drut5tkemtw57"]
+
+[ext_resource type="Script" uid="uid://dufoxv48m2cc5" path="res://Scripts/camera_rig.gd" id="1_p8alh"]
+
+[node name="CameraRig" type="Node2D" unique_id=2139074347]
+script = ExtResource("1_p8alh")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=706826162]
+position_smoothing_enabled = true
