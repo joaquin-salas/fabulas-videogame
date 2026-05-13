@@ -160,6 +160,8 @@ _data = {
 }
 
 [node name="aerial _enemy" type="CharacterBody2D" unique_id=610127007]
+collision_layer = 2
+collision_mask = 5
 motion_mode = 1
 wall_min_slide_angle = 0.12217305
 script = ExtResource("1_bep6u")

@@ -24,5 +24,5 @@ wall_min_slide_angle = 0.26005405
 speed = 170.0
 route = 1
 
-[node name="ground_enemy" parent="." unique_id=730148609 instance=ExtResource("4_wqkje")]
-position = Vector2(91, 607)
+[node name="ground_enemy" parent="." unique_id=1286016221 instance=ExtResource("4_wqkje")]
+position = Vector2(65, 641)

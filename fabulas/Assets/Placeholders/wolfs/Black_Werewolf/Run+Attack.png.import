@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4q2fxqcey1l3"
-path="res://.godot/imported/Skeleton enemy.png-9d1aba09c156d7bce34344c29aaf1c32.ctex"
+uid="uid://cpqf5c707jtva"
+path="res://.godot/imported/Run+Attack.png-1c802e75e8304f12f5516ae3047a6e2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Placeholders/Skeleton/Skeleton enemy.png"
-dest_files=["res://.godot/imported/Skeleton enemy.png-9d1aba09c156d7bce34344c29aaf1c32.ctex"]
+source_file="res://Assets/Placeholders/wolfs/Black_Werewolf/Run+Attack.png"
+dest_files=["res://.godot/imported/Run+Attack.png-1c802e75e8304f12f5516ae3047a6e2d.ctex"]
 
 [params]
 

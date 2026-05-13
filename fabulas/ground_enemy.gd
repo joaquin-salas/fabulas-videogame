@@ -1,110 +1,110 @@
 extends CharacterBody2D
 
+@export var player: CharacterBody2D
+@export var Speed: int = 100
+@export var Chase_Speed: int = 200
+@export var Acceleration: int = 300
+@export var Gravity: int = 980  # AÑADIDO: Gravedad
 
-# Enums rutas
-enum Routes {
-	ROUTE_A,
-	ROUTE_B,
-	ROUTE_C
+@onready var sprite = $Sprite2D
+@onready var ray_cast: RayCast2D = $RayCast2D
+@onready var timer = $Timer
+@onready var animation_player = $AnimationPlayer  # AÑADIDO: Referencia al AnimationPlayer
+
+var direction : Vector2
+var right_bounds: Vector2
+var left_bounds: Vector2
+
+enum States {
+	WANDER,
+	CHASE
 }
 
+var current_state = States.WANDER
 
-# Exports 
-@export var speed: float = 100.0
-@export var wait_time: float = 2.0
-@export var route: Routes
+func _ready():
+	left_bounds = self.position + Vector2(-120, 0)
+	right_bounds = self.position + Vector2(120, 0)
+	# AÑADIDO: Configuración inicial (enemigo mira a la derecha)
+	direction = Vector2(1, 0)
+	sprite.flip_h = false
+	ray_cast.target_position = Vector2(125, 0)
 
-
-# Referencias a nodos 
-@onready var animation_player = $AnimationPlayer
-@onready var sprite_2d = $Sprite2D
-@onready var agent = $NavigationAgent2D
-
-
-# Variables 
-var waypoints: Array = []
-var current_index: int = 0
-var is_waiting: bool = false
-var target: Marker2D
-
-
-# Funciones built-in
-func _ready() -> void:
-	setup_route()
-	configure_agent()
-
-
-func _physics_process(_delta: float) -> void:
-	if is_waiting:
-		play_animation(Vector2.ZERO)
-		return
+func _physics_process(delta: float) -> void:
+	# AÑADIDO: Aplicar gravedad
+	if not is_on_floor():
+		velocity.y += Gravity * delta
 	
-	move_towards_target()
-	check_waypoint_reached()
-
-
-# Funciones privadas 
-func setup_route() -> void:
-	var group_name = ""
-	match route:
-		Routes.ROUTE_A:
-			group_name = "Route_A"
-		Routes.ROUTE_B:
-			group_name = "Route_B"
-		Routes.ROUTE_C:
-			group_name = "Route_C"
-	
-	waypoints = get_tree().get_nodes_in_group(group_name)
-	if waypoints.is_empty():
-		push_error("No waypoints found for route: " + group_name)
-		return
-	
-	target = waypoints[current_index]
-
-
-func configure_agent() -> void:
-	agent.target_position = target.global_position
-	agent.target_desired_distance = 5.0
-	agent.path_desired_distance = 32.0
-
-
-func move_towards_target() -> void:
-	var next_point = agent.get_next_path_position()
-	var direction = (next_point - global_position).normalized()
-	
-	velocity = velocity.lerp(direction * speed, 0.33)
+	handle_movement(delta)
+	change_direction()
+	look_for_player()
 	move_and_slide()
 	
-	update_sprite_direction(direction)
-	play_animation(direction)
+	# AÑADIDO: Control de animaciones
+	handle_animation()
 
-
-func update_sprite_direction(direction: Vector2) -> void:
-	if direction.x > 0:
-		sprite_2d.flip_h = false
-	elif direction.x < 0:
-		sprite_2d.flip_h = true
-
-
-func check_waypoint_reached() -> void:
-	if not agent.is_navigation_finished():
-		return
+func look_for_player():
+	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		if collider == player:
+			chase_player()
+		elif current_state == States.CHASE:
+			stop_chase()
+	elif current_state == States.CHASE:
+		stop_chase()
+		
+func chase_player() -> void:
+	timer.stop()
+	current_state = States.CHASE
 	
-	current_index = (current_index + 1) % waypoints.size()
-	target = waypoints[current_index]
-	agent.target_position = target.global_position
-	
-	velocity = Vector2.ZERO
-	is_waiting = true
-	$Timer.start(wait_time)
+func stop_chase() -> void:
+	if timer.time_left <= 0:
+		timer.start()
+		
+func handle_movement(delta: float) -> void:
+	if current_state == States.WANDER:
+		velocity.x = move_toward(velocity.x, direction.x * Speed, Acceleration * delta)
+	else:
+		velocity.x = move_toward(velocity.x, direction.x * Chase_Speed, Acceleration * delta)
 
+func change_direction() -> void:
+	if current_state == States.WANDER:
+		# Si mira a la derecha (NO está flippeado)
+		if not sprite.flip_h:
+			if self.position.x >= right_bounds.x:
+				# Llegó al límite derecho, gira a la izquierda
+				direction = Vector2(-1, 0)
+				sprite.flip_h = true
+				ray_cast.target_position = Vector2(-125, 0)
+		# Si mira a la izquierda (está flippeado)
+		else:
+			if self.position.x <= left_bounds.x:
+				# Llegó al límite izquierdo, gira a la derecha
+				direction = Vector2(1, 0)
+				sprite.flip_h = false
+				ray_cast.target_position = Vector2(125, 0)
+	else:
+		# Modo CHASE: seguir al jugador
+		direction = (player.position - self.position).normalized()
+		
+		if direction.x > 0:
+			# Jugador está a la derecha
+			sprite.flip_h = false
+			ray_cast.target_position = Vector2(125, 0)
+		else:
+			# Jugador está a la izquierda
+			sprite.flip_h = true
+			ray_cast.target_position = Vector2(-125, 0)
 
-func play_animation(_direction: Vector2) -> void:
-	var anim_name = "Waiting" if is_waiting else "Wallking"
-	if animation_player.current_animation != anim_name:
-		animation_player.play(anim_name)
+# AÑADIDO: Función para manejar animaciones
+func handle_animation() -> void:
+	if is_on_floor() and abs(velocity.x) > 10:
+		# Si está en el suelo y se mueve, reproducir walking
+		if animation_player.current_animation != "Wallking":
+			animation_player.play("Wallking")
+	else:
+		# Si está en el aire o quieto, detener animación
+		animation_player.stop()
 
-
-# Señales
-func _on_timer_timeout() -> void:
-	is_waiting = false
+func _on_timer_timeout():
+	current_state = States.WANDER
