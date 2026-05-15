@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgx5mn44t03it"]
 
-[ext_resource type="Script" uid="uid://cjhkw0sargfgb" path="res://aerial_enemy.gd" id="1_bep6u"]
+[ext_resource type="Script" uid="uid://cjhkw0sargfgb" path="res://Scripts/Enemies/aerial_enemy.gd" id="1_bep6u"]
 [ext_resource type="Texture2D" uid="uid://c607vhpcdcmyl" path="res://Assets/Placeholders/Pajaro/pigeon_eat-Sheet.png" id="2_bep6u"]
 [ext_resource type="Texture2D" uid="uid://cxxpso1ibdmtw" path="res://Assets/Placeholders/Pajaro/pigeon_fiy-Sheet.png" id="2_mov8q"]
 
@@ -160,6 +160,8 @@ _data = {
 }
 
 [node name="aerial _enemy" type="CharacterBody2D" unique_id=610127007]
+collision_layer = 2
+collision_mask = 5
 motion_mode = 1
 wall_min_slide_angle = 0.12217305
 script = ExtResource("1_bep6u")

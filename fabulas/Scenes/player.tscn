@@ -213,7 +213,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkqu8"]
 size = Vector2(38, 44)
 
-[node name="Player" type="CharacterBody2D" unique_id=1543986994]
+[node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
+collision_mask = 6
 script = ExtResource("1_cvnsp")
 player_movement_stats = ExtResource("2_gymyn")
 
