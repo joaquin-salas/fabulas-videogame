@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cqwjvexkmycoy"]
+
+[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://Scenes/map.tscn" id="1_lkqqh"]
+[ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://Scenes/player.tscn" id="2_tq1so"]
+[ext_resource type="PackedScene" uid="uid://bgx5mn44t03it" path="res://Scenes/Enemies/aerial__enemy.tscn" id="3_rv5g2"]
+[ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://Scenes/Enemies/ground_enemy.tscn" id="4_lhx7y"]
+[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://Scenes/Enemies/ground_enemy2.tscn" id="5_tq1so"]
+
+[node name="Level" type="Node2D" unique_id=800210757]
+
+[node name="Map" parent="." unique_id=1286230001 instance=ExtResource("1_lkqqh")]
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_tq1so")]
+position = Vector2(611, 288)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=77879961]
+
+[node name="aerial _enemy2" parent="Enemies" unique_id=502123500 instance=ExtResource("3_rv5g2")]
+position = Vector2(438, 373)
+slide_on_ceiling = false
+wall_min_slide_angle = 0.26005405
+speed = 170.0
+route = 1
+
+[node name="ground_enemy" parent="Enemies" unique_id=1286016221 instance=ExtResource("4_lhx7y")]
+position = Vector2(804, 616)
+
+[node name="aerial _enemy" parent="Enemies" unique_id=610127007 instance=ExtResource("3_rv5g2")]
+position = Vector2(110, 63)
+wall_min_slide_angle = 0.28797933
+speed = 170.0
+
+[node name="ground_enemy2" parent="Enemies" unique_id=1836502299 instance=ExtResource("5_tq1so")]
+position = Vector2(725, 178)
