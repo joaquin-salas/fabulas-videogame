@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerMovementStats" format=3 uid="uid://bug16kis23a36"]
+
+[ext_resource type="Script" uid="uid://0qd0du7mbniu" path="res://entities/player/states/resources/player_movement_stats.gd" id="1_8fyar"]
+
+[resource]
+script = ExtResource("1_8fyar")
+speed_floor = 450.0
+speed_air = 380.0
+jump_force = -750.0
+jump_gravity = 1500.0
+fall_gravity = 2500.0
+variable_jump_multiplier = 0.35
+metadata/_custom_type_script = "uid://0qd0du7mbniu"
