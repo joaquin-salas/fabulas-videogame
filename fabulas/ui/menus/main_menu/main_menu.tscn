@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dkrk4ejombwic"]
+
+[ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="1_ioe73"]
+[ext_resource type="Script" uid="uid://b0fe6nwphbru5" path="res://ui/menus/main_menu/main_menu.gd" id="2_txwgg"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/menus/buttons/custom_button.tscn" id="3_j3h1s"]
+[ext_resource type="AudioStream" uid="uid://cejopb7uvbl6r" path="res://ui/menus/main_menu/audio/grand_project-deep-epic-cinematic-when-time-collapses_outro-501526.mp3" id="4_txwgg"]
+
+[node name="MainMenu" type="Control" unique_id=1221789689]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ioe73")
+script = ExtResource("2_txwgg")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1634943321]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1303172678]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1093872111]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Fabulas"
+horizontal_alignment = 1
+
+[node name="Start" parent="MarginContainer/VBoxContainer" unique_id=307769692 instance=ExtResource("3_j3h1s")]
+layout_mode = 2
+text = "start
+"
+
+[node name="Config" parent="MarginContainer/VBoxContainer" unique_id=411673386 instance=ExtResource("3_j3h1s")]
+layout_mode = 2
+text = "Config
+
+"
+
+[node name="exit" parent="MarginContainer/VBoxContainer" unique_id=1685232391 instance=ExtResource("3_j3h1s")]
+layout_mode = 2
+text = "exit
+"
+
+[node name="menu_music" type="AudioStreamPlayer" parent="." unique_id=968624521]
+stream = ExtResource("4_txwgg")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
