@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d31ln5pm742nc"
-path="res://.godot/imported/Background.png-a52aa3fecdbdea914677fc44c22b7504.ctex"
+uid="uid://c32spx4e22j7u"
+path="res://.godot/imported/tile_placeholder (64x64).png-6fb06f7271f5b40e03e8e6dd66ff9e90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/placeholders/Background/Background.png"
-dest_files=["res://.godot/imported/Background.png-a52aa3fecdbdea914677fc44c22b7504.ctex"]
+source_file="res://worlds/common/placeholders/tile_placeholder (64x64).png"
+dest_files=["res://.godot/imported/tile_placeholder (64x64).png-6fb06f7271f5b40e03e8e6dd66ff9e90.ctex"]
 
 [params]
 

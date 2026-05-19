@@ -17,6 +17,7 @@ extends Node2D
 
 func _ready() -> void:
 	camera.zoom = zoom_value
+	position.x = follow_node.position.x
 
 func _process(delta: float) -> void:
 	if follow_node == null:

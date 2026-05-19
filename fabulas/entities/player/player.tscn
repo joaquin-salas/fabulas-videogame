@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dk7rq8dy5bhvy" path="res://entities/player/visuals/sprite/Idle (32x32).png" id="4_pgwtq"]
 [ext_resource type="Texture2D" uid="uid://b74b2o31ifv11" path="res://entities/player/visuals/sprite/Jump (32x32).png" id="5_3xavr"]
 [ext_resource type="Texture2D" uid="uid://cymkut0eao2je" path="res://entities/player/visuals/sprite/Run (32x32).png" id="6_vpvow"]
-[ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://common/state-machines/state_machine.tscn" id="7_vw8xl"]
+[ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://shared/state-machines/state_machine.tscn" id="7_vw8xl"]
 [ext_resource type="Script" uid="uid://bldxq5das84cd" path="res://entities/player/states/states/player_idle_state.gd" id="8_xb4l4"]
 [ext_resource type="Script" uid="uid://bhg21qrimc1xu" path="res://entities/player/states/states/player_run_state.gd" id="9_v5u60"]
 [ext_resource type="Script" uid="uid://dvi2e2l5jdi7x" path="res://entities/player/states/states/player_jump_state.gd" id="10_fsjsn"]

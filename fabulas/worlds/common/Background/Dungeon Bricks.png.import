@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c32spx4e22j7u"
-path="res://.godot/imported/tile_placeholder (64x64).png-f728ea67b66213930ef7e117adcbbeab.ctex"
+uid="uid://dou7513dgttxo"
+path="res://.godot/imported/Dungeon Bricks.png-83ba8c958ee9e2280ed583a580ffeacf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/placeholders/tile_placeholder (64x64).png"
-dest_files=["res://.godot/imported/tile_placeholder (64x64).png-f728ea67b66213930ef7e117adcbbeab.ctex"]
+source_file="res://worlds/common/Background/Dungeon Bricks.png"
+dest_files=["res://.godot/imported/Dungeon Bricks.png-83ba8c958ee9e2280ed583a580ffeacf.ctex"]
 
 [params]
 

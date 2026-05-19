@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqwjvexkmycoy"]
 
-[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/map.tscn" id="1_lkqqh"]
+[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/tower_1/map.tscn" id="1_lkqqh"]
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_tq1so"]
 [ext_resource type="PackedScene" uid="uid://bgx5mn44t03it" path="res://entities/enemies/aerial_enemy/aerial__enemy.tscn" id="3_rv5g2"]
 [ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="4_lhx7y"]
