@@ -18,7 +18,7 @@ config/icon="uid://cjg4fdvawflqq"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://dk4objfwo5k0y"
 
 [autoload]
 
@@ -26,8 +26,10 @@ SceneManager="*uid://mj2dipr4t0xq"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 

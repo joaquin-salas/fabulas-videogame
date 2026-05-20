@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bbbaoxb0tew6m"]
+
+[ext_resource type="Script" uid="uid://dhbhvyoixc5ib" path="res://ui/buttons/custom_button.gd" id="1_sriw3"]
+[ext_resource type="AudioStream" uid="uid://2f0yngj5od3n" path="res://ui/buttons/audio/click.mp3" id="2_q2j4d"]
+[ext_resource type="AudioStream" uid="uid://dccxuohxtjl35" path="res://ui/buttons/audio/enter.mp3" id="3_nc6vt"]
+
+[node name="CustomButton" type="Button" unique_id=307769692]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = -1826.0
+offset_bottom = -1036.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "text
+"
+script = ExtResource("1_sriw3")
+
+[node name="AudioClick" type="AudioStreamPlayer" parent="." unique_id=1847650817]
+stream = ExtResource("2_q2j4d")
+
+[node name="AudioEnter" type="AudioStreamPlayer" parent="." unique_id=1338999205]
+stream = ExtResource("3_nc6vt")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

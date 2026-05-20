@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="4_lhx7y"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="5_tq1so"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="6_btoec"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="7_3sk1a"]
+[ext_resource type="AudioStream" uid="uid://cn3xra8l6nevp" path="res://worlds/tower_1/audio/lux-aeterna-voidloop-528150.mp3" id="8_l53as"]
 
 [node name="Level" type="Node2D" unique_id=800210757]
 process_mode = 1
@@ -35,6 +37,14 @@ speed = 170.0
 [node name="ground_enemy2" parent="Enemies" unique_id=1836502299 instance=ExtResource("5_tq1so")]
 position = Vector2(725, 178)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=647427429]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264739996]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=1386739776 instance=ExtResource("7_3sk1a")]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("6_btoec")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1192057960]
+stream = ExtResource("8_l53as")
+autoplay = true
+parameters/looping = true

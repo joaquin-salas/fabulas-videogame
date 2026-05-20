@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ckfknnfgb6qw6"]
+
+[ext_resource type="Script" uid="uid://cirywfgdcw0il" path="res://ui/menus/settings_menu/SettingsMenu.gd" id="1_3d2gn"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_rj87i"]
+
+[node name="SettingsMenu" type="Control" unique_id=992204846]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3d2gn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1763454638]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.125
+offset_top = -257.25
+offset_right = 338.125
+offset_bottom = 257.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1103461048]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=296338539]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1172042211]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1119344104]
+layout_mode = 2
+text = "Volume
+"
+
+[node name="volumen" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=73060131]
+layout_mode = 2
+value = 50.0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2114898325]
+layout_mode = 2
+text = "Mute"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=1165296704]
+layout_mode = 2
+
+[node name="Resolution" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=808863182]
+layout_mode = 2
+selected = 2
+item_count = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+
+[node name="Back" parent="MarginContainer/VBoxContainer" unique_id=307769692 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+text = "Back
+"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/volumen" to="." method="_on_volumen_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -2,8 +2,12 @@
 
 [ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="1_ioe73"]
 [ext_resource type="Script" uid="uid://b0fe6nwphbru5" path="res://ui/menus/main_menu/main_menu.gd" id="2_txwgg"]
-[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/menus/buttons/custom_button.tscn" id="3_j3h1s"]
+[ext_resource type="FontFile" uid="uid://do7tjuuertg4b" path="res://assets/fonts/airstrike/airstrike.otf" id="3_igis3"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="3_j3h1s"]
+[ext_resource type="Texture2D" uid="uid://bu6sek88bh5ht" path="res://ui/menus/main_menu/art/upscalemedia-transformed.jpeg" id="3_m57jf"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="3_uni0y"]
 [ext_resource type="AudioStream" uid="uid://cejopb7uvbl6r" path="res://ui/menus/main_menu/audio/grand_project-deep-epic-cinematic-when-time-collapses_outro-501526.mp3" id="4_txwgg"]
+[ext_resource type="FontFile" uid="uid://cy6lnqwmnybas" path="res://assets/fonts/vatora/Vatora.ttf" id="5_igis3"]
 
 [node name="MainMenu" type="Control" unique_id=1221789689]
 process_mode = 2
@@ -16,39 +20,91 @@ grow_vertical = 2
 theme = ExtResource("1_ioe73")
 script = ExtResource("2_txwgg")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1634943321]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=810349534]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -0.55999756
+offset_top = 0.28001404
+offset_right = 0.5599365
+offset_bottom = -0.2800293
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_m57jf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="SettingsMenu" parent="." unique_id=992204846 instance=ExtResource("3_uni0y")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 627.0
+offset_top = 367.0
+offset_right = 627.0
+offset_bottom = 367.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Titulo" type="Label" parent="." unique_id=1093872111]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30800003
+anchor_top = 0.20400001
+anchor_right = 0.30800003
+anchor_bottom = 0.20400001
+offset_left = -349.36005
+offset_top = -68.32001
+offset_right = 349.63995
+offset_bottom = 68.67999
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_igis3")
+theme_override_font_sizes/font_size = 150
+text = "Fabulas"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1634943321]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30800003
+anchor_top = 0.5
+anchor_right = 0.30800003
+anchor_bottom = 0.5
+offset_left = -150.36005
+offset_top = -178.0
+offset_right = 148.63995
+offset_bottom = 245.0
+grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1303172678]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1093872111]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Fabulas"
-horizontal_alignment = 1
-
 [node name="Start" parent="MarginContainer/VBoxContainer" unique_id=307769692 instance=ExtResource("3_j3h1s")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_igis3")
+theme_override_font_sizes/font_size = 50
 text = "start
 "
 
-[node name="Config" parent="MarginContainer/VBoxContainer" unique_id=411673386 instance=ExtResource("3_j3h1s")]
+[node name="settings" parent="MarginContainer/VBoxContainer" unique_id=411673386 instance=ExtResource("3_j3h1s")]
 layout_mode = 2
-text = "Config
+theme_override_fonts/font = ExtResource("5_igis3")
+theme_override_font_sizes/font_size = 50
+text = "Settings
+
 
 "
 
 [node name="exit" parent="MarginContainer/VBoxContainer" unique_id=1685232391 instance=ExtResource("3_j3h1s")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_igis3")
+theme_override_font_sizes/font_size = 50
 text = "exit
 "
 
@@ -57,4 +113,5 @@ stream = ExtResource("4_txwgg")
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
