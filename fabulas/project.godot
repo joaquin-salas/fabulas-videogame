@@ -18,7 +18,7 @@ config/icon="uid://cjg4fdvawflqq"
 
 [audio]
 
-buses/default_bus_layout="uid://dk4objfwo5k0y"
+buses/default_bus_layout=""
 
 [autoload]
 
@@ -37,6 +37,7 @@ Route_A=""
 Route_B=""
 Route_C=""
 player=""
+brightness=""
 
 [input]
 

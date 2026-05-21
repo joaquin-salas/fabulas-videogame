@@ -28,10 +28,10 @@ func _on_exit_pressed() -> void:
 
 func _on_settings_closed():
 	$MarginContainer.visible = true
-	$Titulo.visible = true
+	$MarginContainer/VBoxContainer/Titulo.visible = true
 	
 	
 func _on_settings_pressed() -> void:
 	$SettingsMenu.visible = true
 	$MarginContainer.visible = false
-	$Titulo.visible = false
+	$MarginContainer/VBoxContainer/Titulo.visible = false

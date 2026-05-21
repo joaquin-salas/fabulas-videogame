@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://ckfknnfgb6qw6"]
 
 [ext_resource type="Script" uid="uid://cirywfgdcw0il" path="res://ui/menus/settings_menu/SettingsMenu.gd" id="1_3d2gn"]
+[ext_resource type="FontFile" uid="uid://8uajmgpvwlve" path="res://assets/fonts/alte_haas_grotesk/AlteHaasGroteskBold.ttf" id="2_3d2gn"]
 [ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_rj87i"]
+
+[sub_resource type="Theme" id="Theme_drevy"]
+VBoxContainer/constants/separation = 12
 
 [node name="SettingsMenu" type="Control" unique_id=992204846]
 process_mode = 2
@@ -9,55 +13,91 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_right = 4.0
+offset_left = 136.0
+offset_top = 56.0
+offset_right = -167.0
+offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_3d2gn")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1763454638]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1028540888]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -338.125
-offset_top = -257.25
-offset_right = 338.125
-offset_bottom = 257.25
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
+tabs_rearrange_group = 3
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1103461048]
+[node name="Video" type="MarginContainer" parent="TabContainer" unique_id=1763454638]
+visible = false
 layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 62
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 0
 
-[node name="Panel" type="Panel" parent="MarginContainer" unique_id=296338539]
+[node name="videoContainer" type="VBoxContainer" parent="TabContainer/Video" unique_id=1172042211]
 layout_mode = 2
+theme = SubResource("Theme_drevy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1172042211]
+[node name="Display" type="HBoxContainer" parent="TabContainer/Video/videoContainer" unique_id=1309225961]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1119344104]
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/videoContainer/Display" unique_id=1436824085]
 layout_mode = 2
-text = "Volume
-"
+theme_override_constants/margin_left = 30
 
-[node name="volumen" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=73060131]
+[node name="Label3" type="Label" parent="TabContainer/Video/videoContainer/Display" unique_id=659376122]
 layout_mode = 2
-value = 50.0
+theme_override_font_sizes/font_size = 47
+text = "Display"
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2114898325]
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/videoContainer/Display" unique_id=1437411834]
 layout_mode = 2
-text = "Mute"
+theme_override_constants/margin_left = 163
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=1165296704]
+[node name="Display" type="OptionButton" parent="TabContainer/Video/videoContainer/Display" unique_id=373169129]
 layout_mode = 2
+theme_override_font_sizes/font_size = 47
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
 
-[node name="Resolution" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=808863182]
+[node name="mar1" type="MarginContainer" parent="TabContainer/Video/videoContainer" unique_id=378049827]
 layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="resultion" type="HBoxContainer" parent="TabContainer/Video/videoContainer" unique_id=41915776]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/videoContainer/resultion" unique_id=1990370370]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label3" type="Label" parent="TabContainer/Video/videoContainer/resultion" unique_id=1309148578]
+layout_mode = 2
+theme_override_font_sizes/font_size = 47
+text = "Resolution"
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/videoContainer/resultion" unique_id=1767392752]
+layout_mode = 2
+theme_override_constants/margin_left = 87
+
+[node name="Resolution" type="OptionButton" parent="TabContainer/Video/videoContainer/resultion" unique_id=808863182]
+layout_mode = 2
+theme_override_font_sizes/font_size = 47
 selected = 2
 item_count = 3
 popup/item_0/text = "1920 x 1080"
@@ -67,12 +107,157 @@ popup/item_1/id = 1
 popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 
-[node name="Back" parent="MarginContainer/VBoxContainer" unique_id=307769692 instance=ExtResource("2_rj87i")]
+[node name="mar2" type="MarginContainer" parent="TabContainer/Video/videoContainer" unique_id=579800695]
 layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="brillo" type="HBoxContainer" parent="TabContainer/Video/videoContainer" unique_id=1898976841]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Video/videoContainer/brillo" unique_id=1120899128]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Video/videoContainer/brillo" unique_id=657313387]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 47
+text = "Brillo"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Video/videoContainer/brillo" unique_id=1204790492]
+layout_mode = 2
+theme_override_constants/margin_left = 87
+
+[node name="brillo" type="HSlider" parent="TabContainer/Video/videoContainer/brillo" unique_id=103984567]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="TabContainer/Video/videoContainer/brillo" unique_id=360089162]
+layout_mode = 2
+theme_override_constants/margin_left = 76
+
+[node name="mar3" type="MarginContainer" parent="TabContainer/Video/videoContainer" unique_id=1131152391]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="Back" parent="TabContainer/Video/videoContainer" unique_id=2048853395 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 45
 text = "Back
 "
 
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/volumen" to="." method="_on_volumen_value_changed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="Audio" type="MarginContainer" parent="TabContainer" unique_id=228610008]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 62
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+metadata/_tab_index = 1
+
+[node name="videoContainer2" type="VBoxContainer" parent="TabContainer/Audio" unique_id=2061917681]
+layout_mode = 2
+theme = SubResource("Theme_drevy")
+
+[node name="mar1" type="MarginContainer" parent="TabContainer/Audio/videoContainer2" unique_id=623847465]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="mar2" type="MarginContainer" parent="TabContainer/Audio/videoContainer2" unique_id=798173005]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="mar3" type="MarginContainer" parent="TabContainer/Audio/videoContainer2" unique_id=1931396218]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="Back" parent="TabContainer/Audio/videoContainer2" unique_id=307769692 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 45
+text = "Back
+"
+
+[node name="audioContainer" type="VBoxContainer" parent="TabContainer/Audio" unique_id=1025643462]
+layout_mode = 2
+theme = SubResource("Theme_drevy")
+
+[node name="volume" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=72474710]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/volume" unique_id=944750003]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/volume" unique_id=1119344104]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 47
+text = "Volume"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/volume" unique_id=1311487523]
+layout_mode = 2
+theme_override_constants/margin_left = 87
+
+[node name="volumen" type="HSlider" parent="TabContainer/Audio/audioContainer/volume" unique_id=73060131]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="mar1" type="MarginContainer" parent="TabContainer/Audio/audioContainer" unique_id=2105062700]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="mute" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=329126449]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Audio/audioContainer/mute" unique_id=878438832]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label2" type="Label" parent="TabContainer/Audio/audioContainer/mute" unique_id=2114898325]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 47
+text = "Mute"
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio/audioContainer/mute" unique_id=2136745186]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Audio/audioContainer/mute" unique_id=1165296704]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="mar2" type="MarginContainer" parent="TabContainer/Audio/audioContainer" unique_id=301598279]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="Back" parent="TabContainer/Audio/audioContainer" unique_id=945303864 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 45
+text = "Back
+"
+
+[connection signal="item_selected" from="TabContainer/Video/videoContainer/Display/Display" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/videoContainer/Display/Display" to="." method="_on_display_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/videoContainer/resultion/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="value_changed" from="TabContainer/Video/videoContainer/brillo/brillo" to="." method="_on_brillo_value_changed"]
+[connection signal="pressed" from="TabContainer/Video/videoContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="TabContainer/Audio/videoContainer2/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/volume/volumen" to="." method="_on_volumen_value_changed"]
+[connection signal="toggled" from="TabContainer/Audio/audioContainer/mute/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="TabContainer/Audio/audioContainer/Back" to="." method="_on_back_pressed"]

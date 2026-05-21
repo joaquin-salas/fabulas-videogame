@@ -3,6 +3,7 @@ class_name SettingsMenu
 
 signal closed
 
+
 func _on_volumen_value_changed(value):
 	AudioServer.set_bus_volume_db(0, linear_to_db(value / 100.0))
 
@@ -22,3 +23,18 @@ func _on_back_pressed() -> void:
 	emit_signal("closed")
 	self.visible = false
 	
+
+
+func _on_brillo_value_changed(value: float) -> void:
+	var canvas = get_tree().get_first_node_in_group("brightness")
+	if canvas:
+		canvas.color = Color(value, value, value)
+
+
+func _on_display_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_size(Vector2i(1280, 720))
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
