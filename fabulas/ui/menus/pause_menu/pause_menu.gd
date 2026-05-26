@@ -13,6 +13,8 @@ func _on_resume_pressed() -> void:
 func _on_settings_pressed() -> void:
 	settings_menu.visible = true
 	self.visible = false
+	
+	
 
 func _on_settings_closed():
 	self.visible = true

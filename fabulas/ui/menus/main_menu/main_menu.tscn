@@ -20,6 +20,7 @@ theme = ExtResource("1_ioe73")
 script = ExtResource("2_txwgg")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=810349534]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -105,6 +106,11 @@ text = "exit
 [node name="menu_music" type="AudioStreamPlayer" parent="." unique_id=968624521]
 stream = ExtResource("4_txwgg")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=544505578]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=46285259 instance=ExtResource("3_uni0y")]
+visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]

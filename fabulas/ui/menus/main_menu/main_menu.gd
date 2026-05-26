@@ -1,8 +1,9 @@
 extends Control
 class_name MainMenu
 
-@onready var settings_menu: SettingsMenu = $SettingsMenu
+
 @onready var menu_music: AudioStreamPlayer = $menu_music
+@onready var settings_menu: SettingsMenu = $CanvasLayer/SettingsMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,11 +28,10 @@ func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_settings_closed():
-	$MarginContainer.visible = true
-	$MarginContainer/VBoxContainer/Titulo.visible = true
+	settings_menu.visible = false
+	self.visible = true
 	
 	
 func _on_settings_pressed() -> void:
-	$SettingsMenu.visible = true
-	$MarginContainer.visible = false
-	$MarginContainer/VBoxContainer/Titulo.visible = false
+	settings_menu.visible = true
+	self.visible = false
