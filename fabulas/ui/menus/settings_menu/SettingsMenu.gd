@@ -35,6 +35,34 @@ func _on_display_item_selected(index: int) -> void:
 	match index:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 			DisplayServer.window_set_size(Vector2i(1280, 720))
+
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+
+
+func _on_v_sync_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		1:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+
+
+func _on_fps_item_selected(index: int) -> void:
+	match index:
+		0:
+			Engine.max_fps = 30
+		1:
+			Engine.max_fps = 60
+		2:
+			Engine.max_fps = 120
+		3:
+			Engine.max_fps = 0 # ilimitado

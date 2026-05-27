@@ -22,82 +22,108 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_3d2gn")
 
-[node name="TabContainer" type="TabContainer" parent="." unique_id=1028540888]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=124316895]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -57.0
+offset_right = 168.0
+offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+flip_v = true
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1028540888]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0380001
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_right = -0.12609863
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
 tabs_rearrange_group = 3
 
 [node name="Video" type="MarginContainer" parent="TabContainer" unique_id=1763454638]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 62
+theme_override_constants/margin_top = 34
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 metadata/_tab_index = 0
 
-[node name="videoContainer" type="VBoxContainer" parent="TabContainer/Video" unique_id=1172042211]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Video" unique_id=1023920161]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer" unique_id=29027887]
+layout_mode = 2
+theme_override_constants/margin_right = 14
+
+[node name="videoContainer2" type="VBoxContainer" parent="TabContainer/Video/HBoxContainer" unique_id=1772010832]
+layout_mode = 2
+size_flags_horizontal = 8
 theme = SubResource("Theme_drevy")
 
-[node name="Display" type="HBoxContainer" parent="TabContainer/Video/videoContainer" unique_id=1309225961]
+[node name="Display" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=637185292]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/videoContainer/Display" unique_id=1436824085]
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1748087624]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 
-[node name="Label3" type="Label" parent="TabContainer/Video/videoContainer/Display" unique_id=659376122]
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1806686660]
 layout_mode = 2
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 29
 text = "Display"
 
-[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/videoContainer/Display" unique_id=1437411834]
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1962965260]
 layout_mode = 2
-theme_override_constants/margin_left = 163
+theme_override_constants/margin_left = 71
 
-[node name="Display" type="OptionButton" parent="TabContainer/Video/videoContainer/Display" unique_id=373169129]
+[node name="Display" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1406435877]
 layout_mode = 2
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 29
+flat = true
 selected = 0
-item_count = 2
+item_count = 3
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
-popup/item_1/id = 1
+popup/item_1/id = 2
+popup/item_2/text = "Borderless"
+popup/item_2/id = 1
 
-[node name="mar1" type="MarginContainer" parent="TabContainer/Video/videoContainer" unique_id=378049827]
+[node name="mar1" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=2027916154]
 layout_mode = 2
-theme_override_constants/margin_top = 33
+theme_override_constants/margin_top = 29
 
-[node name="resultion" type="HBoxContainer" parent="TabContainer/Video/videoContainer" unique_id=41915776]
+[node name="resultion" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=1054635220]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/videoContainer/resultion" unique_id=1990370370]
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=1876865930]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 
-[node name="Label3" type="Label" parent="TabContainer/Video/videoContainer/resultion" unique_id=1309148578]
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=1870151813]
 layout_mode = 2
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 29
 text = "Resolution"
 
-[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/videoContainer/resultion" unique_id=1767392752]
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=679138682]
 layout_mode = 2
-theme_override_constants/margin_left = 87
+theme_override_constants/margin_left = 23
 
-[node name="Resolution" type="OptionButton" parent="TabContainer/Video/videoContainer/resultion" unique_id=808863182]
+[node name="Resolution" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=1555224588]
 layout_mode = 2
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 29
+flat = true
 selected = 2
 item_count = 3
 popup/item_0/text = "1920 x 1080"
@@ -107,29 +133,29 @@ popup/item_1/id = 1
 popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 
-[node name="mar2" type="MarginContainer" parent="TabContainer/Video/videoContainer" unique_id=579800695]
+[node name="mar2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=837019208]
 layout_mode = 2
 theme_override_constants/margin_top = 33
 
-[node name="brillo" type="HBoxContainer" parent="TabContainer/Video/videoContainer" unique_id=1898976841]
+[node name="brillo" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=1271473419]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Video/videoContainer/brillo" unique_id=1120899128]
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=874301671]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 
-[node name="Label" type="Label" parent="TabContainer/Video/videoContainer/brillo" unique_id=657313387]
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=671385648]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 29
 text = "Brillo"
 
-[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Video/videoContainer/brillo" unique_id=1204790492]
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=619794012]
 layout_mode = 2
-theme_override_constants/margin_left = 87
+theme_override_constants/margin_left = 53
 
-[node name="brillo" type="HSlider" parent="TabContainer/Video/videoContainer/brillo" unique_id=103984567]
+[node name="brillo" type="HSlider" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=679577510]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -137,23 +163,107 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MarginContainer3" type="MarginContainer" parent="TabContainer/Video/videoContainer/brillo" unique_id=360089162]
+[node name="MarginContainer3" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=479947278]
 layout_mode = 2
-theme_override_constants/margin_left = 76
+theme_override_constants/margin_left = -5
 
-[node name="mar3" type="MarginContainer" parent="TabContainer/Video/videoContainer" unique_id=1131152391]
+[node name="mar3" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=228445294]
 layout_mode = 2
 theme_override_constants/margin_top = 33
 
-[node name="Back" parent="TabContainer/Video/videoContainer" unique_id=2048853395 instance=ExtResource("2_rj87i")]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Video/HBoxContainer" unique_id=54125217]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/margin_right = 96
+
+[node name="videoContainer" type="VBoxContainer" parent="TabContainer/Video/HBoxContainer" unique_id=1172042211]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_drevy")
+
+[node name="VSync" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=1309225961]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=1436824085]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=659376122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "VSync"
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=1437411834]
+layout_mode = 2
+theme_override_constants/margin_left = 71
+
+[node name="VSync" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=373169129]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+flat = true
+selected = 1
+item_count = 2
+popup/item_0/text = "Enabled"
+popup/item_0/id = 1
+popup/item_1/text = "Disabled"
+popup/item_1/id = 1
+
+[node name="mar1" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=378049827]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="Fps" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=41915776]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=1990370370]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=1309148578]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "FPS"
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=1767392752]
+layout_mode = 2
+theme_override_constants/margin_left = 101
+
+[node name="Fps" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=808863182]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+flat = true
+selected = 2
+item_count = 4
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "120"
+popup/item_2/id = 2
+popup/item_3/text = "ilimitado"
+popup/item_3/id = 3
+
+[node name="mar2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=579800695]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="mar3" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=1131152391]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="Back" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=2048853395 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 45
 text = "Back
 "
 
 [node name="Audio" type="MarginContainer" parent="TabContainer" unique_id=228610008]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 62
@@ -252,11 +362,12 @@ theme_override_font_sizes/font_size = 45
 text = "Back
 "
 
-[connection signal="item_selected" from="TabContainer/Video/videoContainer/Display/Display" to="." method="_on_resolution_item_selected"]
-[connection signal="item_selected" from="TabContainer/Video/videoContainer/Display/Display" to="." method="_on_display_item_selected"]
-[connection signal="item_selected" from="TabContainer/Video/videoContainer/resultion/Resolution" to="." method="_on_resolution_item_selected"]
-[connection signal="value_changed" from="TabContainer/Video/videoContainer/brillo/brillo" to="." method="_on_brillo_value_changed"]
-[connection signal="pressed" from="TabContainer/Video/videoContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer2/Display/Display" to="." method="_on_display_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer2/resultion/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="value_changed" from="TabContainer/Video/HBoxContainer/videoContainer2/brillo/brillo" to="." method="_on_brillo_value_changed"]
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer/VSync/VSync" to="." method="_on_v_sync_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer/Fps/Fps" to="." method="_on_fps_item_selected"]
+[connection signal="pressed" from="TabContainer/Video/HBoxContainer/videoContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="TabContainer/Audio/videoContainer2/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="TabContainer/Audio/audioContainer/volume/volumen" to="." method="_on_volumen_value_changed"]
 [connection signal="toggled" from="TabContainer/Audio/audioContainer/mute/CheckBox" to="." method="_on_check_box_toggled"]
