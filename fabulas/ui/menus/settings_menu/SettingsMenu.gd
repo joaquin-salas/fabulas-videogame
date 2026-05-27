@@ -3,66 +3,191 @@ class_name SettingsMenu
 
 signal closed
 
+const SETTINGS_PATH = "user://settings.cfg"
 
-func _on_volumen_value_changed(value):
-	AudioServer.set_bus_volume_db(0, linear_to_db(value / 100.0))
+var pending_volume: float = 100.0
+var pending_mute: bool = false
+var pending_resolution: int = 2
+var pending_display: int = 0
+var pending_vsync: int = 0
+var pending_fps: int = 1
+var pending_brightness: float = 1.0
+
+# ── Respaldo para revertir si se pulsa Back sin Apply ──
+var _saved_volume: float = 100.0
+var _saved_mute: bool = false
+var _saved_resolution: int = 2
+var _saved_display: int = 0
+var _saved_vsync: int = 0
+var _saved_fps: int = 1
+var _saved_brightness: float = 1.0
+
+# ─── READY ────────────────────────────────────────────
+
+func _ready() -> void:
+	load_settings()
+	apply_settings()
+	update_ui()
+
+# ─── AL ABRIR EL MENÚ guarda el estado actual ─────────
+
+func _on_visibility_changed() -> void:
+	if visible:
+		_snapshot_saved()
+
+func _snapshot_saved() -> void:
+	_saved_volume     = pending_volume
+	_saved_mute       = pending_mute
+	_saved_resolution = pending_resolution
+	_saved_display    = pending_display
+	_saved_vsync      = pending_vsync
+	_saved_fps        = pending_fps
+	_saved_brightness = pending_brightness
+
+# ─── SEÑALES — aplican EN TIEMPO REAL ─────────────────
+
+func _on_volumen_value_changed(value: float) -> void:
+	pending_volume = value
+	AudioServer.set_bus_volume_db(0, linear_to_db(pending_volume / 100.0))
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
-	AudioServer.set_bus_mute(0, toggled_on)
+	pending_mute = toggled_on
+	AudioServer.set_bus_mute(0, pending_mute)
 
-func _on_resolution_item_selected(index):
-	match index:
-		0:
-			DisplayServer.window_set_size(Vector2i(1920,1080))
-		1:
-			DisplayServer.window_set_size(Vector2i(1600,900))
-		2:
-			DisplayServer.window_set_size(Vector2i(1280,720))
-
-func _on_back_pressed() -> void:
-	emit_signal("closed")
-	self.visible = false
-	
-
-
-func _on_brillo_value_changed(value: float) -> void:
-	var canvas = get_tree().get_first_node_in_group("brightness")
-	if canvas:
-		canvas.color = Color(value, value, value)
-
+func _on_resolution_item_selected(index: int) -> void:
+	pending_resolution = index
+	if pending_display == 0:
+		match pending_resolution:
+			0: DisplayServer.window_set_size(Vector2i(1920, 1080))
+			1: DisplayServer.window_set_size(Vector2i(1600, 900))
+			2: DisplayServer.window_set_size(Vector2i(1280, 720))
 
 func _on_display_item_selected(index: int) -> void:
-	match index:
+	pending_display = index
+	match pending_display:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 			DisplayServer.window_set_size(Vector2i(1280, 720))
-
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
-
 func _on_v_sync_item_selected(index: int) -> void:
-	match index:
-		0:
-			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-		1:
-			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-
-
+	pending_vsync = index
+	match pending_vsync:
+		0: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		1: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 func _on_fps_item_selected(index: int) -> void:
-	match index:
+	pending_fps = index
+	match pending_fps:
+		0: Engine.max_fps = 30
+		1: Engine.max_fps = 60
+		2: Engine.max_fps = 120
+		3: Engine.max_fps = 0
+
+func _on_brillo_value_changed(value: float) -> void:
+	pending_brightness = value / 100.0
+	var canvas = get_tree().get_first_node_in_group("brightness")
+	if canvas:
+		canvas.color = Color(pending_brightness, pending_brightness, pending_brightness)
+
+# ─── APPLY — confirma y guarda en disco ───────────────
+
+func _on_apply_pressed() -> void:
+	save_settings()
+	_snapshot_saved()  # ahora este estado es el "oficial"
+
+# ─── BACK — revierte si no se aplicó ─────────────────
+
+func _on_back_pressed() -> void:
+	# Restaura los valores al estado antes de abrir el menú
+	pending_volume     = _saved_volume
+	pending_mute       = _saved_mute
+	pending_resolution = _saved_resolution
+	pending_display    = _saved_display
+	pending_vsync      = _saved_vsync
+	pending_fps        = _saved_fps
+	pending_brightness = _saved_brightness
+
+	apply_settings()  # revierte el juego visualmente
+	update_ui()       # revierte la UI
+	closed.emit()
+	self.visible = false
+
+# ─── APPLY SETTINGS ───────────────────────────────────
+
+func apply_settings() -> void:
+	AudioServer.set_bus_volume_db(0, linear_to_db(pending_volume / 100.0))
+	AudioServer.set_bus_mute(0, pending_mute)
+
+	match pending_display:
 		0:
-			Engine.max_fps = 30
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		1:
-			Engine.max_fps = 60
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		2:
-			Engine.max_fps = 120
-		3:
-			Engine.max_fps = 0 # ilimitado
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+
+	if pending_display == 0:
+		match pending_resolution:
+			0: DisplayServer.window_set_size(Vector2i(1920, 1080))
+			1: DisplayServer.window_set_size(Vector2i(1600, 900))
+			2: DisplayServer.window_set_size(Vector2i(1280, 720))
+
+	match pending_vsync:
+		0: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		1: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+	match pending_fps:
+		0: Engine.max_fps = 30
+		1: Engine.max_fps = 60
+		2: Engine.max_fps = 120
+		3: Engine.max_fps = 0
+
+	var canvas = get_tree().get_first_node_in_group("brightness")
+	if canvas:
+		canvas.color = Color(pending_brightness, pending_brightness, pending_brightness)
+
+# ─── GUARDAR / CARGAR ─────────────────────────────────
+
+func save_settings() -> void:
+	var config = ConfigFile.new()
+	config.set_value("audio", "volume",     pending_volume)
+	config.set_value("audio", "mute",       pending_mute)
+	config.set_value("video", "resolution", pending_resolution)
+	config.set_value("video", "display",    pending_display)
+	config.set_value("video", "vsync",      pending_vsync)
+	config.set_value("video", "fps",        pending_fps)
+	config.set_value("video", "brightness", pending_brightness)
+	config.save(SETTINGS_PATH)
+
+func load_settings() -> void:
+	var config = ConfigFile.new()
+	if config.load(SETTINGS_PATH) != OK:
+		return
+	pending_volume     = config.get_value("audio", "volume",     100.0)
+	pending_mute       = config.get_value("audio", "mute",       false)
+	pending_resolution = config.get_value("video", "resolution", 2)
+	pending_display    = config.get_value("video", "display",    0)
+	pending_vsync      = config.get_value("video", "vsync",      0)
+	pending_fps        = config.get_value("video", "fps",        1)
+	pending_brightness = config.get_value("video", "brightness", 1.0)
+
+# ─── UPDATE UI ────────────────────────────────────────
+
+func update_ui() -> void:
+	$TabContainer/Audio/audioContainer/volume/Volumen.value = pending_volume
+	$TabContainer/Audio/audioContainer/mute/CheckBox.button_pressed = pending_mute
+	$TabContainer/Video/HBoxContainer/videoContainer2/resultion/Resolution.selected = pending_resolution
+	$TabContainer/Video/HBoxContainer/videoContainer2/Display/Display.selected = pending_display
+	$TabContainer/Video/HBoxContainer/videoContainer/VSync/VSync.selected = pending_vsync
+	$TabContainer/Video/HBoxContainer/videoContainer/Fps/FPS.selected = pending_fps
+	$TabContainer/Video/HBoxContainer/videoContainer2/brillo/Brillo.value = pending_brightness * 100.0
