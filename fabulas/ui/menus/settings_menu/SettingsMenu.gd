@@ -91,11 +91,9 @@ func _on_fps_item_selected(index: int) -> void:
 		3: Engine.max_fps = 0
 
 func _on_brillo_value_changed(value: float) -> void:
-	pending_brightness = value / 100.0
-	var canvas = get_tree().get_first_node_in_group("brightness")
-	if canvas:
-		canvas.color = Color(pending_brightness, pending_brightness, pending_brightness)
-
+	pending_brightness = value
+	BrightnessManager.set_brightness(value)
+	
 # ─── APPLY — confirma y guarda en disco ───────────────
 
 func _on_apply_pressed() -> void:
@@ -152,10 +150,7 @@ func apply_settings() -> void:
 		2: Engine.max_fps = 120
 		3: Engine.max_fps = 0
 
-	var canvas = get_tree().get_first_node_in_group("brightness")
-	if canvas:
-		canvas.color = Color(pending_brightness, pending_brightness, pending_brightness)
-
+	
 # ─── GUARDAR / CARGAR ─────────────────────────────────
 
 func save_settings() -> void:
@@ -180,6 +175,7 @@ func load_settings() -> void:
 	pending_vsync      = config.get_value("video", "vsync",      0)
 	pending_fps        = config.get_value("video", "fps",        1)
 	pending_brightness = config.get_value("video", "brightness", 1.0)
+	BrightnessManager.set_brightness(pending_brightness)
 
 # ─── UPDATE UI ────────────────────────────────────────
 
@@ -190,4 +186,4 @@ func update_ui() -> void:
 	$TabContainer/Video/HBoxContainer/videoContainer2/Display/Display.selected = pending_display
 	$TabContainer/Video/HBoxContainer/videoContainer/VSync/VSync.selected = pending_vsync
 	$TabContainer/Video/HBoxContainer/videoContainer/Fps/FPS.selected = pending_fps
-	$TabContainer/Video/HBoxContainer/videoContainer2/brillo/Brillo.value = pending_brightness * 100.0
+	$TabContainer/Video/HBoxContainer/videoContainer2/brillo/Brillo.value = pending_brightness

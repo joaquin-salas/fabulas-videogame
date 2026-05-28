@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cqwjvexkmycoy"]
 
-[ext_resource type="Script" uid="uid://bxu11s0r5mxu1" path="res://levels/canvas_modulate.gd" id="1_btoec"]
 [ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/tower_1/map.tscn" id="1_lkqqh"]
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_tq1so"]
 [ext_resource type="PackedScene" uid="uid://bgx5mn44t03it" path="res://entities/enemies/aerial_enemy/aerial__enemy.tscn" id="3_rv5g2"]
@@ -12,10 +11,6 @@
 
 [node name="Level" type="Node2D" unique_id=800210757]
 process_mode = 1
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=587179138 groups=["brightness"]]
-color = Color(1, 0.99016666, 0.99, 1)
-script = ExtResource("1_btoec")
 
 [node name="Map" parent="." unique_id=1286230001 instance=ExtResource("1_lkqqh")]
 

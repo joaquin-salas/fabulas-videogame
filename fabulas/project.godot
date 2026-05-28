@@ -27,6 +27,7 @@ buses/default_bus_layout=""
 [autoload]
 
 SceneManager="*uid://mj2dipr4t0xq"
+BrightnessManager="*uid://cfflrvml5sx2h"
 
 [display]
 
