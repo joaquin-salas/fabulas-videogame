@@ -2,13 +2,12 @@ extends Control
 class_name MainMenu
 
 
-@onready var menu_music: AudioStreamPlayer = $menu_music
 @onready var settings_menu: SettingsMenu = $CanvasLayer/SettingsMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = true
-	menu_music.play()	
+	SoundManager.play_music("Menu")
 	$SettingsMenu.visible = false
 	settings_menu.closed.connect(_on_settings_closed)
 

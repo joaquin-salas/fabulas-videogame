@@ -5,7 +5,9 @@ signal closed
 
 const SETTINGS_PATH = "user://settings.cfg"
 
-var pending_volume: float = 100.0
+var pending_master: float = 100.0
+var pending_sfx: float = 100.0
+var pending_music: float = 100.0
 var pending_mute: bool = false
 var pending_resolution: int = 2
 var pending_display: int = 0
@@ -14,7 +16,9 @@ var pending_fps: int = 1
 var pending_brightness: float = 1.0
 
 # ── Respaldo para revertir si se pulsa Back sin Apply ──
-var _saved_volume: float = 100.0
+var _saved_master: float = 100.0
+var _saved_sfx: float = 100.0
+var _saved_music: float = 100.0
 var _saved_mute: bool = false
 var _saved_resolution: int = 2
 var _saved_display: int = 0
@@ -36,7 +40,9 @@ func _on_visibility_changed() -> void:
 		_snapshot_saved()
 
 func _snapshot_saved() -> void:
-	_saved_volume     = pending_volume
+	_saved_master     = pending_master
+	_saved_sfx    = pending_sfx
+	_saved_music     = pending_music
 	_saved_mute       = pending_mute
 	_saved_resolution = pending_resolution
 	_saved_display    = pending_display
@@ -45,10 +51,17 @@ func _snapshot_saved() -> void:
 	_saved_brightness = pending_brightness
 
 # ─── SEÑALES — aplican EN TIEMPO REAL ─────────────────
+func _on_master_value_changed(value: float) -> void:
+	pending_master = value
+	SoundManager.set_bus_volume("Master", linear_to_db(value / 100.0))
 
-func _on_volumen_value_changed(value: float) -> void:
-	pending_volume = value
-	AudioServer.set_bus_volume_db(0, linear_to_db(pending_volume / 100.0))
+func _on_music_value_changed(value: float) -> void:
+	pending_music = value
+	SoundManager.set_bus_volume("Music", linear_to_db(value / 100.0))
+
+func _on_sfx_value_changed(value: float) -> void:
+	pending_sfx = value
+	SoundManager.set_bus_volume("SFX", linear_to_db(value / 100.0))
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	pending_mute = toggled_on
@@ -104,7 +117,9 @@ func _on_apply_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	# Restaura los valores al estado antes de abrir el menú
-	pending_volume     = _saved_volume
+	pending_master     = _saved_master
+	pending_music     = _saved_music
+	pending_sfx    = _saved_sfx
 	pending_mute       = _saved_mute
 	pending_resolution = _saved_resolution
 	pending_display    = _saved_display
@@ -120,7 +135,9 @@ func _on_back_pressed() -> void:
 # ─── APPLY SETTINGS ───────────────────────────────────
 
 func apply_settings() -> void:
-	AudioServer.set_bus_volume_db(0, linear_to_db(pending_volume / 100.0))
+	SoundManager.set_bus_volume("Master", linear_to_db(pending_master / 100.0))
+	SoundManager.set_bus_volume("Music",  linear_to_db(pending_music  / 100.0))
+	SoundManager.set_bus_volume("SFX",    linear_to_db(pending_sfx    / 100.0))
 	AudioServer.set_bus_mute(0, pending_mute)
 
 	match pending_display:
@@ -155,7 +172,9 @@ func apply_settings() -> void:
 
 func save_settings() -> void:
 	var config = ConfigFile.new()
-	config.set_value("audio", "volume",     pending_volume)
+	config.set_value("audio", "master",     pending_master)
+	config.set_value("audio", "sfx",        pending_sfx)
+	config.set_value("audio", "music",      pending_music)
 	config.set_value("audio", "mute",       pending_mute)
 	config.set_value("video", "resolution", pending_resolution)
 	config.set_value("video", "display",    pending_display)
@@ -168,7 +187,9 @@ func load_settings() -> void:
 	var config = ConfigFile.new()
 	if config.load(SETTINGS_PATH) != OK:
 		return
-	pending_volume     = config.get_value("audio", "volume",     100.0)
+	pending_master     = config.get_value("audio", "master",     100.0)
+	pending_sfx        = config.get_value("audio", "sfx",     100.0)
+	pending_music      = config.get_value("audio", "music",     100.0)
 	pending_mute       = config.get_value("audio", "mute",       false)
 	pending_resolution = config.get_value("video", "resolution", 2)
 	pending_display    = config.get_value("video", "display",    0)
@@ -180,7 +201,9 @@ func load_settings() -> void:
 # ─── UPDATE UI ────────────────────────────────────────
 
 func update_ui() -> void:
-	$TabContainer/Audio/audioContainer/volume/Volumen.value = pending_volume
+	$TabContainer/Audio/audioContainer/Master/Master.value = pending_master
+	$TabContainer/Audio/audioContainer/Sfx/Sfx.value = pending_sfx
+	$TabContainer/Audio/audioContainer/Music/Music.value = pending_music
 	$TabContainer/Audio/audioContainer/mute/CheckBox.button_pressed = pending_mute
 	$TabContainer/Video/HBoxContainer/videoContainer2/resultion/Resolution.selected = pending_resolution
 	$TabContainer/Video/HBoxContainer/videoContainer2/Display/Display.selected = pending_display

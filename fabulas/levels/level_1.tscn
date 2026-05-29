@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="5_tq1so"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="7_3sk1a"]
-[ext_resource type="AudioStream" uid="uid://cn3xra8l6nevp" path="res://worlds/tower_1/audio/lux-aeterna-voidloop-528150.mp3" id="8_l53as"]
+[ext_resource type="Script" uid="uid://duntdc3rprern" path="res://levels/game_manager.gd" id="8_l53as"]
 
 [node name="Level" type="Node2D" unique_id=800210757]
 process_mode = 1
@@ -33,7 +33,5 @@ visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("6_btoec")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1192057960]
-stream = ExtResource("8_l53as")
-autoplay = true
-parameters/looping = true
+[node name="GameManager" type="Node" parent="." unique_id=161180458]
+script = ExtResource("8_l53as")

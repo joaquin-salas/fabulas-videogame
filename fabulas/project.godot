@@ -22,12 +22,13 @@ config/icon="uid://cjg4fdvawflqq"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://dk4objfwo5k0y"
 
 [autoload]
 
 SceneManager="*uid://mj2dipr4t0xq"
 BrightnessManager="*uid://cfflrvml5sx2h"
+SoundManager="*uid://b27b24o4dg0h8"
 
 [display]
 
@@ -35,6 +36,13 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://audio/": "red",
+"res://ui/": "teal"
+}
 
 [global_group]
 

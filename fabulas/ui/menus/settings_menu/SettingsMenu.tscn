@@ -295,25 +295,73 @@ metadata/_tab_index = 1
 layout_mode = 2
 theme = SubResource("Theme_drevy")
 
-[node name="volume" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=72474710]
+[node name="Master" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=72474710]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/volume" unique_id=944750003]
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Master" unique_id=944750003]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 
-[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/volume" unique_id=1119344104]
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/Master" unique_id=1119344104]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
 theme_override_font_sizes/font_size = 47
-text = "Volume"
+text = "Master"
 
-[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/volume" unique_id=1311487523]
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Master" unique_id=1311487523]
+layout_mode = 2
+theme_override_constants/margin_left = 76
+
+[node name="Master" type="HSlider" parent="TabContainer/Audio/audioContainer/Master" unique_id=73060131]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="Sfx" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=2074390276]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=1104617829]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=1352112217]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 47
+text = "SFX"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=52804763]
+layout_mode = 2
+theme_override_constants/margin_left = 138
+
+[node name="Sfx" type="HSlider" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=1475951996]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="Music" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=2049729670]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Music" unique_id=288427745]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/Music" unique_id=488289694]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 47
+text = "Music"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Music" unique_id=537375410]
 layout_mode = 2
 theme_override_constants/margin_left = 87
 
-[node name="Volumen" type="HSlider" parent="TabContainer/Audio/audioContainer/volume" unique_id=73060131]
+[node name="Music" type="HSlider" parent="TabContainer/Audio/audioContainer/Music" unique_id=1907887402]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -335,6 +383,7 @@ theme_override_constants/margin_left = 30
 [node name="Label2" type="Label" parent="TabContainer/Audio/audioContainer/mute" unique_id=2114898325]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_3d2gn")
 theme_override_font_sizes/font_size = 47
 text = "Mute"
 
@@ -375,7 +424,7 @@ text = "Back
 
 [node name="mar5" type="MarginContainer" parent="TabContainer/Audio/audioContainer/HBoxContainer3" unique_id=716018123]
 layout_mode = 2
-theme_override_constants/margin_right = 43
+theme_override_constants/margin_right = 16
 
 [connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer2/Display/Display" to="." method="_on_display_item_selected"]
 [connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer2/resultion/Resolution" to="." method="_on_resolution_item_selected"]
@@ -384,7 +433,9 @@ theme_override_constants/margin_right = 43
 [connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer/Fps/FPS" to="." method="_on_fps_item_selected"]
 [connection signal="pressed" from="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2/Apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2/Back" to="." method="_on_back_pressed"]
-[connection signal="value_changed" from="TabContainer/Audio/audioContainer/volume/Volumen" to="." method="_on_volumen_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/Master/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/Sfx/Sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/Music/Music" to="." method="_on_music_value_changed"]
 [connection signal="toggled" from="TabContainer/Audio/audioContainer/mute/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="TabContainer/Audio/audioContainer/HBoxContainer3/Apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="TabContainer/Audio/audioContainer/HBoxContainer3/Back" to="." method="_on_back_pressed"]

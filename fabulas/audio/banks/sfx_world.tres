@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SoundBank" format=3 uid="uid://bwbvfvcy8ld6s"]
+
+[ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_k3ggk"]
+
+[resource]
+script = ExtResource("1_k3ggk")
+metadata/_custom_type_script = "uid://bw0digwty4uu4"
