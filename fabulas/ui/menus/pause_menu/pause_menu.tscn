@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://daf7ro7281rci" path="res://ui/menus/pause_menu/pause_menu.gd" id="1_51icm"]
 [ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="1_hv7dm"]
 [ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="3_2pmna"]
-[ext_resource type="FontFile" uid="uid://ceog4ir0tvpke" path="res://assets/fonts/airstrike/airstrikehalf.otf" id="3_cid4m"]
+[ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="3_cid4m"]
 
 [node name="PauseMenu" type="Control" unique_id=248075495]
 process_mode = 2
@@ -15,19 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_51icm")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=288080205]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 558.0
-offset_top = 271.0
-offset_right = -553.0
-offset_bottom = -265.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.9155461, 0.5166857, 0.37304613, 0.5372549)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1198724314]
 layout_mode = 1
@@ -55,16 +42,19 @@ layout_mode = 2
 text = "Resume
 
 "
+flat = false
 
 [node name="Settings" parent="MarginContainer/VBoxContainer" unique_id=1956638301 instance=ExtResource("3_2pmna")]
 layout_mode = 2
 text = "Settings
 "
+flat = false
 
 [node name="Exit" parent="MarginContainer/VBoxContainer" unique_id=1543039629 instance=ExtResource("3_2pmna")]
 layout_mode = 2
 text = "Exit
 "
+flat = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="1_ioe73"]
 [ext_resource type="Script" uid="uid://b0fe6nwphbru5" path="res://ui/menus/main_menu/main_menu.gd" id="2_txwgg"]
-[ext_resource type="Texture2D" uid="uid://c3one16h06dd4" path="res://ui/menus/main_menu/art/Gemini_Generated_Image_9x32i69x32i69x32.png" id="3_0rrps"]
+[ext_resource type="Texture2D" uid="uid://dl88j0jwh67i1" path="res://ui/menus/main_menu/art/torre 2.png" id="3_igis3"]
 [ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="3_j3h1s"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="3_uni0y"]
 [ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="5_uni0y"]
@@ -19,18 +19,17 @@ theme = ExtResource("1_ioe73")
 script = ExtResource("2_txwgg")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=810349534]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -0.55999756
 offset_top = 0.28001404
-offset_right = -3.0
+offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_0rrps")
+texture = ExtResource("3_igis3")
 expand_mode = 1
 stretch_mode = 6
 

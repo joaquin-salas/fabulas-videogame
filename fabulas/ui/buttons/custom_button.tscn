@@ -16,6 +16,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_hr46b")
 text = "text
 "
+flat = true
 script = ExtResource("1_sriw3")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

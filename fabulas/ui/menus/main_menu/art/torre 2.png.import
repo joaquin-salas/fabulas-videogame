@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3one16h06dd4"
-path="res://.godot/imported/Gemini_Generated_Image_9x32i69x32i69x32.png-adb508b64f987845c92933e1c2d718a5.ctex"
+uid="uid://dl88j0jwh67i1"
+path="res://.godot/imported/torre 2.png-a3216468b0402be131904a998bb72bf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/menus/main_menu/art/Gemini_Generated_Image_9x32i69x32i69x32.png"
-dest_files=["res://.godot/imported/Gemini_Generated_Image_9x32i69x32i69x32.png-adb508b64f987845c92933e1c2d718a5.ctex"]
+source_file="res://ui/menus/main_menu/art/torre 2.png"
+dest_files=["res://.godot/imported/torre 2.png-a3216468b0402be131904a998bb72bf1.ctex"]
 
 [params]
 

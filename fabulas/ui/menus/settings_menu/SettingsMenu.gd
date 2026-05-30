@@ -32,6 +32,7 @@ func _ready() -> void:
 	load_settings()
 	apply_settings()
 	update_ui()
+	_snapshot_saved() 
 
 # ─── AL ABRIR EL MENÚ guarda el estado actual ─────────
 

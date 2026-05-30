@@ -102,11 +102,12 @@ collision_mask = 5
 script = ExtResource("1_jem31")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1241432101]
-position = Vector2(0, -46)
+position = Vector2(0, -45.45)
 scale = Vector2(0.715, 0.715)
 sprite_frames = SubResource("SpriteFrames_5m8o6")
 animation = &"walk"
 autoplay = "walk"
+frame_progress = 0.27616447
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1081064286]
 position = Vector2(0, -24.999998)

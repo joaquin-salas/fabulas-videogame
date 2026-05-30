@@ -8,23 +8,28 @@
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="7_3sk1a"]
 [ext_resource type="Script" uid="uid://duntdc3rprern" path="res://levels/game_manager.gd" id="8_l53as"]
+[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="9_3sk1a"]
 
 [node name="Level" type="Node2D" unique_id=800210757]
 process_mode = 1
 
+[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("9_3sk1a")]
+position = Vector2(640, 575)
+follow_node = NodePath("../Player")
+
 [node name="Map" parent="." unique_id=1286230001 instance=ExtResource("1_lkqqh")]
 
 [node name="aerial _enemy" parent="." unique_id=610127007 instance=ExtResource("3_rv5g2")]
-position = Vector2(204, 193)
+position = Vector2(29, 196)
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_tq1so")]
-position = Vector2(611, 288)
+position = Vector2(640, 575)
 
 [node name="ground_enemy" parent="." unique_id=1836502299 instance=ExtResource("4_lhx7y")]
-position = Vector2(669, 641)
+position = Vector2(912, 613)
 
 [node name="ground_enemy2" parent="." unique_id=57256032 instance=ExtResource("5_tq1so")]
-position = Vector2(1088, 436)
+position = Vector2(1007, 423)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264739996]
 

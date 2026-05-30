@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cirywfgdcw0il" path="res://ui/menus/settings_menu/SettingsMenu.gd" id="1_3d2gn"]
 [ext_resource type="FontFile" uid="uid://8uajmgpvwlve" path="res://assets/fonts/alte_haas_grotesk/AlteHaasGroteskBold.ttf" id="2_3d2gn"]
 [ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_rj87i"]
+[ext_resource type="Texture2D" uid="uid://dl88j0jwh67i1" path="res://ui/menus/main_menu/art/torre 2.png" id="2_yrmop"]
 
 [sub_resource type="Theme" id="Theme_drevy"]
 VBoxContainer/constants/separation = 12
@@ -24,16 +25,20 @@ script = ExtResource("1_3d2gn")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=124316895]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -137.0
-offset_top = -57.0
-offset_right = 168.0
-offset_bottom = 93.0
+anchors_preset = -1
+anchor_left = -0.13900001
+anchor_top = -0.096
+anchor_right = 1.174
+anchor_bottom = 1.161
+offset_left = -0.19699097
+offset_top = -1.0880013
+offset_right = -2.9980469
+offset_bottom = -0.09197998
 grow_horizontal = 2
 grow_vertical = 2
-flip_v = true
+texture = ExtResource("2_yrmop")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=1028540888]
 layout_mode = 1
@@ -44,10 +49,11 @@ offset_top = 5.0
 offset_right = -0.12609863
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 tabs_rearrange_group = 3
 
 [node name="Video" type="MarginContainer" parent="TabContainer" unique_id=1763454638]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 34
@@ -283,7 +289,6 @@ layout_mode = 2
 theme_override_constants/margin_right = 43
 
 [node name="Audio" type="MarginContainer" parent="TabContainer" unique_id=228610008]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 62
@@ -306,7 +311,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 40
 text = "Master"
 
 [node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Master" unique_id=1311487523]
@@ -330,7 +335,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 40
 text = "SFX"
 
 [node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=52804763]
@@ -354,7 +359,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 40
 text = "Music"
 
 [node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Music" unique_id=537375410]
@@ -384,7 +389,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 40
 text = "Mute"
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio/audioContainer/mute" unique_id=2136745186]
