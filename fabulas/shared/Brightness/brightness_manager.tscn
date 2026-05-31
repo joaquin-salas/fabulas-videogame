@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cfflrvml5sx2h"]
+
+[ext_resource type="Script" uid="uid://ypcyo51od5cb" path="res://canvas_layer.gd" id="1_n2dnv"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=992257202]
+layer = 4
+script = ExtResource("1_n2dnv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1566930064]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

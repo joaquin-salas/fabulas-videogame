@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b8p2ff1ifmr5o"]
+
+[ext_resource type="Script" uid="uid://daf7ro7281rci" path="res://ui/menus/pause_menu/pause_menu.gd" id="1_51icm"]
+[ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="1_hv7dm"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="3_2pmna"]
+[ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="3_cid4m"]
+
+[node name="PauseMenu" type="Control" unique_id=248075495]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51icm")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1198724314]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hv7dm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1551091453]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2063563408]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_cid4m")
+theme_override_font_sizes/font_size = 39
+text = "Pause"
+
+[node name="Resume" parent="MarginContainer/VBoxContainer" unique_id=307769692 instance=ExtResource("3_2pmna")]
+layout_mode = 2
+text = "Resume
+
+"
+flat = false
+
+[node name="Settings" parent="MarginContainer/VBoxContainer" unique_id=1956638301 instance=ExtResource("3_2pmna")]
+layout_mode = 2
+text = "Settings
+"
+flat = false
+
+[node name="Exit" parent="MarginContainer/VBoxContainer" unique_id=1543039629 instance=ExtResource("3_2pmna")]
+layout_mode = 2
+text = "Exit
+"
+flat = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

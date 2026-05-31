@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SoundBank" format=3 uid="uid://c3es6ja14ga6v"]
+
+[ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_qfv4i"]
+[ext_resource type="AudioStream" uid="uid://d0usg5gq7ne37" path="res://audio/assets/musica/Cancion1.mp3" id="2_8j1kt"]
+[ext_resource type="AudioStream" uid="uid://blh7li8esqew0" path="res://audio/assets/musica/Cancion2.mp3" id="3_doijy"]
+[ext_resource type="AudioStream" uid="uid://cejopb7uvbl6r" path="res://audio/assets/musica/Menu1.mp3" id="4_doijy"]
+
+[resource]
+script = ExtResource("1_qfv4i")
+sounds = {
+"Menu": [ExtResource("4_doijy")],
+"Musica1": [ExtResource("2_8j1kt")],
+"Musica2": [ExtResource("3_doijy")]
+}
+metadata/_custom_type_script = "uid://bw0digwty4uu4"

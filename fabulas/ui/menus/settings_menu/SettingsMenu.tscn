@@ -1,0 +1,454 @@
+[gd_scene format=3 uid="uid://ckfknnfgb6qw6"]
+
+[ext_resource type="Script" uid="uid://cirywfgdcw0il" path="res://ui/menus/settings_menu/SettingsMenu.gd" id="1_3d2gn"]
+[ext_resource type="FontFile" uid="uid://8uajmgpvwlve" path="res://assets/fonts/alte_haas_grotesk/AlteHaasGroteskBold.ttf" id="2_3d2gn"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_rj87i"]
+[ext_resource type="Texture2D" uid="uid://dl88j0jwh67i1" path="res://ui/menus/main_menu/art/torre 2.png" id="2_yrmop"]
+
+[sub_resource type="Theme" id="Theme_drevy"]
+VBoxContainer/constants/separation = 12
+
+[node name="SettingsMenu" type="Control" unique_id=992204846]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 56.0
+offset_right = -167.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_3d2gn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=124316895]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.13900001
+anchor_top = -0.096
+anchor_right = 1.174
+anchor_bottom = 1.161
+offset_left = -0.19699097
+offset_top = -1.0880013
+offset_right = -2.9980469
+offset_bottom = -0.09197998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yrmop")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1028540888]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0380001
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_right = -0.12609863
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+tabs_rearrange_group = 3
+
+[node name="Video" type="MarginContainer" parent="TabContainer" unique_id=1763454638]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Video" unique_id=1023920161]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer" unique_id=29027887]
+layout_mode = 2
+theme_override_constants/margin_right = 14
+
+[node name="videoContainer2" type="VBoxContainer" parent="TabContainer/Video/HBoxContainer" unique_id=1772010832]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_drevy")
+
+[node name="mar4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=1920072276]
+layout_mode = 2
+theme_override_constants/margin_top = 29
+
+[node name="Display" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=637185292]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1748087624]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1806686660]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "Display"
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1962965260]
+layout_mode = 2
+theme_override_constants/margin_left = 71
+
+[node name="Display" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer2/Display" unique_id=1406435877]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+flat = true
+selected = 0
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 2
+popup/item_2/text = "Borderless"
+popup/item_2/id = 1
+
+[node name="mar1" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=2027916154]
+layout_mode = 2
+theme_override_constants/margin_top = 29
+
+[node name="resultion" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=1054635220]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=1876865930]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=1870151813]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "Resolution"
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=679138682]
+layout_mode = 2
+theme_override_constants/margin_left = 23
+
+[node name="Resolution" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer2/resultion" unique_id=1555224588]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+flat = true
+selected = 2
+item_count = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+
+[node name="mar2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=837019208]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="brillo" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=1271473419]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=874301671]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=671385648]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 29
+text = "Brillo"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=619794012]
+layout_mode = 2
+theme_override_constants/margin_left = 53
+
+[node name="Brillo" type="HSlider" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=679577510]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 1.5
+step = 0.01
+value = 1.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2/brillo" unique_id=479947278]
+layout_mode = 2
+theme_override_constants/margin_left = -5
+
+[node name="mar3" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=228445294]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Video/HBoxContainer" unique_id=54125217]
+layout_mode = 2
+theme_override_constants/margin_right = 96
+
+[node name="videoContainer" type="VBoxContainer" parent="TabContainer/Video/HBoxContainer" unique_id=1172042211]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_drevy")
+
+[node name="mar4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=348105198]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="VSync" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=1309225961]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=1436824085]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=659376122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "VSync"
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=1437411834]
+layout_mode = 2
+theme_override_constants/margin_left = 71
+
+[node name="VSync" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer/VSync" unique_id=373169129]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+flat = true
+selected = 1
+item_count = 2
+popup/item_0/text = "Enabled"
+popup/item_0/id = 1
+popup/item_1/text = "Disabled"
+popup/item_1/id = 1
+
+[node name="mar1" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=378049827]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="Fps" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=41915776]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=1990370370]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label3" type="Label" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=1309148578]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "FPS"
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=1767392752]
+layout_mode = 2
+theme_override_constants/margin_left = 101
+
+[node name="FPS" type="OptionButton" parent="TabContainer/Video/HBoxContainer/videoContainer/Fps" unique_id=808863182]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+flat = true
+selected = 2
+item_count = 4
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "120"
+popup/item_2/id = 2
+popup/item_3/text = "ilimitado"
+popup/item_3/id = 3
+
+[node name="mar2" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=579800695]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="mar3" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=1131152391]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=666015905]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="Apply" parent="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2" unique_id=307769692 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Apply
+"
+
+[node name="mar4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2" unique_id=2118173489]
+layout_mode = 2
+theme_override_constants/margin_right = 43
+
+[node name="Back" parent="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2" unique_id=2048853395 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 45
+text = "Back
+"
+
+[node name="mar5" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2" unique_id=1725620900]
+layout_mode = 2
+theme_override_constants/margin_right = 43
+
+[node name="Audio" type="MarginContainer" parent="TabContainer" unique_id=228610008]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 62
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+metadata/_tab_index = 1
+
+[node name="audioContainer" type="VBoxContainer" parent="TabContainer/Audio" unique_id=1025643462]
+layout_mode = 2
+theme = SubResource("Theme_drevy")
+
+[node name="Master" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=72474710]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Master" unique_id=944750003]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/Master" unique_id=1119344104]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 35
+text = "Master"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Master" unique_id=1311487523]
+layout_mode = 2
+theme_override_constants/margin_left = 76
+
+[node name="Master" type="HSlider" parent="TabContainer/Audio/audioContainer/Master" unique_id=73060131]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="Sfx" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=2074390276]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=1104617829]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=1352112217]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 35
+text = "SFX"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=52804763]
+layout_mode = 2
+theme_override_constants/margin_left = 138
+
+[node name="Sfx" type="HSlider" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=1475951996]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="Music" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=2049729670]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Music" unique_id=288427745]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/Music" unique_id=488289694]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 35
+text = "Music"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Music" unique_id=537375410]
+layout_mode = 2
+theme_override_constants/margin_left = 87
+
+[node name="Music" type="HSlider" parent="TabContainer/Audio/audioContainer/Music" unique_id=1907887402]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="mar1" type="MarginContainer" parent="TabContainer/Audio/audioContainer" unique_id=2105062700]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="mute" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=329126449]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="TabContainer/Audio/audioContainer/mute" unique_id=878438832]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label2" type="Label" parent="TabContainer/Audio/audioContainer/mute" unique_id=2114898325]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 35
+text = "Mute"
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio/audioContainer/mute" unique_id=2136745186]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Audio/audioContainer/mute" unique_id=1165296704]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="mar2" type="MarginContainer" parent="TabContainer/Audio/audioContainer" unique_id=301598279]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=1439014422]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="Apply" parent="TabContainer/Audio/audioContainer/HBoxContainer3" unique_id=426774073 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Apply
+"
+
+[node name="mar4" type="MarginContainer" parent="TabContainer/Audio/audioContainer/HBoxContainer3" unique_id=1341719236]
+layout_mode = 2
+theme_override_constants/margin_right = 43
+
+[node name="Back" parent="TabContainer/Audio/audioContainer/HBoxContainer3" unique_id=1736450429 instance=ExtResource("2_rj87i")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 45
+text = "Back
+"
+
+[node name="mar5" type="MarginContainer" parent="TabContainer/Audio/audioContainer/HBoxContainer3" unique_id=716018123]
+layout_mode = 2
+theme_override_constants/margin_right = 16
+
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer2/Display/Display" to="." method="_on_display_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer2/resultion/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="value_changed" from="TabContainer/Video/HBoxContainer/videoContainer2/brillo/Brillo" to="." method="_on_brillo_value_changed"]
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer/VSync/VSync" to="." method="_on_v_sync_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/videoContainer/Fps/FPS" to="." method="_on_fps_item_selected"]
+[connection signal="pressed" from="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2/Apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="TabContainer/Video/HBoxContainer/videoContainer/HBoxContainer2/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/Master/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/Sfx/Sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/Music/Music" to="." method="_on_music_value_changed"]
+[connection signal="toggled" from="TabContainer/Audio/audioContainer/mute/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="TabContainer/Audio/audioContainer/HBoxContainer3/Apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="TabContainer/Audio/audioContainer/HBoxContainer3/Back" to="." method="_on_back_pressed"]

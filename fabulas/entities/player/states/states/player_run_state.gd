@@ -1,16 +1,23 @@
 extends PlayerStateBase
 
-## Idle State del nodo Player
+var _step_timer: float = 0.0
+var _step_interval: float = 0.3
 
 func start() -> void:
 	player.play_animation(player.animations.Run)
-	
-	if not player.jump_buffer_timer.is_stopped():
-		state_machine.change_state(player.states.Jumping)
+	_step_timer = 0.0
+
+func end() -> void:
+	_step_timer = 0.0
 
 func on_physics_process(delta: float) -> void:
 	player.handle_animation(direction)
 	player.velocity.x = direction * player.player_movement_stats.speed_floor
+	
+	_step_timer -= delta
+	if _step_timer <= 0.0:
+		SoundManager.play_sfx("Walk")
+		_step_timer = _step_interval
 	
 	if not player.is_on_floor():
 		player.coyote_timer.start()

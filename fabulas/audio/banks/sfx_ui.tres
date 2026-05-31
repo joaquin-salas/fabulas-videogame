@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundBank" format=3 uid="uid://c5sjnaimsvpl7"]
+
+[ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_o88ta"]
+[ext_resource type="AudioStream" uid="uid://2f0yngj5od3n" path="res://audio/assets/ui/ClickButton.mp3" id="2_ee2bb"]
+[ext_resource type="AudioStream" uid="uid://dccxuohxtjl35" path="res://audio/assets/ui/EnterButton.mp3" id="3_6rsfv"]
+
+[resource]
+script = ExtResource("1_o88ta")
+sounds = {
+"ClickButton": [ExtResource("2_ee2bb")],
+"EnterButton": [ExtResource("3_6rsfv")]
+}
+metadata/_custom_type_script = "uid://bw0digwty4uu4"

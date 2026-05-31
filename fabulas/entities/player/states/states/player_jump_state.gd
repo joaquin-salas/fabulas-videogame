@@ -4,6 +4,7 @@ var has_cut_jump: bool = false
 
 func start() -> void:
 	player.play_animation(player.animations.Jump)
+	SoundManager.play_sfx("Jump")
 	
 	has_cut_jump = false
 	

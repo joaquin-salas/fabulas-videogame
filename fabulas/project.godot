@@ -8,22 +8,41 @@
 
 config_version=5
 
+[accessibility]
+
+general/updates_per_second=100
+
 [application]
 
 config/name="Fabulas"
 config/description="Videojuego sobre un pájaro que tiene que escalar una torre saltando para llegar a unas alas y poder volar."
-run/main_scene="uid://cqwjvexkmycoy"
+run/main_scene="uid://dkrk4ejombwic"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://cjg4fdvawflqq"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://dk4objfwo5k0y"
+
+[autoload]
+
+SceneManager="*uid://mj2dipr4t0xq"
+BrightnessManager="*uid://cfflrvml5sx2h"
+SoundManager="*uid://b27b24o4dg0h8"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://audio/": "red",
+"res://ui/": "teal"
+}
 
 [global_group]
 
@@ -31,6 +50,7 @@ Route_A=""
 Route_B=""
 Route_C=""
 player=""
+brightness=""
 
 [input]
 
@@ -49,6 +69,12 @@ move_left={
 jump={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+Pause={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 

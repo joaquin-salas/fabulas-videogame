@@ -221,9 +221,8 @@ player_movement_stats = ExtResource("2_v3hes")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
-animation = &"run"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.4523529
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012705362]
 position = Vector2(1, 9)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b27b24o4dg0h8"]
+
+[ext_resource type="Script" uid="uid://c4kkjol4vh5cx" path="res://audio/sound_manager.gd" id="1_ev0r5"]
+[ext_resource type="Resource" uid="uid://khe0wk5nfoca" path="res://audio/banks/sfx_player.tres" id="2_gldpn"]
+[ext_resource type="Resource" uid="uid://d1x4pxfeciv5l" path="res://audio/banks/sfx_enemies.tres" id="3_mtwir"]
+[ext_resource type="Resource" uid="uid://bwbvfvcy8ld6s" path="res://audio/banks/sfx_world.tres" id="4_gocuh"]
+[ext_resource type="Resource" uid="uid://c5sjnaimsvpl7" path="res://audio/banks/sfx_ui.tres" id="5_cwn3i"]
+[ext_resource type="Resource" uid="uid://c3es6ja14ga6v" path="res://audio/banks/music.tres" id="6_se6ak"]
+
+[node name="sound_manager" type="Node" unique_id=576502424]
+script = ExtResource("1_ev0r5")
+bank_player = ExtResource("2_gldpn")
+bank_enemies = ExtResource("3_mtwir")
+bank_world = ExtResource("4_gocuh")
+bank_ui = ExtResource("5_cwn3i")
+bank_music = ExtResource("6_se6ak")
