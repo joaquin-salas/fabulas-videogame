@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ypcyo51od5cb" path="res://canvas_layer.gd" id="1_n2dnv"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=992257202]
+layer = 4
 script = ExtResource("1_n2dnv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1566930064]

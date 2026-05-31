@@ -15,7 +15,7 @@ var pending_vsync: int = 0
 var pending_fps: int = 1
 var pending_brightness: float = 1.0
 
-# ── Respaldo para revertir si se pulsa Back sin Apply ──
+# Respaldo para revertir si se pulsa Back sin Apply 
 var _saved_master: float = 100.0
 var _saved_sfx: float = 100.0
 var _saved_music: float = 100.0
@@ -26,24 +26,24 @@ var _saved_vsync: int = 0
 var _saved_fps: int = 1
 var _saved_brightness: float = 1.0
 
-# ─── READY ────────────────────────────────────────────
+# READY
 
 func _ready() -> void:
 	load_settings()
 	apply_settings()
 	update_ui()
-	_snapshot_saved() 
+	_snapshot_saved()
 
-# ─── AL ABRIR EL MENÚ guarda el estado actual ─────────
+#  AL ABRIR EL MENÚ guarda el estado actual 
 
 func _on_visibility_changed() -> void:
-	if visible:
+	if visible and is_inside_tree():
 		_snapshot_saved()
 
 func _snapshot_saved() -> void:
 	_saved_master     = pending_master
-	_saved_sfx    = pending_sfx
-	_saved_music     = pending_music
+	_saved_sfx        = pending_sfx
+	_saved_music      = pending_music
 	_saved_mute       = pending_mute
 	_saved_resolution = pending_resolution
 	_saved_display    = pending_display
@@ -51,30 +51,37 @@ func _snapshot_saved() -> void:
 	_saved_fps        = pending_fps
 	_saved_brightness = pending_brightness
 
-# ─── SEÑALES — aplican EN TIEMPO REAL ─────────────────
+#  SEÑALES  aplican EN TIEMPO REAL 
+
+func _safe_volume(value: float) -> float:
+	return linear_to_db(max(value, 0.0001) / 100.0)
+
 func _on_master_value_changed(value: float) -> void:
 	pending_master = value
-	SoundManager.set_bus_volume("Master", linear_to_db(value / 100.0))
+	SoundManager.set_bus_volume("Master", _safe_volume(value))
 
 func _on_music_value_changed(value: float) -> void:
 	pending_music = value
-	SoundManager.set_bus_volume("Music", linear_to_db(value / 100.0))
+	SoundManager.set_bus_volume("Music", _safe_volume(value))
 
 func _on_sfx_value_changed(value: float) -> void:
 	pending_sfx = value
-	SoundManager.set_bus_volume("SFX", linear_to_db(value / 100.0))
+	SoundManager.set_bus_volume("SFX", _safe_volume(value))
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	pending_mute = toggled_on
 	AudioServer.set_bus_mute(0, pending_mute)
 
+func _apply_windowed_resolution() -> void:
+	match pending_resolution:
+		0: DisplayServer.window_set_size(Vector2i(1920, 1080))
+		1: DisplayServer.window_set_size(Vector2i(1600, 900))
+		2: DisplayServer.window_set_size(Vector2i(1280, 720))
+
 func _on_resolution_item_selected(index: int) -> void:
 	pending_resolution = index
 	if pending_display == 0:
-		match pending_resolution:
-			0: DisplayServer.window_set_size(Vector2i(1920, 1080))
-			1: DisplayServer.window_set_size(Vector2i(1600, 900))
-			2: DisplayServer.window_set_size(Vector2i(1280, 720))
+		_apply_windowed_resolution()
 
 func _on_display_item_selected(index: int) -> void:
 	pending_display = index
@@ -82,7 +89,7 @@ func _on_display_item_selected(index: int) -> void:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-			DisplayServer.window_set_size(Vector2i(1280, 720))
+			_apply_windowed_resolution()  # usa pending_resolution, no hardcodea
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
@@ -107,20 +114,19 @@ func _on_fps_item_selected(index: int) -> void:
 func _on_brillo_value_changed(value: float) -> void:
 	pending_brightness = value
 	BrightnessManager.set_brightness(value)
-	
-# ─── APPLY — confirma y guarda en disco ───────────────
+
+# APPLY — confirma y guarda en disco
 
 func _on_apply_pressed() -> void:
 	save_settings()
-	_snapshot_saved()  # ahora este estado es el "oficial"
+	_snapshot_saved()
 
-# ─── BACK — revierte si no se aplicó ─────────────────
+# BACK — revierte si no se aplicó 
 
 func _on_back_pressed() -> void:
-	# Restaura los valores al estado antes de abrir el menú
 	pending_master     = _saved_master
-	pending_music     = _saved_music
-	pending_sfx    = _saved_sfx
+	pending_music      = _saved_music
+	pending_sfx        = _saved_sfx
 	pending_mute       = _saved_mute
 	pending_resolution = _saved_resolution
 	pending_display    = _saved_display
@@ -128,35 +134,30 @@ func _on_back_pressed() -> void:
 	pending_fps        = _saved_fps
 	pending_brightness = _saved_brightness
 
-	apply_settings()  # revierte el juego visualmente
-	update_ui()       # revierte la UI
+	apply_settings()
+	update_ui()
 	closed.emit()
 	self.visible = false
-
-# ─── APPLY SETTINGS ───────────────────────────────────
+	
+# APPLY SETTINGS 
 
 func apply_settings() -> void:
-	SoundManager.set_bus_volume("Master", linear_to_db(pending_master / 100.0))
-	SoundManager.set_bus_volume("Music",  linear_to_db(pending_music  / 100.0))
-	SoundManager.set_bus_volume("SFX",    linear_to_db(pending_sfx    / 100.0))
+	SoundManager.set_bus_volume("Master", _safe_volume(pending_master))
+	SoundManager.set_bus_volume("Music",  _safe_volume(pending_music))
+	SoundManager.set_bus_volume("SFX",    _safe_volume(pending_sfx))
 	AudioServer.set_bus_mute(0, pending_mute)
 
 	match pending_display:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			_apply_windowed_resolution()  # corregido: respeta pending_resolution
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-
-	if pending_display == 0:
-		match pending_resolution:
-			0: DisplayServer.window_set_size(Vector2i(1920, 1080))
-			1: DisplayServer.window_set_size(Vector2i(1600, 900))
-			2: DisplayServer.window_set_size(Vector2i(1280, 720))
 
 	match pending_vsync:
 		0: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
@@ -168,8 +169,9 @@ func apply_settings() -> void:
 		2: Engine.max_fps = 120
 		3: Engine.max_fps = 0
 
-	
-# ─── GUARDAR / CARGAR ─────────────────────────────────
+	BrightnessManager.set_brightness(pending_brightness) 
+
+# GUARDAR / CARGAR
 
 func save_settings() -> void:
 	var config = ConfigFile.new()
@@ -189,17 +191,17 @@ func load_settings() -> void:
 	if config.load(SETTINGS_PATH) != OK:
 		return
 	pending_master     = config.get_value("audio", "master",     100.0)
-	pending_sfx        = config.get_value("audio", "sfx",     100.0)
-	pending_music      = config.get_value("audio", "music",     100.0)
+	pending_sfx        = config.get_value("audio", "sfx",        100.0)
+	pending_music      = config.get_value("audio", "music",      100.0)
 	pending_mute       = config.get_value("audio", "mute",       false)
 	pending_resolution = config.get_value("video", "resolution", 2)
 	pending_display    = config.get_value("video", "display",    0)
 	pending_vsync      = config.get_value("video", "vsync",      0)
 	pending_fps        = config.get_value("video", "fps",        1)
 	pending_brightness = config.get_value("video", "brightness", 1.0)
-	BrightnessManager.set_brightness(pending_brightness)
 
-# ─── UPDATE UI ────────────────────────────────────────
+
+# UPDATE UI 
 
 func update_ui() -> void:
 	$TabContainer/Audio/audioContainer/Master/Master.value = pending_master

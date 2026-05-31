@@ -73,6 +73,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme = SubResource("Theme_drevy")
 
+[node name="mar4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=1920072276]
+layout_mode = 2
+theme_override_constants/margin_top = 29
+
 [node name="Display" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer2" unique_id=637185292]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -186,6 +190,10 @@ theme_override_constants/margin_right = 96
 layout_mode = 2
 size_flags_horizontal = 8
 theme = SubResource("Theme_drevy")
+
+[node name="mar4" type="MarginContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=348105198]
+layout_mode = 2
+theme_override_constants/margin_top = 33
 
 [node name="VSync" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer/videoContainer" unique_id=1309225961]
 layout_mode = 2
@@ -311,7 +319,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Master"
 
 [node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Master" unique_id=1311487523]
@@ -335,7 +343,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "SFX"
 
 [node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Sfx" unique_id=52804763]
@@ -359,7 +367,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Music"
 
 [node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Music" unique_id=537375410]
@@ -389,7 +397,7 @@ theme_override_constants/margin_left = 30
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_3d2gn")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Mute"
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio/audioContainer/mute" unique_id=2136745186]
