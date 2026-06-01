@@ -49,11 +49,10 @@ offset_top = 5.0
 offset_right = -0.12609863
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 0
 tabs_rearrange_group = 3
 
 [node name="Video" type="MarginContainer" parent="TabContainer" unique_id=1763454638]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 34
@@ -297,6 +296,7 @@ layout_mode = 2
 theme_override_constants/margin_right = 43
 
 [node name="Audio" type="MarginContainer" parent="TabContainer" unique_id=228610008]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 62
