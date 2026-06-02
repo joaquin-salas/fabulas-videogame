@@ -17,9 +17,13 @@ func _ready() -> void:
 
 func _load_slide(index: int) -> void:
 	var slide = slides[index]
+
 	texture_rect.texture = slide["image"]
 	label.text = slide["text"]
-	_play_voice(slide["voice"])
+
+	anim.play("slide_transition") 
+
+	SoundManager.play_voice(slide["voice"])
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "slide_transition":

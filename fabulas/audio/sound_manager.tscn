@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bwbvfvcy8ld6s" path="res://audio/banks/sfx_world.tres" id="4_gocuh"]
 [ext_resource type="Resource" uid="uid://c5sjnaimsvpl7" path="res://audio/banks/sfx_ui.tres" id="5_cwn3i"]
 [ext_resource type="Resource" uid="uid://c3es6ja14ga6v" path="res://audio/banks/music.tres" id="6_se6ak"]
+[ext_resource type="Resource" uid="uid://c20g3wya2fjf6" path="res://audio/banks/voces_intro.tres" id="7_gldpn"]
 
 [node name="sound_manager" type="Node" unique_id=576502424]
 script = ExtResource("1_ev0r5")
@@ -14,3 +15,4 @@ bank_enemies = ExtResource("3_mtwir")
 bank_world = ExtResource("4_gocuh")
 bank_ui = ExtResource("5_cwn3i")
 bank_music = ExtResource("6_se6ak")
+bank_voces_intro = ExtResource("7_gldpn")
