@@ -7,6 +7,8 @@ extends Node
 @export var bank_world: SoundBank
 @export var bank_ui: SoundBank
 @export var bank_music: SoundBank
+@export var bank_voces_intro: SoundBank
+
 
 # ── Pool de SFX (8 players reutilizables) ─────────────────
 const POOL_SIZE = 8
@@ -16,6 +18,8 @@ var _sfx_pool: Array[AudioStreamPlayer] = []
 var _music_player: AudioStreamPlayer
 var _music_player_b: AudioStreamPlayer  # para crossfade
 
+var _voice_player: AudioStreamPlayer
+
 # ── Todos los bancos juntos para buscar por nombre ─────────
 var _all_banks: Array[SoundBank] = []
 
@@ -24,7 +28,11 @@ var _all_banks: Array[SoundBank] = []
 func _ready() -> void:
 	_setup_sfx_pool()
 	_setup_music_players()
-	_all_banks = [bank_player, bank_enemies, bank_world, bank_ui]
+	_voice_player = AudioStreamPlayer.new()
+	_voice_player.bus = "Voices"
+	add_child(_voice_player)
+	
+	_all_banks = [bank_player, bank_enemies, bank_world, bank_ui , bank_voces_intro]
 
 func _setup_sfx_pool() -> void:
 	for i in POOL_SIZE:
@@ -75,6 +83,15 @@ func play_ui(sound_name: String) -> void:
 	await player.finished
 	player.bus = "SFX"
 
+func play_voice(sound_name: String) -> void:
+	var stream = _find_stream_in_bank(bank_voces_intro, sound_name)
+	if stream == null:
+		push_warning("SoundManager: voz '%s' no encontrada" % sound_name)
+		return
+
+	_voice_player.stream = stream
+	_voice_player.volume_db = 0.0
+	_voice_player.play()
 # ── Reproducir música ─────────────────────────────────────
 
 func play_music(song_name: String, fade_time: float = 1.0) -> void:

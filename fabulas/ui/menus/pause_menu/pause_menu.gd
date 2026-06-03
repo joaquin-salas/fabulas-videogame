@@ -13,11 +13,9 @@ func _on_resume_pressed() -> void:
 func _on_settings_pressed() -> void:
 	settings_menu.visible = true
 	self.visible = false
-	
-	
 
 func _on_settings_closed():
 	self.visible = true
 
 func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_file("res://ui/menus/main_menu/main_menu.tscn")
+	SceneManager.goto(SceneManager.SceneID.MAIN_MENU)

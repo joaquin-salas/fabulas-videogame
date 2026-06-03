@@ -24,6 +24,7 @@ size_flags_horizontal = 4
 script = ExtResource("1_3d2gn")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=124316895]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.13900001
@@ -49,11 +50,10 @@ offset_top = 5.0
 offset_right = -0.12609863
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 0
 tabs_rearrange_group = 3
 
 [node name="Video" type="MarginContainer" parent="TabContainer" unique_id=1763454638]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 34
@@ -297,6 +297,7 @@ layout_mode = 2
 theme_override_constants/margin_right = 43
 
 [node name="Audio" type="MarginContainer" parent="TabContainer" unique_id=228610008]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 62
@@ -380,6 +381,30 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 50.0
 
+[node name="Voices" type="HBoxContainer" parent="TabContainer/Audio/audioContainer" unique_id=449481069]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Voices" unique_id=1648785544]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="TabContainer/Audio/audioContainer/Voices" unique_id=157049350]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3d2gn")
+theme_override_font_sizes/font_size = 35
+text = "Voces"
+
+[node name="MarginContainer6" type="MarginContainer" parent="TabContainer/Audio/audioContainer/Voices" unique_id=2103975446]
+layout_mode = 2
+theme_override_constants/margin_left = 87
+
+[node name="Voices" type="HSlider" parent="TabContainer/Audio/audioContainer/Voices" unique_id=1646205000]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
 [node name="mar1" type="MarginContainer" parent="TabContainer/Audio/audioContainer" unique_id=2105062700]
 layout_mode = 2
 theme_override_constants/margin_top = 33
@@ -449,6 +474,7 @@ theme_override_constants/margin_right = 16
 [connection signal="value_changed" from="TabContainer/Audio/audioContainer/Master/Master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="TabContainer/Audio/audioContainer/Sfx/Sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="TabContainer/Audio/audioContainer/Music/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/audioContainer/Voices/Voices" to="." method="_on_voices_value_changed"]
 [connection signal="toggled" from="TabContainer/Audio/audioContainer/mute/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="TabContainer/Audio/audioContainer/HBoxContainer3/Apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="TabContainer/Audio/audioContainer/HBoxContainer3/Back" to="." method="_on_back_pressed"]
