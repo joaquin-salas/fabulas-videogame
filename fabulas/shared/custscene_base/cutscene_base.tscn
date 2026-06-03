@@ -8,7 +8,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/path = NodePath("CanvasLayer1/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/path = NodePath("CanvasLayer1/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,41 +36,58 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fhw0e"]
 resource_name = "slide_transition"
-length = 10.066667
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/path = NodePath("CanvasLayer1/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_txtuu"]
+resource_name = "slide_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer1/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 9.1, 10.033334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jas18"]
 _data = {
 &"RESET": SubResource("Animation_kwdgy"),
 &"fade_out": SubResource("Animation_x8w0r"),
-&"slide_transition": SubResource("Animation_fhw0e")
+&"slide_in": SubResource("Animation_fhw0e"),
+&"slide_out": SubResource("Animation_txtuu")
 }
 
 [node name="CutscenaPlayer" type="Node" unique_id=441368195]
 script = ExtResource("1_txtuu")
 next_scene = "res://worlds/scenes/level_1/level_1.tscn"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=534616146]
+[node name="CanvasLayer1" type="CanvasLayer" parent="." unique_id=534616146]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1248984289]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer1" unique_id=1248984289]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=236611450]
+[node name="Panel" type="Panel" parent="CanvasLayer1" unique_id=236611450]
+visible = false
 anchors_preset = -1
 anchor_left = 0.21400002
 anchor_top = 0.83900005
@@ -84,7 +101,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1745193724]
+[node name="Label" type="Label" parent="CanvasLayer1/Panel" unique_id=1745193724]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +111,7 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Saltar" parent="CanvasLayer" unique_id=307769692 instance=ExtResource("2_e8rmm")]
+[node name="Saltar" parent="CanvasLayer1" unique_id=307769692 instance=ExtResource("2_e8rmm")]
 z_index = 3
 anchors_preset = -1
 anchor_left = 0.89800006
@@ -111,7 +128,7 @@ theme_override_font_sizes/font_size = 29
 text = "Saltar
 "
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2039679322]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer1" unique_id=2039679322]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -123,4 +140,6 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440496583]
 libraries/ = SubResource("AnimationLibrary_jas18")
 
-[connection signal="pressed" from="CanvasLayer/Saltar" to="." method="_on_saltar_pressed"]
+[node name="Timer" type="Timer" parent="." unique_id=1862711226]
+
+[connection signal="pressed" from="CanvasLayer1/Saltar" to="." method="_on_saltar_pressed"]

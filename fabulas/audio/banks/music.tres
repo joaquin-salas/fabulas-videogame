@@ -4,10 +4,12 @@
 [ext_resource type="AudioStream" uid="uid://d0usg5gq7ne37" path="res://audio/assets/musica/Cancion1.mp3" id="2_8j1kt"]
 [ext_resource type="AudioStream" uid="uid://blh7li8esqew0" path="res://audio/assets/musica/Cancion2.mp3" id="3_doijy"]
 [ext_resource type="AudioStream" uid="uid://cejopb7uvbl6r" path="res://audio/assets/musica/Menu1.mp3" id="4_doijy"]
+[ext_resource type="AudioStream" uid="uid://ddacxte0sorew" path="res://audio/assets/musica/intro1.mp3" id="5_mvprp"]
 
 [resource]
 script = ExtResource("1_qfv4i")
 sounds = {
+"Intro1": [ExtResource("5_mvprp")],
 "Menu": [ExtResource("4_doijy")],
 "Musica1": [ExtResource("2_8j1kt")],
 "Musica2": [ExtResource("3_doijy")]

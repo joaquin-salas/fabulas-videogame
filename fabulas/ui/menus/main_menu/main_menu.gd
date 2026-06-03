@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 func _on_start_pressed() -> void:
 	get_tree().paused = false
 	SceneManager.goto(SceneManager.SceneID.INTRO_CUTSCENE)
+	SoundManager.stop_music()
 
 
 func _on_exit_pressed() -> void:

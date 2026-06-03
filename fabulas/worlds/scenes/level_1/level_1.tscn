@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="4_atdba"]
 [ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="5_mjp8w"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="6_tfjrp"]
-[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="7_yd1o7"]
-[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="8_umfxf"]
+[ext_resource type="PackedScene" uid="uid://dmx0c1s2yfjl7" path="res://shared/CanvasMenus.tscn" id="7_xk1iw"]
 [ext_resource type="Script" uid="uid://duntdc3rprern" path="res://worlds/scenes/level_1/game_manager.gd" id="9_8b7ur"]
 
 [node name="Level" type="Node2D" unique_id=800210757]
@@ -31,12 +30,7 @@ position = Vector2(912, 613)
 [node name="ground_enemy2" parent="." unique_id=57256032 instance=ExtResource("6_tfjrp")]
 position = Vector2(1007, 423)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264739996]
-
-[node name="SettingsMenu" parent="CanvasLayer" unique_id=1386739776 instance=ExtResource("7_yd1o7")]
-visible = false
-
-[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("8_umfxf")]
+[node name="CanvasLayer" parent="." unique_id=345835199 instance=ExtResource("7_xk1iw")]
 
 [node name="GameManager" type="Node" parent="." unique_id=161180458]
 script = ExtResource("9_8b7ur")

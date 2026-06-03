@@ -8,6 +8,7 @@ const SETTINGS_PATH = "user://settings.cfg"
 var pending_master: float = 100.0
 var pending_sfx: float = 100.0
 var pending_music: float = 100.0
+var pending_voices: float = 100.0
 var pending_mute: bool = false
 var pending_resolution: int = 2
 var pending_display: int = 0
@@ -19,6 +20,7 @@ var pending_brightness: float = 1.0
 var _saved_master: float = 100.0
 var _saved_sfx: float = 100.0
 var _saved_music: float = 100.0
+var _saved_voices: float = 100.0
 var _saved_mute: bool = false
 var _saved_resolution: int = 2
 var _saved_display: int = 0
@@ -45,6 +47,7 @@ func _snapshot_saved() -> void:
 	_saved_sfx        = pending_sfx
 	_saved_music      = pending_music
 	_saved_mute       = pending_mute
+	_saved_voices     = pending_voices
 	_saved_resolution = pending_resolution
 	_saved_display    = pending_display
 	_saved_vsync      = pending_vsync
@@ -68,6 +71,10 @@ func _on_sfx_value_changed(value: float) -> void:
 	pending_sfx = value
 	SoundManager.set_bus_volume("SFX", _safe_volume(value))
 
+func _on_voices_value_changed(value: float) -> void:
+	pending_voices = value
+	SoundManager.set_bus_volume("Voices", _safe_volume(value))
+	
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	pending_mute = toggled_on
 	AudioServer.set_bus_mute(0, pending_mute)
@@ -89,7 +96,7 @@ func _on_display_item_selected(index: int) -> void:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-			_apply_windowed_resolution()  # usa pending_resolution, no hardcodea
+			_apply_windowed_resolution()
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
@@ -128,6 +135,7 @@ func _on_back_pressed() -> void:
 	pending_music      = _saved_music
 	pending_sfx        = _saved_sfx
 	pending_mute       = _saved_mute
+	pending_voices       = _saved_voices
 	pending_resolution = _saved_resolution
 	pending_display    = _saved_display
 	pending_vsync      = _saved_vsync
@@ -145,13 +153,14 @@ func apply_settings() -> void:
 	SoundManager.set_bus_volume("Master", _safe_volume(pending_master))
 	SoundManager.set_bus_volume("Music",  _safe_volume(pending_music))
 	SoundManager.set_bus_volume("SFX",    _safe_volume(pending_sfx))
+	SoundManager.set_bus_volume("Voices", _safe_volume(pending_voices))
 	AudioServer.set_bus_mute(0, pending_mute)
 
 	match pending_display:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-			_apply_windowed_resolution()  # corregido: respeta pending_resolution
+			_apply_windowed_resolution() 
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
@@ -178,6 +187,7 @@ func save_settings() -> void:
 	config.set_value("audio", "master",     pending_master)
 	config.set_value("audio", "sfx",        pending_sfx)
 	config.set_value("audio", "music",      pending_music)
+	config.set_value("audio", "voices",      pending_voices)
 	config.set_value("audio", "mute",       pending_mute)
 	config.set_value("video", "resolution", pending_resolution)
 	config.set_value("video", "display",    pending_display)
@@ -193,6 +203,7 @@ func load_settings() -> void:
 	pending_master     = config.get_value("audio", "master",     100.0)
 	pending_sfx        = config.get_value("audio", "sfx",        100.0)
 	pending_music      = config.get_value("audio", "music",      100.0)
+	pending_voices      = config.get_value("audio", "voices",      100.0)
 	pending_mute       = config.get_value("audio", "mute",       false)
 	pending_resolution = config.get_value("video", "resolution", 2)
 	pending_display    = config.get_value("video", "display",    0)
@@ -207,6 +218,7 @@ func update_ui() -> void:
 	$TabContainer/Audio/audioContainer/Master/Master.value = pending_master
 	$TabContainer/Audio/audioContainer/Sfx/Sfx.value = pending_sfx
 	$TabContainer/Audio/audioContainer/Music/Music.value = pending_music
+	$TabContainer/Audio/audioContainer/Voices/Voices.value = pending_voices
 	$TabContainer/Audio/audioContainer/mute/CheckBox.button_pressed = pending_mute
 	$TabContainer/Video/HBoxContainer/videoContainer2/resultion/Resolution.selected = pending_resolution
 	$TabContainer/Video/HBoxContainer/videoContainer2/Display/Display.selected = pending_display
