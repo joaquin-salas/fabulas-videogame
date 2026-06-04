@@ -16,7 +16,7 @@ general/updates_per_second=100
 
 config/name="Fabulas"
 config/description="Videojuego sobre un pájaro que tiene que escalar una torre saltando para llegar a unas alas y poder volar."
-run/main_scene="uid://dkrk4ejombwic"
+run/main_scene="uid://dv7bycmpibk8c"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://cjg4fdvawflqq"
 
@@ -32,8 +32,8 @@ SoundManager="*uid://b27b24o4dg0h8"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
