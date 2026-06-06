@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1qhuiajkdal2"
-path="res://.godot/imported/Plan 2.png-26d3786402f929d23e720455a03acabb.ctex"
+uid="uid://hfejiau6koam"
+path="res://.godot/imported/DesertLayer1.png-42475ef4608860c31c2293ef3f5b59ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/world 2/art/backgrounf/Plan 2.png"
-dest_files=["res://.godot/imported/Plan 2.png-26d3786402f929d23e720455a03acabb.ctex"]
+source_file="res://worlds/world 2/art/backgrounf/DesertLayer1.png"
+dest_files=["res://.godot/imported/DesertLayer1.png-42475ef4608860c31c2293ef3f5b59ed.ctex"]
 
 [params]
 
