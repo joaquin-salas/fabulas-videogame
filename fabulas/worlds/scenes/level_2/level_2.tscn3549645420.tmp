@@ -55,5 +55,3 @@ position = Vector2(3301, 783)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="puerta" unique_id=1608214706]
 position = Vector2(53, -47)
 shape = SubResource("RectangleShape2D_nt6p6")
-
-[connection signal="body_entered" from="puerta" to="GameManager" method="_on_puerta_body_entered"]
