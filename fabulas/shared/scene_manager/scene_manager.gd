@@ -15,7 +15,7 @@ const SCENES := {
 }
 
 func goto(scene_id: SceneID) -> void:
-	get_tree().change_scene_to_file(SCENES[scene_id])
+	get_tree().call_deferred("change_scene_to_file", SCENES[scene_id])
 
 func goto_path(path: String) -> void:
 	get_tree().change_scene_to_file(path)

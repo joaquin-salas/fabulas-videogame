@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func _on_puerta_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		SceneManager.goto(SceneManager.SceneID.LEVEL_1)
+		SceneManager.goto(SceneManager.SceneID.LEVEL_2)
