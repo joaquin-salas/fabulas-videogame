@@ -118,7 +118,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7dp3o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fall",
 "speed": 5.0
 }, {
@@ -156,7 +156,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ukyrk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 10.0
 }, {
@@ -164,7 +164,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h4iuc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -205,7 +205,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfarp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 12.0
 }]
@@ -219,14 +219,21 @@ script = ExtResource("1_2xrie")
 player_movement_stats = ExtResource("2_v3hes")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
+position = Vector2(-1, 0)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1721065680]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(21, -16, 23, -9, 22, 4, 19, 19, 16, 24, 16, 32, 14, 32, 6, 32, 6, 24, -4, 24, -4, 28, -4, 32, -14, 32, -14, 30, -14, 22, -18, 14, -20, 0, -20, -10, -18, -14, -11, -19, 14.205414, -18.279846)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012705362]
+visible = false
 position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_tkqu8")
+disabled = true
 
 [node name="StateMachine" parent="." unique_id=652708199 node_paths=PackedStringArray("default_state") instance=ExtResource("7_vw8xl")]
 default_state = NodePath("PlayerIdleState")

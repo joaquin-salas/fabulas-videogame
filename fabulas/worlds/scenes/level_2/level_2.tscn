@@ -24,9 +24,9 @@ position = Vector2(29, 196)
 position = Vector2(640, 575)
 
 [node name="ground_enemy" parent="." unique_id=1836502299 instance=ExtResource("5_2i5dt")]
-position = Vector2(912, 613)
+position = Vector2(960, 620)
 
 [node name="ground_enemy2" parent="." unique_id=57256032 instance=ExtResource("7_nt6p6")]
-position = Vector2(1007, 423)
+position = Vector2(747, 190)
 
 [node name="CanvasLayer" parent="." unique_id=345835199 instance=ExtResource("7_4yxbw")]
