@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://sfdjgodw15p1" path="res://worlds/scenes/cutscenes/intro/cutscene_intro1.gd" id="1_fw5ut"]
 [ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_kdret"]
-[ext_resource type="PackedScene" uid="uid://dmx0c1s2yfjl7" path="res://shared/CanvasMenus.tscn" id="3_kdret"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="3_23kj7"]
+[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="4_2qbxr"]
 
 [sub_resource type="Animation" id="Animation_kwdgy"]
 length = 0.001
@@ -76,7 +77,6 @@ _data = {
 
 [node name="CutscenaPlayer" type="Node" unique_id=441368195]
 script = ExtResource("1_fw5ut")
-next_scene = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=534616146]
 
@@ -143,6 +143,11 @@ libraries/ = SubResource("AnimationLibrary_jas18")
 
 [node name="Timer" type="Timer" parent="." unique_id=548567339]
 
-[node name="CanvasLayer2" parent="." unique_id=345835199 instance=ExtResource("3_kdret")]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1087998238]
+
+[node name="SettingsMenu" parent="CanvasLayer2" unique_id=992204846 instance=ExtResource("3_23kj7")]
+visible = false
+
+[node name="PauseMenu" parent="CanvasLayer2" unique_id=248075495 instance=ExtResource("4_2qbxr")]
 
 [connection signal="pressed" from="CanvasLayer/Saltar" to="." method="_on_saltar_pressed"]

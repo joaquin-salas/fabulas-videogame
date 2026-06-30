@@ -34,11 +34,12 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_cid4m")
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 50
 text = "Pause"
 
 [node name="Resume" parent="MarginContainer/VBoxContainer" unique_id=307769692 instance=ExtResource("3_2pmna")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Resume
 
 "
@@ -46,12 +47,14 @@ flat = false
 
 [node name="Settings" parent="MarginContainer/VBoxContainer" unique_id=1956638301 instance=ExtResource("3_2pmna")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Settings
 "
 flat = false
 
 [node name="Exit" parent="MarginContainer/VBoxContainer" unique_id=1543039629 instance=ExtResource("3_2pmna")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Exit
 "
 flat = false

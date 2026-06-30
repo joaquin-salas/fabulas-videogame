@@ -3,17 +3,19 @@ extends Node
 enum SceneID {
 	MAIN_MENU,
 	INTRO_CUTSCENE,
-	LEVEL_1
+	LEVEL_1,
+	LEVEL_2
 }
 
 const SCENES := {
 	SceneID.MAIN_MENU: "res://ui/menus/main_menu/main_menu.tscn",
 	SceneID.INTRO_CUTSCENE: "res://worlds/scenes/cutscenes/intro/cutscene_intro1.tscn",
 	SceneID.LEVEL_1: "res://worlds/scenes/level_1/level_1.tscn",
+	SceneID.LEVEL_2: "res://worlds/scenes/level_2/level_2.tscn"
 }
 
 func goto(scene_id: SceneID) -> void:
-	get_tree().change_scene_to_file(SCENES[scene_id])
+	get_tree().call_deferred("change_scene_to_file", SCENES[scene_id])
 
 func goto_path(path: String) -> void:
 	get_tree().change_scene_to_file(path)

@@ -1,4 +1,4 @@
-# sound_manager.gd
+
 extends Node
 
 # ── Bancos de sonido ──────────────────────────────────────
@@ -92,6 +92,12 @@ func play_voice(sound_name: String) -> void:
 	_voice_player.stream = stream
 	_voice_player.volume_db = 0.0
 	_voice_player.play()
+
+
+func stop_voice() -> void:
+	if _voice_player.playing:
+		_voice_player.stop()
+
 # ── Reproducir música ─────────────────────────────────────
 
 func play_music(song_name: String, fade_time: float = 1.0) -> void:
