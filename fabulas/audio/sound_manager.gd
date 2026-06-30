@@ -1,4 +1,4 @@
-# sound_manager.gd
+
 extends Node
 
 # ── Bancos de sonido ──────────────────────────────────────

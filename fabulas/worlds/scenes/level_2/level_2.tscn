@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cqwjvexkmycoy"]
 
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_hdfcw"]
-[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/tower_1/map.tscn" id="2_nt6p6"]
+[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/tower1/map.tscn" id="2_nt6p6"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_a3nmw"]
 [ext_resource type="PackedScene" uid="uid://bgx5mn44t03it" path="res://entities/enemies/aerial_enemy/aerial__enemy.tscn" id="3_vtulw"]
 [ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="5_2i5dt"]
 [ext_resource type="PackedScene" uid="uid://dmx0c1s2yfjl7" path="res://shared/CanvasMenus.tscn" id="7_4yxbw"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="7_nt6p6"]
 
-[node name="Level" type="Node2D" unique_id=800210757]
+[node name="Level2" type="Node2D" unique_id=800210757]
 process_mode = 1
 
 [node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_a3nmw")]

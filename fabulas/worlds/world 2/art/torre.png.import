@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2lk3n65kl2x"
-path="res://.godot/imported/926b3962-0655-40ee-aec1-c13b6d864639.png-5db267c01bf015cd90a39480ddc4945b.ctex"
+uid="uid://cyrks7oexnean"
+path="res://.godot/imported/torre.png-44333ec98b1b7eb6491a01f85770544d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/world 2/art/926b3962-0655-40ee-aec1-c13b6d864639.png"
-dest_files=["res://.godot/imported/926b3962-0655-40ee-aec1-c13b6d864639.png-5db267c01bf015cd90a39480ddc4945b.ctex"]
+source_file="res://worlds/world 2/art/torre.png"
+dest_files=["res://.godot/imported/torre.png-44333ec98b1b7eb6491a01f85770544d.ctex"]
 
 [params]
 

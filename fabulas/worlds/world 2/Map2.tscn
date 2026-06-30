@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://5bgtsysbld02" path="res://worlds/world 2/art/backgrounf/nature_5/1.png" id="1_sglab"]
 [ext_resource type="Texture2D" uid="uid://8vrn5j7osmm3" path="res://worlds/world 2/art/backgrounf/nature_5/2.png" id="2_ehiao"]
 [ext_resource type="Texture2D" uid="uid://sh5il0e5tvfu" path="res://worlds/world 2/art/TX Village Props_scaled_2x_pngcrushed.png" id="2_nmdvp"]
-[ext_resource type="Texture2D" uid="uid://b2lk3n65kl2x" path="res://worlds/world 2/art/926b3962-0655-40ee-aec1-c13b6d864639.png" id="3_5tnjj"]
 [ext_resource type="Texture2D" uid="uid://bwii3x2hjo8ew" path="res://worlds/world 2/art/backgrounf/nature_5/3.png" id="3_wyhwr"]
 [ext_resource type="Texture2D" uid="uid://d4arijlgkaa4c" path="res://worlds/world 2/art/backgrounf/nature_5/4.png" id="4_fvimo"]
-[ext_resource type="Texture2D" uid="uid://cyrks7oexnean" path="res://worlds/world 2/art/6fffa1d4-902a-4bd5-a639-5864c6a3cfad.png" id="7_8emdy"]
+[ext_resource type="Texture2D" uid="uid://cyrks7oexnean" path="res://worlds/world 2/art/torre.png" id="7_8emdy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmdvp"]
 texture = ExtResource("1_f2mah")
@@ -2672,8 +2671,11 @@ texture_region_size = Vector2i(32, 32)
 62:60/0 = 0
 56:61/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8emdy"]
+load_path = "res://.godot/imported/926b3962-0655-40ee-aec1-c13b6d864639.png-5db267c01bf015cd90a39480ddc4945b.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxqrj"]
-texture = ExtResource("3_5tnjj")
+texture = SubResource("CompressedTexture2D_8emdy")
 margins = Vector2i(0, 3)
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
