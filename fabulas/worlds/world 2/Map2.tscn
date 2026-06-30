@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bwii3x2hjo8ew" path="res://worlds/world 2/art/backgrounf/nature_5/3.png" id="3_wyhwr"]
 [ext_resource type="Texture2D" uid="uid://d4arijlgkaa4c" path="res://worlds/world 2/art/backgrounf/nature_5/4.png" id="4_fvimo"]
 [ext_resource type="Texture2D" uid="uid://cyrks7oexnean" path="res://worlds/world 2/art/6fffa1d4-902a-4bd5-a639-5864c6a3cfad.png" id="7_8emdy"]
-[ext_resource type="Texture2D" uid="uid://pr6f5ru82er8" path="res://worlds/world 2/art/backgrounf/360_F_750736711_aX8IPJnRgZA5uHYqBTHRtf77b9xki7Mk.jpg" id="8_pxqrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmdvp"]
 texture = ExtResource("1_f2mah")
@@ -3930,63 +3929,45 @@ tile_map_data = PackedByteArray("AAAAACEAAAADAAAAAAAAACIAAAADAAEAAAAAACMAAAANABY
 tile_set = SubResource("TileSet_bqfp6")
 
 [node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1009547137]
-visible = false
 show_behind_parent = true
 scroll_scale = Vector2(0.1, 0.1)
 scroll_offset = Vector2(8, 4)
 repeat_size = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D6" unique_id=637151696]
-visible = false
 position = Vector2(954, 534)
 scale = Vector2(3.333334, 3.3333333)
 texture = ExtResource("1_sglab")
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1975857232]
-visible = false
 show_behind_parent = true
 scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=301168836]
-visible = false
 position = Vector2(959.99994, 540)
 scale = Vector2(3.333333, 3.333333)
 texture = ExtResource("2_ehiao")
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=317149369]
-visible = false
 show_behind_parent = true
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=480844116]
-visible = false
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.3333333)
 texture = ExtResource("3_wyhwr")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1833682556]
-visible = false
 show_behind_parent = true
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=1854768207]
-visible = false
 position = Vector2(960, 540)
 scale = Vector2(3.333333, 3.333333)
 texture = ExtResource("4_fvimo")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278022389]
-position = Vector2(1404, 513.99994)
-scale = Vector2(6.825, 6.825)
-texture = ExtResource("8_pxqrj")
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=145792785]
-position = Vector2(-5439.0005, 368.99997)
-scale = Vector2(5.875, 5.875)
-texture = ExtResource("8_pxqrj")
 
 [node name="6Fffa1d4902a4Bd5A6395864c6a3Cfad" type="Sprite2D" parent="." unique_id=536998324]
 position = Vector2(4499.0005, 411)
