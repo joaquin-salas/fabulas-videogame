@@ -7,6 +7,9 @@ func start() -> void:
 	player.play_animation(player.animations.Run)
 	_step_timer = 0.0
 
+	if not player.jump_buffer_timer.is_stopped():
+		state_machine.change_state(player.states.Jumping)
+
 func end() -> void:
 	_step_timer = 0.0
 
