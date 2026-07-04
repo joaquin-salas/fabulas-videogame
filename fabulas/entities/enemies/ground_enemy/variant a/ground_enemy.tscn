@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqoftvwo2og3b" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Black_Werewolf/Idle.png" id="1_x75fb"]
 [ext_resource type="Texture2D" uid="uid://bcmpohnvlbuth" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Red_Werewolf/Run.png" id="2_8b13n"]
 [ext_resource type="Texture2D" uid="uid://dhgrl4mp148lu" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Black_Werewolf/walk.png" id="4_8b13n"]
+[ext_resource type="PackedScene" uid="uid://dysaj63rkoe3a" path="res://shared/damage_system/hitbox.tscn" id="5_w5xwc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_se3t2"]
 atlas = ExtResource("2_8b13n")
@@ -147,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v7fr4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 15.0
 }, {
@@ -176,7 +177,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3iri6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"stop",
 "speed": 8.0
 }, {
@@ -214,7 +215,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lftp5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 10.0
 }]
@@ -225,9 +226,12 @@ size = Vector2(60, 69.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b13n"]
 size = Vector2(261, 49.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
+size = Vector2(56, 32)
+
 [node name="ground_enemy" type="CharacterBody2D" unique_id=1836502299]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_qfj55")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1241432101]
@@ -283,6 +287,15 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area_izquierda" unique_id=1590588990]
 position = Vector2(-158, -45)
 shape = SubResource("RectangleShape2D_8b13n")
+
+[node name="Hitbox" parent="Areas" unique_id=2122814657 instance=ExtResource("5_w5xwc")]
+collision_layer = 16
+collision_mask = 0
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Areas/Hitbox" unique_id=398956819]
+position = Vector2(1, -23)
+shape = SubResource("RectangleShape2D_4ismv")
+debug_color = Color(0, 0.83137256, 0.09411765, 0.41960785)
 
 [connection signal="body_entered" from="Areas/area_derecha" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Areas/area_derecha" to="." method="_on_area_2d_body_exited"]

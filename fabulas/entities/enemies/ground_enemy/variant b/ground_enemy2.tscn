@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cplb27u3wkcym" path="res://entities/enemies/ground_enemy/variant b/ground_enemy_2.gd" id="1_jem31"]
 [ext_resource type="Texture2D" uid="uid://0ftiicgyvktp" path="res://entities/enemies/ground_enemy/variant b/visuals/sprite/White_Werewolf/Walk.png" id="3_jem31"]
+[ext_resource type="PackedScene" uid="uid://dysaj63rkoe3a" path="res://shared/damage_system/hitbox.tscn" id="3_yjqvt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5dg4"]
 atlas = ExtResource("3_jem31")
@@ -96,10 +97,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo7qi"]
 size = Vector2(60, 69.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
+size = Vector2(25.963173, 46.742207)
+
 [node name="ground_enemy2" type="CharacterBody2D" unique_id=1836502299]
 scale = Vector2(1.765, 1.765)
-collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_jem31")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1241432101]
@@ -141,3 +144,13 @@ collision_mask = 4
 position = Vector2(0, -25)
 target_position = Vector2(51, 28)
 collision_mask = 4
+
+[node name="Areas" type="Node2D" parent="." unique_id=587193758]
+
+[node name="Hitbox" parent="Areas" unique_id=2122814657 instance=ExtResource("3_yjqvt")]
+collision_layer = 16
+collision_mask = 0
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Areas/Hitbox" unique_id=100859255]
+position = Vector2(-1.6501417, -24.220964)
+shape = SubResource("RectangleShape2D_4ismv")
