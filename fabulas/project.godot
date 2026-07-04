@@ -80,9 +80,11 @@ Pause={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Enemy"
+2d_physics/layer_1="Player_Physics"
+2d_physics/layer_2="Enemy_Physics"
 2d_physics/layer_3="World"
+2d_physics/layer_4="Player_Hurtbox"
+2d_physics/layer_5="Enemy_Hitbox"
 
 [physics]
 

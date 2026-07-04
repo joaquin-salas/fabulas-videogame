@@ -24,7 +24,6 @@ func on_physics_process(delta: float) -> void:
 	
 	if not player.is_on_floor():
 		player.coyote_timer.start()
-		print("COYOTE TIMER -> ACTIVADO")
 		state_machine.change_state(player.states.Falling)
 	
 	if direction == 0:
