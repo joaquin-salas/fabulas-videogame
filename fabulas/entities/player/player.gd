@@ -6,13 +6,26 @@ extends CharacterBody2D
 # ====================== REFERENCE VARIABLES ======================
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: StateMachine = $StateMachine
-@onready var coyote_timer: Timer = $CoyoteTimer
-@onready var jump_buffer_timer: Timer = $JumpBufferTimer
+@onready var coyote_timer: Timer = $Timers/CoyoteTimer
+@onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
+@onready var inmortality_timer: Timer = $Timers/InmortalityTimer
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 # ====================== RESOURCES ======================
 @export var player_movement_stats: PlayerMovementStats
 var states: PlayerStatesNames = PlayerStatesNames.new()
 var animations: PlayerAnimations = PlayerAnimations.new()
+
+# ====================== LOCAL VARIABLES ======================
+@export var max_health: int = 5
+@onready var current_health: int = max_health
+var is_invincible: bool = false
+var blink_tween: Tween
+
+# *********************** CALLBACKS **********************
+func _ready() -> void:
+	hurtbox.took_damage.connect(_on_hurtbox_took_damage)
+	inmortality_timer.timeout.connect(_on_inmortality_timer_timeout)
 
 # ******************* LOCAL FUNCTIONS *******************
 func play_animation(animation_name: String) -> void:
@@ -29,6 +42,45 @@ func get_current_gravity() -> float:
 		return player_movement_stats.fall_gravity
 	return player_movement_stats.jump_gravity
 
+func take_damage(amount: int, knockback_dir: Vector2) -> void:
+	if is_invincible:
+		return
+	
+	current_health -= amount
+	print("Player took damage: ", amount, " Current health: ", current_health)
+	if current_health <= 0:
+		die()
+	else:
+		is_invincible = true
+		inmortality_timer.start()
+		start_blinking()
+
+		velocity = knockback_dir
+
+		state_machine.change_state(states.Hurt)
+
+func die() -> void:
+	print("Player has died.")
+
+func start_blinking() -> void:
+	# Crear tween y hacer que se repita indefinidamente
+	blink_tween = create_tween()
+	blink_tween.set_loops()
+
+	blink_tween.tween_property(animated_sprite_2d, "material:shader_parameter/flash_modifier", 1.0, 0.1)
+	blink_tween.tween_property(animated_sprite_2d, "material:shader_parameter/flash_modifier", 0.0, 0.1)
+
 func print_debug(variables: Array) -> void:
 	for i in variables:
 		print(i)
+
+# ******************* SIGNALS CALLBACKS *******************
+func _on_hurtbox_took_damage(amount: int, knockback_dir: Vector2) -> void:
+	take_damage(amount, knockback_dir)
+
+func _on_inmortality_timer_timeout() -> void:
+	is_invincible = false
+
+	if blink_tween:
+		blink_tween.kill()
+		animated_sprite_2d.material.set_shader_parameter("flash_modifier", 0.0)

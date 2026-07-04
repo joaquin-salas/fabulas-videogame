@@ -20,5 +20,4 @@ func on_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and not player.coyote_timer.is_stopped():
 		state_machine.change_state(player.states.Jumping)
 	elif event.is_action_pressed("jump"):
-		print("JUMP BUFFER -> ACTIVADO")
 		player.jump_buffer_timer.start()

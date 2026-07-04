@@ -20,15 +20,15 @@ func end() -> void:
 	pass
 
 ## Se ejecutará en cada frame de físicas
-func on_physics_process(delta: float) -> void:
+func on_physics_process(_delta: float) -> void:
 	pass
 
 ## Manejo del input para cambiar de estado
-func on_input(event: InputEvent) -> void:
+func on_input(_event: InputEvent) -> void:
 	pass
 
 ## Se ejecuta en cada frame
-func on_process(delta: float) -> void:
+func on_process(_delta: float) -> void:
 	pass
 
 #endregion

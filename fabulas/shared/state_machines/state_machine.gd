@@ -22,9 +22,9 @@ func _start_default_state() -> void:
 
 ## Prepara variables internas del estado activo y lanza su start
 func _start_state() -> void:
-	print('StateMachine en _start_state')
-	print('controlled node: ' + controlled_node.name)
-	print('Start state: ' + current_state.name)
+	# print('StateMachine en _start_state')
+	# print('controlled node: ' + controlled_node.name)
+	# print('Start state: ' + current_state.name)
 	
 	# Configuramos el estado
 	current_state.controlled_node = controlled_node

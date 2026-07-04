@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cjhkw0sargfgb" path="res://entities/enemies/aerial_enemy/aerial_enemy.gd" id="1_bep6u"]
 [ext_resource type="Texture2D" uid="uid://c607vhpcdcmyl" path="res://entities/enemies/aerial_enemy/visuals/sprite/eat.png" id="2_bep6u"]
 [ext_resource type="Texture2D" uid="uid://cxxpso1ibdmtw" path="res://entities/enemies/aerial_enemy/visuals/sprite/fly.png" id="2_mov8q"]
+[ext_resource type="PackedScene" uid="uid://dysaj63rkoe3a" path="res://shared/damage_system/hitbox.tscn" id="4_xyl53"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mov8q"]
 radius = 14.0
@@ -159,9 +160,12 @@ _data = {
 &"eat": SubResource("Animation_uctj2")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ismv"]
+radius = 11.0
+
 [node name="aerial _enemy" type="CharacterBody2D" unique_id=610127007]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 motion_mode = 1
 wall_min_slide_angle = 0.12217305
 script = ExtResource("1_bep6u")
@@ -187,5 +191,13 @@ libraries/ = SubResource("AnimationLibrary_u37e1")
 path_desired_distance = 4.0
 target_desired_distance = 3.0
 path_postprocessing = 1
+
+[node name="Hitbox" parent="." unique_id=2122814657 instance=ExtResource("4_xyl53")]
+collision_layer = 16
+collision_mask = 0
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox" unique_id=194391466]
+position = Vector2(1, -8)
+shape = SubResource("CircleShape2D_4ismv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

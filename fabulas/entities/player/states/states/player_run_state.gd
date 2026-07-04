@@ -7,6 +7,9 @@ func start() -> void:
 	player.play_animation(player.animations.Run)
 	_step_timer = 0.0
 
+	if not player.jump_buffer_timer.is_stopped():
+		state_machine.change_state(player.states.Jumping)
+
 func end() -> void:
 	_step_timer = 0.0
 
@@ -21,7 +24,6 @@ func on_physics_process(delta: float) -> void:
 	
 	if not player.is_on_floor():
 		player.coyote_timer.start()
-		print("COYOTE TIMER -> ACTIVADO")
 		state_machine.change_state(player.states.Falling)
 	
 	if direction == 0:

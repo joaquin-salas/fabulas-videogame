@@ -3,14 +3,22 @@
 [ext_resource type="Script" uid="uid://dm8l4dv0r3n7j" path="res://entities/player/player.gd" id="1_2xrie"]
 [ext_resource type="Resource" uid="uid://bug16kis23a36" path="res://entities/player/states/resources/movement_stats.tres" id="2_v3hes"]
 [ext_resource type="Texture2D" uid="uid://cqdolxr4sqjik" path="res://entities/player/visuals/sprite/Fall (32x32).png" id="3_5udp2"]
+[ext_resource type="Shader" uid="uid://dkikkdvn3t6b6" path="res://entities/player/visuals/shaders/player.gdshader" id="3_j3ovn"]
 [ext_resource type="Texture2D" uid="uid://dk7rq8dy5bhvy" path="res://entities/player/visuals/sprite/Idle (32x32).png" id="4_pgwtq"]
 [ext_resource type="Texture2D" uid="uid://b74b2o31ifv11" path="res://entities/player/visuals/sprite/Jump (32x32).png" id="5_3xavr"]
 [ext_resource type="Texture2D" uid="uid://cymkut0eao2je" path="res://entities/player/visuals/sprite/Run (32x32).png" id="6_vpvow"]
-[ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://shared/state-machines/state_machine.tscn" id="7_vw8xl"]
+[ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://shared/state_machines/state_machine.tscn" id="7_vw8xl"]
 [ext_resource type="Script" uid="uid://bldxq5das84cd" path="res://entities/player/states/states/player_idle_state.gd" id="8_xb4l4"]
 [ext_resource type="Script" uid="uid://bhg21qrimc1xu" path="res://entities/player/states/states/player_run_state.gd" id="9_v5u60"]
 [ext_resource type="Script" uid="uid://dvi2e2l5jdi7x" path="res://entities/player/states/states/player_jump_state.gd" id="10_fsjsn"]
 [ext_resource type="Script" uid="uid://cpbg1ipmgwfem" path="res://entities/player/states/states/player_fall_state.gd" id="11_ulmrq"]
+[ext_resource type="PackedScene" uid="uid://2l7e5yb48q6n" path="res://shared/damage_system/hurtbox.tscn" id="12_a1qjk"]
+[ext_resource type="Script" uid="uid://chwgvwvc3hso7" path="res://entities/player/states/states/player_hurt_state.gd" id="14_afbqv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a1qjk"]
+shader = ExtResource("3_j3ovn")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("3_5udp2")
@@ -213,12 +221,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkqu8"]
 size = Vector2(38, 44)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
+size = Vector2(29, 40)
+
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
-collision_mask = 6
+collision_mask = 4
 script = ExtResource("1_2xrie")
 player_movement_stats = ExtResource("2_v3hes")
+max_health = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
+material = SubResource("ShaderMaterial_a1qjk")
 position = Vector2(-1, 0)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
@@ -230,10 +243,18 @@ position = Vector2(-1, 0)
 polygon = PackedVector2Array(21, -16, 23, -9, 22, 4, 19, 19, 16, 24, 16, 32, 14, 32, 6, 32, 6, 24, -4, 24, -4, 28, -4, 32, -14, 32, -14, 30, -14, 22, -18, 14, -20, 0, -20, -10, -18, -14, -11, -19, 14.205414, -18.279846)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012705362]
-visible = false
 position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_tkqu8")
 disabled = true
+
+[node name="Hurtbox" parent="." unique_id=453256543 instance=ExtResource("12_a1qjk")]
+collision_layer = 8
+collision_mask = 16
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="Hurtbox" unique_id=483569821]
+position = Vector2(0.5, 10)
+shape = SubResource("RectangleShape2D_4ismv")
+debug_color = Color(0.9254902, 0.02745098, 0, 0.41960785)
 
 [node name="StateMachine" parent="." unique_id=652708199 node_paths=PackedStringArray("default_state") instance=ExtResource("7_vw8xl")]
 default_state = NodePath("PlayerIdleState")
@@ -250,10 +271,18 @@ script = ExtResource("10_fsjsn")
 [node name="PlayerFallState" type="Node" parent="StateMachine" unique_id=910739658]
 script = ExtResource("11_ulmrq")
 
-[node name="CoyoteTimer" type="Timer" parent="." unique_id=974083162]
+[node name="PlayerHurtState" type="Node" parent="StateMachine" unique_id=1718339086]
+script = ExtResource("14_afbqv")
+
+[node name="Timers" type="Node2D" parent="." unique_id=767850289]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers" unique_id=974083162]
 wait_time = 0.065
 one_shot = true
 
-[node name="JumpBufferTimer" type="Timer" parent="." unique_id=1714200119]
+[node name="JumpBufferTimer" type="Timer" parent="Timers" unique_id=1714200119]
 wait_time = 0.15
+one_shot = true
+
+[node name="InmortalityTimer" type="Timer" parent="Timers" unique_id=1248354601]
 one_shot = true
