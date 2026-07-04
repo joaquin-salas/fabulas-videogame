@@ -10,4 +10,7 @@ func _ready() -> void:
 
 func _on_puerta_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		TransitionsScreen.fade_out()
+		await TransitionsScreen.on_faded_out
 		SceneManager.goto(SceneManager.SceneID.LEVEL_2)
+		TransitionsScreen.fade_in()
