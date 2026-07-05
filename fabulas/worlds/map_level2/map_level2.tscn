@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://tfbfkm8qj4h5"]
 
-[ext_resource type="Texture2D" uid="uid://gekhs0luuk48" path="res://worlds/world 2/art/TX Tileset Ground_scaled_2x_pngcrushed.png" id="1_f2mah"]
-[ext_resource type="Texture2D" uid="uid://5bgtsysbld02" path="res://worlds/world 2/art/backgrounf/nature_5/1.png" id="1_sglab"]
-[ext_resource type="Texture2D" uid="uid://8vrn5j7osmm3" path="res://worlds/world 2/art/backgrounf/nature_5/2.png" id="2_ehiao"]
-[ext_resource type="Texture2D" uid="uid://sh5il0e5tvfu" path="res://worlds/world 2/art/TX Village Props_scaled_2x_pngcrushed.png" id="2_nmdvp"]
-[ext_resource type="Texture2D" uid="uid://bwii3x2hjo8ew" path="res://worlds/world 2/art/backgrounf/nature_5/3.png" id="3_wyhwr"]
-[ext_resource type="Texture2D" uid="uid://d4arijlgkaa4c" path="res://worlds/world 2/art/backgrounf/nature_5/4.png" id="4_fvimo"]
-[ext_resource type="Texture2D" uid="uid://cyrks7oexnean" path="res://worlds/world 2/art/torre.png" id="7_8emdy"]
-[ext_resource type="Texture2D" uid="uid://er8p3ch0jbtj" path="res://worlds/world 2/art/torre_abierta.png" id="8_5tnjj"]
+[ext_resource type="Texture2D" uid="uid://gekhs0luuk48" path="res://worlds/map_level2/art/TX Tileset Ground_scaled_2x_pngcrushed.png" id="1_f2mah"]
+[ext_resource type="Texture2D" uid="uid://5bgtsysbld02" path="res://worlds/map_level2/art/backgrounf/nature_5/1.png" id="1_sglab"]
+[ext_resource type="Texture2D" uid="uid://8vrn5j7osmm3" path="res://worlds/map_level2/art/backgrounf/nature_5/2.png" id="2_ehiao"]
+[ext_resource type="Texture2D" uid="uid://sh5il0e5tvfu" path="res://worlds/map_level2/art/TX Village Props_scaled_2x_pngcrushed.png" id="2_nmdvp"]
+[ext_resource type="Texture2D" uid="uid://bwii3x2hjo8ew" path="res://worlds/map_level2/art/backgrounf/nature_5/3.png" id="3_wyhwr"]
+[ext_resource type="Texture2D" uid="uid://d4arijlgkaa4c" path="res://worlds/map_level2/art/backgrounf/nature_5/4.png" id="4_fvimo"]
+[ext_resource type="Texture2D" uid="uid://cyrks7oexnean" path="res://worlds/map_level2/art/torre.png" id="7_8emdy"]
+[ext_resource type="Texture2D" uid="uid://er8p3ch0jbtj" path="res://worlds/map_level2/art/torre_abierta.png" id="8_5tnjj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmdvp"]
 texture = ExtResource("1_f2mah")

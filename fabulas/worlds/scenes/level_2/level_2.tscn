@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqwjvexkmycoy"]
 
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_hdfcw"]
-[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/tower1/map.tscn" id="2_nt6p6"]
+[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/map_level1/map_level1.tscn" id="2_nt6p6"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_a3nmw"]
 [ext_resource type="PackedScene" uid="uid://bgx5mn44t03it" path="res://entities/enemies/aerial_enemy/aerial_enemy.tscn" id="3_vtulw"]
 [ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="5_2i5dt"]
@@ -21,10 +21,10 @@ follow_node = NodePath("../Player")
 position = Vector2(29, 196)
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_hdfcw")]
-position = Vector2(640, 575)
+position = Vector2(640, 609)
 
 [node name="ground_enemy" parent="." unique_id=1836502299 instance=ExtResource("5_2i5dt")]
-position = Vector2(960, 620)
+position = Vector2(973, 636)
 
 [node name="ground_enemy2" parent="." unique_id=57256032 instance=ExtResource("7_nt6p6")]
 position = Vector2(747, 190)

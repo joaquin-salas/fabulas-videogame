@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gekhs0luuk48"
-path="res://.godot/imported/TX Tileset Ground_scaled_2x_pngcrushed.png-67edaf0c0ec93882c7f3c52f4f60c824.ctex"
+uid="uid://cyrks7oexnean"
+path="res://.godot/imported/torre.png-0cc44740e25166b695e024a22197321a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/world 2/art/TX Tileset Ground_scaled_2x_pngcrushed.png"
-dest_files=["res://.godot/imported/TX Tileset Ground_scaled_2x_pngcrushed.png-67edaf0c0ec93882c7f3c52f4f60c824.ctex"]
+source_file="res://worlds/map_level2/art/torre.png"
+dest_files=["res://.godot/imported/torre.png-0cc44740e25166b695e024a22197321a.ctex"]
 
 [params]
 
