@@ -30,6 +30,7 @@ SceneManager="*uid://buu5earecvdhm"
 BrightnessManager="*uid://cfflrvml5sx2h"
 SoundManager="*uid://b27b24o4dg0h8"
 SignalBus="*uid://x0aqjjdx4sjo"
+TransitionsScreen="*uid://d3q5v8lvhww64"
 
 [display]
 

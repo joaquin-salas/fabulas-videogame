@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4arijlgkaa4c"
-path="res://.godot/imported/4.png-60255eb50bb89273341e98e400a7ec6b.ctex"
+uid="uid://8vrn5j7osmm3"
+path="res://.godot/imported/2.png-7739fe98748d79d2b6551d72c3ff8db0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/world 2/art/backgrounf/nature_5/4.png"
-dest_files=["res://.godot/imported/4.png-60255eb50bb89273341e98e400a7ec6b.ctex"]
+source_file="res://worlds/map_level2/art/backgrounf/nature_5/2.png"
+dest_files=["res://.godot/imported/2.png-7739fe98748d79d2b6551d72c3ff8db0.ctex"]
 
 [params]
 

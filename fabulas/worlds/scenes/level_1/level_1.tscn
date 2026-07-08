@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv7bycmpibk8c"]
 
-[ext_resource type="PackedScene" uid="uid://tfbfkm8qj4h5" path="res://worlds/world 2/Map2.tscn" id="1_mpq25"]
+[ext_resource type="PackedScene" uid="uid://tfbfkm8qj4h5" path="res://worlds/map_level2/map_level2.tscn" id="1_mpq25"]
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_eqvag"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_8l44x"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="4_sbcjx"]
