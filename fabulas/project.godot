@@ -29,6 +29,7 @@ buses/default_bus_layout="uid://dk4objfwo5k0y"
 SceneManager="*uid://buu5earecvdhm"
 BrightnessManager="*uid://cfflrvml5sx2h"
 SoundManager="*uid://b27b24o4dg0h8"
+SignalBus="*uid://x0aqjjdx4sjo"
 
 [display]
 
