@@ -18,7 +18,13 @@ var animations: PlayerAnimations = PlayerAnimations.new()
 
 # ====================== LOCAL VARIABLES ======================
 @export var max_health: int = 5
-@onready var current_health: int = max_health
+@onready var current_health: int = max_health:
+	set(value):
+		current_health = clamp(value, 0, max_health)
+		SignalBus.player_health_changed.emit(current_health)
+	get:
+		return current_health
+
 var is_invincible: bool = false
 var blink_tween: Tween
 
@@ -26,6 +32,9 @@ var blink_tween: Tween
 func _ready() -> void:
 	hurtbox.took_damage.connect(_on_hurtbox_took_damage)
 	inmortality_timer.timeout.connect(_on_inmortality_timer_timeout)
+
+	# Emit the signal after every node is ready to ensure that all nodes connect the signal before it is emitted.
+	SignalBus.player_max_health_set.emit.call_deferred(max_health)
 
 # ******************* LOCAL FUNCTIONS *******************
 func play_animation(animation_name: String) -> void:
@@ -48,7 +57,9 @@ func take_damage(amount: int, knockback_dir: Vector2) -> void:
 	
 	current_health -= amount
 	print("Player took damage: ", amount, " Current health: ", current_health)
+
 	if current_health <= 0:
+		SignalBus.player_died.emit()
 		die()
 	else:
 		is_invincible = true
@@ -63,7 +74,7 @@ func die() -> void:
 	print("Player has died.")
 
 func start_blinking() -> void:
-	# Crear tween y hacer que se repita indefinidamente
+	# Create a tween that repeats indefinitely 
 	blink_tween = create_tween()
 	blink_tween.set_loops()
 

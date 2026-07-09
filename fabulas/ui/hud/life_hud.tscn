@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://csksfnxu3kran"]
+
+[ext_resource type="Texture2D" uid="uid://bho626wdfoi5e" path="res://assets/ui/heart.png" id="1_hi3d6"]
+[ext_resource type="Script" uid="uid://dx6x2p8m3qdh7" path="res://ui/hud/life_hud.gd" id="1_sn6pp"]
+
+[node name="LifeHUD" type="CanvasLayer" unique_id=915383811]
+script = ExtResource("1_sn6pp")
+
+[node name="HeartBoxContainer" type="HBoxContainer" parent="." unique_id=352410503]
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 308.0
+offset_bottom = 100.0
+
+[node name="Heart1" type="TextureRect" parent="HeartBoxContainer" unique_id=1496767776]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_hi3d6")
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="HeartBoxContainer" unique_id=402753077]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_hi3d6")
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="HeartBoxContainer" unique_id=859573162]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_hi3d6")
+stretch_mode = 4
