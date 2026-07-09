@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://by1opkevsyhob"]
 
 [ext_resource type="Script" uid="uid://dm8l4dv0r3n7j" path="res://entities/player/player.gd" id="1_2xrie"]
-[ext_resource type="Resource" uid="uid://bug16kis23a36" path="res://entities/player/states/resources/movement_stats.tres" id="2_v3hes"]
+[ext_resource type="Resource" uid="uid://bug16kis23a36" path="res://entities/player/resources/movement_stats.tres" id="2_v3hes"]
 [ext_resource type="Texture2D" uid="uid://cqdolxr4sqjik" path="res://entities/player/visuals/sprite/Fall (32x32).png" id="3_5udp2"]
 [ext_resource type="Shader" uid="uid://dkikkdvn3t6b6" path="res://entities/player/visuals/shaders/player.gdshader" id="3_j3ovn"]
 [ext_resource type="Texture2D" uid="uid://dk7rq8dy5bhvy" path="res://entities/player/visuals/sprite/Idle (32x32).png" id="4_pgwtq"]
+[ext_resource type="Texture2D" uid="uid://c41cj6woli8m" path="res://entities/player/visuals/sprite/Desappearing (96x96).png" id="4_yqrof"]
 [ext_resource type="Texture2D" uid="uid://b74b2o31ifv11" path="res://entities/player/visuals/sprite/Jump (32x32).png" id="5_3xavr"]
 [ext_resource type="Texture2D" uid="uid://cymkut0eao2je" path="res://entities/player/visuals/sprite/Run (32x32).png" id="6_vpvow"]
 [ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://shared/state_machines/state_machine.tscn" id="7_vw8xl"]
@@ -14,11 +15,40 @@
 [ext_resource type="Script" uid="uid://cpbg1ipmgwfem" path="res://entities/player/states/states/player_fall_state.gd" id="11_ulmrq"]
 [ext_resource type="PackedScene" uid="uid://2l7e5yb48q6n" path="res://shared/damage_system/hurtbox.tscn" id="12_a1qjk"]
 [ext_resource type="Script" uid="uid://chwgvwvc3hso7" path="res://entities/player/states/states/player_hurt_state.gd" id="14_afbqv"]
+[ext_resource type="Script" uid="uid://bfax0ukatih75" path="res://entities/player/states/states/player_dead_state.gd" id="15_gx6sm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a1qjk"]
 shader = ExtResource("3_j3ovn")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_modifier = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wlsy"]
+atlas = ExtResource("4_yqrof")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2kln"]
+atlas = ExtResource("4_yqrof")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we0b7"]
+atlas = ExtResource("4_yqrof")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtric"]
+atlas = ExtResource("4_yqrof")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyb6c"]
+atlas = ExtResource("4_yqrof")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_221hk"]
+atlas = ExtResource("4_yqrof")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghoj8"]
+atlas = ExtResource("4_yqrof")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("3_5udp2")
@@ -122,6 +152,32 @@ region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7dp3o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wlsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2kln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we0b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtric")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyb6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_221hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghoj8")
+}],
+"loop": 0,
+"name": &"dead",
+"speed": 9.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7dp3o")
@@ -232,7 +288,7 @@ max_health = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
 material = SubResource("ShaderMaterial_a1qjk")
-position = Vector2(-1, 0)
+position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
 animation = &"idle"
@@ -273,6 +329,9 @@ script = ExtResource("11_ulmrq")
 
 [node name="PlayerHurtState" type="Node" parent="StateMachine" unique_id=1718339086]
 script = ExtResource("14_afbqv")
+
+[node name="PlayerDeadState" type="Node" parent="StateMachine" unique_id=44192305]
+script = ExtResource("15_gx6sm")
 
 [node name="Timers" type="Node2D" parent="." unique_id=767850289]
 
