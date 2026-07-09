@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SoundBank" format=4 uid="uid://khe0wk5nfoca"]
 
 [ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_sp30d"]
+[ext_resource type="AudioStream" uid="uid://dywv8yfnkk3lq" path="res://audio/assets/Player/death_morales.mp3" id="2_0h4c0"]
 [ext_resource type="AudioStream" uid="uid://ceq85e1dcfii1" path="res://audio/assets/Player/Land.mp3" id="2_iuiwi"]
-[ext_resource type="AudioStream" uid="uid://sbjydomumntg" path="res://audio/assets/Player/Death.mp3" id="4_7et1b"]
 [ext_resource type="AudioStream" uid="uid://b7uwmo7s4sf6k" path="res://audio/assets/Player/Walk.mp3" id="5_vk5vl"]
 [ext_resource type="AudioStream" uid="uid://clma0hp8nvnlf" path="res://audio/assets/Player/jump.mp3" id="6_bn2xh"]
 
@@ -13,7 +13,7 @@ loop_offset = 0.004
 [resource]
 script = ExtResource("1_sp30d")
 sounds = {
-"Death": [ExtResource("4_7et1b")],
+"Death": [ExtResource("2_0h4c0")],
 "Hurt": [SubResource("AudioStreamMP3_0h4c0")],
 "Jump": [ExtResource("6_bn2xh")],
 "Land": [ExtResource("2_iuiwi")],

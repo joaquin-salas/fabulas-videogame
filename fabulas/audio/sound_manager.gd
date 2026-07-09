@@ -26,6 +26,7 @@ var _all_banks: Array[SoundBank] = []
 # ──────────────────────────────────────────────────────────
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	_setup_sfx_pool()
 	_setup_music_players()
 	_voice_player = AudioStreamPlayer.new()
