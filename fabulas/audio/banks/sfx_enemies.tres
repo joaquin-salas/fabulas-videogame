@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="SoundBank" format=3 uid="uid://d1x4pxfeciv5l"]
 
 [ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_116ni"]
+[ext_resource type="AudioStream" uid="uid://g12ggp22tf1s" path="res://audio/assets/enemies/blendertimer-massive-thump-116359.mp3" id="2_e70pb"]
 
 [resource]
 script = ExtResource("1_116ni")
+sounds = {
+"Shot": [ExtResource("2_e70pb")]
+}
 metadata/_custom_type_script = "uid://bw0digwty4uu4"

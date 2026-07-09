@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bp5udb0hj2hfp"]
+
+[ext_resource type="Script" uid="uid://bghcfut7lemw4" path="res://entities/enemies/projectile_enemy/proyectile_enemy.gd" id="1_cutay"]
+[ext_resource type="Texture2D" uid="uid://c064htq07o3o5" path="res://entities/enemies/projectile_enemy/art/Diseño_sin_título-removebg-preview.png" id="2_7eevo"]
+[ext_resource type="Script" uid="uid://b4xe213tj1b4i" path="res://shared/damage_system/hitbox.gd" id="3_1f48c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(1002, 422)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(42, 188.5)
+
+[node name="ProyectileEnemy" type="Node2D" unique_id=1738980002]
+script = ExtResource("1_cutay")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460879677]
+position = Vector2(737.5, 492.5)
+scale = Vector2(0.5571895, 0.5808824)
+texture = ExtResource("2_7eevo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=346913408]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2090682028]
+position = Vector2(1313, 381)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=856025481]
+position = Vector2(812, 403)
+target_position = Vector2(1068, 0)
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1304553588]
+position = Vector2(813, 401)
+
+[node name="FireCooldown" type="Timer" parent="." unique_id=316125831]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=276416773]
+position = Vector2(789, 493)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_1f48c")
+metadata/_custom_type_script = "uid://b4xe213tj1b4i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=110123654]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.98809487, 0, 0.31094918, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]

@@ -52,6 +52,7 @@ Route_B=""
 Route_C=""
 player=""
 brightness=""
+physics=""
 
 [input]
 
