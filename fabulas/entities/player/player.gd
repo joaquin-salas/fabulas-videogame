@@ -59,7 +59,6 @@ func take_damage(amount: int, knockback_dir: Vector2) -> void:
 	print("Player took damage: ", amount, " Current health: ", current_health)
 
 	if current_health <= 0:
-		SignalBus.player_died.emit()
 		die()
 	else:
 		is_invincible = true
@@ -71,7 +70,7 @@ func take_damage(amount: int, knockback_dir: Vector2) -> void:
 		state_machine.change_state(states.Hurt)
 
 func die() -> void:
-	print("Player has died.")
+	state_machine.change_state(states.Dead)
 
 func start_blinking() -> void:
 	# Create a tween that repeats indefinitely 

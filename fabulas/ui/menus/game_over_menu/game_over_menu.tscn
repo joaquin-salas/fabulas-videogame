@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dj7eqdjduh36c"]
+
+[ext_resource type="Script" uid="uid://gcjx3qpxvh3q" path="res://ui/menus/game_over_menu/game_over_menu.gd" id="1_x7wq2"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_i1t15"]
+[ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="2_pl5w0"]
+[ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="3_ky81q"]
+
+[node name="GameOverMenu" type="CanvasLayer" unique_id=1354604793]
+process_mode = 2
+script = ExtResource("1_x7wq2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=619955658]
+propagate_maximum_size = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1738600060]
+custom_minimum_size = Vector2(250, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -46.5
+offset_right = 38.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_pl5w0")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=1547127197]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer" unique_id=980905984]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="DeathText" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=1127634589]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8093273, 0.11684627, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ky81q")
+theme_override_font_sizes/font_size = 50
+text = "YOU DIED"
+horizontal_alignment = 1
+
+[node name="RetryButton" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=307769692 instance=ExtResource("2_i1t15")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "RETRY"
+flat = false
+
+[node name="ExitButton" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=1569586775 instance=ExtResource("2_i1t15")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "EXITT"
+flat = false

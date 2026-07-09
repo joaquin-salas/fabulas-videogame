@@ -11,11 +11,10 @@ func start() -> void:
 	_current_timer = hurt_duration
 
 func on_physics_process(delta: float) -> void:
-	handle_gravity(delta)
 	
 	player.velocity.x = move_toward(player.velocity.x, 0, 800 * delta) # Esto no sirve mucho creo
 	
-	player.move_and_slide()
+	super.on_physics_process(delta)
 	
 	_current_timer -= delta
 	if _current_timer <= 0.0:
