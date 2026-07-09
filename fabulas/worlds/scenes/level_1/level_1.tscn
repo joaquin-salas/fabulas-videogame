@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv7bycmpibk8c"]
 
-[ext_resource type="PackedScene" uid="uid://tfbfkm8qj4h5" path="res://worlds/map_level2/map_level2.tscn" id="1_mpq25"]
+[ext_resource type="PackedScene" uid="uid://tfbfkm8qj4h5" path="res://worlds/map_level1/map_level1.tscn" id="1_mpq25"]
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_eqvag"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_8l44x"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/SettingsMenu.tscn" id="4_sbcjx"]
@@ -18,7 +18,7 @@ size = Vector2(252, 680)
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_eqvag")]
 z_index = 5
-position = Vector2(581, 947)
+position = Vector2(583, 1014)
 max_health = 10
 
 [node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_8l44x")]
@@ -52,10 +52,10 @@ z_index = 3
 position = Vector2(1797, 884)
 
 [node name="puerta" type="Area2D" parent="." unique_id=167759348]
-position = Vector2(3301, 783)
+position = Vector2(4484, 529)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="puerta" unique_id=1608214706]
-position = Vector2(1199, -224)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_nt6p6")
 
 [node name="LifeHUD" parent="." unique_id=641053678 instance=ExtResource("8_xk1iw")]
