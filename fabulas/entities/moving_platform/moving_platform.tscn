@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cysv8lrq2mt50"]
+
+[ext_resource type="Script" uid="uid://bgrsrto3p213y" path="res://entities/moving_platform/moving_platform.gd" id="1_wwx62"]
+[ext_resource type="Texture2D" uid="uid://bj76t4756qhww" path="res://entities/moving_platform/prototype_slab.png" id="2_45ewh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwx62"]
+size = Vector2(128, 64)
+
+[node name="MovingPlatform" type="Path2D" unique_id=465138594]
+script = ExtResource("1_wwx62")
+external_texture = ExtResource("2_45ewh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1003993309]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=131367243]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1993425362]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=514957799]
+texture = ExtResource("2_45ewh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1396808612]
+shape = SubResource("RectangleShape2D_wwx62")
