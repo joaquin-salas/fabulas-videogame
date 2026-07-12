@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b6duq485arpkt"]
+
+[ext_resource type="PackedScene" uid="uid://ddiojjqv33jhy" path="res://worlds/level_test/map_level_test.tscn" id="1_ia6xx"]
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player_128x128.tscn" id="2_4hwxf"]
+[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_7nsdt"]
+[ext_resource type="PackedScene" uid="uid://cysv8lrq2mt50" path="res://entities/moving_platform/moving_platform.tscn" id="4_7nsdt"]
+
+[sub_resource type="Curve2D" id="Curve2D_7nsdt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 214, -58, -201.45082, -10.578047, 201.45082, 10.578047, 591, -243, 0, 0, 0, 0, 922, -58)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_6xb4x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -400)
+}
+point_count = 2
+
+[node name="LevelTest" type="Node2D" unique_id=1932232554]
+
+[node name="MapLevelTest" parent="." unique_id=1267244489 instance=ExtResource("1_ia6xx")]
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_4hwxf")]
+position = Vector2(380, 110)
+
+[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_7nsdt")]
+follow_node = NodePath("../Player")
+zoom_value = Vector2(0.75, 0.75)
+
+[node name="MovingPlatform" parent="." unique_id=465138594 instance=ExtResource("4_7nsdt")]
+position = Vector2(-139, 198)
+curve = SubResource("Curve2D_7nsdt")
+transition_type = 4
+is_ping_pong = true
+
+[node name="MovingPlatform2" parent="." unique_id=159820408 instance=ExtResource("4_7nsdt")]
+position = Vector2(-396, -71)
+curve = SubResource("Curve2D_6xb4x")
+duration = 2.0
+transition_type = 7
+ease_type = 0
+is_ping_pong = true
