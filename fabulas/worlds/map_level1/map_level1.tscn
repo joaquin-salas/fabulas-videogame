@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://tfbfkm8qj4h5"]
+[gd_scene format=4 uid="uid://bgj7w8gkoacqp"]
 
 [ext_resource type="Texture2D" uid="uid://gekhs0luuk48" path="res://worlds/map_level1/art/TX Tileset Ground_scaled_2x_pngcrushed.png" id="1_f2mah"]
 [ext_resource type="Texture2D" uid="uid://5bgtsysbld02" path="res://worlds/map_level1/art/backgrounf/nature_5/1.png" id="1_sglab"]
@@ -2743,7 +2743,6 @@ scale = Vector2(1.565, 1.565)
 texture = ExtResource("7_8emdy")
 
 [node name="PuertaAbierta" type="Sprite2D" parent="." unique_id=847134608]
-visible = false
 position = Vector2(4499.0005, 411)
 scale = Vector2(1.405, 1.405)
 texture = ExtResource("8_5tnjj")
