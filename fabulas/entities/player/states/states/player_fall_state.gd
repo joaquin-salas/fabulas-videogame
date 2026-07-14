@@ -1,7 +1,7 @@
 extends PlayerStateBase
 
 func start() -> void:
-	player.play_animation(player.animations.Fall)
+	player.play_animation(PlayerAnimations.FALL)
 
 func on_physics_process(delta: float) -> void:
 	player.handle_animation(direction)
@@ -10,14 +10,14 @@ func on_physics_process(delta: float) -> void:
 	
 	if player.is_on_floor():
 		if direction == 0:
-			state_machine.change_state(player.states.Idle)
+			state_machine.change_state(PlayerStatesNames.IDLE)
 		elif direction != 0:
-			state_machine.change_state(player.states.Running)
+			state_machine.change_state(PlayerStatesNames.RUNNING)
 	
 	super.on_physics_process(delta)
 
 func on_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and not player.coyote_timer.is_stopped():
-		state_machine.change_state(player.states.Jumping)
+		state_machine.change_state(PlayerStatesNames.JUMPING)
 	elif event.is_action_pressed("jump"):
 		player.jump_buffer_timer.start()

@@ -3,7 +3,7 @@ extends PlayerStateBase
 var has_cut_jump: bool = false
 
 func start() -> void:
-	player.play_animation(player.animations.Jump)
+	player.play_animation(PlayerAnimations.JUMP)
 	SoundManager.play_sfx("Jump")
 	
 	has_cut_jump = false
@@ -25,6 +25,6 @@ func on_physics_process(delta: float) -> void:
 		has_cut_jump = true
 		
 	if player.velocity.y >= 0:
-		state_machine.change_state(player.states.Falling)
+		state_machine.change_state(PlayerStatesNames.FALLING)
 	
 	super.on_physics_process(delta)
