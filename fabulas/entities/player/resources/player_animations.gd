@@ -1,9 +1,9 @@
-class_name PlayerAnimations extends Resource
+class_name PlayerAnimations
 
-## Resource that holds all the animation names for the player.
+## Class that holds all the animation names for the player.
 
-const Idle: String = 'idle'
-const Run: String = 'run'
-const Jump: String = 'jump'
-const Fall: String = 'fall'
-const Dead: String = 'dead'
+const IDLE := &'idle'
+const RUN := &'run'
+const JUMP := &'jump'
+const FALL := &'fall'
+const DEAD := &'dead'

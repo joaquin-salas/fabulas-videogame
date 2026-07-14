@@ -6,7 +6,7 @@ var _current_timer: float = 0.0
 
 func start() -> void:
 	# Animación de Player herido
-	player.play_animation(player.animations.Fall)
+	player.play_animation(PlayerAnimations.FALL)
 	SoundManager.play_sfx("Hurt")
 	_current_timer = hurt_duration
 
@@ -19,6 +19,6 @@ func on_physics_process(delta: float) -> void:
 	_current_timer -= delta
 	if _current_timer <= 0.0:
 		if player.is_on_floor():
-			state_machine.change_state(player.states.Idle)
+			state_machine.change_state(PlayerStatesNames.IDLE)
 		else:
-			state_machine.change_state(player.states.Falling)
+			state_machine.change_state(PlayerStatesNames.FALLING)
