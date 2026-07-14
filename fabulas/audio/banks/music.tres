@@ -8,10 +8,10 @@
 
 [resource]
 script = ExtResource("1_qfv4i")
-sounds = {
+sounds = Dictionary[String, Array]({
 "Intro1": [ExtResource("5_mvprp")],
 "Menu": [ExtResource("4_doijy")],
 "Musica1": [ExtResource("2_8j1kt")],
 "Musica2": [ExtResource("3_doijy")]
-}
+})
 metadata/_custom_type_script = "uid://bw0digwty4uu4"
