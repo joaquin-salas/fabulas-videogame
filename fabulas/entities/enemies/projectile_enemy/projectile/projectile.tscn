@@ -9,6 +9,7 @@ radius = 11.18034
 
 [node name="Projectile" type="Node2D" unique_id=319743471]
 script = ExtResource("1_dlm2i")
+speed = 1200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=207926163]
 texture = ExtResource("2_nysue")
@@ -16,11 +17,11 @@ texture = ExtResource("2_nysue")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=660305733]
 
 [node name="Hitbox" parent="." unique_id=2122814657 instance=ExtResource("3_dlm2i")]
-collision_layer = 16
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1262691134]
 shape = SubResource("CircleShape2D_g4v7s")
 debug_color = Color(0.6562233, 0.12138159, 0.25898463, 0.41960785)
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
