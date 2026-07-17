@@ -4,17 +4,24 @@ extends Node2D
 
 # ====================== REFERENCE VARIABLES ======================
 @onready var camera: Camera2D = $Camera2D
+
+# ====================== LOCAL VARIABLES ======================
+@export_category("Target Node")
 @export var follow_node: Node2D 
 
+@export_category("Following Parameters")
 @export var follow_y: bool = true
 @export var follow_x: bool = false
 @export var follow_speed: float = 6.0
 
+@export_category("Offsets")
 @export var y_offset: float = -100.0
 @export var x_offset: float = 0.0
 
+@export_category("Zoom")
 @export var zoom_value: Vector2 = Vector2(1.0, 1.0)
 
+# *********************** CALLBACKS **********************
 func _ready() -> void:
 	camera.zoom = zoom_value
 	position.x = follow_node.position.x
