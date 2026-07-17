@@ -248,43 +248,43 @@ shape = SubResource("RectangleShape2D_uo7qi")
 
 [node name="RayCast" type="Node2D" parent="." unique_id=1803487498]
 
-[node name="RayCast Izquierda" type="RayCast2D" parent="RayCast" unique_id=289223357]
+[node name="RayCastLeft" type="RayCast2D" parent="RayCast" unique_id=289223357]
 position = Vector2(0, -25)
 target_position = Vector2(-62, 0)
 collision_mask = 4
 
-[node name="RayCast Derecha" type="RayCast2D" parent="RayCast" unique_id=681395086]
+[node name="RayCastRight" type="RayCast2D" parent="RayCast" unique_id=681395086]
 position = Vector2(0, -25)
 target_position = Vector2(61, 0)
 collision_mask = 4
 
-[node name="RayCast Izquierda suelo" type="RayCast2D" parent="RayCast" unique_id=523805316]
+[node name="RayCastLeftFloor" type="RayCast2D" parent="RayCast" unique_id=523805316]
 position = Vector2(0, -25)
 target_position = Vector2(-45, 28)
 collision_mask = 4
 
-[node name="RayCast Derecha suelo" type="RayCast2D" parent="RayCast" unique_id=1815306537]
+[node name="RayCastRightFloor" type="RayCast2D" parent="RayCast" unique_id=1815306537]
 position = Vector2(0, -25)
 target_position = Vector2(51, 28)
 collision_mask = 4
 
 [node name="Areas" type="Node2D" parent="." unique_id=404398813]
 
-[node name="area_derecha" type="Area2D" parent="Areas" unique_id=1032867248]
+[node name="AreaRight" type="Area2D" parent="Areas" unique_id=1032867248]
 position = Vector2(28, 20)
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area_derecha" unique_id=1740320671]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AreaRight" unique_id=1740320671]
 position = Vector2(102, -45)
 shape = SubResource("RectangleShape2D_8b13n")
 
-[node name="area_izquierda" type="Area2D" parent="Areas" unique_id=1915976272]
+[node name="AreaLeft" type="Area2D" parent="Areas" unique_id=1915976272]
 position = Vector2(28, 20)
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area_izquierda" unique_id=1590588990]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AreaLeft" unique_id=1590588990]
 position = Vector2(-158, -45)
 shape = SubResource("RectangleShape2D_8b13n")
 
@@ -297,7 +297,7 @@ position = Vector2(1, -23)
 shape = SubResource("RectangleShape2D_4ismv")
 debug_color = Color(0, 0.83137256, 0.09411765, 0.41960785)
 
-[connection signal="body_entered" from="Areas/area_derecha" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Areas/area_derecha" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Areas/area_izquierda" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Areas/area_izquierda" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Areas/AreaRight" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Areas/AreaRight" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Areas/AreaLeft" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Areas/AreaLeft" to="." method="_on_area_2d_body_exited"]
