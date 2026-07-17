@@ -7,7 +7,6 @@ extends CharacterBody2D
 @onready var ray_cast_left_floor: RayCast2D = $"RayCast/RayCastLeftFloor"
 @onready var ray_cast_right_floor: RayCast2D = $"RayCast/RayCastRightFloor"
 
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
