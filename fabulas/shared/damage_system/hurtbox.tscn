@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btk48bhencyha" path="res://shared/damage_system/hurtbox.gd" id="1_nop8d"]
 
-[node name="Hurtbox" type="Area2D" unique_id=453256543]
+[node name="Hurtbox" type="Area2D" unique_id=453256543 groups=["hurtbox"]]
+collision_layer = 8
+collision_mask = 16
 script = ExtResource("1_nop8d")
