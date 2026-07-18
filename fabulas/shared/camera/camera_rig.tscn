@@ -6,4 +6,5 @@
 script = ExtResource("1_w8xws")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=706826162]
+limit_bottom = 100
 position_smoothing_enabled = true
