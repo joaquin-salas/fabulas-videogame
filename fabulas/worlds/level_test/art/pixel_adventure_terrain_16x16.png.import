@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cymkut0eao2je"
-path="res://.godot/imported/Run (32x32).png-699ccab047a20dcdf4684201829f95cd.ctex"
+uid="uid://bfy5csjcveiq1"
+path="res://.godot/imported/pixel_adventure_terrain_16x16.png-5635f9dc7ccc3a2b12b86ebcd62c8e00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/visuals/sprite/Run (32x32).png"
-dest_files=["res://.godot/imported/Run (32x32).png-699ccab047a20dcdf4684201829f95cd.ctex"]
+source_file="res://worlds/level_test/art/pixel_adventure_terrain_16x16.png"
+dest_files=["res://.godot/imported/pixel_adventure_terrain_16x16.png-5635f9dc7ccc3a2b12b86ebcd62c8e00.ctex"]
 
 [params]
 

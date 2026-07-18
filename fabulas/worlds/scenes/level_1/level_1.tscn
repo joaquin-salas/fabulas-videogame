@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dv7bycmpibk8c"]
 
-[ext_resource type="PackedScene" uid="uid://tfbfkm8qj4h5" path="res://worlds/map_level2/map_level2.tscn" id="1_mpq25"]
-[ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_eqvag"]
+[ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/map_level2/map_level2.tscn" id="1_mpq25"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_8l44x"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="4_sbcjx"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_8x8kl"]
@@ -18,13 +17,8 @@ size = Vector2(252, 680)
 [node name="Node2D" parent="." unique_id=677097486 instance=ExtResource("1_mpq25")]
 position = Vector2(10, 0)
 
-[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_eqvag")]
-z_index = 5
-position = Vector2(583, 1014)
-
-[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_8l44x")]
+[node name="CameraRig" parent="." unique_id=2139074347 instance=ExtResource("3_8l44x")]
 position = Vector2(960, 640)
-follow_node = NodePath("../Player")
 follow_y = false
 follow_x = true
 
@@ -44,7 +38,6 @@ offset_bottom = -0.4800415
 size_flags_horizontal = 1
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("5_8x8kl")]
-visible = false
 
 [node name="GameManager" type="Node" parent="." unique_id=1989655131]
 script = ExtResource("6_3ev8w")

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b6duq485arpkt"]
 
 [ext_resource type="PackedScene" uid="uid://ddiojjqv33jhy" path="res://worlds/level_test/map_level_test.tscn" id="1_ia6xx"]
-[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player_128x128.tscn" id="2_4hwxf"]
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="2_4hwxf"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_7nsdt"]
 [ext_resource type="PackedScene" uid="uid://cysv8lrq2mt50" path="res://entities/moving_platform/moving_platform.tscn" id="4_7nsdt"]
+[ext_resource type="Texture2D" uid="uid://bkolw06vl1y37" path="res://worlds/level_test/art/prototype_block.png" id="5_6xb4x"]
 
 [sub_resource type="Curve2D" id="Curve2D_7nsdt"]
 _data = {
@@ -16,6 +17,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -400)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_854ka"]
+_data = {
+"points": PackedVector2Array(-71, 285, 71, -285, 155, -218, -290, 49, 290, -49, 629, -273, 94, -189, -94, 189, 895, -86, 0, 0, 0, 0, 155, -218)
+}
+point_count = 4
 
 [node name="LevelTest" type="Node2D" unique_id=1932232554]
 
@@ -41,3 +48,10 @@ duration = 2.0
 transition_type = 7
 ease_type = 0
 is_ping_pong = true
+
+[node name="MovingPlatform3" parent="." unique_id=196750223 instance=ExtResource("4_7nsdt")]
+position = Vector2(-17, -81)
+curve = SubResource("Curve2D_854ka")
+external_texture = ExtResource("5_6xb4x")
+duration = 5.0
+transition_type = 9
