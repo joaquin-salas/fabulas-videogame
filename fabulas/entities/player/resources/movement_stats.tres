@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_8fyar")
-speed_floor = 450.0
-speed_air = 380.0
-jump_force = -750.0
-jump_gravity = 1500.0
-fall_gravity = 2500.0
+speed_floor = 900.0
+speed_air = 760.0
+jump_force = -1500.0
+jump_gravity = 3000.0
+fall_gravity = 5000.0
 variable_jump_multiplier = 0.35
 metadata/_custom_type_script = "uid://0qd0du7mbniu"
