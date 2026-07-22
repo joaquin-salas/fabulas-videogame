@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://daf7ro7281rci" path="res://ui/menus/pause_menu/pause_menu.gd" id="1_51icm"]
 [ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="1_hv7dm"]
-[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="3_2pmna"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/normal_button/custom_button.tscn" id="3_2pmna"]
 [ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="3_cid4m"]
 
 [node name="PauseMenu" type="Control" unique_id=248075495]

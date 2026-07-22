@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7wr1bd3tveqw"]
 
 [ext_resource type="Script" uid="uid://c0howe4vhm26d" path="res://shared/custscene_base/cutscene_base.gd" id="1_txtuu"]
-[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_e8rmm"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/normal_button/custom_button.tscn" id="2_e8rmm"]
 
 [sub_resource type="Animation" id="Animation_kwdgy"]
 length = 0.001

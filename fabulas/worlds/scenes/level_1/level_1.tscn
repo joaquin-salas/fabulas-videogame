@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dv7bycmpibk8c"]
 
-[ext_resource type="PackedScene" uid="uid://tfbfkm8qj4h5" path="res://worlds/map_level2/map_level2.tscn" id="1_mpq25"]
+[ext_resource type="PackedScene" uid="uid://tfbfkm8qj4h5" path="res://worlds/map_level1/map_level1.tscn" id="1_mpq25"]
 [ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_eqvag"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_8l44x"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="4_sbcjx"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_8x8kl"]
-[ext_resource type="Script" uid="uid://duntdc3rprern" path="res://worlds/scenes/level_1/game_manager.gd" id="6_3ev8w"]
+[ext_resource type="Script" uid="uid://duntdc3rprern" path="res://worlds/scenes/level_1/manager_level1.gd" id="6_3ev8w"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="7_vg3cf"]
 [ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="8_xk1iw"]
 [ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="9_f0hh5"]
@@ -44,7 +44,6 @@ offset_bottom = -0.4800415
 size_flags_horizontal = 1
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("5_8x8kl")]
-visible = false
 
 [node name="GameManager" type="Node" parent="." unique_id=1989655131]
 script = ExtResource("6_3ev8w")

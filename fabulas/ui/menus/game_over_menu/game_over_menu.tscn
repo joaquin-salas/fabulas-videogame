@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dj7eqdjduh36c"]
 
 [ext_resource type="Script" uid="uid://gcjx3qpxvh3q" path="res://ui/menus/game_over_menu/game_over_menu.gd" id="1_x7wq2"]
-[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_i1t15"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/normal_button/custom_button.tscn" id="2_i1t15"]
 [ext_resource type="Theme" uid="uid://dicl4ssjmskrc" path="res://ui/menus/menu_theme.tres" id="2_pl5w0"]
 [ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="3_ky81q"]
 

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://wuwxfjcxtklr"]
+
+[ext_resource type="Script" uid="uid://dy14q3pdxwqri" path="res://ui/buttons/on_off_button/menu_option.gd" id="1_qgd7c"]
+
+[node name="MenuOption" type="HBoxContainer" unique_id=1483911272]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+script = ExtResource("1_qgd7c")
+
+[node name="ArrowLabel" type="Label" parent="." unique_id=1251062539]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="NameLabel" type="Label" parent="." unique_id=744584850]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Opcion"
+
+[node name="ValueLabel" type="Label" parent="." unique_id=917034890]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+text = "OFF"
