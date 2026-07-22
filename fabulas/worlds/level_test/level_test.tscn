@@ -3,16 +3,88 @@
 [ext_resource type="PackedScene" uid="uid://ddiojjqv33jhy" path="res://worlds/level_test/map_level_test.tscn" id="1_ia6xx"]
 [ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="2_4hwxf"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_7nsdt"]
+[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="4_7nsdt"]
+[ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="5_6xb4x"]
+[ext_resource type="PackedScene" uid="uid://bp5udb0hj2hfp" path="res://entities/enemies/projectile_enemy/projectile_enemy.tscn" id="6_854ka"]
+[ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="7_e2ars"]
+[ext_resource type="Script" uid="uid://j871co4ra4cd" path="res://worlds/level_test/temporary_win.gd" id="7_i4llw"]
+[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="9_ljj85"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="10_urqvi"]
+[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="11_mwdh5"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="12_q1b3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
+size = Vector2(577, 276)
 
 [node name="LevelTest" type="Node2D" unique_id=1932232554]
 
 [node name="MapLevelTest" parent="." unique_id=1267244489 instance=ExtResource("1_ia6xx")]
+position = Vector2(-66, 477)
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_4hwxf")]
-position = Vector2(0, -400)
+position = Vector2(0, -200)
 
 [node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_7nsdt")]
 position = Vector2(0, -163)
 follow_node = NodePath("../Player")
 follow_speed = 8.0
 zoom_value = Vector2(0.75, 0.75)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=662468171]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("11_mwdh5")]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=992204846 instance=ExtResource("12_q1b3r")]
+visible = false
+offset_left = 440.0
+offset_top = 257.0
+offset_right = -389.0
+offset_bottom = -240.0
+
+[node name="WinArea" type="Area2D" parent="." unique_id=906913529]
+position = Vector2(-302, -22567)
+script = ExtResource("7_i4llw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea" unique_id=785441919]
+position = Vector2(16, -58)
+shape = SubResource("RectangleShape2D_4ismv")
+
+[node name="Win" type="Label" parent="WinArea" unique_id=1821684575]
+offset_left = -260.0
+offset_top = -183.0
+offset_right = 294.0
+offset_bottom = -147.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("7_e2ars")
+theme_override_font_sizes/font_size = 26
+text = "Has Ganado Máquina xd lol wtf!! MLG"
+
+[node name="GameOverMenu" parent="." unique_id=1354604793 instance=ExtResource("9_ljj85")]
+visible = false
+
+[node name="LifeHUD" parent="." unique_id=915383811 instance=ExtResource("10_urqvi")]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1061466524]
+
+[node name="GroundEnemySlow" parent="Enemies" unique_id=1836502299 instance=ExtResource("4_7nsdt")]
+position = Vector2(138, -15631.001)
+scale = Vector2(2, 2)
+speed = 300
+
+[node name="GroundEnemySlow2" parent="Enemies" unique_id=627876684 instance=ExtResource("4_7nsdt")]
+position = Vector2(-955.99994, -15312)
+scale = Vector2(2, 2)
+speed = 300
+
+[node name="GroundEnemyFast" parent="Enemies" unique_id=975748557 instance=ExtResource("5_6xb4x")]
+position = Vector2(1, -16978)
+scale = Vector2(2, 2)
+speed = 400
+chase_speed = 700
+chase_time = 1.0
+
+[node name="ProjectileEnemy" parent="Enemies" unique_id=495046265 instance=ExtResource("6_854ka")]
+position = Vector2(-950, -18668)
+
+[node name="ProjectileEnemy2" parent="Enemies" unique_id=417973040 instance=ExtResource("6_854ka")]
+position = Vector2(-944, -19614)
