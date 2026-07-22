@@ -123,7 +123,7 @@ offset_bottom = 104.0
 
 [node name="GodMode" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=1080334488 instance=ExtResource("1_ppho5")]
 layout_mode = 2
-option_id = "god_mode"
+option_id = "GODFLY"
 
 [node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/GodMode" index="1" unique_id=744584850]
 text = "God Mode"
@@ -173,7 +173,6 @@ grow_vertical = 2
 
 [node name="Level1" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1831510857 instance=ExtResource("1_ppho5")]
 layout_mode = 2
-option_id = "LEVEL_1"
 
 [node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level1" index="1" unique_id=744584850]
 text = "Level 1"
@@ -183,7 +182,6 @@ visible = false
 
 [node name="Level2" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1199882014 instance=ExtResource("1_ppho5")]
 layout_mode = 2
-option_id = "LEVEL_2"
 
 [node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level2" index="1" unique_id=744584850]
 text = "Level 2"

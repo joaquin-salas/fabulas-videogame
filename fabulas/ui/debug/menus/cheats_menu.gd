@@ -13,7 +13,7 @@ func _on_cheat_toggled(_value: bool, option_id: String) -> void:
 		return
 	
 	match option_id:
-		"god_mode":
+		"GODFLY":
 			player.toggle_god_mode()
 		"invincible":
 			DebugMenu.invincible = !DebugMenu.invincible
