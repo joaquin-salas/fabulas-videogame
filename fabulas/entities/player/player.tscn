@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://2l7e5yb48q6n" path="res://shared/damage_system/hurtbox.tscn" id="12_a1qjk"]
 [ext_resource type="Script" uid="uid://chwgvwvc3hso7" path="res://entities/player/states/states/player_hurt_state.gd" id="14_afbqv"]
 [ext_resource type="Script" uid="uid://bfax0ukatih75" path="res://entities/player/states/states/player_dead_state.gd" id="15_gx6sm"]
+[ext_resource type="Script" uid="uid://bn2uyogxsbgt6" path="res://entities/player/states/states/player_god_fly_state.gd" id="17_3wlsy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a1qjk"]
 shader = ExtResource("3_j3ovn")
@@ -325,6 +326,9 @@ script = ExtResource("14_afbqv")
 
 [node name="PlayerDeadState" type="Node" parent="StateMachine" unique_id=44192305]
 script = ExtResource("15_gx6sm")
+
+[node name="PlayerGodFlyState" type="Node" parent="StateMachine" unique_id=270087985]
+script = ExtResource("17_3wlsy")
 
 [node name="Timers" type="Node2D" parent="." unique_id=767850289]
 

@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bbbaoxb0tew6m"]
 
-[ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="1_hr46b"]
-[ext_resource type="Script" uid="uid://dhbhvyoixc5ib" path="res://ui/buttons/custom_button.gd" id="1_sriw3"]
+[ext_resource type="FontFile" uid="uid://bb17e8srbq51o" path="res://assets/fonts/gohan_2/Gohan.ttf" id="1_f6250"]
+[ext_resource type="Script" uid="uid://dhbhvyoixc5ib" path="res://ui/buttons/normal_button/custom_button.gd" id="2_pyam7"]
 
 [node name="CustomButton" type="Button" unique_id=307769692]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
@@ -13,11 +12,11 @@ offset_right = -1826.0
 offset_bottom = -1036.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_hr46b")
+theme_override_fonts/font = ExtResource("1_f6250")
 text = "text
 "
 flat = true
-script = ExtResource("1_sriw3")
+script = ExtResource("2_pyam7")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

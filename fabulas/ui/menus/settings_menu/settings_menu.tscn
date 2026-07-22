@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cirywfgdcw0il" path="res://ui/menus/settings_menu/settings_menu.gd" id="1_3d2gn"]
 [ext_resource type="FontFile" uid="uid://8uajmgpvwlve" path="res://assets/fonts/alte_haas_grotesk/AlteHaasGroteskBold.ttf" id="2_3d2gn"]
-[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/custom_button.tscn" id="2_rj87i"]
+[ext_resource type="PackedScene" uid="uid://bbbaoxb0tew6m" path="res://ui/buttons/normal_button/custom_button.tscn" id="2_rj87i"]
 [ext_resource type="Texture2D" uid="uid://dl88j0jwh67i1" path="res://ui/menus/main_menu/art/torre 2.png" id="2_yrmop"]
 
 [sub_resource type="Theme" id="Theme_drevy"]
