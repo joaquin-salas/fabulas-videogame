@@ -138,8 +138,7 @@ collision_mask = 4
 [node name="Areas" type="Node2D" parent="." unique_id=587193758]
 
 [node name="Hitbox" parent="Areas" unique_id=2122814657 instance=ExtResource("3_yjqvt")]
-collision_layer = 16
-collision_mask = 0
+knockback_strength = 1400.0
 
 [node name="HitboxShape" type="CollisionShape2D" parent="Areas/Hitbox" unique_id=100859255]
 position = Vector2(-1.6501417, -24.220964)
