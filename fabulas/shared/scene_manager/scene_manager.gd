@@ -3,15 +3,11 @@ extends Node
 enum SceneID {
 	MAIN_MENU,
 	INTRO_CUTSCENE,
-	LEVEL_1,
-	LEVEL_2
 }
 
 const SCENES := {
 	SceneID.MAIN_MENU: "res://ui/menus/main_menu/main_menu.tscn",
 	SceneID.INTRO_CUTSCENE: "res://worlds/scenes/cutscenes/intro/cutscene_intro1.tscn",
-	SceneID.LEVEL_1: "res://worlds/scenes/level_1/level_1.tscn",
-	SceneID.LEVEL_2: "res://worlds/scenes/level_2/level_2.tscn"
 }
 
 func goto(scene_id: SceneID) -> void:

@@ -2,7 +2,7 @@ extends CutsceneBase
 
 func _ready() -> void:
 	SoundManager.play_music("Intro1")
-	next_scene = "res://worlds/scenes/level_1/level_1.tscn"
+	next_scene = "res://worlds/level_test/level_test.tscn"
 	slides = [
 		{
 			"image": load("res://worlds/scenes/cutscenes/intro/art1/1.png"),

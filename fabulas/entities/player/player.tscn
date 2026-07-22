@@ -331,6 +331,7 @@ script = ExtResource("15_gx6sm")
 script = ExtResource("17_3wlsy")
 
 [node name="Timers" type="Node2D" parent="." unique_id=767850289]
+visible = false
 
 [node name="CoyoteTimer" type="Timer" parent="Timers" unique_id=974083162]
 wait_time = 0.065

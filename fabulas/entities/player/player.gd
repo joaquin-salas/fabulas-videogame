@@ -69,9 +69,9 @@ func start_blinking() -> void:
 func toggle_god_mode() -> void:
 	is_god_mode = !is_god_mode
 	if is_god_mode:
-		state_machine.change_state(states.GodFly)
+		state_machine.change_state(PlayerStatesNames.GODFLY)
 	else:
-		state_machine.change_state(states.Falling)
+		state_machine.change_state(PlayerStatesNames.FALLING)
 func print_debug(variables: Array) -> void:
 	for i in variables:
 		print(i)
