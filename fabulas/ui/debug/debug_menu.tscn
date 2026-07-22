@@ -130,6 +130,7 @@ text = "God Mode"
 
 [node name="Invincibility" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=975784392 instance=ExtResource("1_ppho5")]
 layout_mode = 2
+option_id = "invincible"
 
 [node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Invincibility" index="1" unique_id=744584850]
 text = "Invincibility"

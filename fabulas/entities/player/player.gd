@@ -43,7 +43,7 @@ func get_current_gravity() -> float:
 		return player_movement_stats.fall_gravity
 	return player_movement_stats.jump_gravity
 func take_damage(amount: int, knockback_dir: Vector2) -> void:
-	if is_invincible or is_god_mode:
+	if is_invincible or is_god_mode or DebugMenu.invincible:
 		return
 	
 	current_health -= amount
