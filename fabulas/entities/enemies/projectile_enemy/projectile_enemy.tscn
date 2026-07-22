@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp5udb0hj2hfp"]
 
-[ext_resource type="Script" uid="uid://bghcfut7lemw4" path="res://entities/enemies/projectile_enemy/proyectile_enemy.gd" id="1_cutay"]
+[ext_resource type="Script" uid="uid://bghcfut7lemw4" path="res://entities/enemies/projectile_enemy/projectile_enemy.gd" id="1_cutay"]
 [ext_resource type="Texture2D" uid="uid://c064htq07o3o5" path="res://entities/enemies/projectile_enemy/art/Diseño_sin_título-removebg-preview.png" id="2_7eevo"]
 [ext_resource type="Script" uid="uid://b4xe213tj1b4i" path="res://shared/damage_system/hitbox.gd" id="3_1f48c"]
 
@@ -13,7 +13,7 @@ size = Vector2(2399, 648)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(42, 188.5)
 
-[node name="ProyectileEnemy" type="CharacterBody2D" unique_id=495046265]
+[node name="ProjectileEnemy" type="CharacterBody2D" unique_id=495046265]
 script = ExtResource("1_cutay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1764712723]

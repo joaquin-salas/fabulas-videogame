@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cqwjvexkmycoy"]
 
-[ext_resource type="PackedScene" uid="uid://by1opkevsyhob" path="res://entities/player/player.tscn" id="2_hdfcw"]
 [ext_resource type="PackedScene" uid="uid://bgj7w8gkoacqp" path="res://worlds/map_level2/map_level2.tscn" id="2_nt6p6"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_a3nmw"]
 [ext_resource type="PackedScene" uid="uid://bgx5mn44t03it" path="res://entities/enemies/aerial_enemy/aerial_enemy.tscn" id="3_vtulw"]
 [ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="5_2i5dt"]
 [ext_resource type="PackedScene" uid="uid://dmx0c1s2yfjl7" path="res://shared/CanvasMenus.tscn" id="7_4yxbw"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="7_nt6p6"]
-[ext_resource type="PackedScene" uid="uid://bp5udb0hj2hfp" path="res://entities/enemies/projectile_enemy/proyectile_enemy.tscn" id="8_vtulw"]
+[ext_resource type="PackedScene" uid="uid://bp5udb0hj2hfp" path="res://entities/enemies/projectile_enemy/projectile_enemy.tscn" id="8_vtulw"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="9_2i5dt"]
+[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="10_4yxbw"]
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="10_338ia"]
 
 [node name="Level2" type="Node2D" unique_id=800210757]
 process_mode = 1
@@ -20,9 +22,6 @@ follow_node = NodePath("../Player")
 
 [node name="aerial _enemy" parent="." unique_id=610127007 instance=ExtResource("3_vtulw")]
 position = Vector2(156, 427)
-
-[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_hdfcw")]
-position = Vector2(960, 983)
 
 [node name="ground_enemy" parent="." unique_id=1836502299 instance=ExtResource("5_2i5dt")]
 position = Vector2(572, -787)
@@ -38,3 +37,11 @@ collision_layer = 2
 position = Vector2(180, -147.00002)
 scale = Vector2(0.69, 0.768)
 collision_mask = 4
+
+[node name="LifeHUD" parent="." unique_id=915383811 instance=ExtResource("9_2i5dt")]
+
+[node name="GameOverMenu" parent="." unique_id=1354604793 instance=ExtResource("10_4yxbw")]
+visible = false
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("10_338ia")]
+position = Vector2(1073, 938)

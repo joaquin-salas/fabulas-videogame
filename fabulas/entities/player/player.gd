@@ -10,8 +10,7 @@ extends CharacterBody2D
 @onready var hurtbox: Hurtbox = $Hurtbox
 # ====================== RESOURCES ======================
 @export var player_movement_stats: PlayerMovementStats
-var states: PlayerStatesNames = PlayerStatesNames.new()
-var animations: PlayerAnimations = PlayerAnimations.new()
+
 # ====================== LOCAL VARIABLES ======================
 @export var max_health: int = 5
 @onready var current_health: int = max_health:
@@ -55,9 +54,12 @@ func take_damage(amount: int, knockback_dir: Vector2) -> void:
 		inmortality_timer.start()
 		start_blinking()
 		velocity = knockback_dir
-		state_machine.change_state(states.Hurt)
+
+		state_machine.change_state(PlayerStatesNames.HURT)
+
 func die() -> void:
-	state_machine.change_state(states.Dead)
+	state_machine.change_state(PlayerStatesNames.DEAD)
+
 func start_blinking() -> void:
 	# Create a tween that repeats indefinitely 
 	blink_tween = create_tween()

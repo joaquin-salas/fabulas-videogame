@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_o88ta")
-sounds = {
+sounds = Dictionary[String, Array]({
 "ClickButton": [ExtResource("2_ee2bb")],
 "EnterButton": [ExtResource("3_6rsfv")]
-}
+})
 metadata/_custom_type_script = "uid://bw0digwty4uu4"

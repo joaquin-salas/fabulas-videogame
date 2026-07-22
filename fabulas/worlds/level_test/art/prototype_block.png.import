@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c41cj6woli8m"
-path="res://.godot/imported/Desappearing (96x96).png-61389c55c89e73d47697e8879505131a.ctex"
+uid="uid://bkolw06vl1y37"
+path="res://.godot/imported/prototype_block.png-04c71afde2288dcfa1bda7d66542eddb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/visuals/sprite/Desappearing (96x96).png"
-dest_files=["res://.godot/imported/Desappearing (96x96).png-61389c55c89e73d47697e8879505131a.ctex"]
+source_file="res://worlds/level_test/art/prototype_block.png"
+dest_files=["res://.godot/imported/prototype_block.png-04c71afde2288dcfa1bda7d66542eddb.ctex"]
 
 [params]
 
