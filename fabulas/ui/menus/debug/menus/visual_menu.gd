@@ -1,4 +1,4 @@
-extends "res://ui/debug/base_menu/base_menu.gd"
+extends "../base_menu/base_menu.gd"
 
 
 func _ready():

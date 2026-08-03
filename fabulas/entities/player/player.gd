@@ -66,12 +66,14 @@ func start_blinking() -> void:
 	blink_tween.set_loops()
 	blink_tween.tween_property(animated_sprite_2d, "material:shader_parameter/flash_modifier", 1.0, 0.1)
 	blink_tween.tween_property(animated_sprite_2d, "material:shader_parameter/flash_modifier", 0.0, 0.1)
+	
 func toggle_god_mode() -> void:
 	is_god_mode = !is_god_mode
 	if is_god_mode:
 		state_machine.change_state(PlayerStatesNames.GODFLY)
 	else:
 		state_machine.change_state(PlayerStatesNames.FALLING)
+		
 func print_debug(variables: Array) -> void:
 	for i in variables:
 		print(i)

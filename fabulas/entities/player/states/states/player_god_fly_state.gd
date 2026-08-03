@@ -1,12 +1,13 @@
 class_name PlayerGodFlyState
 extends PlayerStateBase
 
-@export var fly_speed: float = 400.0
+var fly_speed: float = 1100.0
 
 func start() -> void:
 	player.velocity = Vector2.ZERO
 	player.set_collision_layer_value(1, false)
 	player.set_collision_mask_value(1, false)
+
 
 func end() -> void:
 	player.set_collision_layer_value(1, true)

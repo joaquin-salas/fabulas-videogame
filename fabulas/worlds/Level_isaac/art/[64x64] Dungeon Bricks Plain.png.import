@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://15f16k6mhrl7"
-path="res://.godot/imported/idle_128x128.png-9c2c89b266f5e9c79c165ef9a2da2ccf.ctex"
+uid="uid://ca0on4sus6477"
+path="res://.godot/imported/[64x64] Dungeon Bricks Plain.png-5ad2608ad7648f7ca76c64407d856a5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/visuals/sprite/idle_128x128.png"
-dest_files=["res://.godot/imported/idle_128x128.png-9c2c89b266f5e9c79c165ef9a2da2ccf.ctex"]
+source_file="res://worlds/Level_isaac/art/[64x64] Dungeon Bricks Plain.png"
+dest_files=["res://.godot/imported/[64x64] Dungeon Bricks Plain.png-5ad2608ad7648f7ca76c64407d856a5f.ctex"]
 
 [params]
 

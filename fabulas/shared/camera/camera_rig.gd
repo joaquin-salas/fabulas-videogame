@@ -1,5 +1,4 @@
 extends Node2D
-
 ## Camera that follows a specific node with a set of rules.
 
 # ====================== REFERENCE VARIABLES ======================
@@ -36,3 +35,10 @@ func _process(delta: float) -> void:
 	
 	if follow_y:
 		global_position.y = lerp(global_position.y, follow_node.global_position.y + y_offset, follow_speed * delta)
+
+# *********************** PUBLIC METHODS **********************
+func activate() -> void:
+	camera.make_current()
+
+func deactivate() -> void:
+	camera.make_current()

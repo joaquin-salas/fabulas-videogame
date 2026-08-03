@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # ====================== LOCAL VARIABLES ======================
-@export var speed = 100
+@export var speed = 300
 @onready var current_speed = speed
 
 const GRAVITY: int = 980

@@ -1,4 +1,4 @@
-extends "res://ui/debug/base_menu/base_menu.gd"
+extends "../base_menu/base_menu.gd"
 
 func on_accept():
 	options[selected_index].activate()
@@ -17,3 +17,7 @@ func _on_cheat_toggled(_value: bool, option_id: String) -> void:
 			player.toggle_god_mode()
 		"invincible":
 			DebugMenu.invincible = !DebugMenu.invincible
+		"MaxHealth":
+			player.current_health = player.max_health
+		"KILL":
+			player.die()

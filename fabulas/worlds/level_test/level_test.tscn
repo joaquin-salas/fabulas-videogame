@@ -19,13 +19,12 @@ size = Vector2(577, 276)
 [node name="LevelTest" type="Node2D" unique_id=1932232554]
 
 [node name="MapLevelTest" parent="." unique_id=1267244489 instance=ExtResource("1_ia6xx")]
-position = Vector2(-66, 477)
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_4hwxf")]
 position = Vector2(0, -200)
 
 [node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_7nsdt")]
-position = Vector2(0, -163)
+position = Vector2(1, 47)
 follow_node = NodePath("../Player")
 follow_speed = 8.0
 zoom_value = Vector2(0.75, 0.75)
@@ -65,16 +64,15 @@ visible = false
 [node name="LifeHUD" parent="." unique_id=915383811 instance=ExtResource("10_urqvi")]
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1061466524]
+position = Vector2(-3, 26)
 
 [node name="GroundEnemySlow" parent="Enemies" unique_id=1836502299 instance=ExtResource("4_7nsdt")]
 position = Vector2(138, -15631.001)
 scale = Vector2(2, 2)
-speed = 300
 
 [node name="GroundEnemySlow2" parent="Enemies" unique_id=627876684 instance=ExtResource("4_7nsdt")]
 position = Vector2(-955.99994, -15312)
 scale = Vector2(2, 2)
-speed = 300
 
 [node name="GroundEnemyFast" parent="Enemies" unique_id=975748557 instance=ExtResource("5_6xb4x")]
 position = Vector2(1, -16978)

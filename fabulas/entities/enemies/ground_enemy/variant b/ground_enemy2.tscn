@@ -95,7 +95,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
-size = Vector2(25.963173, 46.742207)
+size = Vector2(62.32295, 54.957504)
 
 [node name="ground_enemy2" type="CharacterBody2D" unique_id=1836502299]
 scale = Vector2(1.765, 1.765)
@@ -141,5 +141,6 @@ collision_mask = 4
 knockback_strength = 1400.0
 
 [node name="HitboxShape" type="CollisionShape2D" parent="Areas/Hitbox" unique_id=100859255]
-position = Vector2(-1.6501417, -24.220964)
+position = Vector2(-1.6997164, -27.19547)
 shape = SubResource("RectangleShape2D_4ismv")
+debug_color = Color(0.9902335, 0, 0.2865104, 0.41960785)
