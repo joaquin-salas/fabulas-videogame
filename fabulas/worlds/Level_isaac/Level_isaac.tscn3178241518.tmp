@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cow3yvsdcqsa2"]
+
+[ext_resource type="PackedScene" uid="uid://cac42vybh558u" path="res://worlds/Level_isaac/MapIsaac.tscn" id="1_khe3b"]
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="2_jhm3r"]
+[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_p8fm0"]
+
+[node name="LevelIsaac" type="Node2D" unique_id=1615485469]
+
+[node name="MapIsaac" parent="." unique_id=716908600 instance=ExtResource("1_khe3b")]
+
+[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_p8fm0")]
+position = Vector2(0, -540)
+follow_node = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_jhm3r")]
+position = Vector2(0, -140)

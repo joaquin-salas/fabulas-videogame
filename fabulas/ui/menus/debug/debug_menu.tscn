@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://b6g2tw8kh0d6y"]
 
 [ext_resource type="PackedScene" uid="uid://wuwxfjcxtklr" path="res://ui/buttons/on_off_button/menu_option.tscn" id="1_ppho5"]
-[ext_resource type="Script" uid="uid://bhnximcsawxha" path="res://ui/debug/debug_menu.gd" id="1_ua8si"]
-[ext_resource type="Script" uid="uid://du485c02oq06" path="res://ui/debug/menus/menu_container.gd" id="2_ablim"]
-[ext_resource type="Script" uid="uid://dsg7wf6iwp0j7" path="res://ui/debug/menus/main_menu.gd" id="3_wpmyv"]
-[ext_resource type="Script" uid="uid://dt8gal86pwhvg" path="res://ui/debug/menus/cheats_menu.gd" id="5_8l6j4"]
-[ext_resource type="Script" uid="uid://bi4s2ajplitww" path="res://ui/debug/menus/scene_menu.gd" id="6_v3bsk"]
-[ext_resource type="Script" uid="uid://dga1ptjxnpass" path="res://ui/debug/menus/visual_menu.gd" id="7_6whr1"]
-[ext_resource type="Script" uid="uid://chybxshn8w66l" path="res://ui/debug/menus/info_menu.gd" id="8_wpmyv"]
-[ext_resource type="Script" uid="uid://dl6bi1ns4rv7v" path="res://ui/debug/info_panel/info_panel.gd" id="9_wpmyv"]
+[ext_resource type="Script" uid="uid://bhnximcsawxha" path="res://ui/menus/debug/debug_menu.gd" id="1_ua8si"]
+[ext_resource type="Script" uid="uid://du485c02oq06" path="res://ui/menus/debug/menus/menu_container.gd" id="2_ablim"]
+[ext_resource type="Script" uid="uid://dsg7wf6iwp0j7" path="res://ui/menus/debug/menus/main_menu.gd" id="3_wpmyv"]
+[ext_resource type="Script" uid="uid://dt8gal86pwhvg" path="res://ui/menus/debug/menus/cheats_menu.gd" id="5_8l6j4"]
+[ext_resource type="Script" uid="uid://bi4s2ajplitww" path="res://ui/menus/debug/menus/scene_menu.gd" id="6_v3bsk"]
+[ext_resource type="Script" uid="uid://dga1ptjxnpass" path="res://ui/menus/debug/menus/visual_menu.gd" id="7_6whr1"]
+[ext_resource type="Script" uid="uid://chybxshn8w66l" path="res://ui/menus/debug/menus/info_menu.gd" id="8_wpmyv"]
+[ext_resource type="Script" uid="uid://dl6bi1ns4rv7v" path="res://ui/menus/debug/info_panel/info_panel.gd" id="9_wpmyv"]
 
 [node name="debug_menu" type="CanvasLayer" unique_id=1465117140]
 process_mode = 2
@@ -137,6 +137,7 @@ text = "Invincibility"
 
 [node name="MaxHealth" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=837599130 instance=ExtResource("1_ppho5")]
 layout_mode = 2
+option_id = "MaxHealth"
 
 [node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/MaxHealth" index="1" unique_id=744584850]
 text = "Max Health"
@@ -146,6 +147,7 @@ visible = false
 
 [node name="KillPlayer" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=1213632944 instance=ExtResource("1_ppho5")]
 layout_mode = 2
+option_id = "KILL"
 
 [node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/KillPlayer" index="1" unique_id=744584850]
 text = "Kill Player"
@@ -171,22 +173,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Level1" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1831510857 instance=ExtResource("1_ppho5")]
+[node name="LevelJoa" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1831510857 instance=ExtResource("1_ppho5")]
 layout_mode = 2
+option_id = "LEVEL_JOA"
 
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level1" index="1" unique_id=744584850]
-text = "Level 1"
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa" index="1" unique_id=744584850]
+text = "level test joa"
 
-[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level1" index="2" unique_id=917034890]
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa" index="2" unique_id=917034890]
 visible = false
 
-[node name="Level2" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1199882014 instance=ExtResource("1_ppho5")]
+[node name="LevelIsaac" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1199882014 instance=ExtResource("1_ppho5")]
 layout_mode = 2
+option_id = "LEVEL_ISAAC"
 
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level2" index="1" unique_id=744584850]
-text = "Level 2"
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac" index="1" unique_id=744584850]
+text = "level test isaac"
 
-[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level2" index="2" unique_id=917034890]
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac" index="2" unique_id=917034890]
 visible = false
 
 [node name="TestLevel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=589027844 instance=ExtResource("1_ppho5")]
@@ -295,8 +299,8 @@ layout_mode = 2
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Invincibility"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/MaxHealth"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/KillPlayer"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level1"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/Level2"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/TestLevel"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/VisualMenu/VBoxContainer/Collisions"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/VisualMenu/VBoxContainer/Hitboxes"]
