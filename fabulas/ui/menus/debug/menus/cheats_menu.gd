@@ -11,7 +11,7 @@ func _on_cheat_toggled(_value: bool, option_id: String) -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if not player:
 		return
-	
+
 	match option_id:
 		"GODFLY":
 			player.toggle_god_mode()
@@ -21,3 +21,10 @@ func _on_cheat_toggled(_value: bool, option_id: String) -> void:
 			player.current_health = player.max_health
 		"KILL":
 			player.die()
+		"DELETE":
+			_on_clear_checkpoint_selected()
+
+
+func _on_clear_checkpoint_selected() -> void:
+	CheckpointManager.clear_checkpoint()
+	print("Checkpoint borrado")
