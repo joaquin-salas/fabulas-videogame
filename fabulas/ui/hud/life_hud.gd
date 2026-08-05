@@ -7,16 +7,18 @@ extends CanvasLayer
 
 # ====================== RESOURCES ======================
 const HEART_TEXTURE_IMAGE: Resource = preload("res://assets/ui/heart.png")
-
+var current_health_cache: int = 0
 # ************************ CALLBACKS ************************
 func _ready() -> void:
 	SignalBus.player_max_health_set.connect(_on_player_max_health_set)
 	SignalBus.player_health_changed.connect(_on_player_health_changed)
 
+
 # ******************* SIGNALS CALLBACKS *******************
 func _on_player_max_health_set(max_health: int) -> void:
 	# Clear existing heart images
 	for heart_child in heart_box_container.get_children():
+		heart_box_container.remove_child(heart_child)
 		heart_child.queue_free()
 
 	for i in max_health:
@@ -34,6 +36,7 @@ func _on_player_max_health_set(max_health: int) -> void:
 		tween.tween_property(new_heart, "scale", Vector2(1.1, 1.1), 0.5).set_trans(Tween.TRANS_SINE)
 		tween.tween_property(new_heart, "scale", Vector2(1.0, 1.0), 0.6).set_trans(Tween.TRANS_SINE)
 
+	
 func _on_player_health_changed(new_health: int) -> void:
 	var heart_childs := heart_box_container.get_children()
 	print("Heart childs: ", heart_childs)

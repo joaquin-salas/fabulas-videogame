@@ -32,6 +32,7 @@ SoundManager="*uid://b27b24o4dg0h8"
 SignalBus="*uid://x0aqjjdx4sjo"
 TransitionsScreen="*uid://d3q5v8lvhww64"
 DebugMenu="*uid://b6g2tw8kh0d6y"
+CheckpointManager="*uid://bc0he2ik862mq"
 
 [display]
 
