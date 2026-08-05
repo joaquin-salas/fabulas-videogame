@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="10_urqvi"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="11_mwdh5"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="12_q1b3r"]
+[ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="13_q1b3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(577, 276)
@@ -21,13 +22,10 @@ size = Vector2(577, 276)
 [node name="MapLevelTest" parent="." unique_id=1267244489 instance=ExtResource("1_ia6xx")]
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_4hwxf")]
-position = Vector2(0, -200)
+position = Vector2(382.25488, -22233.71)
 
-[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("follow_node") instance=ExtResource("3_7nsdt")]
-position = Vector2(1, 47)
-follow_node = NodePath("../Player")
-follow_speed = 8.0
-zoom_value = Vector2(0.75, 0.75)
+[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("3_7nsdt")]
+followed_node = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=662468171]
 
@@ -86,3 +84,44 @@ position = Vector2(-950, -18668)
 
 [node name="ProjectileEnemy2" parent="Enemies" unique_id=417973040 instance=ExtResource("6_854ka")]
 position = Vector2(-944, -19614)
+
+[node name="CameraZones" type="Node2D" parent="." unique_id=744240182]
+
+[node name="CameraZone" parent="CameraZones" unique_id=1994611306 instance=ExtResource("13_q1b3r")]
+position = Vector2(2769, -21886)
+expand_left = 1400.0
+expand_right = 1300.0
+expand_top = 164.0
+expand_bottom = 171.0
+zone_zoom = Vector2(2.7, 2.7)
+zone_priority = 1
+transition_duration = 1.0
+
+[node name="CameraZone3" parent="CameraZones" unique_id=1829861647 instance=ExtResource("13_q1b3r")]
+position = Vector2(1, -11616.5)
+expand_left = 1300.0
+expand_right = 1300.0
+expand_top = 12233.0
+expand_bottom = 12233.0
+zone_zoom = Vector2(0.75, 0.75)
+zone_follow_x = false
+transition_duration = 2.0
+transition_trans_type = 2
+
+[node name="CameraZone2" parent="CameraZones" unique_id=662801477 instance=ExtResource("13_q1b3r")]
+position = Vector2(1107.8236, -21335.008)
+expand_top = 410.0
+expand_bottom = 1050.0
+zone_zoom = Vector2(3, 3)
+zone_follow_x = false
+zone_priority = 10
+
+[node name="CameraZone4" parent="CameraZones" unique_id=945447604 instance=ExtResource("13_q1b3r")]
+position = Vector2(0, -22661)
+expand_left = 1275.0
+expand_right = 1275.0
+expand_top = 850.0
+expand_bottom = 950.0
+zone_zoom = Vector2(2, 2)
+zone_priority = 10
+use_limit_bottom = false

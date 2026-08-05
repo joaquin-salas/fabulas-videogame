@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://buoeno6u6lafx"]
+
+[ext_resource type="Script" uid="uid://djgs8njqia2uu" path="res://shared/camera/camera_zone.gd" id="1_0mr1h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mr1h"]
+resource_local_to_scene = true
+
+[node name="CameraZone" type="Area2D" unique_id=1994611306]
+script = ExtResource("1_0mr1h")
+use_as_camera_limits = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1823758101]
+shape = SubResource("RectangleShape2D_0mr1h")
+debug_color = Color(0.8156108, 0.5326976, 0.04029226, 0.2509804)

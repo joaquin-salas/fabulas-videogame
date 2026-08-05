@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
+
 ## Player movement configuration
+
 # ====================== REFERENCE VARIABLES ======================
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: StateMachine = $StateMachine
@@ -8,6 +10,7 @@ extends CharacterBody2D
 @onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
 @onready var inmortality_timer: Timer = $Timers/InmortalityTimer
 @onready var hurtbox: Hurtbox = $Hurtbox
+
 # ====================== RESOURCES ======================
 @export var player_movement_stats: PlayerMovementStats
 
@@ -22,6 +25,7 @@ extends CharacterBody2D
 var is_invincible: bool = false
 var is_god_mode: bool = false
 var blink_tween: Tween
+
 # *********************** CALLBACKS **********************
 func _ready() -> void:
 	add_to_group("player")
@@ -43,6 +47,7 @@ func _ready() -> void:
 # ******************* LOCAL FUNCTIONS *******************	
 func play_animation(animation_name: String) -> void:
 	animated_sprite_2d.play(animation_name)
+
 func handle_animation(direction: float) -> void:
 	if direction < 0:
 		animated_sprite_2d.flip_h = true
@@ -52,6 +57,7 @@ func get_current_gravity() -> float:
 	if velocity.y > 0:
 		return player_movement_stats.fall_gravity
 	return player_movement_stats.jump_gravity
+
 func take_damage(amount: int, knockback_dir: Vector2) -> void:
 	if is_invincible or is_god_mode or DebugMenu.invincible:
 		return
@@ -89,9 +95,11 @@ func toggle_god_mode() -> void:
 func print_debug(variables: Array) -> void:
 	for i in variables:
 		print(i)
+		
 # ******************* SIGNALS CALLBACKS *******************
 func _on_hurtbox_took_damage(amount: int, knockback_dir: Vector2) -> void:
 	take_damage(amount, knockback_dir)
+
 func _on_inmortality_timer_timeout() -> void:
 	is_invincible = false
 	if blink_tween:
