@@ -155,6 +155,16 @@ text = "Kill Player"
 [node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/KillPlayer" index="2" unique_id=917034890]
 visible = false
 
+[node name="Delete" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=267361281 instance=ExtResource("1_ppho5")]
+layout_mode = 2
+option_id = "DELETE"
+
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Delete" index="1" unique_id=744584850]
+text = "Delete Checkpoints"
+
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Delete" index="2" unique_id=917034890]
+visible = false
+
 [node name="SceneMenu" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer" unique_id=1454779855]
 visible = false
 layout_mode = 1
@@ -299,6 +309,7 @@ layout_mode = 2
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Invincibility"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/MaxHealth"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/KillPlayer"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Delete"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/TestLevel"]

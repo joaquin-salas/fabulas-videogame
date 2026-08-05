@@ -27,10 +27,10 @@ position = Vector2(-1005, -21346)
 position = Vector2(-1102, -20130)
 
 [node name="ProjectileEnemy5" parent="Enemys" unique_id=1573807368 instance=ExtResource("6_ujp5n")]
-position = Vector2(-1123, -19430)
+position = Vector2(-1098, -19422)
 
 [node name="ProjectileEnemy4" parent="Enemys" unique_id=679925297 instance=ExtResource("6_ujp5n")]
-position = Vector2(1102, -19430)
+position = Vector2(1080, -19425)
 rotation = -3.1415927
 scale = Vector2(1, -1)
 
@@ -41,7 +41,7 @@ scale = Vector2(1, -1)
 slide_on_ceiling = false
 
 [node name="ProjectileEnemy2" parent="Enemys" unique_id=540741770 instance=ExtResource("6_ujp5n")]
-position = Vector2(1077, -20131)
+position = Vector2(1081, -20130)
 rotation = -3.1415927
 scale = Vector2(1, -1)
 slide_on_ceiling = false
@@ -80,7 +80,7 @@ visible = false
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_jhm3r")]
 z_index = 3
-position = Vector2(0, -132)
+position = Vector2(0, -130)
 
 [node name="Manager" type="Node" parent="." unique_id=1108629762]
 script = ExtResource("5_sqbpo")

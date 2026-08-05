@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bp5udb0hj2hfp"]
 
 [ext_resource type="Script" uid="uid://bghcfut7lemw4" path="res://entities/enemies/projectile_enemy/projectile_enemy.gd" id="1_cutay"]
-[ext_resource type="Texture2D" uid="uid://c064htq07o3o5" path="res://entities/enemies/projectile_enemy/art/Diseño_sin_título-removebg-preview.png" id="2_7eevo"]
+[ext_resource type="Texture2D" uid="uid://osifunh34xrv" path="res://entities/enemies/projectile_enemy/art/Projectillleee.png" id="2_vure2"]
 [ext_resource type="Script" uid="uid://b4xe213tj1b4i" path="res://shared/damage_system/hitbox.gd" id="3_1f48c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
@@ -22,8 +22,8 @@ shape = SubResource("RectangleShape2D_57qmd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460879677]
 position = Vector2(-51.5, -0.5)
-scale = Vector2(0.5571895, 0.5808824)
-texture = ExtResource("2_7eevo")
+scale = Vector2(0.252, 0.266)
+texture = ExtResource("2_vure2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=346913408]
 

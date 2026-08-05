@@ -18,4 +18,7 @@ func _on_settings_closed():
 	self.visible = true
 
 func _on_exit_pressed() -> void:
+	CheckpointManager.update_player_data_before_save()
+	CheckpointManager.save_checkpoint()
+	
 	SceneManager.goto(SceneManager.SceneID.MAIN_MENU)

@@ -8,10 +8,11 @@ script = ExtResource("1_sn6pp")
 
 [node name="HeartBoxContainer" type="HBoxContainer" parent="." unique_id=352410503]
 anchors_preset = -1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 308.0
-offset_bottom = 100.0
+anchor_bottom = 0.075
+offset_left = 66.99999
+offset_top = 20.000002
+offset_right = 375.0
+offset_bottom = 43.199997
 
 [node name="Heart1" type="TextureRect" parent="HeartBoxContainer" unique_id=1496767776]
 custom_minimum_size = Vector2(100, 100)
