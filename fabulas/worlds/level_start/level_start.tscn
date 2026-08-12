@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c3ilddk657137"]
+
+[ext_resource type="PackedScene" uid="uid://c53dg67tukel8" path="res://worlds/level_start/start_map.tscn" id="1_6rh34"]
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="2_ma40e"]
+[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_2lpev"]
+[ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="4_ma40e"]
+[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_6xh0e"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="6_3t3yo"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="7_utqmy"]
+[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="8_jxm5n"]
+
+[node name="LevelStart" type="Node2D" unique_id=1456346959]
+
+[node name="StartMap" parent="." unique_id=2064428377 instance=ExtResource("1_6rh34")]
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_ma40e")]
+position = Vector2(107, -69)
+
+[node name="Cameras" type="Node" parent="." unique_id=424232862]
+
+[node name="CameraRig" parent="Cameras" unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("3_2lpev")]
+followed_node = NodePath("../../Player")
+
+[node name="CameraZone" parent="Cameras" unique_id=1994611306 instance=ExtResource("4_ma40e")]
+position = Vector2(2412, -692)
+expand_left = 1268.99
+expand_right = 3883.3
+expand_top = 152.34
+expand_bottom = 637.51
+zone_zoom = Vector2(0.75, 0.75)
+use_limit_left = false
+use_limit_right = false
+use_limit_bottom = false
+
+[node name="CameraZone2" parent="Cameras" unique_id=474765919 instance=ExtResource("4_ma40e")]
+position = Vector2(-307, -422)
+expand_left = 1701.0
+expand_right = 1459.76
+expand_top = 150.19
+expand_bottom = 586.055
+zone_zoom = Vector2(0.75, 0.75)
+use_limit_right = false
+use_limit_top = false
+use_limit_bottom = false
+
+[node name="CameraZone3" parent="Cameras" unique_id=233600785 instance=ExtResource("4_ma40e")]
+position = Vector2(8353, -1156)
+expand_left = 2031.545
+expand_right = 1801.83
+expand_top = 169.635
+expand_bottom = 1169.46
+zone_zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1939251926]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("5_6xh0e")]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=992204846 instance=ExtResource("6_3t3yo")]
+visible = false
+
+[node name="LifeHUD" parent="CanvasLayer" unique_id=915383811 instance=ExtResource("7_utqmy")]
+
+[node name="GameOverMenu" parent="CanvasLayer" unique_id=1354604793 instance=ExtResource("8_jxm5n")]
+visible = false

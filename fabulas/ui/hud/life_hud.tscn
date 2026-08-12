@@ -7,9 +7,11 @@
 script = ExtResource("1_sn6pp")
 
 [node name="HeartBoxContainer" type="HBoxContainer" parent="." unique_id=352410503]
+texture_filter = 1
+texture_repeat = 1
 anchors_preset = -1
 anchor_bottom = 0.075
-offset_left = 66.99999
+offset_left = 19.0
 offset_top = 20.000002
 offset_right = 375.0
 offset_bottom = 43.199997

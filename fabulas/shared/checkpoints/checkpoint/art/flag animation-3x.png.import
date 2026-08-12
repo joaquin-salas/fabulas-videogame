@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daiij0bbfr6fr"
-path="res://.godot/imported/rojiii.png-6b2b53d63774a82afa764edad4988aa7.ctex"
+uid="uid://bidpbfgtibc8c"
+path="res://.godot/imported/flag animation-3x.png-5b31bd8800d5867f8a4d4d8fc9bcf9ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shared/checkpoints/checkpoint/art/rojiii.png"
-dest_files=["res://.godot/imported/rojiii.png-6b2b53d63774a82afa764edad4988aa7.ctex"]
+source_file="res://shared/checkpoints/checkpoint/art/flag animation-3x.png"
+dest_files=["res://.godot/imported/flag animation-3x.png-5b31bd8800d5867f8a4d4d8fc9bcf9ee.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl248dxn4b3qr"
-path="res://.godot/imported/verdii.png-6c9be1c827339e63be1eae07d70d4047.ctex"
+uid="uid://ckw8v5mb5dq2r"
+path="res://.godot/imported/flag animation-3xverdew.png-9b0c41a3dc80666a9ad06d10f25a5626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shared/checkpoints/checkpoint/art/verdii.png"
-dest_files=["res://.godot/imported/verdii.png-6c9be1c827339e63be1eae07d70d4047.ctex"]
+source_file="res://shared/checkpoints/checkpoint/art/flag animation-3xverdew.png"
+dest_files=["res://.godot/imported/flag animation-3xverdew.png-9b0c41a3dc80666a9ad06d10f25a5626.ctex"]
 
 [params]
 
