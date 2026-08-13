@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"green",
-"speed": 8.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -87,12 +87,13 @@ animations = [{
 }],
 "loop": 1,
 "name": &"red",
-"speed": 8.0
+"speed": 6.0
 }]
 
 [node name="Checkpoint" type="Area2D" unique_id=719565274]
 collision_layer = 4
 script = ExtResource("1_wofyq")
+checkpoint_id = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1051095010]
 shape = SubResource("RectangleShape2D_g4v7s")
@@ -103,6 +104,7 @@ position = Vector2(59, -8)
 scale = Vector2(0.93, 0.93)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"red"
-frame_progress = 0.47974277
+autoplay = "red"
+frame_progress = 0.34276512
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
