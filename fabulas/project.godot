@@ -57,6 +57,7 @@ Route_C=""
 player=""
 brightness=""
 physics=""
+camera_rig=""
 
 [input]
 
@@ -117,6 +118,7 @@ move_down={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

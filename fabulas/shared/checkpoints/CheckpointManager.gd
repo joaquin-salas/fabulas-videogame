@@ -79,7 +79,8 @@ func save_checkpoint() -> void:
 		"saved_pos_x": saved_position.x,
 		"saved_pos_y": saved_position.y,
 		"has_checkpoint": has_checkpoint,
-		"health": saved_health
+		"health": saved_health,
+		"activated_checkpoint_id": activated_checkpoint_id
 	}
 	
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -104,3 +105,4 @@ func load_checkpoint() -> void:
 			saved_position = Vector2(data.get("saved_pos_x", respawn_position.x), data.get("saved_pos_y", respawn_position.y))
 			has_checkpoint = data.get("has_checkpoint", false)
 			saved_health = int(data.get("health", 3))
+			activated_checkpoint_id = data.get("activated_checkpoint_id", "")
