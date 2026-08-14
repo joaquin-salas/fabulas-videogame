@@ -37,6 +37,10 @@ func _ready() -> void:
 		self.current_health = CheckpointManager.saved_health
 	else:
 		self.current_health = max_health
+		
+	var camera_rig = get_tree().get_first_node_in_group("camera_rig")
+	if camera_rig:
+		camera_rig.snap_to(global_position)
 	
 	await get_tree().process_frame
 	# Emit the signal after every node is ready to ensure that all nodes connect the signal before it is emitted.

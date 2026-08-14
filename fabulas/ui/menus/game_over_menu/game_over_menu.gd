@@ -32,6 +32,7 @@ func _on_retry_button_pressed() -> void:
 		SceneManager.goto(CheckpointManager.current_scene_id)
 	else:
 		get_tree().reload_current_scene()
+		
 
 func _on_exit_button_pressed() -> void:
 	get_tree().paused = false

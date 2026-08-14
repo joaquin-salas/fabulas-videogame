@@ -6,14 +6,16 @@ enum SceneID {
 	MAIN_MENU,
 	INTRO_CUTSCENE,
 	LEVEL_ISAAC,
-	LEVEL_JOA
+	LEVEL_JOA,
+	LEVEL_START
 }
 
 const SCENES := {
 	SceneID.MAIN_MENU: "res://ui/menus/main_menu/main_menu.tscn",
 	SceneID.INTRO_CUTSCENE: "res://worlds/scenes/cutscenes/intro/cutscene_intro1.tscn",
 	SceneID.LEVEL_ISAAC:"res://worlds/Level_isaac/Level_isaac.tscn",
-	SceneID.LEVEL_JOA: "res://worlds/level_test/level_test.tscn"
+	SceneID.LEVEL_JOA: "res://worlds/level_test/level_test.tscn",
+	SceneID.LEVEL_START: "res://worlds/level_start/level_start.tscn"
 }
 
 func goto(scene_id: SceneID) -> void:

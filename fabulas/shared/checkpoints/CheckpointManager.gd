@@ -1,5 +1,7 @@
 extends Node
 
+# variable for id of the chekpoint
+var activated_checkpoint_id: String = ""
 # Path to store the save file on the user's device
 const SAVE_PATH := "user://checkpoint.save"
 
@@ -38,12 +40,14 @@ func _on_player_health_changed(new_health: int) -> void:
 		saved_health = new_health
 
 # Sets a new checkpoint when the player activates one
-func set_checkpoint(scene_id: SceneManager.SceneID, pos: Vector2, current_health: int = 5) -> void:
+func set_checkpoint(scene_id: SceneManager.SceneID, pos: Vector2, current_health: int = 5, id: String = "") -> void:
 	current_scene_id = scene_id
 	respawn_position = pos
 	saved_position = pos 
 	has_checkpoint = true
 	saved_health = current_health
+	activated_checkpoint_id = id
+	
 	save_checkpoint()
 
 # Resets health to 3 and teleports player to checkpoint on death
@@ -75,7 +79,8 @@ func save_checkpoint() -> void:
 		"saved_pos_x": saved_position.x,
 		"saved_pos_y": saved_position.y,
 		"has_checkpoint": has_checkpoint,
-		"health": saved_health
+		"health": saved_health,
+		"activated_checkpoint_id": activated_checkpoint_id
 	}
 	
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -100,3 +105,4 @@ func load_checkpoint() -> void:
 			saved_position = Vector2(data.get("saved_pos_x", respawn_position.x), data.get("saved_pos_y", respawn_position.y))
 			has_checkpoint = data.get("has_checkpoint", false)
 			saved_health = int(data.get("health", 3))
+			activated_checkpoint_id = data.get("activated_checkpoint_id", "")
