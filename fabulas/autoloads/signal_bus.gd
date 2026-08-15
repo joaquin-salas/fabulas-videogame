@@ -23,3 +23,7 @@ signal player_entered_camera_zone(zone: CameraZone)
 ## Signal emitted when player exits a camera zone.
 @warning_ignore("unused_signal")
 signal player_exited_camera_zone(zone: CameraZone)
+
+# ====================== KEY SIGNALS ======================
+@warning_ignore("unused_signal")
+signal bluekeytake

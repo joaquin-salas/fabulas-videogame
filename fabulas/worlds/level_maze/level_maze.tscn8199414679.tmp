@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://d2ir144nqsdud"]
+
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="1_56q3o"]
+[ext_resource type="Script" uid="uid://dc317ic386b3e" path="res://worlds/level_maze/level_maze.gd" id="1_fbmtu"]
+[ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="2_sfcgv"]
+[ext_resource type="PackedScene" uid="uid://btadw3v4e0llb" path="res://worlds/level_maze/maze_map.tscn" id="4_ejo4w"]
+[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="5_tvf5l"]
+[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="6_3bpbt"]
+[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="6_tvf5l"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="7_6orr4"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="8_6orr4"]
+[ext_resource type="PackedScene" uid="uid://bse6j5sn452ob" path="res://entities/keys/blue_key.tscn" id="10_cn1sc"]
+[ext_resource type="PackedScene" uid="uid://b5q5neh2neue0" path="res://entities/keys/white_key.tscn" id="11_7inlr"]
+[ext_resource type="Texture2D" uid="uid://dbeuipuostcit" path="res://worlds/level_test/art/prototype_tileset_blue_64x64.png" id="12_8rvof"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fq8n"]
+texture = ExtResource("12_8rvof")
+margins = Vector2i(32, 32)
+separation = Vector2i(32, 32)
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 4
+sources/0 = SubResource("TileSetAtlasSource_7fq8n")
+
+[node name="LevelMaze" type="Node2D" unique_id=1939643370]
+script = ExtResource("1_fbmtu")
+
+[node name="MazeMap" parent="." unique_id=176175538 instance=ExtResource("4_ejo4w")]
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("1_56q3o")]
+position = Vector2(4, -355)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=695577952]
+
+[node name="GameOverMenu" parent="CanvasLayer" unique_id=1354604793 instance=ExtResource("6_tvf5l")]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("6_3bpbt")]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=992204846 instance=ExtResource("7_6orr4")]
+visible = false
+
+[node name="LifeHUD" parent="CanvasLayer" unique_id=915383811 instance=ExtResource("8_6orr4")]
+
+[node name="Cameras" type="Node" parent="." unique_id=1245793366]
+
+[node name="CameraRig" parent="Cameras" unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("5_tvf5l")]
+position = Vector2(0, -7)
+followed_node = NodePath("../../Player")
+
+[node name="CameraZone" parent="Cameras" unique_id=1036655797 instance=ExtResource("2_sfcgv")]
+visible = false
+position = Vector2(19, -203)
+expand_left = 1111.0
+expand_right = 1111.0
+expand_top = 322.01
+
+[node name="BluePart" type="Node" parent="." unique_id=347039703]
+
+[node name="Bluedoor" type="TileMapLayer" parent="BluePart" unique_id=1553271747]
+tile_map_data = PackedByteArray(0, 0, 10, 0, 245, 255, 0, 0, 1, 0, 0, 0, 0, 0, 10, 0, 246, 255, 0, 0, 1, 0, 0, 0, 0, 0, 10, 0, 247, 255, 0, 0, 1, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_g4v7s")
+
+[node name="BlueKey" parent="BluePart" unique_id=311912903 instance=ExtResource("10_cn1sc")]
+position = Vector2(224, -544)
+
+[node name="WhitePart" type="Node" parent="." unique_id=1685925101]
+
+[node name="WhiteKey" parent="WhitePart" unique_id=1385994571 instance=ExtResource("11_7inlr")]
+position = Vector2(479, -544)
+
+[node name="YellowPart" type="Node" parent="." unique_id=71053761]
+
+[node name="CameraZone" parent="." unique_id=1994611306 instance=ExtResource("2_sfcgv")]
+position = Vector2(-49, -1033)
+expand_left = 2576.86
+expand_right = 6469.76
+expand_top = 1190.425
+expand_bottom = 548.885
+zone_zoom = Vector2(0.7, 0.7)
