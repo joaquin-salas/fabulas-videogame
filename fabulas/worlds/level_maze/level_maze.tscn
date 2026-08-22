@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="1_56q3o"]
 [ext_resource type="Script" uid="uid://dc317ic386b3e" path="res://worlds/level_maze/level_maze.gd" id="1_fbmtu"]
 [ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="2_sfcgv"]
+[ext_resource type="Texture2D" uid="uid://bqf8o8idqxtpx" path="res://assets/testsIsaac/PEPE.png" id="4_7fq8n"]
 [ext_resource type="PackedScene" uid="uid://btadw3v4e0llb" path="res://worlds/level_maze/maze_map.tscn" id="4_ejo4w"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="5_tvf5l"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="6_3bpbt"]
@@ -60,13 +61,30 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_7fq8n")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(109, 131)
+
 [node name="LevelMaze" type="Node2D" unique_id=1939643370]
 script = ExtResource("1_fbmtu")
 
 [node name="MazeMap" parent="." unique_id=176175538 instance=ExtResource("4_ejo4w")]
 
+[node name="CameraZone" parent="MazeMap" unique_id=1994611306 instance=ExtResource("2_sfcgv")]
+position = Vector2(-1962, -5857)
+expand_left = 1182.99
+expand_right = 1084.945
+expand_top = 591.985
+expand_bottom = 577.225
+zone_zoom = Vector2(0.8, 0.8)
+
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("1_56q3o")]
-position = Vector2(4279, -4241)
+position = Vector2(2347, -9802)
+
+[node name="blackCircle" type="Sprite2D" parent="Player" unique_id=1404481804]
+visible = false
+position = Vector2(-71.00012, 95.999756)
+scale = Vector2(4.029, 4.038)
+texture = ExtResource("4_7fq8n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=695577952]
 
@@ -113,7 +131,7 @@ tile_set = SubResource("TileSet_g4v7s")
 [node name="BlueKey" parent="BluePart" unique_id=311912903 instance=ExtResource("10_cn1sc")]
 position = Vector2(6302, -564)
 
-[node name="CameraZone" parent="BluePart" unique_id=1994611306 instance=ExtResource("2_sfcgv")]
+[node name="CameraZone" parent="BluePart" unique_id=1670181834 instance=ExtResource("2_sfcgv")]
 visible = false
 position = Vector2(-49, -1033)
 expand_left = 2576.86
@@ -138,6 +156,7 @@ use_limit_top = false
 [node name="BlackRect" type="Node" parent="BluePart" unique_id=2103459003]
 
 [node name="ColorRect" type="ColorRect" parent="BluePart/BlackRect" unique_id=110998406]
+visible = false
 z_index = -1
 anchors_preset = -1
 anchor_bottom = 0.039
@@ -148,6 +167,7 @@ offset_bottom = -2433.936
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="BluePart/BlackRect" unique_id=1752481406]
+visible = false
 z_index = -1
 anchors_preset = -1
 anchor_bottom = 0.039
@@ -159,18 +179,36 @@ color = Color(0, 0, 0, 1)
 
 [node name="WhitePart" type="Node" parent="." unique_id=1685925101]
 
-[node name="CameraZone" parent="WhitePart" unique_id=1765615447 instance=ExtResource("2_sfcgv")]
-position = Vector2(3985, -4508)
-expand_left = 1843.535
-expand_right = 2437.475
-expand_top = 6115.55
-expand_bottom = 188.56
-zone_zoom = Vector2(0.9, 0.9)
-
 [node name="WhiteKey" parent="WhitePart" unique_id=1385994571 instance=ExtResource("11_7inlr")]
-position = Vector2(479, -544)
+position = Vector2(2591, -9576)
+
+[node name="CameraZone" parent="WhitePart" unique_id=2030462957 instance=ExtResource("2_sfcgv")]
+visible = false
+position = Vector2(2380, -4510)
+expand_left = 392.835
+expand_right = 4083.805
+expand_top = 6147.155
+expand_bottom = 192.565
+zone_zoom = Vector2(0.9, 0.9)
+zone_priority = 1
 
 [node name="YellowPart" type="Node" parent="." unique_id=71053761]
 
+[node name="BlackCircleZone" type="Area2D" parent="YellowPart" unique_id=1397356982]
+position = Vector2(1991, -2583)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YellowPart/BlackCircleZone" unique_id=2017310784]
+position = Vector2(-10.5, 88.5)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="CameraZone2" parent="YellowPart" unique_id=490986913 instance=ExtResource("2_sfcgv")]
+visible = false
+position = Vector2(522, -9780)
+expand_left = 1414.06
+expand_right = 1716.02
+expand_bottom = 7383.635
+zone_zoom = Vector2(0.9, 0.9)
+
 [connection signal="body_entered" from="BluePart/ChangePart" to="." method="_on_change_part_body_entered"]
 [connection signal="body_entered" from="BluePart/DoorBlueArea" to="." method="_on_door_blue_area_body_entered"]
+[connection signal="body_entered" from="YellowPart/BlackCircleZone" to="." method="_on_black_circle_zone_body_entered"]

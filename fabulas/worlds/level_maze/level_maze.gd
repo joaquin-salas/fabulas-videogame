@@ -8,6 +8,8 @@ var redkey : bool = false
 @onready var bluedoor: TileMapLayer = $BluePart/Bluedoor
 
 @onready var black_rect: Node = $BluePart/BlackRect
+@onready var black_circle: Sprite2D = $Player/blackCircle
+
 
 
 
@@ -30,3 +32,9 @@ func _on_door_blue_area_body_entered(body: Node2D) -> void:
 func _on_change_part_body_entered(body: Node2D) -> void:
 	$BluePart/ChangePart.set_deferred("monitoring", false)
 	black_rect.queue_free()
+
+
+func _on_black_circle_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		black_circle.visible = true
+	
