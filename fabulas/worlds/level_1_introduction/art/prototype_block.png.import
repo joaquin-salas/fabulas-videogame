@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c32spx4e22j7u"
-path="res://.godot/imported/tile_placeholder (64x64).png-8484030c121c6d64f4272c751fe38b88.ctex"
+uid="uid://bkolw06vl1y37"
+path="res://.godot/imported/prototype_block.png-8a2aadb1623641f63ec07b42d148e774.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_test/art/tile_placeholder (64x64).png"
-dest_files=["res://.godot/imported/tile_placeholder (64x64).png-8484030c121c6d64f4272c751fe38b88.ctex"]
+source_file="res://worlds/level_1_introduction/art/prototype_block.png"
+dest_files=["res://.godot/imported/prototype_block.png-8a2aadb1623641f63ec07b42d148e774.ctex"]
 
 [params]
 

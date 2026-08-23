@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbeuipuostcit"
-path="res://.godot/imported/prototype_tileset_blue_64x64.png-f5912b1e4cba5cc001ba4db9a5c834cd.ctex"
+uid="uid://c32spx4e22j7u"
+path="res://.godot/imported/tile_placeholder (64x64).png-a3fef6aa323c5e0e0583861e3a86e286.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_test/art/prototype_tileset_blue_64x64.png"
-dest_files=["res://.godot/imported/prototype_tileset_blue_64x64.png-f5912b1e4cba5cc001ba4db9a5c834cd.ctex"]
+source_file="res://worlds/level_1_introduction/art/tile_placeholder (64x64).png"
+dest_files=["res://.godot/imported/tile_placeholder (64x64).png-a3fef6aa323c5e0e0583861e3a86e286.ctex"]
 
 [params]
 

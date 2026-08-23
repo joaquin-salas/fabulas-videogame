@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfy5csjcveiq1"
-path="res://.godot/imported/pixel_adventure_terrain_16x16.png-5635f9dc7ccc3a2b12b86ebcd62c8e00.ctex"
+uid="uid://bfdbrgp3gtkg"
+path="res://.godot/imported/prototype_tileset_64x64.png-00a4d626273a1c5e19d218786de7ab48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_test/art/pixel_adventure_terrain_16x16.png"
-dest_files=["res://.godot/imported/pixel_adventure_terrain_16x16.png-5635f9dc7ccc3a2b12b86ebcd62c8e00.ctex"]
+source_file="res://worlds/level_1_introduction/art/prototype_tileset_64x64.png"
+dest_files=["res://.godot/imported/prototype_tileset_64x64.png-00a4d626273a1c5e19d218786de7ab48.ctex"]
 
 [params]
 
