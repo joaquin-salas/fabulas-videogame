@@ -293,6 +293,7 @@ size = Vector2(67, 88)
 
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
 collision_mask = 4
+platform_on_leave = 1
 script = ExtResource("1_2xrie")
 player_movement_stats = ExtResource("2_v3hes")
 max_health = 3

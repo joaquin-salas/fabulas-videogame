@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://iq1qa3p3deq8"]
+
+[ext_resource type="PackedScene" uid="uid://2mc7amtijxb8" path="res://worlds/level_2_moving_platforms/map_2_moving_platforms.tscn" id="1_qcudj"]
+[ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="4_8e7p5"]
+[ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="9_frguy"]
+
+[node name="Level2MovingPlatforms" type="Node2D" unique_id=1058963483]
+
+[node name="Map2MovingPlatforms" parent="." unique_id=1236080507 instance=ExtResource("1_qcudj")]
+
+[node name="CameraZones" type="Node2D" parent="." unique_id=298411084]
+
+[node name="CameraZone" parent="CameraZones" unique_id=1994611306 instance=ExtResource("4_8e7p5")]
+position = Vector2(0, -1262)
+expand_left = 1300.0
+expand_right = 1300.0
+expand_top = 11621.0
+expand_bottom = 1250.0
+zone_zoom = Vector2(0.75, 0.75)
+zone_offset_y = -200.0
+zone_follow_x = false
+zone_priority = 1
+
+[node name="CameraZone2" parent="CameraZones" unique_id=1339668084 instance=ExtResource("4_8e7p5")]
+position = Vector2(-1019, -13865)
+expand_left = 1593.0
+expand_right = 1004.0
+expand_top = 4193.0
+expand_bottom = 1149.0
+zone_zoom = Vector2(0.75, 0.75)
+zone_offset_y = -100.0
+zone_follow_x = false
+zone_priority = 2
+
+[node name="CameraZone4" parent="CameraZones" unique_id=181671161 instance=ExtResource("4_8e7p5")]
+position = Vector2(0, -18342.102)
+expand_left = 930.0
+expand_right = 994.0
+expand_top = 590.0
+expand_bottom = 310.0
+zone_priority = 3
+
+[node name="CameraZone3" parent="CameraZones" unique_id=1974771808 instance=ExtResource("4_8e7p5")]
+position = Vector2(1603, -13865)
+expand_left = 1593.0
+expand_right = 1000.0
+expand_top = 4193.0
+expand_bottom = 1149.0
+zone_zoom = Vector2(0.75, 0.75)
+zone_offset_y = -100.0
+zone_follow_x = false
+zone_priority = 2
+
+[node name="Checkpoints" type="Node2D" parent="." unique_id=1195787991]
+
+[node name="Checkpoint" parent="Checkpoints" unique_id=719565274 instance=ExtResource("9_frguy")]
+position = Vector2(0, -134)
