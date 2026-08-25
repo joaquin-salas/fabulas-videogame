@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://cbhe3bano0qqg"]
+
+[ext_resource type="Script" uid="uid://sr6g3ny1dj58" path="res://entities/temporary_platform/temporary_platform.gd" id="1_442ku"]
+[ext_resource type="Texture2D" uid="uid://cxsh4jvo4aigo" path="res://entities/temporary_platform/crumbling_prototype_slab.png" id="2_0o836"]
+[ext_resource type="Texture2D" uid="uid://gic2nr07j7rg" path="res://entities/temporary_platform/broken_platform.png" id="5_un7bk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8fpo"]
+atlas = ExtResource("2_0o836")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldsqi"]
+atlas = ExtResource("2_0o836")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o836"]
+atlas = ExtResource("2_0o836")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un7bk"]
+atlas = ExtResource("2_0o836")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22xbo"]
+atlas = ExtResource("2_0o836")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53bbq"]
+atlas = ExtResource("2_0o836")
+region = Rect2(640, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfqk7"]
+atlas = ExtResource("2_0o836")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldsqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8fpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldsqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o836")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un7bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22xbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53bbq")
+}],
+"loop": 0,
+"name": &"crumbling",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfqk7")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf68f"]
+size = Vector2(126, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytfqa"]
+size = Vector2(122, 5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_arw0p"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dm2n7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(67, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = -60.000015
+angular_velocity_max = 79.999985
+gravity = Vector3(0, 800, 0)
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r7ge5"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oysdp"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 150.0
+emission_ring_inner_radius = 140.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 0, 0)
+radial_velocity_min = -250.00002
+radial_velocity_max = -250.00002
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+anim_offset_max = 1.0
+
+[node name="TemporaryPlatform" type="StaticBody2D" unique_id=959344921]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_442ku")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276290821]
+sprite_frames = SubResource("SpriteFrames_ldsqi")
+animation = &"crumbling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=980371570]
+shape = SubResource("RectangleShape2D_gf68f")
+
+[node name="TriggerArea2D" type="Area2D" parent="." unique_id=263518614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D" unique_id=1771158816]
+position = Vector2(0, -36)
+shape = SubResource("RectangleShape2D_ytfqa")
+debug_color = Color(0, 0.7372549, 0, 0.41960785)
+
+[node name="Timers" type="Node2D" parent="." unique_id=1357005539]
+
+[node name="CrumblingTimer" type="Timer" parent="Timers" unique_id=992247397]
+wait_time = 1.5
+one_shot = true
+
+[node name="RecoveryTimer" type="Timer" parent="Timers" unique_id=1698092216]
+wait_time = 2.0
+one_shot = true
+
+[node name="Particles" type="Node2D" parent="." unique_id=1969583159]
+
+[node name="BrokenParticles" type="GPUParticles2D" parent="Particles" unique_id=1369990907]
+material = SubResource("CanvasItemMaterial_arw0p")
+emitting = false
+texture = ExtResource("5_un7bk")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_dm2n7")
+
+[node name="RecoveryParticles" type="GPUParticles2D" parent="Particles" unique_id=1515161345]
+material = SubResource("CanvasItemMaterial_r7ge5")
+emitting = false
+texture = ExtResource("5_un7bk")
+lifetime = 0.55
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_oysdp")
