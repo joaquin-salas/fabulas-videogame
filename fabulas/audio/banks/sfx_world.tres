@@ -2,10 +2,36 @@
 
 [ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_k3ggk"]
 [ext_resource type="AudioStream" uid="uid://bl5b8ngbq5cmt" path="res://audio/assets/world/6.mp3" id="2_0j7pi"]
+[ext_resource type="AudioStream" uid="uid://c5flstxrwaa81" path="res://entities/temporary_platform/audio/crumbling/stepdirt_1.wav" id="3_ow2nb"]
+[ext_resource type="AudioStream" uid="uid://dg76vwyinhi8g" path="res://entities/temporary_platform/audio/crumbling/stepdirt_2.wav" id="4_1yssh"]
+[ext_resource type="AudioStream" uid="uid://gxgxgcidktp8" path="res://entities/temporary_platform/audio/crumbling/stepdirt_3.wav" id="5_s2mg0"]
+[ext_resource type="AudioStream" uid="uid://g28ldogbhvo2" path="res://entities/temporary_platform/audio/crumbling/stepdirt_4.wav" id="6_chia6"]
+[ext_resource type="AudioStream" uid="uid://bc3i87vmb44ij" path="res://entities/temporary_platform/audio/crumbling/stepdirt_5.wav" id="7_n5r27"]
+[ext_resource type="AudioStream" uid="uid://8ig8qv5uw5cu" path="res://entities/temporary_platform/audio/crumbling/stepdirt_6.wav" id="8_rvc7j"]
+[ext_resource type="AudioStream" uid="uid://nsdcg6d3aq2j" path="res://entities/temporary_platform/audio/crumbling/stepdirt_7.wav" id="9_a7re6"]
+[ext_resource type="AudioStream" uid="uid://cu5e5qo647plh" path="res://entities/temporary_platform/audio/broken/broken_rocks_1.wav" id="10_lyci4"]
+[ext_resource type="AudioStream" uid="uid://d04d4kvxacf3k" path="res://entities/temporary_platform/audio/broken/broken_rocks_2.wav" id="11_tks3h"]
+[ext_resource type="AudioStream" uid="uid://yq2rq0oe8yt3" path="res://entities/temporary_platform/audio/broken/broken_rocks_3.wav" id="12_u8o2q"]
+[ext_resource type="AudioStream" uid="uid://dek6qd1eiwl7s" path="res://entities/temporary_platform/audio/broken/broken_rocks_4.wav" id="13_7uv7w"]
+[ext_resource type="AudioStream" uid="uid://ddfmba7bxmmjp" path="res://entities/temporary_platform/audio/broken/broken_rocks_5.wav" id="14_cjg0g"]
+[ext_resource type="AudioStream" uid="uid://bcd80cm4dpkcc" path="res://entities/temporary_platform/audio/broken/broken_rocks_6.wav" id="15_5srtl"]
+[ext_resource type="AudioStream" uid="uid://by3efkrxlmf7a" path="res://entities/temporary_platform/audio/broken/broken_rocks_7.wav" id="16_mli5t"]
+[ext_resource type="AudioStream" uid="uid://c84r2syd65c7m" path="res://entities/temporary_platform/audio/recovery/recovery_magic_1.wav" id="17_xdi3i"]
+[ext_resource type="AudioStream" uid="uid://cwv8qh2q683em" path="res://entities/temporary_platform/audio/recovery/recovery_magic_2.wav" id="18_x3kx4"]
+[ext_resource type="AudioStream" uid="uid://u6ujdcya2e4u" path="res://entities/temporary_platform/audio/recovery/recovery_magic_3.wav" id="19_0jcin"]
+[ext_resource type="AudioStream" uid="uid://cqor7obidqd0p" path="res://entities/temporary_platform/audio/recovery/recovery_magic_4.wav" id="20_nllrs"]
+[ext_resource type="AudioStream" uid="uid://c57uo2lq7k8y2" path="res://entities/temporary_platform/audio/recovery/recovery_magic_5.wav" id="21_3iucf"]
+[ext_resource type="AudioStream" uid="uid://dtk8cr46tbt46" path="res://entities/temporary_platform/audio/recovery/recovery_magic_6.wav" id="22_ylpsh"]
+[ext_resource type="AudioStream" uid="uid://cdylcxu7yhbil" path="res://entities/temporary_platform/audio/recovery/recovery_magic_7.wav" id="23_h2qnd"]
+[ext_resource type="AudioStream" uid="uid://chnwxvwbbg8mj" path="res://entities/temporary_platform/audio/recovery/recovery_magic_8.wav" id="24_nj1d2"]
+[ext_resource type="AudioStream" uid="uid://qbobp5kaviu3" path="res://entities/temporary_platform/audio/recovery/recovery_magic_9.wav" id="25_r7g3j"]
 
 [resource]
 script = ExtResource("1_k3ggk")
 sounds = Dictionary[String, Array]({
-"CheckPoint": [ExtResource("2_0j7pi")]
+"Broken": [ExtResource("10_lyci4"), ExtResource("11_tks3h"), ExtResource("12_u8o2q"), ExtResource("13_7uv7w"), ExtResource("14_cjg0g"), ExtResource("15_5srtl"), ExtResource("16_mli5t")],
+"CheckPoint": [ExtResource("2_0j7pi")],
+"Crumbling": [ExtResource("3_ow2nb"), ExtResource("4_1yssh"), ExtResource("5_s2mg0"), ExtResource("6_chia6"), ExtResource("7_n5r27"), ExtResource("8_rvc7j"), ExtResource("9_a7re6")],
+"Recovery": [ExtResource("17_xdi3i"), ExtResource("18_x3kx4"), ExtResource("19_0jcin"), ExtResource("20_nllrs"), ExtResource("21_3iucf"), ExtResource("22_ylpsh"), ExtResource("23_h2qnd"), ExtResource("24_nj1d2"), ExtResource("25_r7g3j")]
 })
 metadata/_custom_type_script = "uid://bw0digwty4uu4"
