@@ -45,6 +45,8 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://audio/": "red",
+"res://entities/": "orange",
+"res://entities/temporary_platform/audio/": "red",
 "res://shared/": "pink",
 "res://ui/": "teal"
 }
