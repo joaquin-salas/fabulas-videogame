@@ -115,6 +115,7 @@ position = Vector2(1, -254)
 
 [node name="Checkpoint" parent="." unique_id=719565274 instance=ExtResource("5_rftcw")]
 position = Vector2(-280, -73)
+checkpoint_id = "930"
 
 [node name="MonvingPlatforms" type="Node2D" parent="." unique_id=225475602]
 
