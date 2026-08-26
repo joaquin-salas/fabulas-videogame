@@ -63,6 +63,9 @@ func _on_recovery_timer_timeout() -> void:
 	animated_sprite_2d.show()
 	animated_sprite_2d.position.y = 0.0
 	animated_sprite_2d.play("idle")
-	
+
+	recovery_particles.emitting = false
+	broken_particles.emitting = false
+
 	collision_shape_2d.set_deferred("disabled", false)
 	trigger_area_2d.set_deferred("monitoring", true)

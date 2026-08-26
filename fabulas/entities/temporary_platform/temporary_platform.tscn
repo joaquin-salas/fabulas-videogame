@@ -112,10 +112,11 @@ radial_accel_min = -100.0
 radial_accel_max = -100.0
 anim_offset_max = 1.0
 
-[node name="TemporaryPlatform" type="StaticBody2D" unique_id=959344921]
+[node name="TemporaryPlatform" type="StaticBody2D" unique_id=959344921 groups=["physics"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_442ku")
+crumbling_time = 1.25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276290821]
 sprite_frames = SubResource("SpriteFrames_ldsqi")
@@ -149,6 +150,7 @@ emitting = false
 texture = ExtResource("5_un7bk")
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(-500, -500, 1000, 1000)
 process_material = SubResource("ParticleProcessMaterial_dm2n7")
 
 [node name="RecoveryParticles" type="GPUParticles2D" parent="Particles" unique_id=1515161345]
@@ -158,4 +160,5 @@ texture = ExtResource("5_un7bk")
 lifetime = 0.55
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2(0, 0, 0, 0)
 process_material = SubResource("ParticleProcessMaterial_oysdp")
