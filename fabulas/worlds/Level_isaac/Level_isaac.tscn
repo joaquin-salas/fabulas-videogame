@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cac42vybh558u" path="res://worlds/Level_isaac/map/MapIsaac.tscn" id="1_khe3b"]
 [ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="2_jhm3r"]
-[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="2_x6wcn"]
+[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.tscn" id="2_x6wcn"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_p8fm0"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="4_p8fm0"]
 [ext_resource type="Script" uid="uid://ca3a57do8kxep" path="res://worlds/Level_isaac/manager.gd" id="5_sqbpo"]

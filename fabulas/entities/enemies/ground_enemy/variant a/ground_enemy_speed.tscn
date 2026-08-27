@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dp7x3d060s0vf"]
 
-[ext_resource type="Script" uid="uid://c1ptpa0mj6slm" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.gd" id="1_qfj55"]
+[ext_resource type="Script" uid="uid://c1ptpa0mj6slm" path="res://entities/enemies/ground_enemy/variant a/ground_enemy_speed.gd" id="1_qfj55"]
 [ext_resource type="Texture2D" uid="uid://cqoftvwo2og3b" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Black_Werewolf/Idle.png" id="1_x75fb"]
 [ext_resource type="Texture2D" uid="uid://bcmpohnvlbuth" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Red_Werewolf/Run.png" id="2_8b13n"]
 [ext_resource type="Texture2D" uid="uid://dhgrl4mp148lu" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Black_Werewolf/walk.png" id="4_8b13n"]
@@ -229,7 +229,7 @@ size = Vector2(261, 49.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(56, 32)
 
-[node name="ground_enemy" type="CharacterBody2D" unique_id=1836502299]
+[node name="GroundEnemySpeed" type="CharacterBody2D" unique_id=1836502299]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_qfj55")
@@ -238,7 +238,7 @@ script = ExtResource("1_qfj55")
 position = Vector2(0, -46)
 scale = Vector2(0.715, 0.715)
 sprite_frames = SubResource("SpriteFrames_5m8o6")
-animation = &"run"
+animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1081064286]
@@ -250,22 +250,22 @@ shape = SubResource("RectangleShape2D_uo7qi")
 
 [node name="RayCastLeft" type="RayCast2D" parent="RayCast" unique_id=289223357]
 position = Vector2(0, -25)
-target_position = Vector2(-62, 0)
+target_position = Vector2(-40, 0)
 collision_mask = 4
 
 [node name="RayCastRight" type="RayCast2D" parent="RayCast" unique_id=681395086]
 position = Vector2(0, -25)
-target_position = Vector2(61, 0)
+target_position = Vector2(40, 0)
 collision_mask = 4
 
 [node name="RayCastLeftFloor" type="RayCast2D" parent="RayCast" unique_id=523805316]
-position = Vector2(0, -25)
-target_position = Vector2(-45, 28)
+position = Vector2(-26, -7)
+target_position = Vector2(0, 15)
 collision_mask = 4
 
 [node name="RayCastRightFloor" type="RayCast2D" parent="RayCast" unique_id=1815306537]
-position = Vector2(0, -25)
-target_position = Vector2(51, 28)
+position = Vector2(26, -7)
+target_position = Vector2(0, 15)
 collision_mask = 4
 
 [node name="Areas" type="Node2D" parent="." unique_id=404398813]
@@ -294,7 +294,7 @@ knockback_strength = 1400.0
 [node name="HitboxShape" type="CollisionShape2D" parent="Areas/Hitbox" unique_id=398956819]
 position = Vector2(1, -23)
 shape = SubResource("RectangleShape2D_4ismv")
-debug_color = Color(0, 0.83137256, 0.09411765, 0.41960785)
+debug_color = Color(0.99215686, 0, 0.28627452, 0.41960785)
 
 [connection signal="body_entered" from="Areas/AreaRight" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Areas/AreaRight" to="." method="_on_area_2d_body_exited"]
