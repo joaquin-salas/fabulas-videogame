@@ -1,34 +1,33 @@
 [gd_scene format=3 uid="uid://csxb8umj1o67e"]
 
 [ext_resource type="PackedScene" uid="uid://yvlvixh65w5m" path="res://worlds/level_5_temporary_platforms/map_5_temporary_platforms.tscn" id="1_bka7i"]
-[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="2_jp3lt"]
 [ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="3_qm817"]
-[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="3_xng31"]
 [ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="5_q5buq"]
 [ext_resource type="PackedScene" uid="uid://bp5udb0hj2hfp" path="res://entities/enemies/projectile_enemy/projectile_enemy.tscn" id="6_jut87"]
-[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="7_ek8wk"]
-[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="7_g0aig"]
-[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="8_ek8wk"]
-[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="9_sdapr"]
+[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.tscn" id="7_ek8wk"]
+[ext_resource type="PackedScene" uid="uid://cvts2dn20m4sh" path="res://entities/enemies/projectile_enemy/vision_area.tscn" id="7_hlraj"]
+[ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy_speed.tscn" id="7_usw8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf68f"]
+size = Vector2(2290, 945)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytfqa"]
+size = Vector2(2314, 1099)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ui6d"]
+size = Vector2(2294, 1241)
 
 [node name="Level5TemporaryPlatforms" type="Node2D" unique_id=1149337446]
 
 [node name="MapTemporaryPlatforms" parent="." unique_id=980506284 instance=ExtResource("1_bka7i")]
 
-[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_jp3lt")]
-position = Vector2(204, -145)
-
-[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("3_xng31")]
-followed_node = NodePath("../Player")
-
 [node name="CameraZones" type="Node2D" parent="." unique_id=474367989]
-visible = false
 
 [node name="CameraZone" parent="CameraZones" unique_id=1994611306 instance=ExtResource("3_qm817")]
 position = Vector2(0, -194)
 expand_left = 1268.0
 expand_right = 1268.0
-expand_top = 20930.0
+expand_top = 27349.0
 expand_bottom = 250.0
 zone_zoom = Vector2(0.75, 0.75)
 zone_offset_y = -100.0
@@ -36,9 +35,15 @@ zone_follow_x = false
 zone_priority = 1
 
 [node name="CameraZone2" parent="CameraZones" unique_id=412109443 instance=ExtResource("3_qm817")]
-position = Vector2(-4014, -22131)
-expand_left = 900.0
+position = Vector2(3276, -20989)
+expand_left = 2001.0
+expand_right = 1846.0
+expand_top = 4469.0
+expand_bottom = 480.0
 zone_zoom = Vector2(0.5, 0.5)
+zone_offset_y = -100.0
+zone_follow_x = false
+zone_priority = 2
 
 [node name="Checkpoints" type="Node2D" parent="." unique_id=532184023]
 
@@ -51,45 +56,76 @@ checkpoint_id = "231"
 [node name="ProjectileEnemy" parent="ProjectileEnemies" unique_id=495046265 instance=ExtResource("6_jut87")]
 position = Vector2(-1040, -7968)
 
-[node name="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy/Area2D" parent_id_path=PackedInt32Array(495046265, 346913408) index="0" unique_id=2090682028]
-position = Vector2(1214.5, -392.2)
-scale = Vector2(1, 1.5)
+[node name="VisionArea" parent="ProjectileEnemies/ProjectileEnemy" unique_id=1197375253 instance=ExtResource("7_hlraj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy/VisionArea" unique_id=905528313]
+position = Vector2(1135, -349.5)
+shape = SubResource("RectangleShape2D_gf68f")
 
 [node name="ProjectileEnemy2" parent="ProjectileEnemies" unique_id=1444333294 instance=ExtResource("6_jut87")]
 position = Vector2(-1040, -9056)
 
-[node name="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy2/Area2D" parent_id_path=PackedInt32Array(1444333294, 346913408) index="0" unique_id=2090682028]
-position = Vector2(1214.5, -393.2)
-scale = Vector2(1, 1.5)
+[node name="VisionArea" parent="ProjectileEnemies/ProjectileEnemy2" unique_id=1487662177 instance=ExtResource("7_hlraj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy2/VisionArea" unique_id=1385619736]
+position = Vector2(1147, -396.5)
+shape = SubResource("RectangleShape2D_ytfqa")
 
 [node name="ProjectileEnemy3" parent="ProjectileEnemies" unique_id=1324268089 instance=ExtResource("6_jut87")]
 position = Vector2(-1040, -10208)
 
-[node name="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy3/Area2D" parent_id_path=PackedInt32Array(1324268089, 346913408) index="0" unique_id=2090682028]
-position = Vector2(1214.5, -386.2)
-scale = Vector2(1, 1.5)
+[node name="VisionArea" parent="ProjectileEnemies/ProjectileEnemy3" unique_id=1143335113 instance=ExtResource("7_hlraj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy3/VisionArea" unique_id=456360161]
+position = Vector2(1137, -505.5)
+shape = SubResource("RectangleShape2D_1ui6d")
+
+[node name="ProjectileEnemy4" parent="ProjectileEnemies" unique_id=1656038483 instance=ExtResource("6_jut87")]
+position = Vector2(-1119, -27028)
+rotation = 1.5707964
+
+[node name="VisionArea" parent="ProjectileEnemies/ProjectileEnemy4" unique_id=955123119 instance=ExtResource("7_hlraj")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProjectileEnemies/ProjectileEnemy4/VisionArea" unique_id=2113601147]
+polygon = PackedVector2Array(39, -550.00006, 267, -899.00006, 2490, -1083.0001, 2496, 70.99988, -1, 76)
+
+[node name="ProjectileEnemy5" parent="ProjectileEnemies" unique_id=1052494288 instance=ExtResource("6_jut87")]
+position = Vector2(1121, -27029)
+rotation = -1.5707964
+scale = Vector2(-1, 1)
+
+[node name="VisionArea" parent="ProjectileEnemies/ProjectileEnemy5" unique_id=562599760 instance=ExtResource("7_hlraj")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProjectileEnemies/ProjectileEnemy5/VisionArea" unique_id=1265161438]
+polygon = PackedVector2Array(359, -1013.00006, 2392, -1074.0001, 2212, 74.99988, -1, 92, 36, -348.00006)
 
 [node name="GroundEnemies" type="Node2D" parent="." unique_id=624010586]
 
-[node name="ground_enemy2" parent="GroundEnemies" unique_id=1836502299 instance=ExtResource("7_ek8wk")]
-position = Vector2(2, -13248.001)
-speed = 400
-
-[node name="ground_enemy3" parent="GroundEnemies" unique_id=1114794391 instance=ExtResource("7_ek8wk")]
+[node name="GroundEnemy" parent="GroundEnemies" unique_id=1114794391 instance=ExtResource("7_ek8wk")]
 position = Vector2(995, -13951.001)
 
-[node name="ground_enemy4" parent="GroundEnemies" unique_id=473891824 instance=ExtResource("7_ek8wk")]
+[node name="GroundEnemy2" parent="GroundEnemies" unique_id=473891824 instance=ExtResource("7_ek8wk")]
 position = Vector2(-175, -15106)
 
-[node name="LifeHUD" parent="." unique_id=915383811 instance=ExtResource("7_g0aig")]
+[node name="GroundEnemy3" parent="GroundEnemies" unique_id=1530300031 instance=ExtResource("7_ek8wk")]
+position = Vector2(-1083, -15234)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1269242124]
+[node name="GroundEnemy4" parent="GroundEnemies" unique_id=1836502299 instance=ExtResource("7_ek8wk")]
+position = Vector2(3202, -21248)
+speed = 400
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("8_ek8wk")]
+[node name="GroundEnemySpeed" parent="GroundEnemies" unique_id=2147353529 instance=ExtResource("7_usw8r")]
+position = Vector2(-15, -13248)
+scale = Vector2(1.5, 1.5)
 
-[node name="SettingsMenu" parent="CanvasLayer" unique_id=992204846 instance=ExtResource("9_sdapr")]
-visible = false
+[node name="GroundEnemySpeed2" parent="GroundEnemies" unique_id=905441749 instance=ExtResource("7_usw8r")]
+position = Vector2(4539, -20930)
+scale = Vector2(2, 2)
+speed = 400
+chase_speed = 800
 
-[editable path="ProjectileEnemies/ProjectileEnemy"]
-[editable path="ProjectileEnemies/ProjectileEnemy2"]
-[editable path="ProjectileEnemies/ProjectileEnemy3"]
+[node name="GroundEnemySpeed3" parent="GroundEnemies" unique_id=1011604100 instance=ExtResource("7_usw8r")]
+position = Vector2(3713, -23041)
+scale = Vector2(2, 2)
+speed = 300
+chase_speed = 700
