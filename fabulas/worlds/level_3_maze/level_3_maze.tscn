@@ -115,6 +115,9 @@ sources/0 = SubResource("TileSetAtlasSource_7fq8n")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
 size = Vector2(36.25, 156.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1u0y"]
+size = Vector2(139.125, 54.1875)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
 size = Vector2(109, 131)
 
@@ -383,6 +386,12 @@ shape = SubResource("RectangleShape2D_d0u6y")
 
 [node name="PurplePart" type="Node2D" parent="." unique_id=709000446]
 
+[node name="BlackCircleOff" type="Area2D" parent="PurplePart" unique_id=1689080249]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PurplePart/BlackCircleOff" unique_id=443984585]
+position = Vector2(0.4375, -11610.906)
+shape = SubResource("RectangleShape2D_p1u0y")
+
 [node name="BlackCircleZone" type="Area2D" parent="PurplePart" unique_id=1397356982]
 position = Vector2(1991, -2583)
 
@@ -451,6 +460,7 @@ shape = SubResource("RectangleShape2D_fcnqv")
 [connection signal="body_entered" from="BluePart/ChangePart" to="." method="_on_change_part_body_entered"]
 [connection signal="body_entered" from="BluePart/DoorBlueArea" to="." method="_on_door_blue_area_body_entered"]
 [connection signal="body_entered" from="WhitePart/WhiteDoorArea" to="." method="_on_white_door_area_body_entered"]
+[connection signal="body_entered" from="PurplePart/BlackCircleOff" to="." method="_on_black_circle_off_body_entered"]
 [connection signal="body_entered" from="PurplePart/BlackCircleZone" to="." method="_on_black_circle_zone_body_entered"]
 [connection signal="timeout" from="PurplePart/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="PurplePart/PurpleDoorArea" to="." method="_on_purple_door_area_body_entered"]

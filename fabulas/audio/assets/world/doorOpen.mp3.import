@@ -2,13 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://gonxvs8qkg4b"
-path="res://.godot/imported/DoorOpen.mp3-b3bc0e9b37abefea1e4496e39bcd2a66.mp3str"
+uid="uid://byh38cedfdt6"
+path="res://.godot/imported/doorOpen.mp3-92dc98939077821a488a80bf3178569c.mp3str"
 
 [deps]
 
-source_file="res://audio/assets/world/DoorOpen.mp3"
-dest_files=["res://.godot/imported/DoorOpen.mp3-b3bc0e9b37abefea1e4496e39bcd2a66.mp3str"]
+source_file="res://audio/assets/world/doorOpen.mp3"
+dest_files=["res://.godot/imported/doorOpen.mp3-92dc98939077821a488a80bf3178569c.mp3str"]
 
 [params]
 

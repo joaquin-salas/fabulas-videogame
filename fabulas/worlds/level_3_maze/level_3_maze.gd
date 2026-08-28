@@ -87,3 +87,7 @@ func _on_area_on_body_entered(body: Node2D) -> void:
 
 func _on_area_off_body_entered(body: Node2D) -> void:
 	SignalBus.hud_off.emit()
+
+
+func _on_black_circle_off_body_entered(body: Node2D) -> void:
+	black_circle.visible = false

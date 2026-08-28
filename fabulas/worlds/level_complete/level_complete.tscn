@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cdyqyrmhc3mfg" path="res://ui/hud/key/keys_hud.tscn" id="9_1gny1"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="9_b3epk"]
 [ext_resource type="Texture2D" uid="uid://bqf8o8idqxtpx" path="res://assets/testsIsaac/PEPE.png" id="10_b3epk"]
+[ext_resource type="PackedScene" uid="uid://csxb8umj1o67e" path="res://worlds/level_5_temporary_platforms/level_5_temporary_platforms.tscn" id="13_ys6o3"]
 
 [node name="Level_complete" type="Node2D" unique_id=1917860527]
 script = ExtResource("1_p5alx")
@@ -21,21 +22,25 @@ script = ExtResource("1_p5alx")
 [node name="Level2MovingPlatforms" parent="." unique_id=1058963483 instance=ExtResource("2_278p2")]
 position = Vector2(1, -21888)
 
-[node name="LevelMaze" parent="." unique_id=1939643370 instance=ExtResource("3_qb2xy")]
+[node name="Level3Maze" parent="." unique_id=1939643370 instance=ExtResource("3_qb2xy")]
 position = Vector2(0, -40321)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=480824241]
+[node name="Level5TemporaryPlatforms" parent="." unique_id=1149337446 instance=ExtResource("13_ys6o3")]
+position = Vector2(0, -51905)
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("4_b3epk")]
+[node name="Menus" type="CanvasLayer" parent="." unique_id=480824241]
 
-[node name="SettingsMenu" parent="CanvasLayer" unique_id=992204846 instance=ExtResource("5_p5alx")]
+[node name="PauseMenu" parent="Menus" unique_id=248075495 instance=ExtResource("4_b3epk")]
+
+[node name="SettingsMenu" parent="Menus" unique_id=992204846 instance=ExtResource("5_p5alx")]
 visible = false
 
-[node name="GameOverMenu" parent="CanvasLayer" unique_id=1354604793 instance=ExtResource("6_1gny1")]
+[node name="GameOverMenu" parent="Menus" unique_id=1354604793 instance=ExtResource("6_1gny1")]
 
-[node name="LifeHUD" parent="CanvasLayer" unique_id=915383811 instance=ExtResource("7_ys6o3")]
+[node name="LifeHUD" parent="Menus" unique_id=915383811 instance=ExtResource("7_ys6o3")]
 
-[node name="KeysHud" parent="CanvasLayer" unique_id=665351789 instance=ExtResource("9_1gny1")]
+[node name="KeysHud" parent="Menus" unique_id=665351789 instance=ExtResource("9_1gny1")]
+visible = false
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("8_4idhh")]
 position = Vector2(10.276855, -174.27896)
