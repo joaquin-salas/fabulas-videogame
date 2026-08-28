@@ -1,65 +1,65 @@
 [gd_scene format=3 uid="uid://cbhe3bano0qqg"]
 
 [ext_resource type="Script" uid="uid://sr6g3ny1dj58" path="res://entities/temporary_platform/temporary_platform.gd" id="1_442ku"]
-[ext_resource type="Texture2D" uid="uid://cxsh4jvo4aigo" path="res://entities/temporary_platform/crumbling_prototype_slab.png" id="2_0o836"]
-[ext_resource type="Texture2D" uid="uid://gic2nr07j7rg" path="res://entities/temporary_platform/broken_platform.png" id="5_un7bk"]
+[ext_resource type="Texture2D" uid="uid://cxsh4jvo4aigo" path="res://entities/temporary_platform/sprites/crumbling_prototype_slab.png" id="2_0o836"]
+[ext_resource type="Texture2D" uid="uid://gic2nr07j7rg" path="res://entities/temporary_platform/sprites/broken_platform_particles_128x128.png" id="5_un7bk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8fpo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj27p"]
 atlas = ExtResource("2_0o836")
 region = Rect2(0, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ldsqi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq0x1"]
 atlas = ExtResource("2_0o836")
 region = Rect2(128, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0o836"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_co6h2"]
 atlas = ExtResource("2_0o836")
 region = Rect2(256, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_un7bk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwduv"]
 atlas = ExtResource("2_0o836")
 region = Rect2(384, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_22xbo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwokw"]
 atlas = ExtResource("2_0o836")
 region = Rect2(512, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53bbq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0neo"]
 atlas = ExtResource("2_0o836")
 region = Rect2(640, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfqk7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy157"]
 atlas = ExtResource("2_0o836")
 region = Rect2(0, 0, 128, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ldsqi"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0ueb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k8fpo")
+"texture": SubResource("AtlasTexture_rj27p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ldsqi")
+"texture": SubResource("AtlasTexture_iq0x1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0o836")
+"texture": SubResource("AtlasTexture_co6h2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_un7bk")
+"texture": SubResource("AtlasTexture_rwduv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_22xbo")
+"texture": SubResource("AtlasTexture_xwokw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_53bbq")
+"texture": SubResource("AtlasTexture_b0neo")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"crumbling",
 "speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfqk7")
+"texture": SubResource("AtlasTexture_iy157")
 }],
 "loop": 1,
 "name": &"idle",
@@ -67,10 +67,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gf68f"]
-size = Vector2(126, 63)
+size = Vector2(128, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytfqa"]
-size = Vector2(122, 5)
+size = Vector2(124, 2)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_arw0p"]
 particles_animation = true
@@ -112,14 +112,17 @@ radial_accel_min = -100.0
 radial_accel_max = -100.0
 anim_offset_max = 1.0
 
-[node name="TemporaryPlatform" type="StaticBody2D" unique_id=959344921 groups=["physics"]]
+[node name="TemporaryPlatform" type="StaticBody2D" unique_id=959344921]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_442ku")
-crumbling_time = 1.25
+platform_frames = SubResource("SpriteFrames_s0ueb")
+particles_texture = ExtResource("5_un7bk")
+crumbling_time = 1.0
+recovery_time = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276290821]
-sprite_frames = SubResource("SpriteFrames_ldsqi")
+sprite_frames = SubResource("SpriteFrames_s0ueb")
 animation = &"crumbling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=980371570]
@@ -128,7 +131,7 @@ shape = SubResource("RectangleShape2D_gf68f")
 [node name="TriggerArea2D" type="Area2D" parent="." unique_id=263518614]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D" unique_id=1771158816]
-position = Vector2(0, -36)
+position = Vector2(0, -34)
 shape = SubResource("RectangleShape2D_ytfqa")
 debug_color = Color(0, 0.7372549, 0, 0.41960785)
 
