@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_k3ggk"]
 [ext_resource type="AudioStream" uid="uid://bl5b8ngbq5cmt" path="res://audio/assets/world/Checkpoint.mp3" id="2_3ymtt"]
 [ext_resource type="AudioStream" uid="uid://cj4ytk40imndu" path="res://audio/assets/world/key.mp3" id="3_3ymtt"]
-[ext_resource type="AudioStream" uid="uid://d32j7nee8btp2" path="res://audio/assets/world/doorOpen.mp3" id="4_c8h8y"]
+[ext_resource type="AudioStream" uid="uid://gonxvs8qkg4b" path="res://audio/assets/world/DoorOpen.mp3" id="3_c8h8y"]
 
 [resource]
 script = ExtResource("1_k3ggk")
 sounds = Dictionary[String, Array]({
 "CheckPoint": [ExtResource("2_3ymtt")],
-"Door": [ExtResource("4_c8h8y")],
+"Door": [ExtResource("3_c8h8y")],
 "Key": [ExtResource("3_3ymtt")]
 })
 metadata/_custom_type_script = "uid://bw0digwty4uu4"

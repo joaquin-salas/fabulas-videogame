@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5q5neh2neue0"]
 
 [ext_resource type="Texture2D" uid="uid://dhlsu43libvnj" path="res://entities/keys/art/key-white.png" id="1_gamxp"]
+[ext_resource type="Script" uid="uid://dngyebx7sgnpg" path="res://entities/keys/white_key.gd" id="1_ndjtf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ndjtf"]
 atlas = ExtResource("1_gamxp")
@@ -100,13 +101,18 @@ size = Vector2(23, 55)
 [node name="WhiteKey" type="Node2D" unique_id=1385994571]
 texture_filter = 1
 texture_repeat = 1
+script = ExtResource("1_ndjtf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=512355341]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yf5fn")
+autoplay = "default"
+frame_progress = 0.7979214
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1219285460]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1301818061]
 position = Vector2(1.5, 4.5)
 shape = SubResource("RectangleShape2D_yf5fn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

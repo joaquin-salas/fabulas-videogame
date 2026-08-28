@@ -37,7 +37,8 @@ CheckpointManager="*uid://bc0he2ik862mq"
 [display]
 
 window/size/viewport_width=1920
-window/size/viewport_height=1024
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -45,8 +46,10 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://audio/": "red",
+"res://entities/": "orange",
 "res://shared/": "pink",
-"res://ui/": "teal"
+"res://ui/": "teal",
+"res://worlds/": "purple"
 }
 
 [global_group]

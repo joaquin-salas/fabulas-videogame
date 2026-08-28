@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://3veumfww60oq"]
+
+[ext_resource type="Script" uid="uid://cslh6fdujk6fo" path="res://worlds/level_complete/level_complete.gd" id="1_p5alx"]
+[ext_resource type="PackedScene" uid="uid://b6duq485arpkt" path="res://worlds/level_1_introduction/level_1_introduction.tscn" id="1_qb2xy"]
+[ext_resource type="PackedScene" uid="uid://iq1qa3p3deq8" path="res://worlds/level_2_moving_platforms/level_2_moving_platforms.tscn" id="2_278p2"]
+[ext_resource type="PackedScene" uid="uid://d2ir144nqsdud" path="res://worlds/level_3_maze/level_3_maze.tscn" id="3_qb2xy"]
+[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="4_b3epk"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="5_p5alx"]
+[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="6_1gny1"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="7_ys6o3"]
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="8_4idhh"]
+[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="9_b3epk"]
+[ext_resource type="Texture2D" uid="uid://bqf8o8idqxtpx" path="res://assets/testsIsaac/PEPE.png" id="10_b3epk"]
+
+[node name="Level_complete" type="Node2D" unique_id=1917860527]
+script = ExtResource("1_p5alx")
+
+[node name="Level1Introduction" parent="." unique_id=1932232554 instance=ExtResource("1_qb2xy")]
+
+[node name="Level2MovingPlatforms" parent="." unique_id=1058963483 instance=ExtResource("2_278p2")]
+position = Vector2(1, -21888)
+
+[node name="LevelMaze" parent="." unique_id=1939643370 instance=ExtResource("3_qb2xy")]
+position = Vector2(0, -40321)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=480824241]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("4_b3epk")]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=992204846 instance=ExtResource("5_p5alx")]
+visible = false
+
+[node name="GameOverMenu" parent="CanvasLayer" unique_id=1354604793 instance=ExtResource("6_1gny1")]
+
+[node name="LifeHUD" parent="CanvasLayer" unique_id=915383811 instance=ExtResource("7_ys6o3")]
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("8_4idhh")]
+position = Vector2(10.276855, -174.27896)
+
+[node name="blackCircle" type="Sprite2D" parent="Player" unique_id=890763650]
+visible = false
+position = Vector2(-100.276855, 141.27896)
+scale = Vector2(5.57, 5.57)
+texture = ExtResource("10_b3epk")
+
+[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("9_b3epk")]
+position = Vector2(10.276855, -174.27896)
+followed_node = NodePath("../Player")

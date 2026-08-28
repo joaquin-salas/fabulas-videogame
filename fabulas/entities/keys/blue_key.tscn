@@ -107,7 +107,7 @@ script = ExtResource("1_7hqog")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
-frame_progress = 0.6630653
+frame_progress = 0.65101844
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1376332923]
 

@@ -43,6 +43,8 @@ func _on_animation_finished(anim_name: String) -> void:
 func _finish() -> void:
 	timer.stop()
 	anim.play("fade_out")
+	SoundManager.stop_voice()
+	SoundManager.stop_music()
 
 func _on_saltar_pressed() -> void:
 	timer.stop()

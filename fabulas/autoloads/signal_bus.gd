@@ -27,3 +27,6 @@ signal player_exited_camera_zone(zone: CameraZone)
 # ====================== KEY SIGNALS ======================
 @warning_ignore("unused_signal")
 signal bluekeytake
+
+@warning_ignore("unused_signal")
+signal whitekeytake

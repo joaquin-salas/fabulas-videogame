@@ -32,7 +32,7 @@ func _ready() -> void:
 	hurtbox.took_damage.connect(_on_hurtbox_took_damage)
 	inmortality_timer.timeout.connect(_on_inmortality_timer_timeout)
 	
-	if CheckpointManager.has_checkpoint:
+	if CheckpointManager.has_checkpoint and CheckpointManager.current_scene_id == SceneManager.get_current_scene_id():
 		global_position = CheckpointManager.saved_position
 		self.current_health = CheckpointManager.saved_health
 	else:

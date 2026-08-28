@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bug16kis23a36" path="res://entities/player/resources/movement_stats.tres" id="2_v3hes"]
 [ext_resource type="Shader" uid="uid://dkikkdvn3t6b6" path="res://entities/player/visuals/shaders/player.gdshader" id="3_j3ovn"]
 [ext_resource type="Texture2D" uid="uid://vvp6cngh1nub" path="res://entities/player/visuals/sprite/desappearing_384x384.png" id="4_yqrof"]
-[ext_resource type="Texture2D" uid="uid://wgrhy8qs33fx" path="res://entities/player/visuals/sprite/spr_fall_main character.png" id="5_3wlsy"]
+[ext_resource type="Texture2D" uid="uid://d0spqmjywvnlh" path="res://entities/player/visuals/sprite/Spritesheet.png" id="5_3wlsy"]
 [ext_resource type="Texture2D" uid="uid://c8bd5kfhb7uuo" path="res://entities/player/visuals/sprite/Sprites_idle_personajeP.png" id="6_3wlsy"]
 [ext_resource type="Texture2D" uid="uid://bl64ynatvmyl8" path="res://entities/player/visuals/sprite/spr_jump_main character (1).png" id="7_b2kln"]
 [ext_resource type="PackedScene" uid="uid://rpat2yeq301t" path="res://shared/state_machines/state_machine.tscn" id="7_vw8xl"]
@@ -300,12 +300,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(58, 84)
+size = Vector2(58, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(67, 88)
 
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
+z_index = 9
 collision_mask = 4
 platform_on_leave = 1
 script = ExtResource("1_2xrie")
@@ -316,12 +317,12 @@ max_health = 3
 material = SubResource("ShaderMaterial_a1qjk")
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
-animation = &"jump"
+animation = &"idle"
 autoplay = "jump"
-frame_progress = 0.57431084
+frame_progress = 0.48321086
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1403225131]
-position = Vector2(0, 21)
+position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Hurtbox" parent="." unique_id=453256543 instance=ExtResource("12_a1qjk")]

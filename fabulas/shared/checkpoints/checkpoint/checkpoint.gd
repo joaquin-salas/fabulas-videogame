@@ -11,7 +11,9 @@ func _ready() -> void:
 		animated_sprite_2d.play("green")
 		
 func _on_body_entered(body: Node2D) -> void:
+	
 	if body.is_in_group("player") and not _activated:
+		print(get_tree().current_scene.scene_file_path)
 		_activated = true
 		var current_health: int = 3
 		if "current_health" in body:

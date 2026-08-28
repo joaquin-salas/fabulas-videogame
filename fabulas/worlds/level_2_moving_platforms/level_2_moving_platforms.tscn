@@ -36,7 +36,7 @@ zone_priority = 2
 position = Vector2(0, -18342.102)
 expand_left = 930.0
 expand_right = 994.0
-expand_top = 590.0
+expand_top = 441.395
 expand_bottom = 310.0
 zone_priority = 3
 
@@ -55,3 +55,4 @@ zone_priority = 2
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=719565274 instance=ExtResource("9_frguy")]
 position = Vector2(0, -134)
+checkpoint_id = "2"
