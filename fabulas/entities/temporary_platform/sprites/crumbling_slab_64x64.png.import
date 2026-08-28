@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gic2nr07j7rg"
-path="res://.godot/imported/broken_platform.png-abdb5805f602f1e5f9177fb0cda853c3.ctex"
+uid="uid://cajtkwh1ou7bp"
+path="res://.godot/imported/crumbling_slab_64x64.png-57a71931f9ae67aaf82aa54bdfc0efab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/temporary_platform/broken_platform.png"
-dest_files=["res://.godot/imported/broken_platform.png-abdb5805f602f1e5f9177fb0cda853c3.ctex"]
+source_file="res://entities/temporary_platform/sprites/crumbling_slab_64x64.png"
+dest_files=["res://.godot/imported/crumbling_slab_64x64.png-57a71931f9ae67aaf82aa54bdfc0efab.ctex"]
 
 [params]
 
