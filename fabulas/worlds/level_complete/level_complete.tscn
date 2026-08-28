@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="4_b3epk"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="5_p5alx"]
 [ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="6_1gny1"]
-[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="7_ys6o3"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life/life_hud.tscn" id="7_ys6o3"]
 [ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="8_4idhh"]
+[ext_resource type="PackedScene" uid="uid://cdyqyrmhc3mfg" path="res://ui/hud/key/keys_hud.tscn" id="9_1gny1"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="9_b3epk"]
 [ext_resource type="Texture2D" uid="uid://bqf8o8idqxtpx" path="res://assets/testsIsaac/PEPE.png" id="10_b3epk"]
 
@@ -34,13 +35,15 @@ visible = false
 
 [node name="LifeHUD" parent="CanvasLayer" unique_id=915383811 instance=ExtResource("7_ys6o3")]
 
+[node name="KeysHud" parent="CanvasLayer" unique_id=665351789 instance=ExtResource("9_1gny1")]
+
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("8_4idhh")]
 position = Vector2(10.276855, -174.27896)
 
 [node name="blackCircle" type="Sprite2D" parent="Player" unique_id=890763650]
 visible = false
-position = Vector2(-100.276855, 141.27896)
-scale = Vector2(5.57, 5.57)
+position = Vector2(-108.27686, 170.27896)
+scale = Vector2(5.57, 5.8294444)
 texture = ExtResource("10_b3epk")
 
 [node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("9_b3epk")]

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="4_ma40e"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_6xh0e"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="6_3t3yo"]
-[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="7_utqmy"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life/life_hud.tscn" id="7_utqmy"]
 [ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="8_jxm5n"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="9_3t3yo"]
 [ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="11_jxm5n"]
@@ -49,6 +49,7 @@ expand_left = 1701.0
 expand_right = 1459.76
 expand_top = 150.19
 expand_bottom = 586.055
+zone_zoom = Vector2(0.7, 0.7)
 use_limit_right = false
 use_limit_top = false
 use_limit_bottom = false
@@ -59,6 +60,7 @@ expand_left = 1268.99
 expand_right = 3806.675
 expand_top = 594.685
 expand_bottom = 637.51
+zone_zoom = Vector2(0.7, 0.7)
 use_limit_left = false
 use_limit_right = false
 

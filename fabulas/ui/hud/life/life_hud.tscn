@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csksfnxu3kran"]
 
 [ext_resource type="Texture2D" uid="uid://bho626wdfoi5e" path="res://assets/ui/heart.png" id="1_hi3d6"]
-[ext_resource type="Script" uid="uid://dx6x2p8m3qdh7" path="res://ui/hud/life_hud.gd" id="1_sn6pp"]
+[ext_resource type="Script" uid="uid://dx6x2p8m3qdh7" path="res://ui/hud/life/life_hud.gd" id="1_sn6pp"]
 
 [node name="LifeHUD" type="CanvasLayer" unique_id=915383811]
 script = ExtResource("1_sn6pp")
