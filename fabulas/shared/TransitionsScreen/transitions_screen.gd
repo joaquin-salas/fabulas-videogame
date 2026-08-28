@@ -24,4 +24,5 @@ func fade_out():
 	animation_player.play("fade_to_black")
 
 func fade_in():
+	get_tree().paused = false
 	animation_player.play("fade_to_screen")

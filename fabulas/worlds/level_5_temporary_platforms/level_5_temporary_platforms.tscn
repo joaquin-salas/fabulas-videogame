@@ -22,14 +22,13 @@ size = Vector2(2294, 1241)
 [node name="MapTemporaryPlatforms" parent="." unique_id=980506284 instance=ExtResource("1_bka7i")]
 
 [node name="CameraZones" type="Node2D" parent="." unique_id=474367989]
-visible = false
 
 [node name="CameraZone" parent="CameraZones" unique_id=1994611306 instance=ExtResource("3_qm817")]
 position = Vector2(0, -194)
 expand_left = 1268.0
 expand_right = 1268.0
 expand_top = 27349.0
-expand_bottom = 250.0
+expand_bottom = 193.465
 zone_zoom = Vector2(0.75, 0.75)
 zone_offset_y = -100.0
 zone_follow_x = false

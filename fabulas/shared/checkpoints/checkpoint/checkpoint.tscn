@@ -93,7 +93,6 @@ animations = [{
 [node name="Checkpoint" type="Area2D" unique_id=719565274]
 collision_layer = 4
 script = ExtResource("1_wofyq")
-checkpoint_id = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1051095010]
 shape = SubResource("RectangleShape2D_g4v7s")
@@ -105,6 +104,6 @@ scale = Vector2(0.93, 0.93)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"red"
 autoplay = "red"
-frame_progress = 0.34276512
+frame_progress = 0.9351751
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

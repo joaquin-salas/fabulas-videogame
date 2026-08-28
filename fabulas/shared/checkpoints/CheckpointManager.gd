@@ -21,12 +21,6 @@ func _ready() -> void:
 	SignalBus.player_health_changed.connect(_on_player_health_changed)
 	load_checkpoint()
 
-func _notification(what: int) -> void:
-	# Automatically save if the game window is closed
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		update_player_data_before_save()
-		save_checkpoint()
-
 # Updates current player position and health before saving
 func update_player_data_before_save() -> void:
 	var player = get_tree().get_first_node_in_group("player")
@@ -40,7 +34,7 @@ func _on_player_health_changed(new_health: int) -> void:
 		saved_health = new_health
 
 # Sets a new checkpoint when the player activates one
-func set_checkpoint(scene_id: SceneManager.SceneID, pos: Vector2, current_health: int = 5, id: String = "") -> void:
+func set_checkpoint(scene_id: SceneManager.SceneID, pos: Vector2, current_health: int = 3, id: String = "") -> void:
 	current_scene_id = scene_id
 	respawn_position = pos
 	saved_position = pos 
