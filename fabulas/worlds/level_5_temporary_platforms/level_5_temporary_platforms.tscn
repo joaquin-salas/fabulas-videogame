@@ -22,6 +22,7 @@ size = Vector2(2294, 1241)
 [node name="MapTemporaryPlatforms" parent="." unique_id=980506284 instance=ExtResource("1_bka7i")]
 
 [node name="CameraZones" type="Node2D" parent="." unique_id=474367989]
+visible = false
 
 [node name="CameraZone" parent="CameraZones" unique_id=1994611306 instance=ExtResource("3_qm817")]
 position = Vector2(0, -194)
@@ -117,6 +118,8 @@ speed = 400
 [node name="GroundEnemySpeed" parent="GroundEnemies" unique_id=2147353529 instance=ExtResource("7_usw8r")]
 position = Vector2(-15, -13248)
 scale = Vector2(1.5, 1.5)
+speed = 300
+chase_speed = 700
 
 [node name="GroundEnemySpeed2" parent="GroundEnemies" unique_id=905441749 instance=ExtResource("7_usw8r")]
 position = Vector2(4539, -20930)
