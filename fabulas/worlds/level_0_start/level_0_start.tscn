@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="6_3t3yo"]
 [ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life/life_hud.tscn" id="7_utqmy"]
 [ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="8_jxm5n"]
-[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="9_3t3yo"]
+[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.tscn" id="9_3t3yo"]
 [ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="11_jxm5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]

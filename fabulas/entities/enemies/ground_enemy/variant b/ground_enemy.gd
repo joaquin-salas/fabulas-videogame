@@ -7,8 +7,6 @@ extends CharacterBody2D
 @onready var ray_cast_left_floor: RayCast2D = $"RayCast/RayCastLeftFloor"
 @onready var ray_cast_right_floor: RayCast2D = $"RayCast/RayCastRightFloor"
 
-@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
-
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # ====================== LOCAL VARIABLES ======================
@@ -37,7 +35,6 @@ func _physics_process(delta: float) -> void:
 # ── sincronización visual/física (una sola vez) ──────
 	var facing_right = direction == 1
 	animated_sprite.flip_h = not facing_right
-	collision_polygon_2d.scale.x = 1 if facing_right else -1
 
 	# movimiento
 	velocity.x = direction * current_speed

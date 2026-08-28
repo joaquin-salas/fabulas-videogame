@@ -1,41 +1,63 @@
 [gd_scene format=3 uid="uid://b6duq485arpkt"]
 
 [ext_resource type="PackedScene" uid="uid://ddiojjqv33jhy" path="res://worlds/level_1_introduction/map_1_introduction.tscn" id="1_ia6xx"]
-[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy2.tscn" id="4_7nsdt"]
-[ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy.tscn" id="5_6xb4x"]
+[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.tscn" id="4_7nsdt"]
+[ext_resource type="PackedScene" uid="uid://dp7x3d060s0vf" path="res://entities/enemies/ground_enemy/variant a/ground_enemy_speed.tscn" id="5_6xb4x"]
+[ext_resource type="PackedScene" uid="uid://cvts2dn20m4sh" path="res://entities/enemies/projectile_enemy/vision_area.tscn" id="5_ofnpb"]
 [ext_resource type="PackedScene" uid="uid://bp5udb0hj2hfp" path="res://entities/enemies/projectile_enemy/projectile_enemy.tscn" id="6_854ka"]
 [ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="6_teuak"]
 [ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="13_q1b3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf68f"]
+size = Vector2(2182, 964)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytfqa"]
+size = Vector2(2188, 1399)
 
 [node name="Level1Introduction" type="Node2D" unique_id=1932232554]
 
 [node name="Map1Introduction" parent="." unique_id=1267244489 instance=ExtResource("1_ia6xx")]
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1061466524]
+[node name="GroundEnemies" type="Node2D" parent="." unique_id=1061466524]
 position = Vector2(-3, 26)
 
-[node name="GroundEnemySlow" parent="Enemies" unique_id=1836502299 instance=ExtResource("4_7nsdt")]
+[node name="GroundEnemySlow" parent="GroundEnemies" unique_id=1836502299 instance=ExtResource("4_7nsdt")]
 position = Vector2(138, -15631.001)
 scale = Vector2(2, 2)
 
-[node name="GroundEnemySlow2" parent="Enemies" unique_id=627876684 instance=ExtResource("4_7nsdt")]
+[node name="GroundEnemySlow2" parent="GroundEnemies" unique_id=627876684 instance=ExtResource("4_7nsdt")]
 position = Vector2(-955.99994, -15312)
 scale = Vector2(2, 2)
 
-[node name="GroundEnemyFast" parent="Enemies" unique_id=975748557 instance=ExtResource("5_6xb4x")]
+[node name="GroundEnemyFast" parent="GroundEnemies" unique_id=975748557 instance=ExtResource("5_6xb4x")]
 position = Vector2(1, -16978)
 scale = Vector2(2, 2)
 speed = 400
 chase_speed = 700
 chase_time = 1.0
 
-[node name="ProjectileEnemy" parent="Enemies" unique_id=495046265 instance=ExtResource("6_854ka")]
+[node name="ProjectileEnemies" type="Node2D" parent="." unique_id=1689595157]
+
+[node name="ProjectileEnemy" parent="ProjectileEnemies" unique_id=495046265 instance=ExtResource("6_854ka")]
 position = Vector2(-950, -18668)
 
-[node name="ProjectileEnemy2" parent="Enemies" unique_id=417973040 instance=ExtResource("6_854ka")]
+[node name="VisionArea" parent="ProjectileEnemies/ProjectileEnemy" unique_id=1197375253 instance=ExtResource("5_ofnpb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy/VisionArea" unique_id=388681775]
+position = Vector2(1081, -295)
+shape = SubResource("RectangleShape2D_gf68f")
+
+[node name="ProjectileEnemy2" parent="ProjectileEnemies" unique_id=417973040 instance=ExtResource("6_854ka")]
 position = Vector2(-944, -19614)
 
+[node name="VisionArea" parent="ProjectileEnemies/ProjectileEnemy2" unique_id=932880458 instance=ExtResource("5_ofnpb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileEnemies/ProjectileEnemy2/VisionArea" unique_id=951439327]
+position = Vector2(1084, -554.5)
+shape = SubResource("RectangleShape2D_ytfqa")
+
 [node name="CameraZones" type="Node2D" parent="." unique_id=744240182]
+visible = false
 
 [node name="CameraZone3" parent="CameraZones" unique_id=1829861647 instance=ExtResource("13_q1b3r")]
 position = Vector2(1, -11616.5)

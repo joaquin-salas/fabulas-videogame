@@ -7,9 +7,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
 size = Vector2(38, 195)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(2399, 648)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(42, 188.5)
 
@@ -25,17 +22,6 @@ position = Vector2(-51.5, -0.5)
 scale = Vector2(0.252, 0.266)
 texture = ExtResource("2_vure2")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=346913408]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2090682028]
-position = Vector2(1202.5, -218)
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=856025481]
-position = Vector2(23, -90)
-target_position = Vector2(2363, -1)
-collision_mask = 5
-
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1304553588]
 position = Vector2(24, -90)
 
@@ -43,7 +29,7 @@ position = Vector2(24, -90)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=276416773]
 collision_layer = 16
-collision_mask = 8
+collision_mask = 0
 script = ExtResource("3_1f48c")
 metadata/_custom_type_script = "uid://b4xe213tj1b4i"
 
@@ -51,6 +37,4 @@ metadata/_custom_type_script = "uid://b4xe213tj1b4i"
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.98809487, 0, 0.31094918, 0.41960785)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]
