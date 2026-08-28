@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var keys_hud: CanvasLayer = $CanvasLayer/KeysHud
+@onready var keys_hud: CanvasLayer = $Menus/KeysHud
 
 
 # Called when the node enters the scene tree for the first time.
