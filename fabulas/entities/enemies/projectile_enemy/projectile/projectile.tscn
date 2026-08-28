@@ -9,7 +9,7 @@ radius = 11.18034
 
 [node name="Projectile" type="Node2D" unique_id=319743471]
 script = ExtResource("1_dlm2i")
-speed = 1200.0
+speed = 1400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=207926163]
 scale = Vector2(0.03, 0.03)

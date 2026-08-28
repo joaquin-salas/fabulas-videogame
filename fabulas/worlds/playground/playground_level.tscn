@@ -7,8 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="5_rftcw"]
 [ext_resource type="PackedScene" uid="uid://cysv8lrq2mt50" path="res://entities/moving_platform/moving_platform.tscn" id="6_rekdq"]
 [ext_resource type="PackedScene" uid="uid://cbhe3bano0qqg" path="res://entities/temporary_platform/temporary_platform.tscn" id="7_42i3a"]
+[ext_resource type="SpriteFrames" uid="uid://ckn3ubr07qrm4" path="res://entities/temporary_platform/sprites/crumbling_slab_64x64.tres" id="8_7gaqb"]
 [ext_resource type="PackedScene" uid="uid://bp5udb0hj2hfp" path="res://entities/enemies/projectile_enemy/projectile_enemy.tscn" id="8_741jb"]
 [ext_resource type="PackedScene" uid="uid://cvts2dn20m4sh" path="res://entities/enemies/projectile_enemy/vision_area.tscn" id="9_3rkcf"]
+[ext_resource type="Texture2D" uid="uid://14oskdq7jbjn" path="res://entities/temporary_platform/sprites/broken_platform_particles_64x64.png" id="9_kta4p"]
+[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life_hud.tscn" id="12_ktnby"]
+[ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="13_erbra"]
+[ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="14_oruy0"]
+[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="15_88drx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3tdi"]
 texture = ExtResource("1_1bfl0")
@@ -120,6 +126,7 @@ position = Vector2(1, -254)
 
 [node name="Checkpoint" parent="." unique_id=719565274 instance=ExtResource("5_rftcw")]
 position = Vector2(-280, -73)
+checkpoint_id = "930"
 
 [node name="MonvingPlatforms" type="Node2D" parent="." unique_id=225475602]
 
@@ -134,6 +141,8 @@ is_ping_pong = true
 
 [node name="TemporaryPlatform" parent="TemporaryPlatforms" unique_id=959344921 instance=ExtResource("7_42i3a")]
 position = Vector2(1749, -160)
+platform_frames = ExtResource("8_7gaqb")
+particles_texture = ExtResource("9_kta4p")
 
 [node name="TemporaryPlatform2" parent="TemporaryPlatforms" unique_id=1068785115 instance=ExtResource("7_42i3a")]
 position = Vector2(2664, -331)
@@ -160,5 +169,17 @@ position = Vector2(-7842, -102)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/ProjectileEnemy/VisionArea" unique_id=575224432]
 position = Vector2(822, -142)
 shape = SubResource("RectangleShape2D_gf68f")
+
+[node name="LifeHUD" parent="." unique_id=915383811 instance=ExtResource("12_ktnby")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=640883658]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=248075495 instance=ExtResource("13_erbra")]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=992204846 instance=ExtResource("14_oruy0")]
+visible = false
+
+[node name="GameOverMenu" parent="." unique_id=1354604793 instance=ExtResource("15_88drx")]
+visible = false
 
 [editable path="CameraRig"]
