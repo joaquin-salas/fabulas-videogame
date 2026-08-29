@@ -25,6 +25,9 @@ position = Vector2(1, -21888)
 [node name="Level3Maze" parent="." unique_id=1939643370 instance=ExtResource("3_qb2xy")]
 position = Vector2(0, -40321)
 
+[node name="Level3Maze2" parent="." unique_id=997276590 instance=ExtResource("3_qb2xy")]
+position = Vector2(0, -40321)
+
 [node name="Level5TemporaryPlatforms" parent="." unique_id=1149337446 instance=ExtResource("13_ys6o3")]
 position = Vector2(0, -51905)
 

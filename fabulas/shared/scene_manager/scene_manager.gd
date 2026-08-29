@@ -39,7 +39,7 @@ func goto_path(path: String) -> void:
 
 func paused_game(paused: bool) -> void:
 	get_tree().paused = paused
-	var canvas := get_tree().current_scene.get_node_or_null("CanvasLayer")
+	var canvas := get_tree().current_scene.get_node_or_null("Menus")
 	if canvas == null:
 		return
 	var pause_menu := canvas.get_node_or_null("PauseMenu")
