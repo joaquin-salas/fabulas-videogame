@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cro036ii5l1np"]
+
+[ext_resource type="Script" uid="uid://53gqiq0ir07a" path="res://worlds/level_6_dark/level_6_dark.gd" id="1_rroul"]
+[ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="1_yfydq"]
+[ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="2_rroul"]
+[ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="3_k11jr"]
+[ext_resource type="PackedScene" uid="uid://d0vyj57qo78nx" path="res://worlds/level_6_dark/map_6_dark.tscn" id="4_0ip87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(108, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(160.00006, 144.37964)
+
+[node name="Level6Dark" type="Node2D" unique_id=1874640918]
+script = ExtResource("1_rroul")
+
+[node name="Map6Dark" parent="." unique_id=794294410 instance=ExtResource("4_0ip87")]
+path_source_id = 1
+path_atlas_coords = Vector2i(2, 1)
+
+[node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_rroul")]
+position = Vector2(-80, -704)
+
+[node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("1_yfydq")]
+followed_node = NodePath("../Player")
+
+[node name="CameraZone" parent="." unique_id=1994611306 instance=ExtResource("3_k11jr")]
+visible = false
+position = Vector2(0, -536)
+expand_left = 2368.02
+expand_right = 2368.33
+expand_top = 2024.545
+expand_bottom = 534.99
+zone_zoom = Vector2(0.405, 0.422)
+
+[node name="CameraZone2" parent="." unique_id=93109947 instance=ExtResource("3_k11jr")]
+position = Vector2(12232, -817)
+expand_left = 1416.06
+expand_right = 1335.815
+expand_top = 5000.0
+expand_bottom = 872.81
+zone_zoom = Vector2(-0.7, -0.7)
+zone_offset_y = -241.04
+zone_follow_x = false
+use_limit_bottom = false
+transition_duration = 0.0
+
+[node name="CameraZone3" parent="." unique_id=1094822758 instance=ExtResource("3_k11jr")]
+position = Vector2(17056, -984)
+expand_left = 1844.315
+expand_right = 1833.325
+expand_top = 1111.0
+expand_bottom = 1111.0
+zone_zoom = Vector2(0.5, 0.5)
+
+[node name="Teleport 1" type="Area2D" parent="." unique_id=1696958124]
+position = Vector2(2440, -1672)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport 1" unique_id=629988141]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="MarkerTeleport1" type="Marker2D" parent="Teleport 1" unique_id=1668712570]
+position = Vector2(8576, 1560)
+
+[node name="Teleport 2" type="Area2D" parent="." unique_id=12720097]
+position = Vector2(2440, -512)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport 2" unique_id=932016176]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="MarkerTeleport2" type="Marker2D" parent="Teleport 2" unique_id=654842786]
+position = Vector2(12960, 336)
+
+[node name="MarkerBack" type="Marker2D" parent="." unique_id=794191893]
+position = Vector2(0, -168)
+
+[node name="TeleportBack" type="Area2D" parent="." unique_id=1164731483]
+position = Vector2(13632, -4800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportBack" unique_id=1622226254]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="TimerFades" type="Timer" parent="." unique_id=822133452]
+wait_time = 0.879
+one_shot = true
+
+[node name="Player2" parent="." unique_id=202808179 instance=ExtResource("2_rroul")]
+position = Vector2(17264, -240)
+
+[connection signal="body_entered" from="Teleport 1" to="." method="_on_teleport_1_body_entered"]
+[connection signal="body_entered" from="Teleport 2" to="." method="_on_teleport_2_body_entered"]
+[connection signal="body_entered" from="TeleportBack" to="." method="_on_teleport_back_body_entered"]
+[connection signal="timeout" from="TimerFades" to="." method="_on_timer_fades_timeout"]

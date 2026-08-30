@@ -38,3 +38,7 @@ signal purple_key_take
 signal hud_on
 @warning_ignore("unused_signal")
 signal hud_off
+
+# ====================== LEVER SIGNALS ======================
+@warning_ignore("unused_signal")
+signal lever_toggled(lever_id: int, is_on: bool)

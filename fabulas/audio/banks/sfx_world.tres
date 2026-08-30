@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://qbobp5kaviu3" path="res://entities/temporary_platform/audio/recovery/recovery_magic_9.wav" id="25_r7g3j"]
 [ext_resource type="AudioStream" uid="uid://byh38cedfdt6" path="res://audio/assets/world/doorOpen.mp3" id="26_0jcin"]
 [ext_resource type="AudioStream" uid="uid://cj4ytk40imndu" path="res://audio/assets/world/key.mp3" id="27_nllrs"]
+[ext_resource type="AudioStream" uid="uid://cnh2oo2y2pymn" path="res://audio/assets/world/lever.mp3" id="28_nllrs"]
 
 [resource]
 script = ExtResource("1_k3ggk")
@@ -36,6 +37,7 @@ sounds = Dictionary[String, Array]({
 "Crumbling": [ExtResource("3_ow2nb"), ExtResource("4_1yssh"), ExtResource("5_s2mg0"), ExtResource("6_chia6"), ExtResource("7_n5r27"), ExtResource("8_rvc7j"), ExtResource("9_a7re6")],
 "Door": [ExtResource("26_0jcin")],
 "Key": [ExtResource("27_nllrs")],
+"Lever": [ExtResource("28_nllrs")],
 "Recovery": [ExtResource("17_xdi3i"), ExtResource("18_x3kx4"), ExtResource("19_0jcin"), ExtResource("20_nllrs"), ExtResource("21_3iucf"), ExtResource("22_ylpsh"), ExtResource("23_h2qnd"), ExtResource("24_nj1d2"), ExtResource("25_r7g3j")]
 })
 metadata/_custom_type_script = "uid://bw0digwty4uu4"
