@@ -1,14 +1,12 @@
 extends CanvasLayer
-## Autoload del menú de debug: guarda el estado de todos los cheats/toggles
-## y avisa por señal a quien esté escuchando (HUD, jugador, enemigos...)
+
+## Autoload for Debug Menu: Save all cheats/toggles states
+## and emits signals (HUD, jugador, enemigos...)
 
 # ====================== SIGNALS ======================
 signal collisions_visibility_changed(value: bool)
 signal god_mode_changed(value: bool)
-signal invincible_changed(value: bool)
 signal info_panel_changed(value: bool)
-signal heal_requested
-signal kill_requested
 
 # ====================== STATE ======================
 var is_open := false
@@ -22,11 +20,6 @@ var god_mode: bool = false:
 	set(value):
 		god_mode = value
 		god_mode_changed.emit(value)
-
-var invincible: bool = false:
-	set(value):
-		invincible = value
-		invincible_changed.emit(value)
 
 var show_info_panel: bool = false:
 	set(value):
@@ -53,12 +46,6 @@ func toggle() -> void:
 	is_open = !is_open
 	get_tree().paused = is_open
 	visible = is_open
-
-func request_heal() -> void:
-	heal_requested.emit()
-
-func request_kill() -> void:
-	kill_requested.emit()
 
 # ******************* SIGNAL CALLBACKS *******************
 func _on_collisions_visibility_changed(value: bool) -> void:

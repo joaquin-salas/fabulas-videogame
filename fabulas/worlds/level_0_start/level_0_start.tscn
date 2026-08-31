@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="4_ma40e"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_6xh0e"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="6_3t3yo"]
-[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life/life_hud.tscn" id="7_utqmy"]
-[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="8_jxm5n"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.tscn" id="9_3t3yo"]
 [ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="11_jxm5n"]
 
@@ -48,7 +46,6 @@ expand_bottom = 637.51
 zone_zoom = Vector2(0.7, 0.7)
 use_limit_left = false
 use_limit_right = false
-use_limit_bottom = false
 
 [node name="CameraZone3" parent="Cameras" unique_id=233600785 instance=ExtResource("4_ma40e")]
 position = Vector2(8440, -1184)
@@ -57,7 +54,6 @@ expand_right = 1638.31
 expand_top = 373.75
 expand_bottom = 1169.46
 zone_zoom = Vector2(0.5, 0.5)
-use_limit_bottom = false
 
 [node name="CameraZone4" parent="Cameras" unique_id=1994611306 instance=ExtResource("4_ma40e")]
 position = Vector2(11094, -64)
@@ -93,11 +89,6 @@ shape = SubResource("RectangleShape2D_fcnqv")
 [node name="SettingsMenu" parent="Menus" unique_id=992204846 instance=ExtResource("6_3t3yo")]
 visible = false
 
-[node name="LifeHUD" parent="Menus" unique_id=915383811 instance=ExtResource("7_utqmy")]
-
-[node name="GameOverMenu" parent="Menus" unique_id=1354604793 instance=ExtResource("8_jxm5n")]
-visible = false
-
 [node name="enemys" type="Node" parent="." unique_id=1976285161]
 
 [node name="ground_enemy2" parent="enemys" unique_id=1836502299 instance=ExtResource("9_3t3yo")]
@@ -107,11 +98,14 @@ position = Vector2(7685, -839)
 
 [node name="Checkpoint2" parent="CheckPoints" unique_id=719565274 instance=ExtResource("11_jxm5n")]
 position = Vector2(2033, -132)
+checkpoint_id = "1"
 
 [node name="Checkpoint3" parent="CheckPoints" unique_id=1708048160 instance=ExtResource("11_jxm5n")]
 position = Vector2(6282, -133)
+checkpoint_id = "2"
 
 [node name="Checkpoint4" parent="CheckPoints" unique_id=1345387266 instance=ExtResource("11_jxm5n")]
 position = Vector2(10196, -131)
+checkpoint_id = "3"
 
 [connection signal="body_entered" from="Cameras/Door" to="." method="_on_door_body_entered"]
