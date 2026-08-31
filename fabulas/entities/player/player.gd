@@ -19,19 +19,11 @@ var is_god_mode: bool = false
 # *********************** CALLBACKS **********************
 func _ready() -> void:
 	add_to_group("player")
-	hurtbox.took_damage.connect(_on_hurtbox_took_damage)
 	hurtbox.took_knockback.connect(_on_hurtbox_took_knockback)
-	inmortality_timer.timeout.connect(_on_inmortality_timer_timeout)
-
-
 	if (CheckpointManager.checkpoint_active and SceneManager.get_current_scene_id() == CheckpointManager.current_scene):
 		global_position = CheckpointManager.checkpoint_position
 		TransitionsScreen.fade_in()
-
-
-
-
-	
+		
 # ******************* LOCAL FUNCTIONS *******************	
 func play_animation(animation_name: String) -> void:
 	animated_sprite_2d.play(animation_name)
