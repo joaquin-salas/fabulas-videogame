@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d2ir144nqsdud" path="res://worlds/level_3_maze/level_3_maze.tscn" id="3_qb2xy"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="4_b3epk"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="5_p5alx"]
-[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="6_1gny1"]
-[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life/life_hud.tscn" id="7_ys6o3"]
 [ext_resource type="PackedScene" uid="uid://ne62yfmf10ql" path="res://entities/player/player.tscn" id="8_4idhh"]
 [ext_resource type="PackedScene" uid="uid://cdyqyrmhc3mfg" path="res://ui/hud/key/keys_hud.tscn" id="9_1gny1"]
 [ext_resource type="PackedScene" uid="uid://drut5tkemtw57" path="res://shared/camera/camera_rig.tscn" id="9_b3epk"]
@@ -37,10 +35,6 @@ position = Vector2(0, -51905)
 
 [node name="SettingsMenu" parent="Menus" unique_id=992204846 instance=ExtResource("5_p5alx")]
 visible = false
-
-[node name="GameOverMenu" parent="Menus" unique_id=1354604793 instance=ExtResource("6_1gny1")]
-
-[node name="LifeHUD" parent="Menus" unique_id=915383811 instance=ExtResource("7_ys6o3")]
 
 [node name="KeysHud" parent="Menus" unique_id=665351789 instance=ExtResource("9_1gny1")]
 visible = false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bghcfut7lemw4" path="res://entities/enemies/projectile_enemy/projectile_enemy.gd" id="1_cutay"]
 [ext_resource type="Texture2D" uid="uid://osifunh34xrv" path="res://entities/enemies/projectile_enemy/art/Projectillleee.png" id="2_vure2"]
-[ext_resource type="Script" uid="uid://b4xe213tj1b4i" path="res://shared/damage_system/hitbox.gd" id="3_1f48c"]
+[ext_resource type="Script" uid="uid://b4xe213tj1b4i" path="res://shared/knockback_system/hitbox.gd" id="3_1f48c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
 size = Vector2(38, 195)

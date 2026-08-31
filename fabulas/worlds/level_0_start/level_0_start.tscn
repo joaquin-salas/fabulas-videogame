@@ -7,28 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="4_ma40e"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_6xh0e"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="6_3t3yo"]
-[ext_resource type="PackedScene" uid="uid://csksfnxu3kran" path="res://ui/hud/life/life_hud.tscn" id="7_utqmy"]
-[ext_resource type="PackedScene" uid="uid://dj7eqdjduh36c" path="res://ui/menus/game_over_menu/game_over_menu.tscn" id="8_jxm5n"]
 [ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.tscn" id="9_3t3yo"]
 [ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="11_jxm5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]
 size = Vector2(554.19727, 1641.5897)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(1223, 94)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(1467.3993, 103.48102)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
-size = Vector2(3492.4082, 148.64691)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
-size = Vector2(1918.0962, 84)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
-size = Vector2(2053.5002, 90.761475)
 
 [node name="LevelStart" type="Node2D" unique_id=1456346959]
 script = ExtResource("1_utqmy")
@@ -106,11 +89,6 @@ shape = SubResource("RectangleShape2D_fcnqv")
 [node name="SettingsMenu" parent="Menus" unique_id=992204846 instance=ExtResource("6_3t3yo")]
 visible = false
 
-[node name="LifeHUD" parent="Menus" unique_id=915383811 instance=ExtResource("7_utqmy")]
-
-[node name="GameOverMenu" parent="Menus" unique_id=1354604793 instance=ExtResource("8_jxm5n")]
-visible = false
-
 [node name="enemys" type="Node" parent="." unique_id=1976285161]
 
 [node name="ground_enemy2" parent="enemys" unique_id=1836502299 instance=ExtResource("9_3t3yo")]
@@ -130,29 +108,4 @@ checkpoint_id = "2"
 position = Vector2(10196, -131)
 checkpoint_id = "3"
 
-[node name="DeathZones" type="Node" parent="." unique_id=765499071]
-
-[node name="Area2D" type="Area2D" parent="DeathZones" unique_id=251307107]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=199529528]
-position = Vector2(2858.5, 131)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=2058427056]
-position = Vector2(4761.3003, 133)
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=1808984134]
-position = Vector2(8192.796, 119)
-shape = SubResource("RectangleShape2D_57qmd")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=1299680449]
-position = Vector2(11350.048, 146)
-shape = SubResource("RectangleShape2D_d0u6y")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=1445992868]
-position = Vector2(14005.25, 146)
-shape = SubResource("RectangleShape2D_3gngh")
-
 [connection signal="body_entered" from="Cameras/Door" to="." method="_on_door_body_entered"]
-[connection signal="body_entered" from="DeathZones/Area2D" to="." method="_on_area_2d_body_entered"]
