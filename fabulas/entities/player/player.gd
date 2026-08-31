@@ -31,22 +31,15 @@ func _ready() -> void:
 	add_to_group("player")
 	hurtbox.took_damage.connect(_on_hurtbox_took_damage)
 	inmortality_timer.timeout.connect(_on_inmortality_timer_timeout)
-	
-	if CheckpointManager.has_checkpoint and CheckpointManager.current_scene_id == SceneManager.get_current_scene_id():
-		global_position = CheckpointManager.saved_position
-		self.current_health = CheckpointManager.saved_health
-	else:
-		self.current_health = max_health
-		
-	var camera_rig = get_tree().get_first_node_in_group("camera_rig")
-	if camera_rig:
-		camera_rig.snap_to(global_position)
-	
-	await get_tree().process_frame
-	# Emit the signal after every node is ready to ensure that all nodes connect the signal before it is emitted.
-	SignalBus.player_max_health_set.emit(max_health)
-	SignalBus.player_health_changed.emit(current_health)
-	
+
+
+	if (CheckpointManager.checkpoint_active and SceneManager.get_current_scene_id() == CheckpointManager.current_scene):
+		global_position = CheckpointManager.checkpoint_position
+		TransitionsScreen.fade_in()
+
+
+
+
 	
 # ******************* LOCAL FUNCTIONS *******************	
 func play_animation(animation_name: String) -> void:
@@ -79,7 +72,6 @@ func take_damage(amount: int, knockback_dir: Vector2) -> void:
 		state_machine.change_state(PlayerStatesNames.HURT)
 
 func die() -> void:
-	CheckpointManager.on_player_died()
 	state_machine.change_state(PlayerStatesNames.DEAD)
 
 func start_blinking() -> void:

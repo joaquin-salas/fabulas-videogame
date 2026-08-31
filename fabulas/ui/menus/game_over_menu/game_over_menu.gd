@@ -28,7 +28,7 @@ func _on_player_died() -> void:
 	
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false
-	if CheckpointManager.has_checkpoint:
+	if CheckpointManager.checkpoint_active:
 		SceneManager.goto(CheckpointManager.current_scene_id)
 	else:
 		get_tree().reload_current_scene()

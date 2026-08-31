@@ -24,6 +24,9 @@ func _ready() -> void:
 	add_to_group("camera_rig")
 	SignalBus.player_entered_camera_zone.connect(_on_player_entered_camera_zone)
 	SignalBus.player_exited_camera_zone.connect(_on_player_exited_camera_zone)
+	
+	if (CheckpointManager.checkpoint_active and SceneManager.get_current_scene_id() == CheckpointManager.current_scene):
+		global_position = CheckpointManager.checkpoint_position
 
 func _process(delta: float) -> void:
 	if followed_node == null:
@@ -147,19 +150,7 @@ func _apply_custom_limits(desired_pos: Vector2, zone: CameraZone, current_zoom: 
 	return Vector2(clamped_x, clamped_y)
 
 # *********************** PUBLIC METHODS **********************
-func snap_to(target_position: Vector2) -> void:
-	# Cancela cualquier transición de zona en curso
-	if transition_tween and transition_tween.is_running():
-		transition_tween.kill()
-	is_transitioning = false
-	
-	# Salta la posición al instante
-	global_position = target_position
-	
-	# Si hay una zona activa, también ajusta el zoom de golpe (sin lerp)
-	if current_zone != null:
-		camera.zoom = current_zone.zone_zoom
-		
+
 func activate() -> void:
 	camera.make_current()
 

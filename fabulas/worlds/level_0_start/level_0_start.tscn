@@ -15,21 +15,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]
 size = Vector2(554.19727, 1641.5897)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(1223, 94)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(1467.3993, 103.48102)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
-size = Vector2(3492.4082, 148.64691)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
-size = Vector2(1918.0962, 84)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
-size = Vector2(2053.5002, 90.761475)
-
 [node name="LevelStart" type="Node2D" unique_id=1456346959]
 script = ExtResource("1_utqmy")
 
@@ -63,6 +48,7 @@ expand_bottom = 637.51
 zone_zoom = Vector2(0.7, 0.7)
 use_limit_left = false
 use_limit_right = false
+use_limit_bottom = false
 
 [node name="CameraZone3" parent="Cameras" unique_id=233600785 instance=ExtResource("4_ma40e")]
 position = Vector2(8440, -1184)
@@ -71,6 +57,7 @@ expand_right = 1638.31
 expand_top = 373.75
 expand_bottom = 1169.46
 zone_zoom = Vector2(0.5, 0.5)
+use_limit_bottom = false
 
 [node name="CameraZone4" parent="Cameras" unique_id=1994611306 instance=ExtResource("4_ma40e")]
 position = Vector2(11094, -64)
@@ -120,39 +107,11 @@ position = Vector2(7685, -839)
 
 [node name="Checkpoint2" parent="CheckPoints" unique_id=719565274 instance=ExtResource("11_jxm5n")]
 position = Vector2(2033, -132)
-checkpoint_id = "1"
 
 [node name="Checkpoint3" parent="CheckPoints" unique_id=1708048160 instance=ExtResource("11_jxm5n")]
 position = Vector2(6282, -133)
-checkpoint_id = "2"
 
 [node name="Checkpoint4" parent="CheckPoints" unique_id=1345387266 instance=ExtResource("11_jxm5n")]
 position = Vector2(10196, -131)
-checkpoint_id = "3"
-
-[node name="DeathZones" type="Node" parent="." unique_id=765499071]
-
-[node name="Area2D" type="Area2D" parent="DeathZones" unique_id=251307107]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=199529528]
-position = Vector2(2858.5, 131)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=2058427056]
-position = Vector2(4761.3003, 133)
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=1808984134]
-position = Vector2(8192.796, 119)
-shape = SubResource("RectangleShape2D_57qmd")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=1299680449]
-position = Vector2(11350.048, 146)
-shape = SubResource("RectangleShape2D_d0u6y")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="DeathZones/Area2D" unique_id=1445992868]
-position = Vector2(14005.25, 146)
-shape = SubResource("RectangleShape2D_3gngh")
 
 [connection signal="body_entered" from="Cameras/Door" to="." method="_on_door_body_entered"]
-[connection signal="body_entered" from="DeathZones/Area2D" to="." method="_on_area_2d_body_entered"]

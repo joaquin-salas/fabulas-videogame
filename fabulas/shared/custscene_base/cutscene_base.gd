@@ -45,6 +45,7 @@ func _finish() -> void:
 	anim.play("fade_out")
 	SoundManager.stop_voice()
 	SoundManager.stop_music()
+	SceneManager.goto(SceneManager.SceneID.LEVEL_0_START)
 
 func _on_saltar_pressed() -> void:
 	timer.stop()
