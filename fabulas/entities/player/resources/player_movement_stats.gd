@@ -1,6 +1,6 @@
 class_name PlayerMovementStats extends Resource
 
-## Variables para controlar el movimiento del Player
+## Movement configuration for the [Player]
 
 @export_category("Movement")
 @export var speed_floor: float = 300.0

@@ -49,7 +49,6 @@ zone_priority = 2
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=719565274 instance=ExtResource("5_q5buq")]
 position = Vector2(0, -134)
-checkpoint_id = "231"
 
 [node name="ProjectileEnemies" type="Node2D" parent="." unique_id=793775619]
 

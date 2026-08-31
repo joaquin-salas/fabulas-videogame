@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqoftvwo2og3b" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Black_Werewolf/Idle.png" id="1_x75fb"]
 [ext_resource type="Texture2D" uid="uid://bcmpohnvlbuth" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Red_Werewolf/Run.png" id="2_8b13n"]
 [ext_resource type="Texture2D" uid="uid://dhgrl4mp148lu" path="res://entities/enemies/ground_enemy/variant a/visuals/sprite/Black_Werewolf/walk.png" id="4_8b13n"]
-[ext_resource type="PackedScene" uid="uid://dysaj63rkoe3a" path="res://shared/damage_system/hitbox.tscn" id="5_w5xwc"]
+[ext_resource type="PackedScene" uid="uid://dysaj63rkoe3a" path="res://shared/knockback_system/hitbox.tscn" id="5_w5xwc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_se3t2"]
 atlas = ExtResource("2_8b13n")

@@ -42,11 +42,6 @@ position = Vector2(0, -79425)
 [node name="SettingsMenu" parent="Menus" unique_id=992204846 instance=ExtResource("5_p5alx")]
 visible = false
 
-[node name="GameOverMenu" parent="Menus" unique_id=1354604793 instance=ExtResource("6_1gny1")]
-
-[node name="LifeHUD" parent="Menus" unique_id=915383811 instance=ExtResource("7_ys6o3")]
-visible = false
-
 [node name="KeysHud" parent="Menus" unique_id=665351789 instance=ExtResource("9_1gny1")]
 visible = false
 
