@@ -1,6 +1,6 @@
 extends Node2D
 var current_scene: SceneManager.SceneID
-var checkpoint_active_name : String
+
 var checkpoint_active: bool = false
 var checkpoint_position: Vector2
 
@@ -9,8 +9,7 @@ func _ready() -> void:
 	load_checkpoint()
 
 
-func _on_checkpoint_activated(checkpoint_name: String, position_checkpoint: Vector2):
-	checkpoint_active_name = checkpoint_name
+func _on_checkpoint_activated(position_checkpoint: Vector2):
 	checkpoint_position = position_checkpoint
 	checkpoint_active = true
 	current_scene = SceneManager.get_current_scene_id()
@@ -20,7 +19,6 @@ func save_checkpoint() -> void:
 
 	var data := {
 		"checkpoint_active": checkpoint_active,
-		"checkpoint_name": checkpoint_active_name,
 		"position": {"x": checkpoint_position.x, "y": checkpoint_position.y},
 		"current_scene": current_scene
 	}
@@ -37,7 +35,6 @@ func load_checkpoint():
 		var json_string := file.get_as_text()
 		file.close()
 		var data = JSON.parse_string(json_string)
-		checkpoint_active_name = data["checkpoint_name"]
 		checkpoint_active = data["checkpoint_active"]
 		checkpoint_position.x = data["position"]["x"]
 		checkpoint_position.y = data["position"]["y"]
@@ -47,7 +44,6 @@ func load_checkpoint():
 		
 func clear_checkpoint() -> void:
 	checkpoint_active = false
-	checkpoint_active_name = ""
 	checkpoint_position = Vector2.ZERO
 	current_scene = SceneManager.SceneID.MAIN_MENU 
 

@@ -28,7 +28,7 @@ signal player_exited_camera_zone(zone: CameraZone)
 # ====================== CHECKPOINTS SIGNALS ======================
 
 @warning_ignore("unused_signal")
-signal checkpoint_activated(checkpoint_name: String, position_checkpoint :Vector2)
+signal checkpoint_activated( position_checkpoint :Vector2)
 
 # ====================== KEY SIGNALS ======================
 @warning_ignore("unused_signal")
