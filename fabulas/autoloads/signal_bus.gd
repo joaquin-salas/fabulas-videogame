@@ -13,6 +13,12 @@ signal player_entered_camera_zone(zone: CameraZone)
 @warning_ignore("unused_signal")
 signal player_exited_camera_zone(zone: CameraZone)
 
+
+# ====================== CHECKPOINTS SIGNALS ======================
+
+@warning_ignore("unused_signal")
+signal checkpoint_activated( position_checkpoint :Vector2)
+
 # ====================== KEY SIGNALS ======================
 @warning_ignore("unused_signal")
 signal blue_key_take

@@ -74,4 +74,3 @@ transition_trans_type = 2
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=719565274 instance=ExtResource("6_teuak")]
 position = Vector2(0, -1290)
-checkpoint_id = "1"
