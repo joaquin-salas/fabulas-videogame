@@ -2,11 +2,10 @@ class_name PlayerStatesNames
 
 ## Class that holds all the state names for the player.
 
-# No pueden ser StringName porque el método donde se utilizan esperan un NodePath
+# It can't be a StringName data type because the method that uses this wants a NodePath.
 const IDLE := 'PlayerIdleState'
 const RUNNING := 'PlayerRunState'
 const JUMPING := 'PlayerJumpState'
 const FALLING := 'PlayerFallState'
 const HURT := 'PlayerHurtState'
-const DEAD := 'PlayerDeadState'
 const GODFLY:= 'PlayerGodFlyState'

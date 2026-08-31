@@ -15,12 +15,6 @@ func _on_cheat_toggled(_value: bool, option_id: String) -> void:
 	match option_id:
 		"GODFLY":
 			player.toggle_god_mode()
-		"invincible":
-			DebugMenu.invincible = !DebugMenu.invincible
-		"MaxHealth":
-			player.current_health = player.max_health
-		"KILL":
-			player.die()
 		"DELETE":
 			_on_clear_checkpoint_selected()
 

@@ -128,33 +128,6 @@ option_id = "GODFLY"
 [node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/GodMode" index="1" unique_id=744584850]
 text = "God Mode"
 
-[node name="Invincibility" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=975784392 instance=ExtResource("1_ppho5")]
-layout_mode = 2
-option_id = "invincible"
-
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Invincibility" index="1" unique_id=744584850]
-text = "Invincibility"
-
-[node name="MaxHealth" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=837599130 instance=ExtResource("1_ppho5")]
-layout_mode = 2
-option_id = "MaxHealth"
-
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/MaxHealth" index="1" unique_id=744584850]
-text = "Max Health"
-
-[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/MaxHealth" index="2" unique_id=917034890]
-visible = false
-
-[node name="KillPlayer" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=1213632944 instance=ExtResource("1_ppho5")]
-layout_mode = 2
-option_id = "KILL"
-
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/KillPlayer" index="1" unique_id=744584850]
-text = "Kill Player"
-
-[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/KillPlayer" index="2" unique_id=917034890]
-visible = false
-
 [node name="Delete" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer" unique_id=267361281 instance=ExtResource("1_ppho5")]
 layout_mode = 2
 option_id = "DELETE"
@@ -306,9 +279,6 @@ layout_mode = 2
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/MainMenu/VBoxContainer/VisualOptions"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/MainMenu/VBoxContainer/InfoOptions"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/GodMode"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Invincibility"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/MaxHealth"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/KillPlayer"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Delete"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac"]
