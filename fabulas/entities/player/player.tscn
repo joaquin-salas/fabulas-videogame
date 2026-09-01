@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://dvi2e2l5jdi7x" path="res://entities/player/states/states/player_jump_state.gd" id="10_fsjsn"]
 [ext_resource type="Script" uid="uid://cpbg1ipmgwfem" path="res://entities/player/states/states/player_fall_state.gd" id="11_ulmrq"]
 [ext_resource type="PackedScene" uid="uid://2l7e5yb48q6n" path="res://shared/knockback_system/hurtbox.tscn" id="12_a1qjk"]
-[ext_resource type="Script" uid="uid://chwgvwvc3hso7" path="res://entities/player/states/states/player_hurt_state.gd" id="14_afbqv"]
+[ext_resource type="Script" uid="uid://chwgvwvc3hso7" path="res://entities/player/states/states/player_knockback_state.gd" id="14_afbqv"]
 [ext_resource type="Script" uid="uid://bn2uyogxsbgt6" path="res://entities/player/states/states/player_god_fly_state.gd" id="17_3wlsy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ukxb"]
@@ -338,8 +338,10 @@ script = ExtResource("10_fsjsn")
 [node name="PlayerFallState" type="Node" parent="StateMachine" unique_id=910739658]
 script = ExtResource("11_ulmrq")
 
-[node name="PlayerHurtState" type="Node" parent="StateMachine" unique_id=1718339086]
+[node name="PlayerKnockbackState" type="Node" parent="StateMachine" unique_id=1718339086]
 script = ExtResource("14_afbqv")
+knockback_duration = 1.0
+knockback_friction = 3000.0
 
 [node name="PlayerGodFlyState" type="Node" parent="StateMachine" unique_id=270087985]
 script = ExtResource("17_3wlsy")
