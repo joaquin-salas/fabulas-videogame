@@ -340,8 +340,9 @@ script = ExtResource("11_ulmrq")
 
 [node name="PlayerKnockbackState" type="Node" parent="StateMachine" unique_id=1718339086]
 script = ExtResource("14_afbqv")
-knockback_duration = 1.0
-knockback_friction = 3000.0
+bounce_elasticity = 0.3
+minimum_bounce_velocity = 300.0
+failsafe_duration = 0.5
 
 [node name="PlayerGodFlyState" type="Node" parent="StateMachine" unique_id=270087985]
 script = ExtResource("17_3wlsy")
