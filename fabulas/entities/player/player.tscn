@@ -293,7 +293,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(58, 86)
+size = Vector2(55, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(67, 88)
@@ -313,7 +313,7 @@ autoplay = "jump"
 frame_progress = 0.48321086
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1403225131]
-position = Vector2(0, 22)
+position = Vector2(-0.5, 22)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Hurtbox" parent="." unique_id=453256543 instance=ExtResource("12_a1qjk")]
@@ -340,9 +340,8 @@ script = ExtResource("11_ulmrq")
 
 [node name="PlayerKnockbackState" type="Node" parent="StateMachine" unique_id=1718339086]
 script = ExtResource("14_afbqv")
-bounce_elasticity = 0.3
-minimum_bounce_velocity = 300.0
-failsafe_duration = 0.5
+air_drag = 2000.0
+minimum_bounce_velocity = 100.0
 
 [node name="PlayerGodFlyState" type="Node" parent="StateMachine" unique_id=270087985]
 script = ExtResource("17_3wlsy")

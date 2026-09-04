@@ -122,7 +122,7 @@ zone_offset_y = -200.0
 zone_priority = 10
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_l3tdi")]
-position = Vector2(3667, -89)
+position = Vector2(-2462, -78)
 
 [node name="Checkpoint" parent="." unique_id=719565274 instance=ExtResource("5_rftcw")]
 position = Vector2(-280, -73)
