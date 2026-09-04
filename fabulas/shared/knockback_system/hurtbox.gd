@@ -1,7 +1,7 @@
 class_name Hurtbox
 extends Area2D
 
-## Clase que representa un área que recibe daño si entra en contacto con un [Hitbox].
+## Area that takes the knockback force when it collides with a [Hitbox]
 
 # ====================== CUSTOM SIGNALS ========================
 signal took_knockback(knockback_dir: Vector2)
@@ -38,7 +38,7 @@ func _calculate_direction(hitbox: Hitbox) -> Vector2:
 		
 	return knockback_dir
 	
-# ********************** SIGNALS CALLBACK **********************
+# ********************** SIGNAL CALLBACK **********************
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hitbox:
 		var knockback_dir: Vector2 = _calculate_direction(area)
