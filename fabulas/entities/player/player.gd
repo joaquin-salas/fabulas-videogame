@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var coyote_timer: Timer = $Timers/CoyoteTimer
 @onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var knockback_particles: GPUParticles2D = $KnockbackParticles
 
 # ====================== RESOURCES ======================
 @export var player_movement_stats: PlayerMovementStats

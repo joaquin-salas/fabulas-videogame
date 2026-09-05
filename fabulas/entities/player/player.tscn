@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dm8l4dv0r3n7j" path="res://entities/player/player.gd" id="1_2xrie"]
 [ext_resource type="Resource" uid="uid://bug16kis23a36" path="res://entities/player/resources/movement_stats.tres" id="2_v3hes"]
-[ext_resource type="Texture2D" uid="uid://vvp6cngh1nub" path="res://entities/player/visuals/sprite/desappearing_384x384.png" id="4_yqrof"]
+[ext_resource type="Shader" uid="uid://dkikkdvn3t6b6" path="res://entities/player/visuals/shaders/player.gdshader" id="3_yqrof"]
 [ext_resource type="Texture2D" uid="uid://d0spqmjywvnlh" path="res://entities/player/visuals/sprite/Spritesheet.png" id="5_3wlsy"]
 [ext_resource type="Texture2D" uid="uid://c8bd5kfhb7uuo" path="res://entities/player/visuals/sprite/Sprites_idle_personajeP.png" id="6_3wlsy"]
 [ext_resource type="Texture2D" uid="uid://bl64ynatvmyl8" path="res://entities/player/visuals/sprite/spr_jump_main character (1).png" id="7_b2kln"]
@@ -10,39 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://dcxyc34hfo7by" path="res://entities/player/visuals/sprite/spr_run_main character.png" id="8_3wlsy"]
 [ext_resource type="Script" uid="uid://bldxq5das84cd" path="res://entities/player/states/states/player_idle_state.gd" id="8_xb4l4"]
 [ext_resource type="Script" uid="uid://bhg21qrimc1xu" path="res://entities/player/states/states/player_run_state.gd" id="9_v5u60"]
+[ext_resource type="Texture2D" uid="uid://dapr7n0rll8ir" path="res://entities/player/visuals/sprite/feather.png" id="9_yqrof"]
 [ext_resource type="Script" uid="uid://dvi2e2l5jdi7x" path="res://entities/player/states/states/player_jump_state.gd" id="10_fsjsn"]
 [ext_resource type="Script" uid="uid://cpbg1ipmgwfem" path="res://entities/player/states/states/player_fall_state.gd" id="11_ulmrq"]
 [ext_resource type="PackedScene" uid="uid://2l7e5yb48q6n" path="res://shared/knockback_system/hurtbox.tscn" id="12_a1qjk"]
 [ext_resource type="Script" uid="uid://chwgvwvc3hso7" path="res://entities/player/states/states/player_knockback_state.gd" id="14_afbqv"]
 [ext_resource type="Script" uid="uid://bn2uyogxsbgt6" path="res://entities/player/states/states/player_god_fly_state.gd" id="17_3wlsy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ukxb"]
-atlas = ExtResource("4_yqrof")
-region = Rect2(0, 0, 384, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ys5se"]
-atlas = ExtResource("4_yqrof")
-region = Rect2(384, 0, 384, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_isdtx"]
-atlas = ExtResource("4_yqrof")
-region = Rect2(768, 0, 384, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_akk75"]
-atlas = ExtResource("4_yqrof")
-region = Rect2(1152, 0, 384, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_141r8"]
-atlas = ExtResource("4_yqrof")
-region = Rect2(1536, 0, 384, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5ijc"]
-atlas = ExtResource("4_yqrof")
-region = Rect2(1920, 0, 384, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3lug"]
-atlas = ExtResource("4_yqrof")
-region = Rect2(2304, 0, 384, 384)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqrof"]
+shader = ExtResource("3_yqrof")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24ehl"]
 atlas = ExtResource("5_3wlsy")
@@ -160,35 +138,6 @@ region = Rect2(1408, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ukxb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ys5se")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_isdtx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_akk75")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_141r8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5ijc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y3lug")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": 0,
-"name": &"dead",
-"speed": 9.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_24ehl")
 }, {
 "duration": 1.0,
@@ -298,6 +247,25 @@ size = Vector2(55, 86)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(67, 88)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yqrof"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 29.57
+spread = 30.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 60, 0)
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+radial_accel_min = -100.0
+radial_accel_max = -57.440002
+tangential_accel_min = 12.659998
+tangential_accel_max = 60.249996
+scale_min = 0.25
+scale_max = 0.75
+turbulence_noise_strength = 0.0
+turbulence_influence_max = 0.26700002
+
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
 z_index = 9
 collision_mask = 4
@@ -306,11 +274,11 @@ script = ExtResource("1_2xrie")
 player_movement_stats = ExtResource("2_v3hes")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
+material = SubResource("ShaderMaterial_yqrof")
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
-animation = &"idle"
+animation = &"fall"
 autoplay = "jump"
-frame_progress = 0.48321086
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1403225131]
 position = Vector2(-0.5, 22)
@@ -322,6 +290,15 @@ shape = SubResource("RectangleShape2D_g4v7s")
 position = Vector2(0.5, 20)
 shape = SubResource("RectangleShape2D_4ismv")
 debug_color = Color(0.9254902, 0.02745098, 0, 0.41960785)
+
+[node name="KnockbackParticles" type="GPUParticles2D" parent="." unique_id=852958852]
+emitting = false
+texture = ExtResource("9_yqrof")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+process_material = SubResource("ParticleProcessMaterial_yqrof")
 
 [node name="StateMachine" parent="." unique_id=652708199 node_paths=PackedStringArray("default_state") instance=ExtResource("7_vw8xl")]
 default_state = NodePath("PlayerIdleState")
@@ -340,8 +317,6 @@ script = ExtResource("11_ulmrq")
 
 [node name="PlayerKnockbackState" type="Node" parent="StateMachine" unique_id=1718339086]
 script = ExtResource("14_afbqv")
-air_drag = 2000.0
-minimum_bounce_velocity = 100.0
 
 [node name="PlayerGodFlyState" type="Node" parent="StateMachine" unique_id=270087985]
 script = ExtResource("17_3wlsy")
