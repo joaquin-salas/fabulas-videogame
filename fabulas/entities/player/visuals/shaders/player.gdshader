@@ -1,7 +1,5 @@
 shader_type canvas_item;
 
-/* RIGHT NOW IS LEGACY AND UNUSED */
-
 // Estas variables aparecerán en el Inspector
 uniform vec4 flash_color : source_color = vec4(1.0, 1.0, 1.0, 1.0); // Blanco por defecto
 uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
