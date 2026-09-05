@@ -5,3 +5,4 @@ extends Area2D
 
 # ====================== EXPORT VARIABLES ======================
 @export var knockback_strength: float = 400.0
+@export var max_launch_angle: float = 45.0 # Max knockback angle

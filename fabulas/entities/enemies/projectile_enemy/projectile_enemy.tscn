@@ -31,6 +31,8 @@ position = Vector2(24, -90)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("3_1f48c")
+knockback_strength = 2000.0
+max_launch_angle = 90.0
 metadata/_custom_type_script = "uid://b4xe213tj1b4i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=110123654]
