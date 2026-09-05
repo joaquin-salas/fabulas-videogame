@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdrwba2ve8ve0"
-path="res://.godot/imported/tile_floor left_desert.png-543fdc03aaf60177d582ffeea88cdc05.ctex"
+uid="uid://d1a8ei2h8r73q"
+path="res://.godot/imported/back.png-8519f0e020ce2c0a4b2cf03b9d55a710.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_0_start/art/tile_floor left_desert.png"
-dest_files=["res://.godot/imported/tile_floor left_desert.png-543fdc03aaf60177d582ffeea88cdc05.ctex"]
+source_file="res://worlds/level_0_start/art/back.png"
+dest_files=["res://.godot/imported/back.png-8519f0e020ce2c0a4b2cf03b9d55a710.ctex"]
 
 [params]
 

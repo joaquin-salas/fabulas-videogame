@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xsmew5wtvwv4"
-path="res://.godot/imported/tile_corner right_rock desert.png-7d20aa74355aecb003825ee0bdf68462.ctex"
+uid="uid://jm5bv21evbeg"
+path="res://.godot/imported/TX FX Torch Flame.png-d3e7e6f5c622586673cd19dd923abc13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_0_start/art/tile_corner right_rock desert.png"
-dest_files=["res://.godot/imported/tile_corner right_rock desert.png-7d20aa74355aecb003825ee0bdf68462.ctex"]
+source_file="res://worlds/assets/Pixel Art Platformer - Village Props v2.3.1/Textures/TX FX Torch Flame.png"
+dest_files=["res://.godot/imported/TX FX Torch Flame.png-d3e7e6f5c622586673cd19dd923abc13.ctex"]
 
 [params]
 

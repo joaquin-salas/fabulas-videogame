@@ -298,6 +298,9 @@ size = Vector2(58, 86)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(67, 88)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1c8d"]
+polygon = PackedVector2Array(-21.518988, 68.35443, -36.70886, 63.291138, 26.582277, 63.291138, 5.063291, 67.08861, -7.5949364, 67.08861)
+
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
 z_index = 9
 collision_mask = 4
@@ -354,3 +357,8 @@ one_shot = true
 [node name="JumpBufferTimer" type="Timer" parent="Timers" unique_id=1714200119]
 wait_time = 0.15
 one_shot = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=207694490]
+position = Vector2(4, 10)
+scale = Vector2(0.79, 0.79)
+occluder = SubResource("OccluderPolygon2D_p1c8d")

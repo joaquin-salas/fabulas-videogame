@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://buoeno6u6lafx" path="res://shared/camera/camera_zone.tscn" id="4_ma40e"]
 [ext_resource type="PackedScene" uid="uid://b8p2ff1ifmr5o" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_6xh0e"]
 [ext_resource type="PackedScene" uid="uid://ckfknnfgb6qw6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="6_3t3yo"]
-[ext_resource type="PackedScene" uid="uid://slerbf25y7d3" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.tscn" id="9_3t3yo"]
-[ext_resource type="PackedScene" uid="uid://gmor1n71dkp6" path="res://shared/checkpoints/checkpoint/checkpoint.tscn" id="11_jxm5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]
 size = Vector2(554.19727, 1641.5897)
@@ -17,69 +15,74 @@ size = Vector2(554.19727, 1641.5897)
 script = ExtResource("1_utqmy")
 
 [node name="StartMap" parent="." unique_id=2064428377 instance=ExtResource("1_6rh34")]
+position = Vector2(1, -92)
 
 [node name="Player" parent="." unique_id=1543986994 instance=ExtResource("2_ma40e")]
-position = Vector2(107, -69)
+position = Vector2(-19, -190)
 
 [node name="Cameras" type="Node" parent="." unique_id=424232862]
 
 [node name="CameraRig" parent="Cameras" unique_id=2139074347 node_paths=PackedStringArray("followed_node") groups=["camera_rig"] instance=ExtResource("3_2lpev")]
+position = Vector2(-16, -159)
+rotation = -0.008288396
 followed_node = NodePath("../../Player")
 
 [node name="CameraZone" parent="Cameras" unique_id=474765919 instance=ExtResource("4_ma40e")]
-position = Vector2(-329, -568)
-expand_left = 1701.0
-expand_right = 1459.76
-expand_top = 150.19
+position = Vector2(1115, -291)
+expand_left = 2840.67
+expand_right = 3989.565
+expand_top = 1309.075
 expand_bottom = 586.055
 zone_zoom = Vector2(0.7, 0.7)
 use_limit_right = false
 use_limit_top = false
-use_limit_bottom = false
 
-[node name="CameraZone2" parent="Cameras" unique_id=117511241 instance=ExtResource("4_ma40e")]
-position = Vector2(2412, -624)
-expand_left = 1268.99
-expand_right = 3806.675
-expand_top = 594.685
-expand_bottom = 637.51
-zone_zoom = Vector2(0.7, 0.7)
-use_limit_left = false
+[node name="CameraZone2" parent="Cameras" unique_id=1994611306 instance=ExtResource("4_ma40e")]
+position = Vector2(5682, -1667)
+expand_left = 1701.0
+expand_right = 3257.63
+expand_top = 1706.505
+expand_bottom = 586.055
+zone_zoom = Vector2(0.6, 0.6)
 use_limit_right = false
 
-[node name="CameraZone3" parent="Cameras" unique_id=233600785 instance=ExtResource("4_ma40e")]
-position = Vector2(8440, -1184)
-expand_left = 2203.375
-expand_right = 1638.31
-expand_top = 373.75
-expand_bottom = 1169.46
-zone_zoom = Vector2(0.5, 0.5)
-
-[node name="CameraZone4" parent="Cameras" unique_id=1994611306 instance=ExtResource("4_ma40e")]
-position = Vector2(11094, -64)
-expand_left = 1000.0
-expand_right = 4576.825
-expand_top = 1019.225
-zone_zoom = Vector2(0.8, 0.8)
+[node name="CameraZone4" parent="Cameras" unique_id=1410498189 instance=ExtResource("4_ma40e")]
+position = Vector2(5728, -2016)
+priority = 4
+expand_left = -2729.275
+expand_right = 12774.985
+expand_top = 1211.72
+zone_zoom = Vector2(0.6, 0.6)
+zone_priority = 2
 use_limit_left = false
 use_limit_right = false
-use_limit_bottom = false
+use_limit_top = false
+
+[node name="CameraZone6" parent="Cameras" unique_id=1471617001 instance=ExtResource("4_ma40e")]
+position = Vector2(6398, -6686)
+priority = 4
+expand_left = -2729.275
+expand_right = 12774.985
+expand_top = 1137.42
+zone_zoom = Vector2(0.4, 0.4)
+zone_priority = 1
 
 [node name="CameraZone5" parent="Cameras" unique_id=1908842429 instance=ExtResource("4_ma40e")]
-position = Vector2(17881, -890)
+position = Vector2(14799, -4225)
 expand_left = 2280.46
 expand_right = 1000.0
-expand_top = 1540.865
+expand_top = 2374.345
 expand_bottom = 1000.0
 zone_zoom = Vector2(0.4, 0.4)
 zone_priority = 1
+use_limit_top = false
 use_limit_bottom = false
 
 [node name="Door" type="Area2D" parent="Cameras" unique_id=1145883441]
-position = Vector2(18344.803, -611.82056)
+position = Vector2(18766, -7389)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cameras/Door" unique_id=142391509]
-position = Vector2(114.197266, -292.17944)
+position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="Menus" type="CanvasLayer" parent="." unique_id=1939251926]
@@ -88,24 +91,5 @@ shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="SettingsMenu" parent="Menus" unique_id=992204846 instance=ExtResource("6_3t3yo")]
 visible = false
-
-[node name="enemys" type="Node" parent="." unique_id=1976285161]
-
-[node name="ground_enemy2" parent="enemys" unique_id=1836502299 instance=ExtResource("9_3t3yo")]
-position = Vector2(7685, -839)
-
-[node name="CheckPoints" type="Node" parent="." unique_id=216358728]
-
-[node name="Checkpoint2" parent="CheckPoints" unique_id=719565274 instance=ExtResource("11_jxm5n")]
-position = Vector2(2033, -132)
-checkpoint_id = "1"
-
-[node name="Checkpoint3" parent="CheckPoints" unique_id=1708048160 instance=ExtResource("11_jxm5n")]
-position = Vector2(6282, -133)
-checkpoint_id = "2"
-
-[node name="Checkpoint4" parent="CheckPoints" unique_id=1345387266 instance=ExtResource("11_jxm5n")]
-position = Vector2(10196, -131)
-checkpoint_id = "3"
 
 [connection signal="body_entered" from="Cameras/Door" to="." method="_on_door_body_entered"]

@@ -264,7 +264,6 @@ script = ExtResource("1_fbmtu")
 
 [node name="Checkpoint" parent="." unique_id=719565274 instance=ExtResource("7_6orr4")]
 position = Vector2(0, -262)
-checkpoint_id = "4"
 
 [node name="MazeMap" parent="." unique_id=176175538 instance=ExtResource("4_ejo4w")]
 
@@ -315,6 +314,7 @@ use_limit_top = false
 [node name="BlackRect" type="Node2D" parent="BluePart" unique_id=898265320]
 
 [node name="ColorRect" type="ColorRect" parent="BluePart/BlackRect" unique_id=110998406]
+visible = false
 z_index = 1
 anchors_preset = -1
 anchor_bottom = 0.039
@@ -325,6 +325,7 @@ offset_bottom = -2415.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="BluePart/BlackRect" unique_id=1752481406]
+visible = false
 z_index = 1
 anchors_preset = -1
 anchor_bottom = 0.039
