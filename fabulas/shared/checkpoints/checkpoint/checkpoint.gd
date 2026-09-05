@@ -1,25 +1,18 @@
 extends Area2D
 
-@export var checkpoint_id: String = ""
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var _activated: bool = false
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var position_checkpoint: Vector2 = global_position
+
+var activated: bool = false
 
 func _ready() -> void:
-	if CheckpointManager.activated_checkpoint_id == checkpoint_id:
-		_activated = true
-		animated_sprite_2d.play("green")
-		
-func _on_body_entered(body: Node2D) -> void:
+	pass
 	
-	if body.is_in_group("player") and not _activated:
-		print(get_tree().current_scene.scene_file_path)
-		_activated = true
-		CheckpointManager.set_checkpoint(
-			SceneManager.get_current_scene_id(), 
-			global_position, 
-			checkpoint_id
-		)
-		
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and not activated:
+		activated = true
+		SignalBus.checkpoint_activated.emit(global_position)
 		animated_sprite_2d.play("green")
 		SoundManager.play_sfx("CheckPoint")
