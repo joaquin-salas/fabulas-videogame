@@ -143,7 +143,7 @@ collision_mask = 4
 [node name="Areas" type="Node2D" parent="." unique_id=587193758]
 
 [node name="Hitbox" parent="Areas" unique_id=2122814657 instance=ExtResource("3_yjqvt")]
-knockback_strength = 2500.0
+knockback_strength = 2200.0
 max_launch_angle = 30.0
 
 [node name="HitboxShape" type="CollisionShape2D" parent="Areas/Hitbox" unique_id=100859255]
