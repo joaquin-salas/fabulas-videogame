@@ -5,9 +5,20 @@ extends Node2D
 # ====================== REFERENCE VARIABLES ======================
 @onready var camera: Camera2D = $Camera2D
 
-# ====================== LOCAL VARIABLES ======================
+# ====================== EXPORT VARIABLES ======================
 @export_category("Target Node")
 @export var followed_node: Node2D
+
+@export_category("Screen Shake")
+## How fast the camera calms down. Higher = faster.
+@export var trauma_decay: float = 2.0
+## Maximum distance in pixels the camera can move.
+@export var max_shake_offset: Vector2 = Vector2(80.0, 80.0)
+## Maximum rotation in radians the camera can tilt.
+@export var max_shake_roll: float = 0.05
+
+# ====================== LOCAL VARIABLES ======================
+var trauma: float = 0.0
 
 # ====================== CAMERA ZONE VARIABLES ======================
 var active_zones: Array[CameraZone] = []
@@ -19,11 +30,12 @@ var transition_start_pos: Vector2
 var transition_start_zoom: Vector2
 var transition_weight: float = 0.0
 
-# *********************** CALLBACKS **********************
+# *********************** BUILT IN CALLBACKS **********************
 func _ready() -> void:
 	add_to_group("camera_rig")
 	SignalBus.player_entered_camera_zone.connect(_on_player_entered_camera_zone)
 	SignalBus.player_exited_camera_zone.connect(_on_player_exited_camera_zone)
+	SignalBus.camera_shake_request.connect(_on_camera_shake_request)
 
 func _process(delta: float) -> void:
 	if followed_node == null:
@@ -44,6 +56,14 @@ func _process(delta: float) -> void:
 		global_position.x = lerp(global_position.x, live_target.x, current_zone.zone_follow_speed * delta)
 		global_position.y = lerp(global_position.y, live_target.y, current_zone.zone_follow_speed * delta)
 		camera.zoom = camera.zoom.lerp(current_zone.zone_zoom, current_zone.zone_follow_speed * delta)
+
+	if trauma > 0.0:
+		trauma = max(trauma - trauma_decay * delta, 0.0)
+		_apply_shake()
+	else:
+		# Security reset
+		camera.offset = Vector2.ZERO
+		camera.rotation = 0.0
 		
 # *********************** ZONES CALLBACKS **********************
 func _on_player_entered_camera_zone(zone: CameraZone) -> void:
@@ -59,6 +79,15 @@ func _on_player_exited_camera_zone(zone: CameraZone) -> void:
 		_update_current_zone()
 
 # *********************** PRIVATE METHODS **********************
+func _apply_shake() -> void:
+	# Square the trauma to make strong shakes more intense but decay faster
+	var amount: float = trauma * trauma
+	
+	# Apply random noise to offeset and rotation based on trauma amount
+	camera.offset.x = max_shake_offset.x * amount * randf_range(-1.0, 1.0)
+	camera.offset.y = max_shake_offset.y * amount * randf_range(-1.0, 1.0)
+	camera.rotation = max_shake_roll * amount * randf_range(-1.0, 1.0)
+
 func _sort_zones() -> void:
 	active_zones.sort_custom(func(zoneA, zoneB): return zoneA.zone_priority > zoneB.zone_priority)
 
@@ -145,6 +174,11 @@ func _apply_custom_limits(desired_pos: Vector2, zone: CameraZone, current_zoom: 
 		clamped_y = clamp(desired_pos.y, min_y, max_y)
 
 	return Vector2(clamped_x, clamped_y)
+
+# *********************** SIGNAL CALLBACKS **********************
+func _on_camera_shake_request(amount: float) -> void:
+	# Add trauma to the camera but clamp it between 0.0 and 1.0 to avoid excessive shaking
+	trauma = clamp(trauma + amount, 0.0, 1.0)
 
 # *********************** PUBLIC METHODS **********************
 func snap_to(target_position: Vector2) -> void:
