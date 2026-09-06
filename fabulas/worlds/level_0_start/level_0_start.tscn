@@ -30,20 +30,21 @@ followed_node = NodePath("../../Player")
 [node name="CameraZone" parent="Cameras" unique_id=474765919 instance=ExtResource("4_ma40e")]
 position = Vector2(1115, -291)
 expand_left = 2840.67
-expand_right = 3989.565
+expand_right = 4300.175
 expand_top = 1309.075
 expand_bottom = 586.055
 zone_zoom = Vector2(0.7, 0.7)
-use_limit_right = false
 use_limit_top = false
 
 [node name="CameraZone2" parent="Cameras" unique_id=1994611306 instance=ExtResource("4_ma40e")]
 position = Vector2(5682, -1667)
-expand_left = 1701.0
+priority = 2
+expand_left = 1064.54
 expand_right = 3257.63
 expand_top = 1706.505
 expand_bottom = 586.055
 zone_zoom = Vector2(0.6, 0.6)
+zone_priority = 1
 use_limit_right = false
 
 [node name="CameraZone4" parent="Cameras" unique_id=1410498189 instance=ExtResource("4_ma40e")]
@@ -62,9 +63,9 @@ use_limit_top = false
 position = Vector2(6398, -6686)
 priority = 4
 expand_left = -2729.275
-expand_right = 12774.985
+expand_right = 13523.905
 expand_top = 1137.42
-zone_zoom = Vector2(0.4, 0.4)
+zone_zoom = Vector2(0.3, 0.3)
 zone_priority = 1
 
 [node name="CameraZone5" parent="Cameras" unique_id=1908842429 instance=ExtResource("4_ma40e")]
@@ -82,7 +83,7 @@ use_limit_bottom = false
 position = Vector2(18766, -7389)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cameras/Door" unique_id=142391509]
-position = Vector2(1, -4)
+position = Vector2(-86, -64)
 shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="Menus" type="CanvasLayer" parent="." unique_id=1939251926]
