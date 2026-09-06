@@ -11,6 +11,7 @@ size = Vector2(38, 195)
 size = Vector2(42, 188.5)
 
 [node name="ProjectileEnemy" type="CharacterBody2D" unique_id=495046265]
+collision_layer = 2
 script = ExtResource("1_cutay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1764712723]
