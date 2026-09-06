@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgj61d7p2hn5v"
-path="res://.godot/imported/tile_rock desert 2  2.png-14c6c0c2eca882e83b7aa612dc9cd809.ctex"
+uid="uid://cjjjadnyxrxhm"
+path="res://.godot/imported/TX Tileset Ground.png-824687494e847c74751c44cf36b28f7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_0_start/art/tile_rock desert 2  2.png"
-dest_files=["res://.godot/imported/tile_rock desert 2  2.png-14c6c0c2eca882e83b7aa612dc9cd809.ctex"]
+source_file="res://worlds/assets/Pixel Art Platformer - Village Props v2.3.1/Textures/TX Tileset Ground.png"
+dest_files=["res://.godot/imported/TX Tileset Ground.png-824687494e847c74751c44cf36b28f7b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvbpefuldh7m"
-path="res://.godot/imported/tile_rock desert (1).png-fbeb45562a5187d481dccdfdf898b9d3.ctex"
+uid="uid://btwir63m843"
+path="res://.godot/imported/tile_map_desert rock.png-d15827bc8734932cd5fbc0e55335c3dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_0_start/art/tile_rock desert (1).png"
-dest_files=["res://.godot/imported/tile_rock desert (1).png-fbeb45562a5187d481dccdfdf898b9d3.ctex"]
+source_file="res://worlds/level_0_start/art/tile_map_desert rock.png"
+dest_files=["res://.godot/imported/tile_map_desert rock.png-d15827bc8734932cd5fbc0e55335c3dd.ctex"]
 
 [params]
 
