@@ -38,9 +38,28 @@ func _calculate_direction(hitbox: Hitbox) -> Vector2:
 		
 	return knockback_dir
 	
+## Casts a raycast to the hitbox to check if there is a wall blocking the line of sight.
+## Returns true if the path is clear or if the hitbox ignores walls.
+func _has_line_of_sight(hitbox: Hitbox) -> bool:
+	if not hitbox.get("blocked_by_walls"):
+		return true
+		
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(hitbox.global_position, self.global_position)
+	
+	# Scan exclusively Layer 3 (World). The bit value is 1 << (3 - 1) = 4
+	query.collision_mask = 4 
+	
+	var result = space_state.intersect_ray(query)
+	
+	return result.is_empty()
+
 # ********************** SIGNAL CALLBACK **********************
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hitbox:
+		if not _has_line_of_sight(area):
+			return
+		
 		var knockback_dir: Vector2 = _calculate_direction(area)
 		
 		# Add the force and emit the signal

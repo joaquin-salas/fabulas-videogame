@@ -43,6 +43,7 @@ collision_mask = 0
 script = ExtResource("1_qg6n5")
 knockback_strength = 2000.0
 max_launch_angle = 90.0
+blocked_by_walls = true
 metadata/_custom_type_script = "uid://b4xe213tj1b4i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1491760060]
