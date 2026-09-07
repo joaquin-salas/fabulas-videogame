@@ -14,7 +14,7 @@ extends StaticBody2D
 @export var particles_texture: Texture2D:
 	set(value):
 		particles_texture = value
-		# Actualizamos al instante en el editor cuando arrastras la imagen[cite: 1]
+
 		if is_node_ready() and Engine.is_editor_hint():
 			_update_visual_and_collision()
 

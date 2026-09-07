@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var coyote_timer: Timer = $Timers/CoyoteTimer
 @onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var knockback_particles: GPUParticles2D = $KnockbackParticles
 
 # ====================== RESOURCES ======================
 @export var player_movement_stats: PlayerMovementStats
@@ -16,7 +17,7 @@ extends CharacterBody2D
 # ====================== LOCAL VARIABLES ======================
 var is_god_mode: bool = false
 
-# *********************** CALLBACKS **********************
+# *********************** BUILT IN CALLBACKS **********************
 func _ready() -> void:
 	add_to_group("player")
 	hurtbox.took_knockback.connect(_on_hurtbox_took_knockback)
@@ -45,7 +46,7 @@ func received_knockback(knockback_dir: Vector2) -> void:
 	
 	velocity = knockback_dir
 
-	state_machine.change_state(PlayerStatesNames.HURT)
+	state_machine.change_state(PlayerStatesNames.KNOCKBACK)
 
 func toggle_god_mode() -> void:
 	is_god_mode = !is_god_mode

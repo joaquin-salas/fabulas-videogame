@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdpsbec3st328"
-path="res://.godot/imported/tile_desert.png-34eead91921633b86d25f20847ac2e5e.ctex"
+uid="uid://d3qjhdotdmb8h"
+path="res://.godot/imported/TX Chest Animation.png-231940965b51d8f01e7cc1221b99a6e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/level_0_start/art/tile_desert.png"
-dest_files=["res://.godot/imported/tile_desert.png-34eead91921633b86d25f20847ac2e5e.ctex"]
+source_file="res://worlds/assets/Pixel Art Platformer - Village Props v2.3.1/Textures/TX Chest Animation.png"
+dest_files=["res://.godot/imported/TX Chest Animation.png-231940965b51d8f01e7cc1221b99a6e4.ctex"]
 
 [params]
 

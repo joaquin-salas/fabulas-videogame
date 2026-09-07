@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyki3i51p6cad"
-path="res://.godot/imported/Wall Jump (32x32).png-0f4cd0293581041c1792c7487583aa43.ctex"
+uid="uid://dapr7n0rll8ir"
+path="res://.godot/imported/feather.png-89e2c55f7deb0489ac17e7582f5c7a7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/visuals/sprite/Wall Jump (32x32).png"
-dest_files=["res://.godot/imported/Wall Jump (32x32).png-0f4cd0293581041c1792c7487583aa43.ctex"]
+source_file="res://entities/player/visuals/sprite/feather.png"
+dest_files=["res://.godot/imported/feather.png-89e2c55f7deb0489ac17e7582f5c7a7c.ctex"]
 
 [params]
 

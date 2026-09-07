@@ -8,16 +8,13 @@ func _ready() -> void:
 		if option.has_signal("toggled"):
 			option.toggled.connect(_on_cheat_toggled.bind(option.option_id))
 func _on_cheat_toggled(_value: bool, option_id: String) -> void:
-	var player := get_tree().get_first_node_in_group("player")
-	if not player:
-		return
-
 	match option_id:
 		"GODFLY":
-			player.toggle_god_mode()
+			var player := get_tree().get_first_node_in_group("player")
+			if player:
+				player.toggle_god_mode()
 		"DELETE":
 			_on_clear_checkpoint_selected()
-
 
 func _on_clear_checkpoint_selected() -> void:
 	CheckpointManager.clear_checkpoint()

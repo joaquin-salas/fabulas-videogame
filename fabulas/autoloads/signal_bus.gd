@@ -4,6 +4,10 @@ extends Node
 
 # ====================== PLAYER SIGNALS ======================
 
+# ====================== CAMERA SIGNALS ======================
+@warning_ignore("unused_signal")
+signal camera_shake_request(trauma_amount: float)
+
 # ====================== CAMERA ZONE SIGNALS ======================
 ## Signal emitted when player enters a camera zone.
 @warning_ignore("unused_signal")
