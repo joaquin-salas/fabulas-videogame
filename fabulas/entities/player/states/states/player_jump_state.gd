@@ -11,7 +11,7 @@ func start() -> void:
 	player.coyote_timer.stop()
 	player.jump_buffer_timer.stop()
 	
-	player.velocity.y = player.player_movement_stats.jump_force
+	player.velocity.y = player.player_movement_stats.jump_force + player.boost_velocity.y
 
 func end() -> void:
 	has_cut_jump = false

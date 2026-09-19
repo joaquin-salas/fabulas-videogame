@@ -247,8 +247,6 @@ size = Vector2(55, 86)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(67, 88)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1c8d"]
-polygon = PackedVector2Array(-21.518988, 68.35443, -36.70886, 63.291138, 26.582277, 63.291138, 5.063291, 67.08861, -7.5949364, 67.08861)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yqrof"]
 particle_flag_disable_z = true
 emission_shape = 1
@@ -268,10 +266,13 @@ scale_max = 0.75
 turbulence_noise_strength = 0.0
 turbulence_influence_max = 0.26700002
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1c8d"]
+polygon = PackedVector2Array(-21.518988, 68.35443, -36.70886, 63.291138, 26.582277, 63.291138, 5.063291, 67.08861, -7.5949364, 67.08861)
+
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
 z_index = 9
 collision_mask = 4
-platform_on_leave = 1
+platform_on_leave = 2
 script = ExtResource("1_2xrie")
 player_movement_stats = ExtResource("2_v3hes")
 
