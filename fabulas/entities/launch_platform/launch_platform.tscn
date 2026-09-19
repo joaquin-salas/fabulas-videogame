@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b3vinkl0hlcqf"]
+
+[ext_resource type="Script" uid="uid://b51oism6rh5m1" path="res://entities/launch_platform/launch_platform.gd" id="1_cwlfn"]
+[ext_resource type="Texture2D" uid="uid://dmpg2eg8jf23u" path="res://entities/launch_platform/purple_prototype_slab.png" id="2_fbcue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqvnw"]
+size = Vector2(126, 2.5)
+
+[node name="LaunchPlatform" type="AnimatableBody2D" unique_id=2062582686]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_cwlfn")
+launch_height = 300.0
+launch_duration = 0.3
+return_delay = 1.0
+return_duration = 1.0
+boost_multiplier = 0.2
+max_boost_speed = 1000.0
+debug_log_velocity = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=707944678]
+texture = ExtResource("2_fbcue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=471671880]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ActivationArea" type="Area2D" parent="." unique_id=1950499241]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" unique_id=1062743945]
+position = Vector2(0, -33.75)
+shape = SubResource("RectangleShape2D_rqvnw")
+debug_color = Color(0, 0.6, 0, 0.41960785)
