@@ -16,8 +16,10 @@ const POOL_SIZE = 8
 var _sfx_pool: Array[AudioStreamPlayer] = []
 
 # Music Player 
+# _music_player_a es siempre la música "actual"; _music_player_b es la que sale/espera
 var _music_player_a: AudioStreamPlayer
 var _music_player_b: AudioStreamPlayer  # para crossfade
+var _music_tween: Tween
 
 # Voice Player
 var _voice_player: AudioStreamPlayer
@@ -77,6 +79,13 @@ func play_sfx(sound_name: String, volume_db: float = 0.0, pitch: float = 1.0) ->
 	player.pitch_scale = pitch + randf_range(-0.05, 0.05)
 	player.play()
 
+func play_footstep(surface: String = "default", volume_db: float = -6.0) -> void:
+	var key := "step_" + surface
+	# Si no existe esa superficie, cae al sonido por defecto
+	if _find_stream(key) == null:
+		key = "step_default"
+	play_sfx(key, volume_db)
+
 func play_ui(sound_name: String) -> void:
 	var stream = _find_stream_in_bank(bank_ui, sound_name)
 	if stream == null:
@@ -120,34 +129,43 @@ func play_music(song_name: String, fade_time: float = 1.0) -> void:
 	if stream == null:
 		push_warning("SoundManager: música '%s' no encontrada" % song_name)
 		return
-	
-	if _music_player_a.playing:
-		# Crossfade: sube el B mientras baja el A
-		_music_player_b.stream = stream
-		_music_player_b.volume_db = -80.0
-		_music_player_b.play()
 
-		var tween = create_tween()
-		tween.set_parallel(true)
-		tween.tween_property(_music_player_a, "volume_db", -80.0, fade_time)
-		tween.tween_property(_music_player_b, "volume_db", 0.0, fade_time)
-		await tween.finished
-		_music_player_a.stop()
+	# Cancela cualquier fade pendiente (p. ej. el de un stop_music anterior),
+	# para que ningún stop() tardío pise la música nueva.
+	if _music_tween:
+		_music_tween.kill()
+	# Si quedaba un crossfade a medias, corta la que estaba saliendo.
+	_music_player_b.stop()
 
-		# Intercambia los players para el próximo crossfade
-		var tmp = _music_player_a
-		_music_player_a = _music_player_b
-		_music_player_b = tmp
-	else:
-		_music_player_a.stream = stream
-		_music_player_a.volume_db = 0.0
-		_music_player_a.play()
+	# Intercambio inmediato: _music_player_a siempre es la música "actual"
+	var outgoing := _music_player_a
+	var incoming := _music_player_b
+	_music_player_a = incoming
+	_music_player_b = outgoing
+
+	var crossfade := outgoing.playing
+	incoming.stream = stream
+	incoming.volume_db = -80.0 if crossfade else 0.0
+	incoming.play()
+
+	if crossfade:
+		_music_tween = create_tween().set_parallel(true)
+		_music_tween.tween_property(outgoing, "volume_db", -80.0, fade_time)
+		_music_tween.tween_property(incoming, "volume_db", 0.0, fade_time)
+		_music_tween.chain().tween_callback(outgoing.stop)
 
 func stop_music(fade_time: float = 1.0) -> void:
-	var tween = create_tween()
-	tween.tween_property(_music_player_a, "volume_db", -80.0, fade_time)
-	await tween.finished
-	_music_player_a.stop()
+	if _music_tween:
+		_music_tween.kill()
+	# Si había un crossfade en curso, la que salía se corta ya.
+	_music_player_b.stop()
+
+	# Referencia local: aunque se llame a play_music durante el fade, 
+	# este stop() solo afecta al player que estaba sonando al llamar.
+	var player := _music_player_a
+	_music_tween = create_tween()
+	_music_tween.tween_property(player, "volume_db", -80.0, fade_time)
+	_music_tween.tween_callback(player.stop)
 
 
 # ******************* VOLUME FUNCTIONS *******************
@@ -182,8 +200,7 @@ func _find_stream_in_bank(bank: SoundBank, sound_name: String) -> AudioStream:
 		return null
 	
 	# Elige uno al azar si hay varios
-	# Quizá se podría usar el método pick_random de los arrays directamente
-	return arr[randi() % arr.size()] as AudioStream
+	return arr.pick_random() as AudioStream
 
 func _get_free_player() -> AudioStreamPlayer:
 	for player in _sfx_pool:
