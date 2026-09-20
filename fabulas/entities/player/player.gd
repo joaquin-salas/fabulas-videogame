@@ -62,3 +62,26 @@ func print_debug(variables: Array) -> void:
 # ******************* SIGNALS CALLBACKS *******************
 func _on_hurtbox_took_knockback(knockback_dir: Vector2) -> void:
 	received_knockback(knockback_dir)
+
+
+
+var _last_surface: String = "default"
+
+func get_surface() -> String:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var layer := collision.get_collider() as TileMapLayer
+		if layer == null or collision.get_normal().y > -0.5:
+			continue
+		if layer.tile_set == null or layer.tile_set.get_custom_data_layer_by_name("surface") == -1:
+			continue
+		var point := collision.get_position() - collision.get_normal()
+		var cell := layer.local_to_map(layer.to_local(point))
+		var data := layer.get_cell_tile_data(cell)
+		if data:
+			var surface = data.get_custom_data("surface")
+			if surface is String and surface != "":
+				_last_surface = surface
+				return surface
+	# Sin colisión de suelo en este frame: usa la última superficie conocida
+	return _last_surface

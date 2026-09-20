@@ -247,8 +247,6 @@ size = Vector2(55, 86)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
 size = Vector2(67, 88)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1c8d"]
-polygon = PackedVector2Array(-21.518988, 68.35443, -36.70886, 63.291138, 26.582277, 63.291138, 5.063291, 67.08861, -7.5949364, 67.08861)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yqrof"]
 particle_flag_disable_z = true
 emission_shape = 1
@@ -268,7 +266,21 @@ scale_max = 0.75
 turbulence_noise_strength = 0.0
 turbulence_influence_max = 0.26700002
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1c8d"]
+polygon = PackedVector2Array(-21.518988, 68.35443, -36.70886, 63.291138, 26.582277, 63.291138, 5.063291, 67.08861, -7.5949364, 67.08861)
+
+[sub_resource type="Gradient" id="Gradient_yqrof"]
+offsets = PackedFloat32Array(0, 0.7251908)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_yqrof")
+fill = 1
+fill_from = Vector2(0.51794875, 0.4871795)
+fill_to = Vector2(0.95384616, 0.06153846)
+
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
+light_mask = 6
 z_index = 9
 collision_mask = 4
 platform_on_leave = 1
@@ -276,6 +288,7 @@ script = ExtResource("1_2xrie")
 player_movement_stats = ExtResource("2_v3hes")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047757366]
+visibility_layer = 6
 material = SubResource("ShaderMaterial_yqrof")
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
@@ -335,6 +348,20 @@ wait_time = 0.15
 one_shot = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=207694490]
+light_mask = 2
+z_index = 9
 position = Vector2(4, 10)
 scale = Vector2(0.79, 0.79)
 occluder = SubResource("OccluderPolygon2D_p1c8d")
+occluder_light_mask = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=940420312]
+visible = false
+position = Vector2(1, 15.320009)
+scale = Vector2(13.1, 13.1)
+energy = 0.1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.6
+shadow_item_cull_mask = 6
+texture = SubResource("GradientTexture2D_g4v7s")

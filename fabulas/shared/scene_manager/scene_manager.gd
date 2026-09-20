@@ -19,7 +19,7 @@ const SCENES := {
 	SceneID.INTRO_CUTSCENE: "res://worlds/scenes/cutscenes/intro/cutscene_intro1.tscn",
 	SceneID.LEVEL_ISAAC:"res://worlds/Level_isaac/Level_isaac.tscn",
 	SceneID.LEVEL_JOA: "res://worlds/level_test/level_test.tscn",
-	SceneID.LEVEL_0_START: "res://worlds/Level_0_start/Level_0_start.tscn",
+	SceneID.LEVEL_0_START: "res://worlds/level_0_start/level_0_start.tscn",
 	SceneID.LEVEL_1_INTRODUCTION: "res://worlds/level_1_introduction/level_1_introduction.tscn",
 	SceneID.LEVEL_2_MOVING_PLATFORMS:"res://worlds/level_2_moving_platforms/level_2_moving_platforms.tscn",
 	SceneID.LEVEL_3_MAZE: "res://worlds/Level_3_maze/Level_3_maze.tscn",
