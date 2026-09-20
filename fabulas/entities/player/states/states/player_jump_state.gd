@@ -12,6 +12,10 @@ func start() -> void:
 	player.jump_buffer_timer.stop()
 	
 	player.velocity.y = player.player_movement_stats.jump_force + player.boost_velocity.y
+	print("Jump State:")
+	print("jump_force -> ", player.player_movement_stats.jump_force)
+	print("boost_velocity -> ", player.boost_velocity)
+	print("player.velocity.y -> ", player.velocity.y)
 
 func end() -> void:
 	has_cut_jump = false

@@ -13,13 +13,6 @@ size = Vector2(126, 2.5)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_cwlfn")
-launch_height = 300.0
-launch_duration = 0.3
-return_delay = 1.0
-return_duration = 1.0
-boost_multiplier = 0.2
-max_boost_speed = 1000.0
-debug_log_velocity = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=707944678]
 texture = ExtResource("2_fbcue")
@@ -34,3 +27,6 @@ collision_layer = 0
 position = Vector2(0, -33.75)
 shape = SubResource("RectangleShape2D_rqvnw")
 debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="BoostCoyoteTimer" type="Timer" parent="." unique_id=1416516629]
+one_shot = true

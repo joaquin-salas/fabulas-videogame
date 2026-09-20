@@ -154,9 +154,6 @@ position = Vector2(2283, -315)
 
 [node name="LaunchPlatform" parent="LaunchPlatforms" unique_id=2062582686 instance=ExtResource("10_erbra")]
 position = Vector2(-1634, -159)
-launch_duration = 1.0
-dip_depth = 30.0
-boost_multiplier = 0.75
 
 [node name="Enemies" type="Node2D" parent="." unique_id=889809428]
 
