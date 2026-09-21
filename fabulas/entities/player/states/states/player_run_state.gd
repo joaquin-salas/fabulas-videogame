@@ -19,7 +19,7 @@ func on_physics_process(delta: float) -> void:
 	
 	_step_timer -= delta
 	if _step_timer <= 0.0:
-		SoundManager.play_sfx("Walk")
+		SoundManager.play_footstep(player.get_surface())
 		_step_timer = _step_interval
 	
 	if not player.is_on_floor():

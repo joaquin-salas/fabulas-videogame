@@ -4,6 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+		SoundManager.stop_music()
 		TransitionsScreen.fade_in()
 		SignalBus.hud_off.connect(_on_hud_off)
 		SignalBus.hud_on.connect(_on_hud_on)
