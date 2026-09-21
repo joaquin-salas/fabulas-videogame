@@ -3,6 +3,7 @@ extends AnimatableBody2D
 # ====================== REFERENCE VARIABLES ======================
 @onready var activation_area = $ActivationArea
 @onready var boost_coyote_timer = $BoostCoyoteTimer
+@onready var target_marker = $TargetMarker
 
 # ====================== EXPORTED VARIABLES ======================
 ## Maximum height the platform will reach
@@ -17,10 +18,8 @@ extends AnimatableBody2D
 ## Fraction of the platform's real velocity that gets passed on to the Player's jump
 @export_range(0.0, 2.0, 0.01) var boost_multiplier: float = 0.4
 
-## How long the last significant platform velocity stays available after the
-## platform has stopped moving. Same idea as the Player's coyote_timer,
-## applied to the platform's velocity instead of its floor state.
-@export var boost_grace_time: float = 0.15
+## How long the last significant platform velocity stays available after the platform has stopped moving.
+@export var boost_grace_time: float = 0.11
 ## Below this speed, the platform is considered "stopped" for boost purposes.
 @export var boost_grace_threshold: float = 1.0
 
@@ -46,6 +45,10 @@ func _ready() -> void:
 
 	_start_position = global_position
 	_previous_position = global_position
+
+	if target_marker:
+		target_marker.top_level = true 
+		target_marker.global_position = _start_position + Vector2.UP * launch_height
 
 func _physics_process(delta: float) -> void:
 	current_velocity = (global_position - _previous_position) / delta
@@ -89,6 +92,8 @@ func _launch() -> void:
 		_start_position + Vector2.UP * launch_height, 
 		launch_duration
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+
+	tween.tween_callback(func() -> void: SignalBus.camera_shake_request.emit(0.4))
 	
 	tween.tween_interval(return_delay)
 	

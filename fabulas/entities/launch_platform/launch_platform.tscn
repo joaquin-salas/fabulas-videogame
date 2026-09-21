@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b51oism6rh5m1" path="res://entities/launch_platform/launch_platform.gd" id="1_cwlfn"]
 [ext_resource type="Texture2D" uid="uid://dmpg2eg8jf23u" path="res://entities/launch_platform/purple_prototype_slab.png" id="2_fbcue"]
+[ext_resource type="Texture2D" uid="uid://cgtugowjagrnf" path="res://entities/launch_platform/target_launch_platform.png" id="3_fbcue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(128, 64)
@@ -30,3 +31,8 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="BoostCoyoteTimer" type="Timer" parent="." unique_id=1416516629]
 one_shot = true
+
+[node name="TargetMarker" type="Sprite2D" parent="." unique_id=2011293805]
+position = Vector2(0, -300)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fbcue")
