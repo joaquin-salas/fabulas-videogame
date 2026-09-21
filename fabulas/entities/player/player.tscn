@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://2l7e5yb48q6n" path="res://shared/knockback_system/hurtbox.tscn" id="12_a1qjk"]
 [ext_resource type="Script" uid="uid://chwgvwvc3hso7" path="res://entities/player/states/states/player_knockback_state.gd" id="14_afbqv"]
 [ext_resource type="Script" uid="uid://bn2uyogxsbgt6" path="res://entities/player/states/states/player_god_fly_state.gd" id="17_3wlsy"]
+[ext_resource type="Script" uid="uid://ctvrvqkxooiuk" path="res://entities/player/fast_trail.gd" id="17_b2kln"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yqrof"]
 shader = ExtResource("3_yqrof")
@@ -269,6 +270,14 @@ turbulence_influence_max = 0.26700002
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1c8d"]
 polygon = PackedVector2Array(-21.518988, 68.35443, -36.70886, 63.291138, 26.582277, 63.291138, 5.063291, 67.08861, -7.5949364, 67.08861)
 
+[sub_resource type="Curve" id="Curve_yf5fn"]
+_data = [Vector2(0, 0.55056185), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.5393259), 0.0, -0.4719148, 0, 1, Vector2(1, 0.06741583), -0.4719148, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_g4v7s"]
+offsets = PackedFloat32Array(0.15270936, 0.85714287)
+colors = PackedColorArray(1, 1, 1, 0.8039216, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D" unique_id=1543986994 groups=["player"]]
 z_index = 9
 collision_mask = 4
@@ -339,3 +348,10 @@ one_shot = true
 position = Vector2(4, 10)
 scale = Vector2(0.79, 0.79)
 occluder = SubResource("OccluderPolygon2D_p1c8d")
+
+[node name="FastTrail" type="Line2D" parent="." unique_id=684851408]
+position = Vector2(0, 56)
+width = 80.0
+width_curve = SubResource("Curve_yf5fn")
+gradient = SubResource("Gradient_g4v7s")
+script = ExtResource("17_b2kln")
