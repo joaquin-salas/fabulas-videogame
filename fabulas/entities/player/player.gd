@@ -16,6 +16,7 @@ extends CharacterBody2D
 
 # ====================== LOCAL VARIABLES ======================
 var is_god_mode: bool = false
+var boost_velocity: Vector2 = Vector2.ZERO
 
 # *********************** BUILT IN CALLBACKS **********************
 func _ready() -> void:

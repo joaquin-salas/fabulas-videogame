@@ -1,6 +1,6 @@
 class_name PlayerStateBase extends StateBase 
 
-## Clase padre para los estados de movimiento del jugador
+## Base class for player movement states
 
 # ====================== LOCAL VARIABLES ======================
 var direction: float:
