@@ -156,33 +156,69 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelJoa" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1831510857 instance=ExtResource("1_ppho5")]
+[node name="level_6" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1700271110 instance=ExtResource("1_ppho5")]
 layout_mode = 2
-option_id = "LEVEL_JOA"
+option_id = "LEVEL_START"
 
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa" index="1" unique_id=744584850]
-text = "level test joa"
+[node name="ArrowLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_6" index="0" unique_id=1251062539]
+text = "LEVEL_START
+"
 
-[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa" index="2" unique_id=917034890]
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_6" index="1" unique_id=744584850]
+text = "LEVEL_START"
+
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_6" index="2" unique_id=917034890]
 visible = false
 
-[node name="LevelIsaac" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1199882014 instance=ExtResource("1_ppho5")]
+[node name="level_1" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1831510857 instance=ExtResource("1_ppho5")]
 layout_mode = 2
-option_id = "LEVEL_ISAAC"
+option_id = "LEVEL_1"
 
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac" index="1" unique_id=744584850]
-text = "level test isaac"
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_1" index="1" unique_id=744584850]
+text = "LEVEL_1"
 
-[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac" index="2" unique_id=917034890]
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_1" index="2" unique_id=917034890]
 visible = false
 
-[node name="TestLevel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=589027844 instance=ExtResource("1_ppho5")]
+[node name="level_2" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=1199882014 instance=ExtResource("1_ppho5")]
 layout_mode = 2
+option_id = "LEVEL_2"
 
-[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/TestLevel" index="1" unique_id=744584850]
-text = "Level Test"
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_2" index="1" unique_id=744584850]
+text = "LEVEL_2"
 
-[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/TestLevel" index="2" unique_id=917034890]
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_2" index="2" unique_id=917034890]
+visible = false
+
+[node name="level_3" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=589027844 instance=ExtResource("1_ppho5")]
+layout_mode = 2
+option_id = "LEVEL_3"
+
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_3" index="1" unique_id=744584850]
+text = "LEVEL_3"
+
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_3" index="2" unique_id=917034890]
+visible = false
+
+[node name="level_4" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=2069070788 instance=ExtResource("1_ppho5")]
+layout_mode = 2
+option_id = "LEVEL_4"
+
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_4" index="1" unique_id=744584850]
+text = "LEVEL_4"
+
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_4" index="2" unique_id=917034890]
+visible = false
+
+[node name="level_5" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer" unique_id=650740004 instance=ExtResource("1_ppho5")]
+layout_mode = 2
+option_id = "LEVEL_5"
+
+[node name="NameLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_5" index="1" unique_id=744584850]
+text = "LEVEL_5
+"
+
+[node name="ValueLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_5" index="2" unique_id=917034890]
 visible = false
 
 [node name="VisualMenu" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MenuContainer" unique_id=325974488]
@@ -280,9 +316,12 @@ layout_mode = 2
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/MainMenu/VBoxContainer/InfoOptions"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/GodMode"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/CheatsMenu/VBoxContainer/Delete"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelJoa"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/LevelIsaac"]
-[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/TestLevel"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_6"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_1"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_2"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_3"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_4"]
+[editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/SceneMenu/VBoxContainer/level_5"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/VisualMenu/VBoxContainer/Collisions"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/VisualMenu/VBoxContainer/Hitboxes"]
 [editable path="MarginContainer/PanelContainer/VBoxContainer/MenuContainer/InfoMenu/VBoxContainer/Info"]

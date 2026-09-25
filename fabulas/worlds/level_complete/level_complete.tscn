@@ -23,9 +23,6 @@ position = Vector2(1, -21888)
 [node name="Level3Maze" parent="." unique_id=1939643370 instance=ExtResource("3_qb2xy")]
 position = Vector2(0, -40321)
 
-[node name="Level3Maze2" parent="." unique_id=997276590 instance=ExtResource("3_qb2xy")]
-position = Vector2(0, -40321)
-
 [node name="Level5TemporaryPlatforms" parent="." unique_id=1149337446 instance=ExtResource("13_ys6o3")]
 position = Vector2(0, -51905)
 
@@ -51,3 +48,21 @@ texture = ExtResource("10_b3epk")
 [node name="CameraRig" parent="." unique_id=2139074347 node_paths=PackedStringArray("followed_node") instance=ExtResource("9_b3epk")]
 position = Vector2(10.276855, -174.27896)
 followed_node = NodePath("../Player")
+
+[node name="DebugTeleport" type="Node2D" parent="." unique_id=1762629342]
+position = Vector2(-4.0872803, -260.8448)
+
+[node name="Level1" type="Marker2D" parent="DebugTeleport" unique_id=1763861325]
+position = Vector2(4.0872803, 4.8447876)
+
+[node name="Level2" type="Marker2D" parent="DebugTeleport" unique_id=860305542]
+position = Vector2(4.0872803, -21883.154)
+
+[node name="Level3" type="Marker2D" parent="DebugTeleport" unique_id=460446887]
+position = Vector2(4.0872803, -40443.156)
+
+[node name="Level4" type="Marker2D" parent="DebugTeleport" unique_id=1200694785]
+position = Vector2(4.0872803, -51867.156)
+
+[node name="Level5" type="Marker2D" parent="DebugTeleport" unique_id=2031908371]
+position = Vector2(4.0872803, -79315.16)
