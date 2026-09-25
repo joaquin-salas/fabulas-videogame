@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cvts2dn20m4sh"]
+
+[ext_resource type="Script" uid="uid://dbvlg47sh5t5b" path="res://entities/enemies/projectile_enemy/vision_area.gd" id="1_cfgyi"]
+
+[node name="VisionArea" type="Area2D" unique_id=1197375253]
+collision_layer = 0
+script = ExtResource("1_cfgyi")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=466981682]
+target_position = Vector2(30, 0)
+collision_mask = 5

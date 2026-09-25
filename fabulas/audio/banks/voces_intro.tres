@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SoundBank" format=3 uid="uid://c20g3wya2fjf6"]
+
+[ext_resource type="Script" uid="uid://bw0digwty4uu4" path="res://audio/banks/sound_bank.gd" id="1_3vx8w"]
+[ext_resource type="AudioStream" uid="uid://bkaiwyvx0kw2g" path="res://audio/assets/voces/intro/1.mp3" id="2_e4y1n"]
+[ext_resource type="AudioStream" uid="uid://dbvqyo5rssx0o" path="res://audio/assets/voces/intro/2.mp3" id="3_glihj"]
+[ext_resource type="AudioStream" uid="uid://dak7ycv2k2wdi" path="res://audio/assets/voces/intro/3.mp3" id="4_tvvgo"]
+[ext_resource type="AudioStream" uid="uid://dlxleit7dj1c2" path="res://audio/assets/voces/intro/4.mp3" id="5_vq0we"]
+[ext_resource type="AudioStream" uid="uid://carlkkfdoj6uy" path="res://audio/assets/voces/intro/5.mp3" id="6_aeakn"]
+
+[resource]
+script = ExtResource("1_3vx8w")
+sounds = {
+"VozIntro1": [ExtResource("2_e4y1n")],
+"VozIntro2": [ExtResource("3_glihj")],
+"VozIntro3": [ExtResource("4_tvvgo")],
+"VozIntro4": [ExtResource("5_vq0we")],
+"VozIntro5": [ExtResource("6_aeakn")]
+}
+metadata/_custom_type_script = "uid://bw0digwty4uu4"

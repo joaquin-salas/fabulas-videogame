@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cdyqyrmhc3mfg"]
+
+[ext_resource type="Script" uid="uid://co33e1eu84ggt" path="res://ui/hud/key/keys_hud.gd" id="1_1je3l"]
+[ext_resource type="Texture2D" uid="uid://br0p67oracqf3" path="res://entities/keys/art/key-white_recortada.png" id="1_kb25v"]
+[ext_resource type="Texture2D" uid="uid://bflh3q6l5jjg8" path="res://entities/keys/art/key-blue_recortada.png" id="2_u5b7x"]
+[ext_resource type="Texture2D" uid="uid://c7fhljqglkiui" path="res://entities/keys/art/morada_key_recortada.png" id="3_1je3l"]
+[ext_resource type="Texture2D" uid="uid://bn8syxojr8q30" path="res://ui/hud/key/art/red_cross.png" id="4_u5b7x"]
+
+[node name="KeysHud" type="CanvasLayer" unique_id=665351789]
+script = ExtResource("1_1je3l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1647758794]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.90000004
+anchor_top = 0.003
+anchor_right = 0.99600005
+anchor_bottom = 0.19100001
+offset_left = 3.999878
+offset_top = 24.76
+offset_right = 4.6799316
+offset_bottom = 24.719986
+
+[node name="keys" type="VBoxContainer" parent="HBoxContainer" unique_id=81436609]
+layout_mode = 2
+
+[node name="blueRect" type="TextureRect" parent="HBoxContainer/keys" unique_id=82601372]
+layout_mode = 2
+texture = ExtResource("2_u5b7x")
+
+[node name="whiteRect" type="TextureRect" parent="HBoxContainer/keys" unique_id=1825413039]
+layout_mode = 2
+texture = ExtResource("1_kb25v")
+
+[node name="purpleRect" type="TextureRect" parent="HBoxContainer/keys" unique_id=277172306]
+layout_mode = 2
+texture = ExtResource("3_1je3l")
+
+[node name="Box" type="VBoxContainer" parent="HBoxContainer" unique_id=1011943609]
+layout_mode = 2
+
+[node name="blueBox" type="TextureRect" parent="HBoxContainer/Box" unique_id=133227486]
+layout_mode = 2
+texture = ExtResource("4_u5b7x")
+
+[node name="whiteBox" type="TextureRect" parent="HBoxContainer/Box" unique_id=460331661]
+layout_mode = 2
+texture = ExtResource("4_u5b7x")
+
+[node name="purpleBox" type="TextureRect" parent="HBoxContainer/Box" unique_id=671315529]
+layout_mode = 2
+texture = ExtResource("4_u5b7x")

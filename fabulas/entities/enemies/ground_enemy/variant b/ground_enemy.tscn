@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://slerbf25y7d3"]
+
+[ext_resource type="Script" uid="uid://cplb27u3wkcym" path="res://entities/enemies/ground_enemy/variant b/ground_enemy.gd" id="1_jem31"]
+[ext_resource type="Texture2D" uid="uid://0ftiicgyvktp" path="res://entities/enemies/ground_enemy/variant b/visuals/sprite/White_Werewolf/Walk.png" id="3_jem31"]
+[ext_resource type="PackedScene" uid="uid://dysaj63rkoe3a" path="res://shared/knockback_system/hitbox.tscn" id="3_yjqvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5dg4"]
+atlas = ExtResource("3_jem31")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0awyd"]
+atlas = ExtResource("3_jem31")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jem31"]
+atlas = ExtResource("3_jem31")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gugq"]
+atlas = ExtResource("3_jem31")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h73wx"]
+atlas = ExtResource("3_jem31")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u31l0"]
+atlas = ExtResource("3_jem31")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku6oj"]
+atlas = ExtResource("3_jem31")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sgoq"]
+atlas = ExtResource("3_jem31")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5kdi"]
+atlas = ExtResource("3_jem31")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqi7i"]
+atlas = ExtResource("3_jem31")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj0qv"]
+atlas = ExtResource("3_jem31")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5m8o6"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"stop",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5dg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0awyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jem31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gugq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h73wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u31l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku6oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sgoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5kdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqi7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj0qv")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf68f"]
+size = Vector2(45.32578, 51.359776)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ismv"]
+size = Vector2(42.49292, 48.441925)
+
+[node name="GroundEnemy" type="CharacterBody2D" unique_id=1836502299]
+scale = Vector2(1.765, 1.765)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_jem31")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1241432101]
+position = Vector2(0, -45.45)
+scale = Vector2(0.715, 0.715)
+sprite_frames = SubResource("SpriteFrames_5m8o6")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.27616447
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=478915084]
+position = Vector2(0.56657225, -26.062323)
+shape = SubResource("RectangleShape2D_gf68f")
+
+[node name="RayCast" type="Node2D" parent="." unique_id=1803487498]
+
+[node name="RayCastLeft" type="RayCast2D" parent="RayCast" unique_id=289223357]
+position = Vector2(0, -25)
+target_position = Vector2(-31, 0)
+collision_mask = 4
+
+[node name="RayCastRight" type="RayCast2D" parent="RayCast" unique_id=681395086]
+position = Vector2(0, -25)
+target_position = Vector2(31, 0)
+collision_mask = 4
+
+[node name="RayCastLeftFloor" type="RayCast2D" parent="RayCast" unique_id=523805316]
+position = Vector2(-7, -10)
+target_position = Vector2(0, 20)
+collision_mask = 4
+
+[node name="RayCastRightFloor" type="RayCast2D" parent="RayCast" unique_id=1815306537]
+position = Vector2(7, -10)
+target_position = Vector2(0, 20)
+collision_mask = 4
+
+[node name="Areas" type="Node2D" parent="." unique_id=587193758]
+
+[node name="Hitbox" parent="Areas" unique_id=2122814657 instance=ExtResource("3_yjqvt")]
+knockback_strength = 2200.0
+max_launch_angle = 30.0
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Areas/Hitbox" unique_id=100859255]
+position = Vector2(-0.2832856, -23.93768)
+shape = SubResource("RectangleShape2D_4ismv")
+debug_color = Color(0.99215686, 0, 0.28627452, 0.41960785)

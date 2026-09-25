@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bp5udb0hj2hfp"]
+
+[ext_resource type="Script" uid="uid://bghcfut7lemw4" path="res://entities/enemies/projectile_enemy/projectile_enemy.gd" id="1_cutay"]
+[ext_resource type="Texture2D" uid="uid://osifunh34xrv" path="res://entities/enemies/projectile_enemy/art/Projectillleee.png" id="2_vure2"]
+[ext_resource type="Script" uid="uid://b4xe213tj1b4i" path="res://shared/knockback_system/hitbox.gd" id="3_1f48c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(38, 195)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(42, 188.5)
+
+[node name="ProjectileEnemy" type="CharacterBody2D" unique_id=495046265]
+collision_layer = 2
+script = ExtResource("1_cutay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1764712723]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460879677]
+position = Vector2(-51.5, -0.5)
+scale = Vector2(0.252, 0.266)
+texture = ExtResource("2_vure2")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1304553588]
+position = Vector2(24, -90)
+
+[node name="FireCooldown" type="Timer" parent="." unique_id=316125831]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=276416773]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_1f48c")
+knockback_strength = 2000.0
+max_launch_angle = 90.0
+metadata/_custom_type_script = "uid://b4xe213tj1b4i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=110123654]
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.98809487, 0, 0.31094918, 0.41960785)
+
+[connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]
